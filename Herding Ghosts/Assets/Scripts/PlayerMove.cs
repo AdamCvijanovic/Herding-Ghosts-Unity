@@ -85,16 +85,18 @@ public class PlayerMove : MonoBehaviour
 
         Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
 
-        if (_tilemap.GetColliderType(above) == Tile.ColliderType.Sprite)
-        {
-            Debug.Log("ABOVE");
-        }
-        else
-        {
-            _rb.position += _movementVector * speed * Time.deltaTime;
+        //if (_tilemap.GetColliderType(above) == Tile.ColliderType.Sprite)
+        //{
+        //    Debug.Log("ABOVE");
+        //}
+        //else
+        //{
+        //    _rb.position += _movementVector * speed * Time.deltaTime;
 
-        }
-        //_rb.position += _movementVector * speed * Time.deltaTime;
+        //}
+        _rb.position += _movementVector * speed * Time.deltaTime;
+
+        Debug.Log("THIS IS A TEST FOR THE GIT");
 
 
 
