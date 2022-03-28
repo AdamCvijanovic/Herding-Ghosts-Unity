@@ -102,5 +102,10 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    private void FaceDirection()
+    {
+
+    }
+
 
 }
