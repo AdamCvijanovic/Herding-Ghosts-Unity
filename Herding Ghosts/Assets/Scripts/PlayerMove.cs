@@ -7,15 +7,25 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMove : MonoBehaviour
 {
+
+    //privates
+
+    [SerializeField]
+    PlayerSprite _playerSprite;
     [SerializeField]
     private InputActions _inputActions;
     [SerializeField]
-    private float speed;
+    private float _speed;
     [SerializeField]
     private Vector2 _movementVector = new Vector2();
     [SerializeField]
     private Rigidbody2D _rb;
 
+
+    //publlic 
+
+    public enum Direction { Up, Down, Left, Right };
+    public Direction _direction;
     public Grid _grid;
     public Tilemap _tilemap;
 
@@ -23,6 +33,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        _playerSprite = GetComponent<PlayerSprite>();
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -39,7 +50,7 @@ public class PlayerMove : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Move();
 
@@ -65,25 +76,31 @@ public class PlayerMove : MonoBehaviour
     void Move()
     {
         _movementVector = _inputActions.Player.Move.ReadValue<Vector2>();
+        if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
+        {
+            //Debug.Log("Moving Up");
+            _direction = Direction.Up;
 
-        if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
-        {
-            //Debug.Log("Moving Left");
-        }
-        if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
-        {
-            //Debug.Log("Moving Right");
         }
         if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
         {
             //Debug.Log("Moving Down");
+            _direction = Direction.Down;
         }
-        if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
+        if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
         {
-            //Debug.Log("Moving Up");
+            //Debug.Log("Moving Left");
+            _direction = Direction.Left;
+        }
+        if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
+        {
+            //Debug.Log("Moving Right");
+            _direction = Direction.Right;
         }
 
-        Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
+        _playerSprite.SpriteDirection(_direction);
+
+        //Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
 
         //if (_tilemap.GetColliderType(above) == Tile.ColliderType.Sprite)
         //{
@@ -94,15 +111,12 @@ public class PlayerMove : MonoBehaviour
         //    _rb.position += _movementVector * speed * Time.deltaTime;
 
         //}
-        _rb.position += _movementVector * speed * Time.deltaTime;
-
-        Debug.Log("THIS IS A TEST FOR THE GIT");
-
+        _rb.position += _movementVector * _speed * Time.deltaTime;
 
 
     }
 
-    private void FaceDirection()
+    private void Collision()
     {
 
     }
