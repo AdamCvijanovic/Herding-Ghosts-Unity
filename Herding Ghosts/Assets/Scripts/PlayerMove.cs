@@ -24,8 +24,9 @@ public class PlayerMove : MonoBehaviour
 
     //publlic 
 
-    public enum Direction { Up, Down, Left, Right };
+    public enum Direction { Up, Down, Left, Right, None };
     public Direction _direction;
+    public Direction _colDir = Direction.None;
     public Grid _grid;
     public Tilemap _tilemap;
 
@@ -75,27 +76,51 @@ public class PlayerMove : MonoBehaviour
 
     void Move()
     {
+
         _movementVector = _inputActions.Player.Move.ReadValue<Vector2>();
+
+
+        //this too
         if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
         {
             //Debug.Log("Moving Up");
             _direction = Direction.Up;
+
+            if (_colDir == Direction.Up)
+            {
+                _movementVector.y = 0;
+            }
 
         }
         if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
         {
             //Debug.Log("Moving Down");
             _direction = Direction.Down;
+
+            if (_colDir == Direction.Down)
+            {
+                _movementVector.y = 0;
+            }
         }
         if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
         {
             //Debug.Log("Moving Left");
             _direction = Direction.Left;
+
+            if (_colDir == Direction.Left)
+            {
+                _movementVector.x = 0;
+            }
         }
         if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
         {
             //Debug.Log("Moving Right");
             _direction = Direction.Right;
+
+            if (_colDir == Direction.Right)
+            {
+                _movementVector.x = 0;
+            }
         }
 
         _playerSprite.SpriteDirection(_direction);
@@ -111,15 +136,48 @@ public class PlayerMove : MonoBehaviour
         //    _rb.position += _movementVector * speed * Time.deltaTime;
 
         //}
+
+
+        Debug.DrawLine(transform.position, (transform.position + new Vector3(_movementVector.x, _movementVector.y)));
+
         _rb.position += _movementVector * _speed * Time.deltaTime;
 
 
     }
 
-    private void Collision()
-    {
 
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Vector2 norm = collision.GetContact(0).normal;
+
+        if (norm.x > 0)
+        {
+            Debug.Log("LEFT");
+            _colDir = Direction.Left;
+        }
+        if (norm.x < 0)
+        {
+            Debug.Log("RIGHT");
+            _colDir = Direction.Right;
+        }
+        if (norm.y > 0)
+        {
+            Debug.Log("DOWN");
+            _colDir = Direction.Down;
+        }
+        if (norm.y < 0)
+        {
+            Debug.Log("UP");
+            _colDir = Direction.Up;
+        }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        _colDir = Direction.None;
+    }
+
 
 
 }
