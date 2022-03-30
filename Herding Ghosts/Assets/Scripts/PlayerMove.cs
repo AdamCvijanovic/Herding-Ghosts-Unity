@@ -21,11 +21,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _rb;
 
+    [SerializeField]
+    [Min(0.001f)]
+    private float _accel;
 
     //publlic 
 
     public enum Direction { Up, Down, Left, Right, None };
-    public Direction _direction;
+    public Direction _direction = Direction.None;
     public Direction _colDir = Direction.None;
     public Grid _grid;
     public Tilemap _tilemap;
@@ -34,6 +37,8 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        _direction = Direction.None;
+        _colDir = Direction.None;
         _playerSprite = GetComponent<PlayerSprite>();
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
@@ -74,11 +79,9 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void Move()
+    public void PlayerInput(InputAction.CallbackContext context)
     {
-
-        _movementVector = _inputActions.Player.Move.ReadValue<Vector2>();
-
+        _movementVector = context.ReadValue<Vector2>();
 
         //this too
         if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
@@ -122,6 +125,56 @@ public class PlayerMove : MonoBehaviour
                 _movementVector.x = 0;
             }
         }
+    }
+
+    void Move()
+    {
+
+        //_movementVector = _inputActions.Player.Move.ReadValue<Vector2>();
+
+
+        ////this too
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
+        //{
+        //    //Debug.Log("Moving Up");
+        //    _direction = Direction.Up;
+
+        //    if (_colDir == Direction.Up)
+        //    {
+        //        _movementVector.y = 0;
+        //    }
+
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
+        //{
+        //    //Debug.Log("Moving Down");
+        //    _direction = Direction.Down;
+
+        //    if (_colDir == Direction.Down)
+        //    {
+        //        _movementVector.y = 0;
+        //    }
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
+        //{
+        //    //Debug.Log("Moving Left");
+        //    _direction = Direction.Left;
+
+        //    if (_colDir == Direction.Left)
+        //    {
+        //        _movementVector.x = 0;
+        //    }
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
+        //{
+        //    //Debug.Log("Moving Right");
+        //    _direction = Direction.Right;
+
+        //    if (_colDir == Direction.Right)
+        //    {
+        //        _movementVector.x = 0;
+        //    }
+        //}
 
         _playerSprite.SpriteDirection(_direction);
 
@@ -140,7 +193,13 @@ public class PlayerMove : MonoBehaviour
 
         Debug.DrawLine(transform.position, (transform.position + new Vector3(_movementVector.x, _movementVector.y)));
 
-        _rb.position += _movementVector * _speed * Time.deltaTime;
+        //_rb.position += _movementVector.normalized * _speed * Time.deltaTime;
+
+        Vector2 desiredVelocity = _movementVector.normalized * _speed;
+
+        _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
+
+        Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
 
 
     }
@@ -150,6 +209,8 @@ public class PlayerMove : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         Vector2 norm = collision.GetContact(0).normal;
+
+        Debug.DrawLine(transform.position, norm);
 
         if (norm.x > 0)
         {
