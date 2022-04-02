@@ -199,7 +199,7 @@ public class PlayerMove : MonoBehaviour
 
         _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
 
-        Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
+        //Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
 
 
     }
@@ -214,22 +214,22 @@ public class PlayerMove : MonoBehaviour
 
         if (norm.x > 0)
         {
-            Debug.Log("LEFT");
+            //Debug.Log("LEFT");
             _colDir = Direction.Left;
         }
         if (norm.x < 0)
         {
-            Debug.Log("RIGHT");
+            //Debug.Log("RIGHT");
             _colDir = Direction.Right;
         }
         if (norm.y > 0)
         {
-            Debug.Log("DOWN");
+            //Debug.Log("DOWN");
             _colDir = Direction.Down;
         }
         if (norm.y < 0)
         {
-            Debug.Log("UP");
+            //Debug.Log("UP");
             _colDir = Direction.Up;
         }
     }
