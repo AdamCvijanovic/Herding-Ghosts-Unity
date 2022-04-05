@@ -33,6 +33,8 @@ public class PlayerMove : MonoBehaviour
     public Grid _grid;
     public Tilemap _tilemap;
 
+    public Animator _anim;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -42,6 +44,7 @@ public class PlayerMove : MonoBehaviour
         _playerSprite = GetComponent<PlayerSprite>();
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -176,7 +179,7 @@ public class PlayerMove : MonoBehaviour
         //    }
         //}
 
-        _playerSprite.SpriteDirection(_direction);
+        //_playerSprite.SpriteDirection(_direction);
 
         //Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
 
@@ -199,12 +202,18 @@ public class PlayerMove : MonoBehaviour
 
         _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
 
-        Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
+        Animate();
+
+        //Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
 
 
     }
 
-
+    public void Animate()
+    {
+        _anim.SetFloat("VelocityX", _rb.velocity.x);
+        _anim.SetFloat("VelocityY", _rb.velocity.y);
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -214,22 +223,22 @@ public class PlayerMove : MonoBehaviour
 
         if (norm.x > 0)
         {
-            Debug.Log("LEFT");
+            //Debug.Log("LEFT");
             _colDir = Direction.Left;
         }
         if (norm.x < 0)
         {
-            Debug.Log("RIGHT");
+            //Debug.Log("RIGHT");
             _colDir = Direction.Right;
         }
         if (norm.y > 0)
         {
-            Debug.Log("DOWN");
+            //Debug.Log("DOWN");
             _colDir = Direction.Down;
         }
         if (norm.y < 0)
         {
-            Debug.Log("UP");
+            //Debug.Log("UP");
             _colDir = Direction.Up;
         }
     }
