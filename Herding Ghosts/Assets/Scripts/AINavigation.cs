@@ -20,6 +20,10 @@ public class AINavigation : MonoBehaviour
     void Update()
     {
         SetDestination();
+        for (int i = 0; i < agent.path.corners.Length - 1; i++)
+        {
+            Debug.DrawLine(agent.path.corners[i], agent.path.corners[i + 1], Color.red);
+        }
     }
 
     void SetDestination()
