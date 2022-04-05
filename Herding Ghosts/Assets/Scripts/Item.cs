@@ -7,13 +7,13 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //need to make this an event
@@ -43,6 +43,7 @@ public class Item : MonoBehaviour
     private void SetItemTransform(PlayerPickup target)
     {
         transform.parent = target.GetHolderTransform();
+        transform.position = target.GetHolderTransform().position;
     }
 
     private void UnsetItemTransform()
