@@ -69,9 +69,19 @@ public class PlayerPickup : MonoBehaviour
         //if (_isHolding)
         {
             Debug.Log("Drop");
+            
+            // checking for UsableItem tag
+            if(_currentItem.tag == "UsableItem")
+            {
+                // Name of item
+                Debug.Log(_currentItem);
+
+                _currentItem.GetComponent<ReplaceObjects>().TheItemWasDropped();
+            }
+
             _currentItem.OnDrop();
             _isHolding = false;
-            _currentItem = null;
+            _currentItem = null; 
         }
             
     }
