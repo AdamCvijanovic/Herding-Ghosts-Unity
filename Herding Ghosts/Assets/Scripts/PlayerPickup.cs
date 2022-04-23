@@ -13,8 +13,6 @@ public class PlayerPickup : MonoBehaviour
 
     public Item _currentItem;
 
-    public ReplaceObjects _replaceItem;
-
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +75,8 @@ public class PlayerPickup : MonoBehaviour
             {
                 // Name of item
                 Debug.Log(_currentItem);
-                _replaceItem.TheItemWasDropped();
+
+                _currentItem.GetComponent<ReplaceObjects>().TheItemWasDropped();
             }
 
             _currentItem.OnDrop();

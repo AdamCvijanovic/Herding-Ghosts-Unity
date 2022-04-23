@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DaughterLogic : MonoBehaviour
+public class EnemyLogic : MonoBehaviour
 {
-    public enum State {Cooking, Ingredients, Deliverying };
+
+    public enum State { Player, Cauldron, Basement };
     public State previousState;
     public State currentState;
 
@@ -16,13 +17,10 @@ public class DaughterLogic : MonoBehaviour
     public float minDist;
 
     [Header("Destinations")]
+    public GameObject player;
     public GameObject cauldron;
-    public GameObject barrel;
     public GameObject basement;
 
-
-    [Range(0, 100)]
-    public float fearValue;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +33,15 @@ public class DaughterLogic : MonoBehaviour
     void Update()
     {
 
+        if(currentState == State.Player)
+        {
+            navigator.SetDestination(currentDestination.transform);
+        }
 
         if (CheckDistance())
         {
             ChangeState();
         }
-        
     }
 
     private bool CheckDistance()
@@ -57,7 +58,7 @@ public class DaughterLogic : MonoBehaviour
 
     private void ChangeState()
     {
-        
+
 
         int value = Random.Range(1, 3);
 
@@ -67,18 +68,18 @@ public class DaughterLogic : MonoBehaviour
             {
                 case 0:
 
-                    RunState(State.Cooking);
+                    RunState(State.Player);
                     break;
                 case 1:
-                    RunState(State.Ingredients);
+                    //RunState(State.Cauldron);
                     break;
                 case 2:
-                    RunState(State.Deliverying);
+                   // RunState(State.Basement);
                     break;
             }
         }
 
-        if(previousState == currentState)
+        if (previousState == currentState)
         {
             Debug.Log("Same State");
         }
@@ -98,13 +99,13 @@ public class DaughterLogic : MonoBehaviour
 
         switch (currentState)
         {
-            case State.Cooking:
+            case State.Player:
+                FindPlayer();
+                break;
+            case State.Cauldron:
                 FindCauldron();
                 break;
-            case State.Ingredients:
-                FindBarrel();
-                break;
-            case State.Deliverying:
+            case State.Basement:
                 FindBasement();
                 break;
         }
@@ -112,18 +113,19 @@ public class DaughterLogic : MonoBehaviour
         navigator.SetDestination(currentDestination.transform);
     }
 
+    private void FindPlayer()
+    {
+        currentDestination = player;
+    }
+
     private void FindCauldron()
     {
         currentDestination = cauldron;
-    }
-
-    private void FindBarrel()
-    {
-        currentDestination = barrel;
     }
 
     private void FindBasement()
     {
         currentDestination = basement;
     }
+
 }

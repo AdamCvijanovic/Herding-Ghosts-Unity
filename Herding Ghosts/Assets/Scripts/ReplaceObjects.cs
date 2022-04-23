@@ -19,7 +19,7 @@ public class ReplaceObjects : MonoBehaviour
  
     void Update()
     {
-        if(_dropped == true && this.name == "Saltshaker")
+        if(_dropped == true /*&& this.name == "Saltshaker"*/)
         {
             SaltSwap();
             _dropped = false;
@@ -35,10 +35,13 @@ public class ReplaceObjects : MonoBehaviour
 
     public void SaltSwap()
     {
-            // spawn salt line infront of player
-            Instantiate(_saltlinePrefab, transform.position+(transform.forward*_spawnDistance), transform.rotation);
-            // destroy this object
-            Destroy(this.gameObject);
+        // spawn salt line infront of player
+        Instantiate(_saltlinePrefab, transform.position+(transform.forward*_spawnDistance), transform.rotation);
+
+        //call navmesh singleton
+        NavMeshManager.Instance.UpdateNavMesh();
+        // destroy this object
+        Destroy(this.gameObject);
 
     }
 
