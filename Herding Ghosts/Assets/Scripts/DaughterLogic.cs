@@ -39,8 +39,8 @@ public class DaughterLogic : MonoBehaviour
         if (CheckDistance())
         {
             ChangeState();
-            
         }
+        
     }
 
     private bool CheckDistance()
@@ -61,7 +61,7 @@ public class DaughterLogic : MonoBehaviour
 
         int value = Random.Range(1, 3);
 
-        if(previousState == currentState)
+        //if(previousState == currentState)
         {
             switch (value)
             {
@@ -76,6 +76,11 @@ public class DaughterLogic : MonoBehaviour
                     RunState(State.Deliverying);
                     break;
             }
+        }
+
+        if(previousState == currentState)
+        {
+            Debug.Log("Same State");
         }
 
 
