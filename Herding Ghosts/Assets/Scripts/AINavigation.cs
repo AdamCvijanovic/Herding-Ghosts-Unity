@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class AINavigation : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public Transform player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +18,25 @@ public class AINavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetDestination();
+
+        DrawPath();
     }
 
-    void SetDestination()
+    public void SetDestination(Transform transform)
     {
-        agent.SetDestination(player.position);
+        agent.SetDestination(transform.position);
+    }
+
+    public void SetDestination(Vector3 position)
+    {
+        agent.SetDestination(position);
+    }
+
+    void DrawPath()
+    {
+        for (int i = 0; i < agent.path.corners.Length - 1; i++)
+        {
+            Debug.DrawLine(agent.path.corners[i], agent.path.corners[i + 1], Color.red);
+        }
     }
 }
