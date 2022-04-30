@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour
 
         if (_inputActions.Player.Move.WasPressedThisFrame())
         {
-            Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
+            //Vector3Int above = new Vector3Int(_grid.WorldToCell(transform.position).x, _grid.WorldToCell(transform.position).y + 1, 0);
 
             //if (_tilemap.GetColliderType(above) == Tile.ColliderType.Sprite)
             //{

@@ -59,7 +59,7 @@ public class DaughterLogic : MonoBehaviour
     {
         
 
-        int value = Random.Range(1, 3);
+        int value = Random.Range(0, 2);
 
         //if(previousState == currentState)
         {
