@@ -8,10 +8,10 @@ public class DaughterLogic : MonoBehaviour
     public State previousState;
     public State currentState;
 
-    public AINavigation _navigator;
     [SerializeField]
     private Animator _anim;
-    [SerializeField]
+    public AINavigation _navigator;
+    
 
 
     public GameObject currentDestination;
@@ -76,14 +76,15 @@ public class DaughterLogic : MonoBehaviour
     {
         
 
-        int value = Random.Range(0, 2);
+        int value = Random.Range(0, 3);
 
         //if(previousState == currentState)
         {
+            Debug.Log("????? " + value);
+
             switch (value)
             {
                 case 0:
-
                     RunState(State.Cooking);
                     break;
                 case 1:
@@ -91,6 +92,7 @@ public class DaughterLogic : MonoBehaviour
                     break;
                 case 2:
                     RunState(State.Deliverying);
+
                     break;
             }
         }
