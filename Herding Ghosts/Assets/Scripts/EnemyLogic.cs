@@ -5,11 +5,14 @@ using UnityEngine;
 public class EnemyLogic : MonoBehaviour
 {
 
-    public enum State { Player, Cauldron, Basement };
+    public enum State { Daughter, Cauldron, Basement };
     public State previousState;
     public State currentState;
 
-    public AINavigation navigator;
+    [SerializeField]
+    private Animator _anim;
+
+    public AINavigation _navigator;
     public GameObject currentDestination;
 
 
@@ -17,25 +20,33 @@ public class EnemyLogic : MonoBehaviour
     public float minDist;
 
     [Header("Destinations")]
-    public GameObject player;
+    public GameObject daughter;
     public GameObject cauldron;
     public GameObject basement;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        navigator = GetComponent<AINavigation>();
+
+        _anim = GetComponent<Animator>();
+        _navigator = GetComponent<AINavigation>();
         ChangeState();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Animate();
 
-        if(currentState == State.Player)
+        if(currentDestination == null)
         {
-            navigator.SetDestination(currentDestination.transform);
+            ChangeState();
+        }
+
+        if (currentState == State.Daughter)
+        {
+            _navigator.SetDestination(currentDestination.transform);
         }
 
         if (CheckDistance())
@@ -43,6 +54,15 @@ public class EnemyLogic : MonoBehaviour
             ChangeState();
         }
     }
+
+
+    public void Animate()
+    {
+
+        _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
+        _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
+    }
+
 
     private bool CheckDistance()
     {
@@ -68,7 +88,7 @@ public class EnemyLogic : MonoBehaviour
             {
                 case 0:
 
-                    RunState(State.Player);
+                    RunState(State.Daughter);
                     break;
                 case 1:
                     //RunState(State.Cauldron);
@@ -86,7 +106,7 @@ public class EnemyLogic : MonoBehaviour
 
 
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
 
 
     }
@@ -99,7 +119,7 @@ public class EnemyLogic : MonoBehaviour
 
         switch (currentState)
         {
-            case State.Player:
+            case State.Daughter:
                 FindPlayer();
                 break;
             case State.Cauldron:
@@ -110,12 +130,12 @@ public class EnemyLogic : MonoBehaviour
                 break;
         }
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
     }
 
     private void FindPlayer()
     {
-        currentDestination = player;
+        currentDestination = daughter;
     }
 
     private void FindCauldron()
