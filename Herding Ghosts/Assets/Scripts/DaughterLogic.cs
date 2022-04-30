@@ -8,7 +8,12 @@ public class DaughterLogic : MonoBehaviour
     public State previousState;
     public State currentState;
 
-    public AINavigation navigator;
+    public AINavigation _navigator;
+    [SerializeField]
+    private Animator _anim;
+    [SerializeField]
+
+
     public GameObject currentDestination;
 
 
@@ -27,20 +32,32 @@ public class DaughterLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        navigator = GetComponent<AINavigation>();
+        _navigator = GetComponent<AINavigation>();
+        _anim = GetComponent<Animator>();
+
+
         ChangeState();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Animate();
 
 
         if (CheckDistance())
         {
             ChangeState();
         }
+
+
+    }
+
+    public void Animate()
+    {
         
+        _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
+        _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
     }
 
     private bool CheckDistance()
@@ -85,7 +102,7 @@ public class DaughterLogic : MonoBehaviour
 
 
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
 
 
     }
@@ -109,7 +126,7 @@ public class DaughterLogic : MonoBehaviour
                 break;
         }
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
     }
 
     private void FindCauldron()
