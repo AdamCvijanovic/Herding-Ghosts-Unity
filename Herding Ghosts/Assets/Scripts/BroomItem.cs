@@ -15,4 +15,9 @@ public class BroomItem : MonoBehaviour
     {
         
     }
+
+    public void Activate()
+    {
+        Debug.Log("ACTIVATE");
+    }
 }
