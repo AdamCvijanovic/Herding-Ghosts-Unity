@@ -94,7 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8876232945645814264}
   - component: {fileID: 8876232945645814265}
+  - component: {fileID: 6264564530989472697}
   - component: {fileID: 8876232945645814246}
+  - component: {fileID: 3497862471655440320}
   m_Layer: 0
   m_Name: BroomObj
   m_TagString: Untagged
@@ -130,6 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f9ac42c6f690943bf5d009d4c735b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6264564530989472697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876232945645814267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bde912492934d499e3b9d92d43a181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &8876232945645814246
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -156,3 +170,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!95 &3497862471655440320
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8876232945645814267}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 102216ce5d7243b41a7145aa5e411d8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
