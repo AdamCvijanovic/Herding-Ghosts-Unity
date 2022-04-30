@@ -10,6 +10,7 @@ public class TimerCountdown : MonoBehaviour
     public GameObject timer;
     public float currentTime = 60.0f;
     public float maxTime = 60.0f;
+    public GameObject winMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,9 @@ public class TimerCountdown : MonoBehaviour
 
         if(currentTime <= 0)
         {
+            winMenu.SetActive(true);
             timer.SetActive(false);
+            Time.timeScale = 0f;
         }
     }
 
