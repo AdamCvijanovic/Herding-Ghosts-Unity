@@ -80,7 +80,6 @@ public class DaughterLogic : MonoBehaviour
 
         //if(previousState == currentState)
         {
-            Debug.Log("????? " + value);
 
             switch (value)
             {
@@ -99,7 +98,7 @@ public class DaughterLogic : MonoBehaviour
 
         if(previousState == currentState)
         {
-            Debug.Log("Same State");
+            //Debug.Log("Same State");
         }
 
 
