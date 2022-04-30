@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class BroomItem : MonoBehaviour
 {
+
+    [SerializeField]
+    private Animator _anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -18,6 +23,6 @@ public class BroomItem : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log("ACTIVATE");
+        _anim.SetTrigger("Swing");
     }
 }
