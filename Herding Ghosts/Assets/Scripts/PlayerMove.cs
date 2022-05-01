@@ -11,8 +11,6 @@ public class PlayerMove : MonoBehaviour
     //privates
 
     [SerializeField]
-    PlayerSprite _playerSprite;
-    [SerializeField]
     private InputActions _inputActions;
     [SerializeField]
     private float _speed;
@@ -41,7 +39,6 @@ public class PlayerMove : MonoBehaviour
     {
         _direction = Direction.None;
         _colDir = Direction.None;
-        _playerSprite = GetComponent<PlayerSprite>();
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
@@ -86,48 +83,48 @@ public class PlayerMove : MonoBehaviour
     {
         _movementVector = context.ReadValue<Vector2>();
 
-        //this too
-        if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
-        {
-            //Debug.Log("Moving Up");
-            _direction = Direction.Up;
+        ////this too
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
+        //{
+        //    //Debug.Log("Moving Up");
+        //    _direction = Direction.Up;
 
-            if (_colDir == Direction.Up)
-            {
-                _movementVector.y = 0;
-            }
+        //    //if (_colDir == Direction.Up)
+        //    //{
+        //    //    _movementVector.y = 0;
+        //    //}
 
-        }
-        if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
-        {
-            //Debug.Log("Moving Down");
-            _direction = Direction.Down;
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
+        //{
+        //    //Debug.Log("Moving Down");
+        //    _direction = Direction.Down;
 
-            if (_colDir == Direction.Down)
-            {
-                _movementVector.y = 0;
-            }
-        }
-        if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
-        {
-            //Debug.Log("Moving Left");
-            _direction = Direction.Left;
+        //    //if (_colDir == Direction.Down)
+        //    //{
+        //    //    _movementVector.y = 0;
+        //    //}
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
+        //{
+        //    //Debug.Log("Moving Left");
+        //    _direction = Direction.Left;
 
-            if (_colDir == Direction.Left)
-            {
-                _movementVector.x = 0;
-            }
-        }
-        if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
-        {
-            //Debug.Log("Moving Right");
-            _direction = Direction.Right;
+        //    //if (_colDir == Direction.Left)
+        //    //{
+        //    //    _movementVector.x = 0;
+        //    //}
+        //}
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
+        //{
+        //    //Debug.Log("Moving Right");
+        //    _direction = Direction.Right;
 
-            if (_colDir == Direction.Right)
-            {
-                _movementVector.x = 0;
-            }
-        }
+        //    //if (_colDir == Direction.Right)
+        //    //{
+        //    //    _movementVector.x = 0;
+        //    //}
+        //}
     }
 
     void Move()
@@ -136,48 +133,35 @@ public class PlayerMove : MonoBehaviour
         //_movementVector = _inputActions.Player.Move.ReadValue<Vector2>();
 
 
-        ////this too
-        //if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
-        //{
-        //    //Debug.Log("Moving Up");
-        //    _direction = Direction.Up;
+        //this too
+        if (_inputActions.Player.Move.ReadValue<Vector2>().y > 0)
+        {
+            //Debug.Log("Moving Up");
+            _direction = Direction.Up;
 
-        //    if (_colDir == Direction.Up)
-        //    {
-        //        _movementVector.y = 0;
-        //    }
+         
 
-        //}
-        //if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
-        //{
-        //    //Debug.Log("Moving Down");
-        //    _direction = Direction.Down;
+        }
+        if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0)
+        {
+            //Debug.Log("Moving Down");
+            _direction = Direction.Down;
 
-        //    if (_colDir == Direction.Down)
-        //    {
-        //        _movementVector.y = 0;
-        //    }
-        //}
-        //if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
-        //{
-        //    //Debug.Log("Moving Left");
-        //    _direction = Direction.Left;
+         
+        }
+        if (_inputActions.Player.Move.ReadValue<Vector2>().x < 0)
+        {
+            //Debug.Log("Moving Left");
+            _direction = Direction.Left;
 
-        //    if (_colDir == Direction.Left)
-        //    {
-        //        _movementVector.x = 0;
-        //    }
-        //}
-        //if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
-        //{
-        //    //Debug.Log("Moving Right");
-        //    _direction = Direction.Right;
+    
+        }
+        if (_inputActions.Player.Move.ReadValue<Vector2>().x > 0)
+        {
+            //Debug.Log("Moving Right");
+            _direction = Direction.Right;
 
-        //    if (_colDir == Direction.Right)
-        //    {
-        //        _movementVector.x = 0;
-        //    }
-        //}
+        }
 
         //_playerSprite.SpriteDirection(_direction);
 

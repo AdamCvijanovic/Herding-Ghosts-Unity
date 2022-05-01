@@ -101,7 +101,7 @@ public class EnemyLogic : MonoBehaviour
 
         if (previousState == currentState)
         {
-            Debug.Log("Same State");
+            //Debug.Log("Same State");
         }
 
 
