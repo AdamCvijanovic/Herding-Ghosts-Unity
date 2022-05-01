@@ -130,6 +130,12 @@ public class DaughterLogic : MonoBehaviour
         _navigator.SetDestination(currentDestination.transform);
     }
 
+    public void IncreaseFear()
+    {
+        Debug.Log("I am scared");
+        fearValue++;
+    }
+
     private void FindCauldron()
     {
         currentDestination = cauldron;

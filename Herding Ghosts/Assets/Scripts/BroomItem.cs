@@ -65,11 +65,18 @@ public class BroomItem : Item
 
         if (collision.gameObject.GetComponent<EnemyLogic>())
         {
-            Debug.Log(collision.gameObject.name);
-            Vector2 dir = (transform.position - collision.transform.position).normalized;
-
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((transform.right * pushForce), ForceMode2D.Impulse);
+            Debug.Log("Player hit " + collision.gameObject.name);
+            collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(collision.gameObject);
+            PushObject(collision.gameObject);
         }
+    }
+
+    private void PushObject(GameObject broomObj)
+    {
+
+        Vector2 dir = (transform.position - broomObj.transform.position).normalized;
+
+        broomObj.gameObject.GetComponent<Rigidbody2D>().AddForce((transform.right * pushForce), ForceMode2D.Force);
     }
 
 }
