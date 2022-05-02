@@ -39,4 +39,15 @@ public class AINavigation : MonoBehaviour
             Debug.DrawLine(agent.path.corners[i], agent.path.corners[i + 1], Color.red);
         }
     }
+
+    public void StopNavigation()
+    {
+        agent.isStopped = true;
+    }
+
+    public void StartNavigation()
+    {
+        agent.isStopped = false;
+    }
+
 }

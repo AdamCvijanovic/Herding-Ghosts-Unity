@@ -104,15 +104,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousState: 0
   currentState: 0
-  _navigator: {fileID: 0}
   _anim: {fileID: 1317303703}
+  _navigator: {fileID: 0}
   currentDestination: {fileID: 0}
   distance: 0
   minDist: 0.2
   cauldron: {fileID: 0}
   barrel: {fileID: 0}
   basement: {fileID: 0}
+  maxFear: 100
   fearValue: 0
+  fearPercentage: 0
 --- !u!114 &272607983429083001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +138,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
@@ -165,7 +167,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -26,8 +26,12 @@ public class DaughterLogic : MonoBehaviour
     public GameObject basement;
 
 
+    public float maxFear = 100f;
+
     [Range(0, 100)]
     public float fearValue;
+    public float fearPercentage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -130,6 +134,12 @@ public class DaughterLogic : MonoBehaviour
         _navigator.SetDestination(currentDestination.transform);
     }
 
+    public void IncreaseFear()
+    {
+        Debug.Log("I am scared");
+        fearValue+=5;
+    }
+
     private void FindCauldron()
     {
         currentDestination = cauldron;
@@ -143,5 +153,11 @@ public class DaughterLogic : MonoBehaviour
     private void FindBasement()
     {
         currentDestination = basement;
+    }
+
+    public float FearPercentage()
+    {
+        fearPercentage = fearValue / maxFear;
+        return (fearPercentage);
     }
 }
