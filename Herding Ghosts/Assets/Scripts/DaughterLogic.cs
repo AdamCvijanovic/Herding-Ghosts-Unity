@@ -137,7 +137,7 @@ public class DaughterLogic : MonoBehaviour
     public void IncreaseFear()
     {
         Debug.Log("I am scared");
-        fearValue++;
+        fearValue+=5;
     }
 
     private void FindCauldron()
