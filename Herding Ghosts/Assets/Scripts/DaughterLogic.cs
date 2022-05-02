@@ -55,6 +55,8 @@ public class DaughterLogic : MonoBehaviour
         }
 
 
+        
+
     }
 
     public void Animate()
@@ -138,6 +140,13 @@ public class DaughterLogic : MonoBehaviour
     {
         Debug.Log("I am scared");
         fearValue+=5;
+
+        //Death Check
+        if (fearValue >= 100)
+        {
+            Debug.Log("Fear Too High!");
+            FindObjectOfType<PlayerUI>().Pause();
+        }
     }
 
     private void FindCauldron()
