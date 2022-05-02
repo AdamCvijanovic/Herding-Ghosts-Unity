@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+
+    public GameObject parentObj;
+    public Item subclass;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +18,7 @@ public class Item : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     //need to make this an event
@@ -21,6 +26,7 @@ public class Item : MonoBehaviour
     {
         DisableCollider();
         SetItemTransform(target);
+        parentObj = target.gameObject;
     }
 
     //This also needs to be an event
@@ -28,6 +34,7 @@ public class Item : MonoBehaviour
     {
         EnableCollider();
         UnsetItemTransform();
+        parentObj = null;
     }
 
     public void EnableCollider()
@@ -51,6 +58,18 @@ public class Item : MonoBehaviour
         transform.parent = null;
 
     }
+
+    public virtual void Activate()
+    {
+        if(subclass != null)
+        {
+            subclass.Activate();
+        }
+    }
+
+  
+
+
 
 
 }

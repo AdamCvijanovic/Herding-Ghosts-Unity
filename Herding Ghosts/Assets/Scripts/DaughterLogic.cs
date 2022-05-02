@@ -8,7 +8,12 @@ public class DaughterLogic : MonoBehaviour
     public State previousState;
     public State currentState;
 
-    public AINavigation navigator;
+    [SerializeField]
+    private Animator _anim;
+    public AINavigation _navigator;
+    
+
+
     public GameObject currentDestination;
 
 
@@ -21,26 +26,42 @@ public class DaughterLogic : MonoBehaviour
     public GameObject basement;
 
 
+    public float maxFear = 100f;
+
     [Range(0, 100)]
     public float fearValue;
+    public float fearPercentage;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        navigator = GetComponent<AINavigation>();
+        _navigator = GetComponent<AINavigation>();
+        _anim = GetComponent<Animator>();
+
+
         ChangeState();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Animate();
 
 
         if (CheckDistance())
         {
             ChangeState();
         }
+
+
+    }
+
+    public void Animate()
+    {
         
+        _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
+        _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
     }
 
     private bool CheckDistance()
@@ -59,14 +80,14 @@ public class DaughterLogic : MonoBehaviour
     {
         
 
-        int value = Random.Range(1, 3);
+        int value = Random.Range(0, 3);
 
         //if(previousState == currentState)
         {
+
             switch (value)
             {
                 case 0:
-
                     RunState(State.Cooking);
                     break;
                 case 1:
@@ -74,18 +95,19 @@ public class DaughterLogic : MonoBehaviour
                     break;
                 case 2:
                     RunState(State.Deliverying);
+
                     break;
             }
         }
 
         if(previousState == currentState)
         {
-            Debug.Log("Same State");
+            //Debug.Log("Same State");
         }
 
 
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
 
 
     }
@@ -109,7 +131,13 @@ public class DaughterLogic : MonoBehaviour
                 break;
         }
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
+    }
+
+    public void IncreaseFear()
+    {
+        Debug.Log("I am scared");
+        fearValue+=5;
     }
 
     private void FindCauldron()
@@ -125,5 +153,11 @@ public class DaughterLogic : MonoBehaviour
     private void FindBasement()
     {
         currentDestination = basement;
+    }
+
+    public float FearPercentage()
+    {
+        fearPercentage = fearValue / maxFear;
+        return (fearPercentage);
     }
 }

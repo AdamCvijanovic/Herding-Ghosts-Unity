@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyLogic : MonoBehaviour
 {
 
-    public enum State { Player, Cauldron, Basement };
+    public enum State { Player, Daughter, Cauldron, Basement, Stun };
     public State previousState;
     public State currentState;
 
-    public AINavigation navigator;
+    [SerializeField]
+    private Animator _anim;
+
+    public AINavigation _navigator;
     public GameObject currentDestination;
 
 
@@ -18,6 +22,7 @@ public class EnemyLogic : MonoBehaviour
 
     [Header("Destinations")]
     public GameObject player;
+    public GameObject daughter;
     public GameObject cauldron;
     public GameObject basement;
 
@@ -25,24 +30,55 @@ public class EnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        navigator = GetComponent<AINavigation>();
+
+        _anim = GetComponent<Animator>();
+        _navigator = GetComponent<AINavigation>();
         ChangeState();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Animate();
+        StateMachine();
 
-        if(currentState == State.Player)
+    }
+
+
+    public void StateMachine()
+    {
+        if (currentDestination == null)
         {
-            navigator.SetDestination(currentDestination.transform);
+            ChangeState();
+        }
+
+        if (currentState == State.Daughter)
+        {
+            _navigator.SetDestination(currentDestination.transform);
         }
 
         if (CheckDistance())
         {
+            if (currentState == State.Daughter)
+            {
+                //Debug.Log("Get Scared");
+                currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+            }
+
             ChangeState();
         }
     }
+
+
+    public void Animate()
+    {
+
+        _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
+        _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
+    }
+
 
     private bool CheckDistance()
     {
@@ -60,7 +96,7 @@ public class EnemyLogic : MonoBehaviour
     {
 
 
-        int value = Random.Range(1, 3);
+        int value = Random.Range(0, 3);
 
         //if(previousState == currentState)
         {
@@ -71,22 +107,25 @@ public class EnemyLogic : MonoBehaviour
                     RunState(State.Player);
                     break;
                 case 1:
-                    //RunState(State.Cauldron);
+                    RunState(State.Daughter);
                     break;
                 case 2:
-                   // RunState(State.Basement);
+                    RunState(State.Cauldron);
+                    break;
+                case 3:
+                   RunState(State.Basement);
                     break;
             }
         }
 
         if (previousState == currentState)
         {
-            Debug.Log("Same State");
+            //Debug.Log("Same State");
         }
 
 
 
-        navigator.SetDestination(currentDestination.transform);
+        //_navigator.SetDestination(currentDestination.transform);
 
 
     }
@@ -94,7 +133,6 @@ public class EnemyLogic : MonoBehaviour
     private void RunState(State state)
     {
 
-        previousState = currentState;
         currentState = state;
 
         switch (currentState)
@@ -102,15 +140,26 @@ public class EnemyLogic : MonoBehaviour
             case State.Player:
                 FindPlayer();
                 break;
+            case State.Daughter:
+                FindDaughter();
+                break;
             case State.Cauldron:
                 FindCauldron();
                 break;
             case State.Basement:
                 FindBasement();
                 break;
+            case State.Stun:
+                StartCoroutine(StunCountDown(3));
+                break;
         }
 
-        navigator.SetDestination(currentDestination.transform);
+        _navigator.SetDestination(currentDestination.transform);
+    }
+
+    private void FindDaughter()
+    {
+        currentDestination = daughter;
     }
 
     private void FindPlayer()
@@ -128,4 +177,53 @@ public class EnemyLogic : MonoBehaviour
         currentDestination = basement;
     }
 
+    private void GetStunned()
+    {
+        //RunState(State.Stun);
+        Debug.Log("Ouch");
+
+        currentState = State.Stun;
+        RunState(currentState);
+
+        //StartCoroutine(StunCountDown(3));
+
+    }
+
+
+    private IEnumerator StunCountDown(int seconds)
+    {
+        //STOP TRACKING
+
+        //currentDestination = null;
+        _navigator.StopNavigation();
+
+        //COUNTER
+        int counter = seconds;
+        while(counter > 0)
+        {
+            yield return new WaitForSeconds(seconds);
+            Debug.Log("Counter = " + counter);
+            counter--;
+        }
+
+        ChangeState();
+        _navigator.StartNavigation();
+
+
+
+    }
+
+
+
+    public void HitByBroom(GameObject broomObj)
+    {
+        GetStunned();
+
+        //m_hitByBroom.Invoke();
+
+
+    }
+
+
+  
 }

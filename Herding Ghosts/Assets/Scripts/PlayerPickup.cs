@@ -14,6 +14,7 @@ public class PlayerPickup : MonoBehaviour
     public Item _currentItem;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,7 +130,13 @@ public class PlayerPickup : MonoBehaviour
         return _itemHolder;
     }
 
-   
+   public void ActivateItem()
+    {
+        if(_currentItem != null)
+        {
+            _currentItem.Activate();
+        }
+    }
 
 
 }
