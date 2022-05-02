@@ -14,6 +14,11 @@ public class MainMenu : MonoBehaviour
     //MobileGameManager.instance
     Time.timeScale = 1f;
  }
+  public void BackToMM ()
+ {
+    SceneManager.LoadScene(0);
+    Time.timeScale = 1f;
+ }
 
  public void QuitGame ()
  {
