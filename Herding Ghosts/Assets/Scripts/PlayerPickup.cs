@@ -130,7 +130,7 @@ public class PlayerPickup : MonoBehaviour
         return _itemHolder;
     }
 
-   public void ActivateItem(InputAction.CallbackContext context)
+   public void ActivateItem(/*InputAction.CallbackContext context*/)
     {
 
 
