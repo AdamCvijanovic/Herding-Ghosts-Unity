@@ -58,6 +58,7 @@ public class BroomItem : Item
         CheckPlayerDir();
 
         _anim.SetTrigger("Swing");
+        Debug.Log("Swing");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
