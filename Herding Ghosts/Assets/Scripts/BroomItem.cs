@@ -14,6 +14,8 @@ public class BroomItem : Item
 
     public float pushForce;
 
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +69,7 @@ public class BroomItem : Item
         if (collision.gameObject.GetComponent<EnemyLogic>())
         {
             Debug.Log("Player hit " + collision.gameObject.name);
-            collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(this.gameObject);
             PushObject(collision.gameObject);
         }
     }

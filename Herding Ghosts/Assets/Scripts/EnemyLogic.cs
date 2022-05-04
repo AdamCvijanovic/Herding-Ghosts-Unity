@@ -6,13 +6,15 @@ using UnityEngine.Events;
 public class EnemyLogic : MonoBehaviour
 {
 
-    public enum State { Player, Daughter, Cauldron, Basement, Stun };
+    public enum State { Player, Daughter, Cauldron, Basement, Stunned };
     public State previousState;
     public State currentState;
 
     [SerializeField]
     private Animator _anim;
 
+
+    [Header("Navigation Settings")]
     public AINavigation _navigator;
     public GameObject currentDestination;
 
@@ -25,6 +27,14 @@ public class EnemyLogic : MonoBehaviour
     public GameObject daughter;
     public GameObject cauldron;
     public GameObject basement;
+
+    [Header("Health")]
+    public float maxHealth;
+    [Range(0, 100)]
+    public float currhealth;
+
+
+
 
 
     // Start is called before the first frame update
@@ -149,8 +159,8 @@ public class EnemyLogic : MonoBehaviour
             case State.Basement:
                 FindBasement();
                 break;
-            case State.Stun:
-                StartCoroutine(StunCountDown(3));
+            case State.Stunned:
+                //run particle effect + stun anim
                 break;
         }
 
@@ -177,18 +187,19 @@ public class EnemyLogic : MonoBehaviour
         currentDestination = basement;
     }
 
-    private void GetStunned()
+    private void GetStunned(BroomItem item)
     {
-        //RunState(State.Stun);
+        //Add sound Effect & Particles
         Debug.Log("Ouch");
 
-        currentState = State.Stun;
+        currentState = State.Stunned;
         RunState(currentState);
 
-        //StartCoroutine(StunCountDown(3));
+        StartCoroutine(StunCountDown(3));
+
+        TakeDamage(item.damage);
 
     }
-
 
     private IEnumerator StunCountDown(int seconds)
     {
@@ -209,21 +220,30 @@ public class EnemyLogic : MonoBehaviour
         ChangeState();
         _navigator.StartNavigation();
 
-
-
     }
-
-
 
     public void HitByBroom(GameObject broomObj)
     {
-        GetStunned();
+
+        BroomItem broomItem = broomObj.GetComponent<BroomItem>();
+
+        GetStunned(broomItem);
 
         //m_hitByBroom.Invoke();
-
-
     }
 
+    public void TakeDamage(float damageValue)
+    {
+        currhealth -= damageValue;
 
-  
+        if (currhealth <= 0)
+        {
+            BanishGhost();
+        }
+    }
+
+    public void BanishGhost()
+    {
+        Debug.Log("Am Bamished");
+    }
 }
