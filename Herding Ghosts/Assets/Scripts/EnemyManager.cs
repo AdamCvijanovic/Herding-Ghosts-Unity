@@ -9,20 +9,25 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FetchExistingEnemies();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FetchExistingEnemies()
     {
-        foreach(Enemy e in FindObjectsOfType<Enemy>())
+        foreach (Enemy e in FindObjectsOfType<Enemy>())
         {
             enemies.Add(e);
         }
+    }
+
+    public void AddEnemy()
+    {
+
     }
 }
