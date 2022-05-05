@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public List<Enemy> enemies = new List<Enemy>();
+    //Singleton
+    public static EnemyManager EnemyManagerSGLTN { get; private set; }
+
+    [SerializeField]
+    private List<Enemy> enemies = new List<Enemy>();
+
+    //what have you been reading lately?
+
+    private void Awake()
+    {
+        if (EnemyManagerSGLTN != null && EnemyManagerSGLTN != this)
+        {
+            Destroy(this);
+            return;
+        }
+        EnemyManagerSGLTN = this;
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +43,16 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void AddEnemy()
+    public void AddEnemy(Enemy enemy)
     {
-
+        enemies.Add(enemy);
     }
+
+    public void RemoveEnemy(Enemy enemy)
+    {
+        enemies.Remove(enemy);
+    }
+
+
+
 }

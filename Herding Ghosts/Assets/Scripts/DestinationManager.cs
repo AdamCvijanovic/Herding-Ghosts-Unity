@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class DestinationManager : MonoBehaviour
 {
+    //Singleton
+    public static DestinationManager DestinationManagerSGLTN { get; private set; }
+
     public List<Destination> destinations = new List<Destination>();
+
+    private void Awake()
+    {
+        if (DestinationManagerSGLTN != null && DestinationManagerSGLTN != this)
+        {
+            Destroy(this);
+            return;
+        }
+        DestinationManagerSGLTN = this;
+
+        PopulateExistingDestinations();
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        FetchExistingDestinations();
+        PopulateExistingDestinations();
     }
 
     // Update is called once per frame
@@ -18,7 +34,7 @@ public class DestinationManager : MonoBehaviour
         
     }
 
-    private void FetchExistingDestinations()
+    private void PopulateExistingDestinations()
     {
         foreach (Destination e in FindObjectsOfType<Destination>())
         {
@@ -26,8 +42,33 @@ public class DestinationManager : MonoBehaviour
         }
     }
 
-    public void AddDestination()
+    public void AddDestination(Destination destination)
     {
+        destinations.Add(destination);
+    }
 
+    public void RemoveDestination(Destination destination)
+    {
+        destinations.Remove(destination);
+    }
+
+    public List<Destination> GetDestinations()
+    {
+        return destinations;
+    }
+
+    public Destination GetDestinationOfType(Destination.DestinationType type)
+    {
+        Destination returnDest = null;
+
+        foreach (Destination d in destinations)
+        {
+            if (d.GetDestinationType() == type)
+            {
+                returnDest = d;
+            }
+        }
+
+        return returnDest;
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Destination : MonoBehaviour
 {
 
-    protected enum DestinationType { Cauldron, Basement, Barrel};
+    public enum DestinationType { Cauldron, Basement, Barrel};
+    [SerializeField]
     private DestinationType destinationType;
 
     // Start is called before the first frame update
@@ -20,9 +21,10 @@ public class Destination : MonoBehaviour
         
     }
 
-    public void GetDestinationType()
+    public DestinationType GetDestinationType()
     {
-
+        DestinationType typeCopy = destinationType;
+        return typeCopy;
     }
 
     public void SetDestinationType()

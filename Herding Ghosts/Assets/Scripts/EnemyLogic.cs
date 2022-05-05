@@ -29,13 +29,27 @@ public class EnemyLogic : MonoBehaviour
     public GameObject basement;
 
     [Header("Health")]
-    public float maxHealth;
+    public float _maxHealth;
     [Range(0, 100)]
-    public float currhealth;
+    public float _currhealth;
+    public bool alive;
+
+
+    [Header("Stats")]
+    public float _stunTime;
+
+    [Header("Prefabs")]
+    public GameObject _banishFXPrefab;
 
 
 
-
+    //private void Awake()
+    //{
+    //    _anim = GetComponent<Animator>();
+    //    _navigator = GetComponent<AINavigation>();
+    //    FetchDestinations();
+    //    //ChangeState();
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +57,7 @@ public class EnemyLogic : MonoBehaviour
 
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
+        FetchDestinations();
         ChangeState();
 
         
@@ -57,8 +72,18 @@ public class EnemyLogic : MonoBehaviour
     }
 
 
+    public void FetchDestinations()
+    {
+        player = FindObjectOfType<PlayerMove>().gameObject;
+        daughter = FindObjectOfType<DaughterLogic>().gameObject;
+
+        cauldron = DestinationManager.DestinationManagerSGLTN.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
+        basement = DestinationManager.DestinationManagerSGLTN.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
+    }
+
     public void StateMachine()
     {
+
         if (currentDestination == null)
         {
             ChangeState();
@@ -195,13 +220,13 @@ public class EnemyLogic : MonoBehaviour
         currentState = State.Stunned;
         RunState(currentState);
 
-        StartCoroutine(StunCountDown(3));
+        StartCoroutine(StunCountDown(_stunTime));
 
         TakeDamage(item.damage);
 
     }
 
-    private IEnumerator StunCountDown(int seconds)
+    private IEnumerator StunCountDown(float time)
     {
         //STOP TRACKING
 
@@ -209,11 +234,10 @@ public class EnemyLogic : MonoBehaviour
         _navigator.StopNavigation();
 
         //COUNTER
-        int counter = seconds;
+        float counter = time;
         while(counter > 0)
         {
-            yield return new WaitForSeconds(seconds);
-            Debug.Log("Counter = " + counter);
+            yield return new WaitForSeconds(time);
             counter--;
         }
 
@@ -234,16 +258,27 @@ public class EnemyLogic : MonoBehaviour
 
     public void TakeDamage(float damageValue)
     {
-        currhealth -= damageValue;
+        _currhealth -= damageValue;
 
-        if (currhealth <= 0)
+        if (_currhealth <= 0)
         {
+            
             BanishGhost();
         }
     }
 
     public void BanishGhost()
     {
-        Debug.Log("Am Bamished");
+        _currhealth = 0;
+        
+        if(alive == true)
+        {
+            Debug.Log("Am Bamished");
+            Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
+            EnemyManager.EnemyManagerSGLTN.RemoveEnemy(this.GetComponent<Enemy>());
+            Destroy(this.gameObject, .2f);
+        }
+        alive = false;
+
     }
 }
