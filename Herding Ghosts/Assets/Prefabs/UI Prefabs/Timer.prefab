@@ -85,13 +85,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421080841889491758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 691b6f878c53cbd4d8e6b50309e62d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _timerFill: {fileID: 0}
   _timer: {fileID: 0}
+  portrait: {fileID: 0}
+  portrait1: {fileID: 0}
+  portrait2: {fileID: 0}
+  portrait3: {fileID: 0}
   _daughter: {fileID: 0}
 --- !u!114 &5421080841889491754
 MonoBehaviour:
@@ -194,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5421080842988268201}
+  - component: {fileID: 1271443757448571726}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -223,3 +228,22 @@ RectTransform:
   m_AnchoredPosition: {x: 10, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1271443757448571726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421080842988268206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691b6f878c53cbd4d8e6b50309e62d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerFill: {fileID: 5421080841889491752}
+  _timer: {fileID: 5421080841889491758}
+  portrait: {fileID: 0}
+  portrait1: {fileID: 0}
+  portrait2: {fileID: 0}
+  portrait3: {fileID: 0}
+  _daughter: {fileID: 0}

@@ -32,6 +32,8 @@ public class DaughterLogic : MonoBehaviour
     public float fearValue;
     public float fearPercentage;
 
+    public int tasksCompleted;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,13 @@ public class DaughterLogic : MonoBehaviour
         if (CheckDistance())
         {
             ChangeState();
+            tasksCompleted++;
+        }
+
+        if(tasksCompleted > 10)
+        {
+            Debug.Log("Tasks Complete!");
+            FindObjectOfType<PlayerUI>().Win();
         }
 
 
@@ -69,6 +78,7 @@ public class DaughterLogic : MonoBehaviour
     private bool CheckDistance()
     {
         bool reachedDest = false;
+        
         distance = Vector3.Distance(transform.position, currentDestination.transform.position);
         if (Vector3.Distance(transform.position, currentDestination.transform.position) < minDist)
         {
@@ -145,7 +155,7 @@ public class DaughterLogic : MonoBehaviour
         if (fearValue >= 100)
         {
             Debug.Log("Fear Too High!");
-            FindObjectOfType<PlayerUI>().Pause();
+            FindObjectOfType<PlayerUI>().Lose();
         }
     }
 

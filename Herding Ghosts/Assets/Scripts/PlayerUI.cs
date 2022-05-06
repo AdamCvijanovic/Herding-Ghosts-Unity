@@ -7,7 +7,10 @@ public class PlayerUI : MonoBehaviour
 
     public bool isPaused;
 
-    public GameObject pauseMenu;
+    public PauseMenu pauseMenu;
+    //public GameObject pauseMenu;
+
+    public GameObject textPanel;
 
 
     // Start is called before the first frame update
@@ -25,18 +28,54 @@ public class PlayerUI : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("PASUE?");
+        Debug.Log("PAUSE?");
 
         isPaused = !isPaused;
 
         if (isPaused)
         {
-            pauseMenu.SetActive(true);
+            pauseMenu.gameObject.SetActive(true);
+            pauseMenu.Pause();
         }
         else 
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.gameObject.SetActive(false);
+            pauseMenu.Resume();
         }
+
+    }
+
+    public void Lose()
+    {
+        Debug.Log("Lose?");
+
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            pauseMenu.gameObject.SetActive(true);
+            pauseMenu.Lose();
+        }
+        else
+        {
+            pauseMenu.gameObject.SetActive(false);
+            pauseMenu.Resume();
+        }
+
+    }
+
+    public void Win()
+    {
+        Debug.Log("Win?");
+
+        isPaused = true;
+
+        if (isPaused)
+        {
+            pauseMenu.gameObject.SetActive(true);
+            pauseMenu.Win();
+        }
+        
 
     }
 

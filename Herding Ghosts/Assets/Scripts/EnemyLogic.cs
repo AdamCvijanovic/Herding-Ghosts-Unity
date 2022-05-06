@@ -118,7 +118,7 @@ public class EnemyLogic : MonoBehaviour
     private bool CheckDistance()
     {
         bool reachedDest = false;
-        distance = Vector3.Distance(transform.position, currentDestination.transform.position);
+        distance = Vector3.Distance(transform.position, _navigator.GetDestination());
         if (Vector3.Distance(transform.position, currentDestination.transform.position) < minDist)
         {
             reachedDest = true;

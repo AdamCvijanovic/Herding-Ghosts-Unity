@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4640887608978645951}
   - component: {fileID: 4640887608978645948}
+  - component: {fileID: 7804124561912175819}
   - component: {fileID: 4640887608978645949}
   - component: {fileID: 4640887608978645946}
-  - component: {fileID: 4640887608978645947}
   - component: {fileID: 7431690766217094454}
   - component: {fileID: 4640887608978645950}
   - component: {fileID: 4640887608978645945}
   - component: {fileID: 4640887608978645944}
   - component: {fileID: 4640887608978645941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,6 +94,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7804124561912175819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640887608978645891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75082d069b8cf645b6247431986d36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUI: {fileID: 7431690766217094454}
+  playerMove: {fileID: 4640887608978645949}
+  playerPickup: {fileID: 4640887608978645946}
 --- !u!114 &4640887608978645949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,24 +146,6 @@ MonoBehaviour:
   _isHolding: 0
   _nearbyItems: []
   _currentItem: {fileID: 0}
---- !u!114 &4640887608978645947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640887608978645891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c631893eb8fa1409c6772158319efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerMove: {fileID: 0}
-  _sprRnd: {fileID: 0}
-  _up: {fileID: 21300000, guid: d562fb4c458367642a94757f6ccc9313, type: 3}
-  _down: {fileID: 21300000, guid: 64a415084c2ff2944ba6b5058cfe2d79, type: 3}
-  _left: {fileID: 21300000, guid: f746511be15043145b838b1161f2b363, type: 3}
-  _right: {fileID: 21300000, guid: 7fdb5996e9a4971488cbb523afb6e9dd, type: 3}
 --- !u!114 &7431690766217094454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6810f6994ccd2904fad5be860b0f0122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+  pauseMenu: {fileID: 0}
+  textPanel: {fileID: 0}
 --- !u!114 &4640887608978645950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,10 +204,10 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BroomItem, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
+      - m_Target: {fileID: 4640887608978645946}
+        m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
+        m_MethodName: ActivateItem
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -311,7 +311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.23}
+  m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
 --- !u!50 &4640887608978645944
 Rigidbody2D:
@@ -365,7 +365,8 @@ GameObject:
   - component: {fileID: 4640887609181588509}
   - component: {fileID: 4640887609181588706}
   - component: {fileID: 4640887609181588704}
-  m_Layer: 0
+  - component: {fileID: 1530765833}
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -414,7 +415,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -438,6 +439,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4640887609181588705}
   m_Enabled: 1
+--- !u!114 &1530765833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640887609181588705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 620
+  m_RefResolutionY: 640
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &4640887609833776745
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4640887609833776744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
