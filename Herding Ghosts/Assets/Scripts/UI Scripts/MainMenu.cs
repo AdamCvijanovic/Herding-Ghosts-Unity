@@ -20,6 +20,12 @@ public class MainMenu : MonoBehaviour
     Time.timeScale = 1f;
  }
 
+   public void ToBrendanPrototype ()
+ {
+    SceneManager.LoadScene(2);
+    Time.timeScale = 1f;
+ }
+
  public void QuitGame ()
  {
    Debug.Log ("QUIT!");
