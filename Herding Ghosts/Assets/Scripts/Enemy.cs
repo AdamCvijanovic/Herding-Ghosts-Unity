@@ -8,11 +8,13 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     EnemyLogic enemyLogic;
 
-    EnemyManager _EnemyManagerSNGL = EnemyManager.EnemyManagerSGLTN;
+    EnemyManager _enemyMngr;
 
     // Start is called before the first frame update
     void Start()
     {
+        _enemyMngr = FindObjectOfType<EnemyManager>();
+
         if (enemyLogic == null)
             enemyLogic = GetComponent<EnemyLogic>();
     }

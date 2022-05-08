@@ -5,21 +5,21 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     //Singleton
-    public static EnemyManager EnemyManagerSGLTN { get; private set; }
+    //public static EnemyManager EnemyManagerSGLTN { get; private set; }
 
     [SerializeField]
     private List<Enemy> enemies = new List<Enemy>();
 
-    //what have you been reading lately?
 
     private void Awake()
     {
-        if (EnemyManagerSGLTN != null && EnemyManagerSGLTN != this)
-        {
-            Destroy(this);
-            return;
-        }
-        EnemyManagerSGLTN = this;
+        //Singleton Constructor (unnecesary, we can just use global search on Awak and store ref in a local var)
+        //if (EnemyManagerSGLTN != null && EnemyManagerSGLTN != this)
+        //{
+        //    Destroy(this);
+        //    return;
+        //}
+        //EnemyManagerSGLTN = this;
         
     }
 

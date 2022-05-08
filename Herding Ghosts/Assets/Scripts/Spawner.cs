@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    EnemyManager _enemyMngr;
+
     public List<GameObject> enemyPrefabs;
 
     public float _spawnTime;
@@ -14,6 +17,8 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _enemyMngr = FindObjectOfType<EnemyManager>();
+
         countdown = _spawnTime;
     }
 
@@ -60,7 +65,7 @@ public class Spawner : MonoBehaviour
     public void SpawnEnemy(GameObject enemyPrefab)
     {
         GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        EnemyManager.EnemyManagerSGLTN.AddEnemy(newEnemy.GetComponent<Enemy>());
+        _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
 
     }
 

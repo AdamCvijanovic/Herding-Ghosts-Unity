@@ -5,18 +5,19 @@ using UnityEngine;
 public class DestinationManager : MonoBehaviour
 {
     //Singleton
-    public static DestinationManager DestinationManagerSGLTN { get; private set; }
+    //public static DestinationManager DestinationManagerSGLTN { get; private set; }
 
     public List<Destination> destinations = new List<Destination>();
 
     private void Awake()
     {
-        if (DestinationManagerSGLTN != null && DestinationManagerSGLTN != this)
-        {
-            Destroy(this);
-            return;
-        }
-        DestinationManagerSGLTN = this;
+        //Singleton Constructor (unnecesary, we can just use global search on Awak and store ref in a local var)
+        //if (DestinationManagerSGLTN != null && DestinationManagerSGLTN != this)
+        //{
+        //    Destroy(this);
+        //    return;
+        //}
+        //DestinationManagerSGLTN = this;
 
         PopulateExistingDestinations();
 

@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class EnemyLogic : MonoBehaviour
 {
+    //ManagerFetch
+    private DestinationManager _destMngr;
+    private EnemyManager _enemyMngr;
 
     public enum State { Player, Daughter, Cauldron, Basement, Stunned };
     public State previousState;
@@ -54,6 +57,8 @@ public class EnemyLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _destMngr = FindObjectOfType<DestinationManager>();
+        _enemyMngr = FindObjectOfType<EnemyManager>();
 
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
@@ -74,11 +79,17 @@ public class EnemyLogic : MonoBehaviour
 
     public void FetchDestinations()
     {
+        //fetch NPC's (These should always be present)
         player = FindObjectOfType<PlayerMove>().gameObject;
         daughter = FindObjectOfType<DaughterLogic>().gameObject;
 
-        cauldron = DestinationManager.DestinationManagerSGLTN.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
-        basement = DestinationManager.DestinationManagerSGLTN.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
+
+        //Fetch Destinations
+        if(_destMngr.GetDestinations() != null)
+        {
+            cauldron = _destMngr.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
+            basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
+        }
     }
 
     public void StateMachine()
@@ -275,7 +286,7 @@ public class EnemyLogic : MonoBehaviour
         {
             Debug.Log("Am Bamished");
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
-            EnemyManager.EnemyManagerSGLTN.RemoveEnemy(this.GetComponent<Enemy>());
+            _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
             Destroy(this.gameObject, .2f);
         }
         alive = false;
