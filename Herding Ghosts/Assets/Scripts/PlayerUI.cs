@@ -10,7 +10,7 @@ public class PlayerUI : MonoBehaviour
     public PauseMenu pauseMenu;
     //public GameObject pauseMenu;
 
-    public GameObject textPanel;
+    public TutorialText tutorialTextPanel;
 
 
     // Start is called before the first frame update
@@ -77,6 +77,16 @@ public class PlayerUI : MonoBehaviour
         }
         
 
+    }
+
+    public void UpdateTutorialTextPickup(string text)
+    {
+        tutorialTextPanel.UpdateTextPickup(text);
+    }
+
+    public void UpdateTutorialTextUse(string text)
+    {
+        tutorialTextPanel.UpdateTextUse(text);
     }
 
 }

@@ -28,8 +28,8 @@ public class PlayerMove : MonoBehaviour
     public enum Direction { Up, Down, Left, Right, None };
     public Direction _direction = Direction.None;
     public Direction _colDir = Direction.None;
-    public Grid _grid;
-    public Tilemap _tilemap;
+    //public Grid _grid;
+    //public Tilemap _tilemap;
 
     public Animator _anim;
 

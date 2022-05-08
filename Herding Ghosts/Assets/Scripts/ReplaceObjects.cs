@@ -19,7 +19,7 @@ public class ReplaceObjects : MonoBehaviour
  
     void Update()
     {
-        if(_dropped == true /*&& this.name == "Saltshaker"*/)
+        if(_dropped == true )
         {
             SaltSwap();
             _dropped = false;
