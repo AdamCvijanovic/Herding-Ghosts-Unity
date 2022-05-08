@@ -130,12 +130,12 @@ public class PlayerPickup : MonoBehaviour
         return _itemHolder;
     }
 
-   public void ActivateItem(InputAction.CallbackContext context)
+   public void ActivateItem()
     {
 
         
 
-        if (_currentItem != null && context.performed)
+        if (_currentItem != null /*&& context.performed*/)
         {
             _currentItem.Activate();
         }
