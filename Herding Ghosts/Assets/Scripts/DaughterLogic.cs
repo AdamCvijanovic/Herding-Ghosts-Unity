@@ -11,8 +11,8 @@ public class DaughterLogic : MonoBehaviour
     [SerializeField]
     private Animator _anim;
     public AINavigation _navigator;
-    
 
+    public ThoughtBubble thoughtBubble;
 
     public GameObject currentDestination;
 
@@ -144,6 +144,8 @@ public class DaughterLogic : MonoBehaviour
         }
 
         _navigator.SetDestination(currentDestination.transform);
+        if(currentDestination != null)
+            thoughtBubble.ChangeImage(currentDestination);
     }
 
     public void IncreaseFear()

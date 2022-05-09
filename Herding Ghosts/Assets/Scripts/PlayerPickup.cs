@@ -81,7 +81,7 @@ public class PlayerPickup : MonoBehaviour
                 // Name of item
                 Debug.Log(_currentItem);
 
-                _currentItem.GetComponent<ReplaceObjects>().TheItemWasDropped();
+                //_currentItem.GetComponent<SaltItem>().Activate();
             }
 
             _currentItem.OnDrop();
@@ -144,7 +144,7 @@ public class PlayerPickup : MonoBehaviour
         }
         else
         {
-            _player.playerUI.UpdateTutorialTextPickup("NOTHING");
+            _player.playerUI.UpdateTutorialTextPickup(" ");
         }
 
         if (_isHolding)

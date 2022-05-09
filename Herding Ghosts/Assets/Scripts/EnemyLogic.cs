@@ -9,7 +9,7 @@ public class EnemyLogic : MonoBehaviour
     private DestinationManager _destMngr;
     private EnemyManager _enemyMngr;
 
-    public enum State { Player, Daughter, Cauldron, Basement, Stunned };
+    public enum State { Daughter, Cauldron, Basement, Stunned };
     public State previousState;
     public State currentState;
 
@@ -26,7 +26,6 @@ public class EnemyLogic : MonoBehaviour
     public float minDist;
 
     [Header("Destinations")]
-    public GameObject player;
     public GameObject daughter;
     public GameObject cauldron;
     public GameObject basement;
@@ -80,7 +79,6 @@ public class EnemyLogic : MonoBehaviour
     public void FetchDestinations()
     {
         //fetch NPC's (These should always be present)
-        player = FindObjectOfType<PlayerMove>().gameObject;
         daughter = FindObjectOfType<DaughterLogic>().gameObject;
 
 
@@ -149,16 +147,12 @@ public class EnemyLogic : MonoBehaviour
             switch (value)
             {
                 case 0:
-
-                    RunState(State.Player);
-                    break;
-                case 1:
                     RunState(State.Daughter);
                     break;
-                case 2:
+                case 1:
                     RunState(State.Cauldron);
                     break;
-                case 3:
+                case 2:
                    RunState(State.Basement);
                     break;
             }
@@ -183,9 +177,6 @@ public class EnemyLogic : MonoBehaviour
 
         switch (currentState)
         {
-            case State.Player:
-                FindPlayer();
-                break;
             case State.Daughter:
                 FindDaughter();
                 break;
@@ -206,11 +197,6 @@ public class EnemyLogic : MonoBehaviour
     private void FindDaughter()
     {
         currentDestination = daughter;
-    }
-
-    private void FindPlayer()
-    {
-        currentDestination = player;
     }
 
     private void FindCauldron()
