@@ -135,9 +135,21 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
+      propertyPath: oven
+      value: 
+      objectReference: {fileID: 1779392692}
+    - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
       propertyPath: barrel
       value: 
       objectReference: {fileID: 293243328}
+    - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
+      propertyPath: fridge
+      value: 
+      objectReference: {fileID: 569962175}
+    - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
+      propertyPath: minDist
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
       propertyPath: basement
       value: 
@@ -146,6 +158,10 @@ PrefabInstance:
       propertyPath: cauldron
       value: 
       objectReference: {fileID: 174575165}
+    - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
+      propertyPath: numTasksToComplete
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 272607983429083003, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
       propertyPath: m_Name
       value: Daughter
@@ -852,6 +868,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569962177}
   - component: {fileID: 569962176}
+  - component: {fileID: 569962178}
   m_Layer: 0
   m_Name: Fridge_Static
   m_TagString: Untagged
@@ -926,6 +943,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569962178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569962175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bcd579ee813e14599198c89eb0fdad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationType: 4
 --- !u!1001 &610742343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2681,10 +2711,6 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6544090748604841777, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -9959,6 +9985,7 @@ GameObject:
   - component: {fileID: 1779392695}
   - component: {fileID: 1779392694}
   - component: {fileID: 1779392693}
+  - component: {fileID: 1779392696}
   m_Layer: 0
   m_Name: OvenPref
   m_TagString: Untagged
@@ -10053,6 +10080,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779392696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779392692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bcd579ee813e14599198c89eb0fdad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationType: 3
 --- !u!1 &1795135428
 GameObject:
   m_ObjectHideFlags: 0

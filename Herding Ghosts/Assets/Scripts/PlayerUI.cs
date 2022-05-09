@@ -11,12 +11,13 @@ public class PlayerUI : MonoBehaviour
     //public GameObject pauseMenu;
 
     public TutorialText tutorialTextPanel;
+    public WinTextUI winTextPanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        winTextPanel = FindObjectOfType<WinTextUI>();
     }
 
     // Update is called once per frame
@@ -87,6 +88,11 @@ public class PlayerUI : MonoBehaviour
     public void UpdateTutorialTextUse(string text)
     {
         tutorialTextPanel.UpdateTextUse(text);
+    }
+
+    public void UpdateWinText(DaughterLogic daughter)
+    {
+        winTextPanel.UpdateText(daughter);
     }
 
 }

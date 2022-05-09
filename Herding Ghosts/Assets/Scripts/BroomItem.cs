@@ -65,14 +65,18 @@ public class BroomItem : Item
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.GetComponent<EnemyLogic>())
+        if(parentObj != null)
         {
-            Debug.Log("Player hit " + collision.gameObject.name);
-            collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(this.gameObject);
-            PushObject(collision.gameObject);
+            if (collision.gameObject.GetComponent<EnemyLogic>())
+            {
+                Debug.Log("Player hit " + collision.gameObject.name);
+                collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(this.gameObject);
+                PushObject(collision.gameObject);
+            }
         }
     }
+
+        
 
     private void PushObject(GameObject broomObj)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DaughterLogic : MonoBehaviour
 {
-    public enum State {Cooking, Ingredients, Deliverying };
+    public enum State {Cooking, Ingredients, Deliverying, Oven, Fridge };
     public State previousState;
     public State currentState;
 
@@ -24,6 +24,8 @@ public class DaughterLogic : MonoBehaviour
     public GameObject cauldron;
     public GameObject barrel;
     public GameObject basement;
+    public GameObject oven;
+    public GameObject fridge;
 
 
     public float maxFear = 100f;
@@ -33,6 +35,7 @@ public class DaughterLogic : MonoBehaviour
     public float fearPercentage;
 
     public int tasksCompleted;
+    public int numTasksToComplete;
 
 
     // Start is called before the first frame update
@@ -41,6 +44,12 @@ public class DaughterLogic : MonoBehaviour
         _navigator = GetComponent<AINavigation>();
         _anim = GetComponent<Animator>();
 
+
+        //DEstinaation Fill
+        if (oven == null)
+            FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
+        if (fridge == null)
+            FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
 
         ChangeState();
     }
@@ -54,10 +63,13 @@ public class DaughterLogic : MonoBehaviour
         if (CheckDistance())
         {
             ChangeState();
+            //Task COmpletion should really be it's own function or even an event
             tasksCompleted++;
+            //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
+            FindObjectOfType<PlayerUI>().UpdateWinText(this);
         }
 
-        if(tasksCompleted > 10)
+        if(tasksCompleted > numTasksToComplete)
         {
             Debug.Log("Tasks Complete!");
             FindObjectOfType<PlayerUI>().Win();
@@ -92,7 +104,7 @@ public class DaughterLogic : MonoBehaviour
     {
         
 
-        int value = Random.Range(0, 3);
+        int value = Random.Range(0, 5);
 
         //if(previousState == currentState)
         {
@@ -107,8 +119,14 @@ public class DaughterLogic : MonoBehaviour
                     break;
                 case 2:
                     RunState(State.Deliverying);
-
                     break;
+                case 3:
+                    RunState(State.Oven);
+                    break;
+                case 4:
+                    RunState(State.Fridge);
+                    break;
+
             }
         }
 
@@ -140,6 +158,12 @@ public class DaughterLogic : MonoBehaviour
                 break;
             case State.Deliverying:
                 FindBasement();
+                break;
+            case State.Oven:
+                FindOven();
+                break;
+            case State.Fridge:
+                FindFridge();
                 break;
         }
 
@@ -174,6 +198,26 @@ public class DaughterLogic : MonoBehaviour
     private void FindBasement()
     {
         currentDestination = basement;
+    }
+
+    private void FindOven()
+    {
+        if(oven == null)
+            FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
+
+
+        currentDestination = oven;
+
+
+    }
+
+    private void FindFridge()
+    {
+        if (fridge == null)
+            FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
+
+
+        currentDestination = fridge;
     }
 
     public float FearPercentage()
