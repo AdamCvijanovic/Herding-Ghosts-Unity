@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 174575165}
     - target: {fileID: 272607983429082978, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
       propertyPath: numTasksToComplete
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 272607983429083003, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
       propertyPath: m_Name
@@ -9986,6 +9986,7 @@ GameObject:
   - component: {fileID: 1779392694}
   - component: {fileID: 1779392693}
   - component: {fileID: 1779392696}
+  - component: {fileID: 1779392697}
   m_Layer: 0
   m_Name: OvenPref
   m_TagString: Untagged
@@ -10093,6 +10094,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationType: 3
+--- !u!114 &1779392697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779392692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f5b5d3617e0c648bae2b686ee5d6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 9110286895678964446, guid: f410080ca5b517d41817efa1a298bd4e, type: 3}
+  - {fileID: 9110286895678964446, guid: 77aaa715b7294994e9d96d10aa394fc8, type: 3}
+  _spawnTime: 5
+  countdown: 0
 --- !u!1 &1795135428
 GameObject:
   m_ObjectHideFlags: 0
