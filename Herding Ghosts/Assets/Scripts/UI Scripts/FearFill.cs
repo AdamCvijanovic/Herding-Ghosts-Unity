@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class FearFill : MonoBehaviour
 {
 
-    public Image _timerFill;
-    public GameObject _timer;
+    public Image _fearFill;
+    public GameObject _fear;
 
     public Image portrait;
 
     public Sprite portrait1;
     public Sprite portrait2;
     public Sprite portrait3;
+    public GameObject _loseMenu;
 
     public DaughterLogic _daughter;
 
@@ -31,7 +32,7 @@ public class FearFill : MonoBehaviour
 
     void UpdateFill()
     {
-        _timerFill.fillAmount = 1-_daughter.FearPercentage();
+        _fearFill.fillAmount = 1-_daughter.FearPercentage();
 
         switch (_daughter.FearPercentage())
         {
@@ -43,6 +44,10 @@ public class FearFill : MonoBehaviour
                 break;
             case >0.75f and <= 1f:
                 portrait.sprite = portrait3;
+                break;
+            case >= 1.0f:
+                _loseMenu.SetActive(true);
+                Time.timeScale = 0f;
                 break;
         }
 

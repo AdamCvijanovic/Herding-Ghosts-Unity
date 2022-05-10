@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 723320290}
   - component: {fileID: 723320289}
   - component: {fileID: 723320288}
+  - component: {fileID: 723320291}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -772,6 +773,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 723320291}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &723320289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,6 +823,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723320286}
   m_CullTransparentMesh: 1
+--- !u!114 &723320291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723320286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &886991946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,6 +1372,7 @@ GameObject:
   - component: {fileID: 1107502788}
   - component: {fileID: 1107502787}
   - component: {fileID: 1107502786}
+  - component: {fileID: 1107502789}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1413,6 +1457,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1107502789}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1107502787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1507,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107502784}
   m_CullTransparentMesh: 1
+--- !u!114 &1107502789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107502784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1183498086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1782,7 @@ GameObject:
   - component: {fileID: 1519399035}
   - component: {fileID: 1519399034}
   - component: {fileID: 1519399033}
+  - component: {fileID: 1519399036}
   m_Layer: 5
   m_Name: OptionsBackButton
   m_TagString: Untagged
@@ -1792,6 +1879,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1519399036}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1519399034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,6 +1929,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519399031}
   m_CullTransparentMesh: 1
+--- !u!114 &1519399036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519399031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1656396952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +2106,7 @@ GameObject:
   - component: {fileID: 1739634637}
   - component: {fileID: 1739634636}
   - component: {fileID: 1739634635}
+  - component: {fileID: 1739634638}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2061,6 +2191,18 @@ MonoBehaviour:
           m_StringArgument: PlayGame
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1739634638}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1739634636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2099,6 +2241,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739634633}
   m_CullTransparentMesh: 1
+--- !u!114 &1739634638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739634633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2093029155
 GameObject:
   m_ObjectHideFlags: 0
