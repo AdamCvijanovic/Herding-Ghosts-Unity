@@ -18,7 +18,6 @@ public class AINavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         DrawPath();
     }
 
@@ -30,6 +29,11 @@ public class AINavigation : MonoBehaviour
     public void SetDestination(Vector3 position)
     {
         agent.SetDestination(position);
+    }
+
+    public Vector3 GetDestination()
+    {
+        return agent.destination;
     }
 
     void DrawPath()

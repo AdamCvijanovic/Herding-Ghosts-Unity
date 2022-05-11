@@ -5,14 +5,19 @@ using UnityEngine.Events;
 
 public class EnemyLogic : MonoBehaviour
 {
+    //ManagerFetch
+    private DestinationManager _destMngr;
+    private EnemyManager _enemyMngr;
 
-    public enum State { Player, Daughter, Cauldron, Basement, Stun };
+    public enum State { Daughter, Cauldron, Basement, Stunned };
     public State previousState;
     public State currentState;
 
     [SerializeField]
     private Animator _anim;
 
+
+    [Header("Navigation Settings")]
     public AINavigation _navigator;
     public GameObject currentDestination;
 
@@ -21,18 +26,42 @@ public class EnemyLogic : MonoBehaviour
     public float minDist;
 
     [Header("Destinations")]
-    public GameObject player;
     public GameObject daughter;
     public GameObject cauldron;
     public GameObject basement;
 
+    [Header("Health")]
+    public float _maxHealth;
+    [Range(0, 100)]
+    public float _currhealth;
+    public bool alive;
+
+
+    [Header("Stats")]
+    public float _stunTime;
+
+    [Header("Prefabs")]
+    public GameObject _banishFXPrefab;
+
+
+
+    //private void Awake()
+    //{
+    //    _anim = GetComponent<Animator>();
+    //    _navigator = GetComponent<AINavigation>();
+    //    FetchDestinations();
+    //    //ChangeState();
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
+        _destMngr = FindObjectOfType<DestinationManager>();
+        _enemyMngr = FindObjectOfType<EnemyManager>();
 
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
+        FetchDestinations();
         ChangeState();
 
         
@@ -47,8 +76,23 @@ public class EnemyLogic : MonoBehaviour
     }
 
 
+    public void FetchDestinations()
+    {
+        //fetch NPC's (These should always be present)
+        daughter = FindObjectOfType<DaughterLogic>().gameObject;
+
+
+        //Fetch Destinations
+        if(_destMngr.GetDestinations() != null)
+        {
+            cauldron = _destMngr.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
+            basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
+        }
+    }
+
     public void StateMachine()
     {
+
         if (currentDestination == null)
         {
             ChangeState();
@@ -83,7 +127,7 @@ public class EnemyLogic : MonoBehaviour
     private bool CheckDistance()
     {
         bool reachedDest = false;
-        distance = Vector3.Distance(transform.position, currentDestination.transform.position);
+        distance = Vector3.Distance(transform.position, _navigator.GetDestination());
         if (Vector3.Distance(transform.position, currentDestination.transform.position) < minDist)
         {
             reachedDest = true;
@@ -103,16 +147,12 @@ public class EnemyLogic : MonoBehaviour
             switch (value)
             {
                 case 0:
-
-                    RunState(State.Player);
-                    break;
-                case 1:
                     RunState(State.Daughter);
                     break;
-                case 2:
+                case 1:
                     RunState(State.Cauldron);
                     break;
-                case 3:
+                case 2:
                    RunState(State.Basement);
                     break;
             }
@@ -137,9 +177,6 @@ public class EnemyLogic : MonoBehaviour
 
         switch (currentState)
         {
-            case State.Player:
-                FindPlayer();
-                break;
             case State.Daughter:
                 FindDaughter();
                 break;
@@ -149,8 +186,8 @@ public class EnemyLogic : MonoBehaviour
             case State.Basement:
                 FindBasement();
                 break;
-            case State.Stun:
-                StartCoroutine(StunCountDown(3));
+            case State.Stunned:
+                //run particle effect + stun anim
                 break;
         }
 
@@ -160,11 +197,6 @@ public class EnemyLogic : MonoBehaviour
     private void FindDaughter()
     {
         currentDestination = daughter;
-    }
-
-    private void FindPlayer()
-    {
-        currentDestination = player;
     }
 
     private void FindCauldron()
@@ -177,20 +209,21 @@ public class EnemyLogic : MonoBehaviour
         currentDestination = basement;
     }
 
-    private void GetStunned()
+    private void GetStunned(BroomItem item)
     {
-        //RunState(State.Stun);
+        //Add sound Effect & Particles
         Debug.Log("Ouch");
 
-        currentState = State.Stun;
+        currentState = State.Stunned;
         RunState(currentState);
 
-        //StartCoroutine(StunCountDown(3));
+        StartCoroutine(StunCountDown(_stunTime));
+
+        TakeDamage(item.damage);
 
     }
 
-
-    private IEnumerator StunCountDown(int seconds)
+    private IEnumerator StunCountDown(float time)
     {
         //STOP TRACKING
 
@@ -198,32 +231,51 @@ public class EnemyLogic : MonoBehaviour
         _navigator.StopNavigation();
 
         //COUNTER
-        int counter = seconds;
+        float counter = time;
         while(counter > 0)
         {
-            yield return new WaitForSeconds(seconds);
-            Debug.Log("Counter = " + counter);
+            yield return new WaitForSeconds(time);
             counter--;
         }
 
         ChangeState();
         _navigator.StartNavigation();
 
-
-
     }
-
-
 
     public void HitByBroom(GameObject broomObj)
     {
-        GetStunned();
+
+        BroomItem broomItem = broomObj.GetComponent<BroomItem>();
+
+        GetStunned(broomItem);
 
         //m_hitByBroom.Invoke();
-
-
     }
 
+    public void TakeDamage(float damageValue)
+    {
+        _currhealth -= damageValue;
 
-  
+        if (_currhealth <= 0)
+        {
+            
+            BanishGhost();
+        }
+    }
+
+    public void BanishGhost()
+    {
+        _currhealth = 0;
+        
+        if(alive == true)
+        {
+            Debug.Log("Am Bamished");
+            Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
+            _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
+            Destroy(this.gameObject, .2f);
+        }
+        alive = false;
+
+    }
 }

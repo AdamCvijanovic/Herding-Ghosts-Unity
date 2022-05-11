@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5649594305924469366}
-  - component: {fileID: 5649594305924469367}
   - component: {fileID: 5649594305924469360}
-  - component: {fileID: 5649594305924469365}
+  - component: {fileID: -6843969868064211689}
   m_Layer: 0
   m_Name: Saltshaker
   m_TagString: UsableItem
@@ -35,18 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5649594305924469367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5649594305924469361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f9ac42c6f690943bf5d009d4c735b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &5649594305924469360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -73,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
---- !u!114 &5649594305924469365
+--- !u!114 &-6843969868064211689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,12 +69,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5649594305924469361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca88f025f11e18949a773c848e5d7fd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 90f5cb5dabd63a24b9536fbf22c18c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObj: {fileID: 0}
+  subclass: {fileID: 0}
   _saltlinePrefab: {fileID: 8129005419739205675, guid: db314626687622c499642519384a8705, type: 3}
   _spawnDistance: 1
-  _dropped: 0
 --- !u!1 &5649594306988907239
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +148,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: daa0617b08189db47a035804e1abf157, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

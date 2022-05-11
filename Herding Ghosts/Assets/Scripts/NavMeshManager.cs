@@ -5,21 +5,23 @@ using UnityEngine.AI;
 
 public class NavMeshManager : MonoBehaviour
 {
-    public static NavMeshManager Instance { get; private set; }
+    //BEst not have a singleton actually
+    //public static NavMeshManager Instance { get; private set; }
 
 
     public NavMeshSurface2d navMeshSurface;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        //Singleton Constructor
+        //if (Instance != null && Instance != this)
+        //{
+        //    Destroy(this);
+        //}
+        //else
+        //{
+        //    Instance = this;
+        //}
     }
 
     // Start is called before the first frame update

@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerPickup : MonoBehaviour
 {
+    public Player _player;
+
     public Transform _itemHolder;
 
     public bool _isHolding;
@@ -18,17 +20,19 @@ public class PlayerPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = GetComponent<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateTutorialText();
     }
 
     public void PickupDropAction(InputAction.CallbackContext context)
     {
+
+
         if (context.performed)
         {
             if (_isHolding)
@@ -77,7 +81,7 @@ public class PlayerPickup : MonoBehaviour
                 // Name of item
                 Debug.Log(_currentItem);
 
-                _currentItem.GetComponent<ReplaceObjects>().TheItemWasDropped();
+                //_currentItem.GetComponent<SaltItem>().Activate();
             }
 
             _currentItem.OnDrop();
@@ -106,21 +110,47 @@ public class PlayerPickup : MonoBehaviour
     private Item GetNearestItem()
     {
         //I do this here because this method should never be called if there are no items nearby
-        Item nearestItem = _nearbyItems[0];
-        float smallestDist = Vector2.Distance(transform.position, _nearbyItems[0].gameObject.transform.position);
-
-
-        //we only really need to do this if there is more than one item
-        foreach (Item i in _nearbyItems)
+        Item nearestItem = null;
+        if (_nearbyItems.Count > 0)
         {
-            float currentDist = Vector2.Distance(transform.position, i.gameObject.transform.position);
-            if(currentDist < smallestDist)
+             nearestItem = _nearbyItems[0];
+            float smallestDist = Vector2.Distance(transform.position, _nearbyItems[0].gameObject.transform.position);
+
+
+            //we only really need to do this if there is more than one item
+            foreach (Item i in _nearbyItems)
             {
-                smallestDist = currentDist;
-                nearestItem = i;
+                float currentDist = Vector2.Distance(transform.position, i.gameObject.transform.position);
+                if (currentDist < smallestDist)
+                {
+                    smallestDist = currentDist;
+                    nearestItem = i;
+                }
             }
         }
+        
         return nearestItem;
+    }
+
+    public void UpdateTutorialText()
+    {
+        if (!_isHolding && _nearbyItems.Count > 0)
+        {
+            Item nearest = GetNearestItem();
+
+
+            _player.playerUI.UpdateTutorialTextPickup(nearest.name);
+            
+        }
+        else
+        {
+            _player.playerUI.UpdateTutorialTextPickup(" ");
+        }
+
+        if (_isHolding)
+        {
+            _player.playerUI.UpdateTutorialTextUse(_currentItem.GetType().ToString());
+        }
     }
 
     //Getters & Setters
@@ -130,9 +160,10 @@ public class PlayerPickup : MonoBehaviour
         return _itemHolder;
     }
 
-   public void ActivateItem()
+   public void ActivateItem(InputAction.CallbackContext context)
     {
-        if(_currentItem != null)
+
+        if (_currentItem != null && context.performed)
         {
             _currentItem.Activate();
         }

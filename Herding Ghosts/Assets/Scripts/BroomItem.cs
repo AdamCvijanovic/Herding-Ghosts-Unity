@@ -14,6 +14,8 @@ public class BroomItem : Item
 
     public float pushForce;
 
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,18 +60,23 @@ public class BroomItem : Item
         CheckPlayerDir();
 
         _anim.SetTrigger("Swing");
+        Debug.Log("Swing");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.gameObject.GetComponent<EnemyLogic>())
+        if(parentObj != null)
         {
-            Debug.Log("Player hit " + collision.gameObject.name);
-            collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(collision.gameObject);
-            PushObject(collision.gameObject);
+            if (collision.gameObject.GetComponent<EnemyLogic>())
+            {
+                Debug.Log("Player hit " + collision.gameObject.name);
+                collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(this.gameObject);
+                PushObject(collision.gameObject);
+            }
         }
     }
+
+        
 
     private void PushObject(GameObject broomObj)
     {

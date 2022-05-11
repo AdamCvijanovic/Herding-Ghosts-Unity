@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4640887608978645951}
   - component: {fileID: 4640887608978645948}
+  - component: {fileID: 7804124561912175819}
   - component: {fileID: 4640887608978645949}
   - component: {fileID: 4640887608978645946}
-  - component: {fileID: 4640887608978645947}
   - component: {fileID: 4640887608978645950}
   - component: {fileID: 4640887608978645945}
   - component: {fileID: 4640887608978645944}
   - component: {fileID: 4640887608978645941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -624820663, guid: 543d279bccf7f5146bf8b92379290d3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,6 +93,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7804124561912175819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640887608978645891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75082d069b8cf645b6247431986d36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
+  playerMove: {fileID: 4640887608978645949}
+  playerPickup: {fileID: 4640887608978645946}
 --- !u!114 &4640887608978645949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,15 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadee18c8fdf6024b8fb58cf851b4133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSprite: {fileID: 0}
   _speed: 5
   _movementVector: {x: 0, y: 0}
   _rb: {fileID: 0}
   _accel: 0.1
   _direction: 0
   _colDir: 4
-  _grid: {fileID: 0}
-  _tilemap: {fileID: 0}
   _anim: {fileID: 0}
 --- !u!114 &4640887608978645946
 MonoBehaviour:
@@ -131,24 +143,6 @@ MonoBehaviour:
   _isHolding: 0
   _nearbyItems: []
   _currentItem: {fileID: 0}
---- !u!114 &4640887608978645947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4640887608978645891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c631893eb8fa1409c6772158319efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerMove: {fileID: 0}
-  _sprRnd: {fileID: 0}
-  _up: {fileID: 21300000, guid: d562fb4c458367642a94757f6ccc9313, type: 3}
-  _down: {fileID: 21300000, guid: 64a415084c2ff2944ba6b5058cfe2d79, type: 3}
-  _left: {fileID: 21300000, guid: f746511be15043145b838b1161f2b363, type: 3}
-  _right: {fileID: 21300000, guid: 7fdb5996e9a4971488cbb523afb6e9dd, type: 3}
 --- !u!114 &4640887608978645950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,10 +186,10 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BroomItem, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
+      - m_Target: {fileID: 4640887608978645946}
+        m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
+        m_MethodName: ActivateItem
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -267,9 +261,21 @@ MonoBehaviour:
     m_ActionId: 323e599c-cd67-4c79-a8c6-78b29a6c9bc8
     m_ActionName: Player/Drop[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9673f2a4-12eb-4e76-8b5b-48cecdeca8e4
-    m_ActionName: UI/Pause[/Keyboard/escape]
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4c911591-075d-4a71-bf20-ea949e052cf2
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -299,7 +305,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.23}
+  m_Size: {x: 0.48, y: 0.48}
   m_EdgeRadius: 0
 --- !u!50 &4640887608978645944
 Rigidbody2D:
@@ -353,7 +359,9 @@ GameObject:
   - component: {fileID: 4640887609181588509}
   - component: {fileID: 4640887609181588706}
   - component: {fileID: 4640887609181588704}
-  m_Layer: 0
+  - component: {fileID: 1530765833}
+  - component: {fileID: 153782819}
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -385,7 +393,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.095073864, g: 0.091313615, b: 0.11320752, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -402,7 +410,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -426,6 +434,59 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4640887609181588705}
   m_Enabled: 1
+--- !u!114 &1530765833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640887609181588705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 100
+  m_RefResolutionX: 620
+  m_RefResolutionY: 640
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
+--- !u!114 &153782819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640887609181588705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &4640887609833776745
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4640887609833776744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
