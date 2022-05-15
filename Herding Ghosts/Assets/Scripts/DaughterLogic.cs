@@ -59,30 +59,24 @@ public class DaughterLogic : MonoBehaviour
     {
         Animate();
 
-
         if (CheckDistance())
         {
             ChangeState();
-            //Task COmpletion should really be it's own function or even an event
+            //Task Completion should really be it's own function or even an event
             tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
         }
 
-        if(tasksCompleted > numTasksToComplete)
+        if(tasksCompleted >= numTasksToComplete)
         {
             Debug.Log("Tasks Complete!");
             FindObjectOfType<PlayerUI>().Win();
         }
-
-
-        
-
     }
 
     public void Animate()
     {
-        
         _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
         _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
     }
@@ -106,33 +100,31 @@ public class DaughterLogic : MonoBehaviour
 
         int value = Random.Range(0, 5);
 
-        //if(previousState == currentState)
+        switch (value)
         {
+            case 0:
+                RunState(State.Cooking);
+                break;
+            case 1:
+                RunState(State.Ingredients);
+                break;
+            case 2:
+                RunState(State.Deliverying);
+                break;
+            case 3:
+                RunState(State.Oven);
+                break;
+            case 4:
+                RunState(State.Fridge);
+                break;
 
-            switch (value)
-            {
-                case 0:
-                    RunState(State.Cooking);
-                    break;
-                case 1:
-                    RunState(State.Ingredients);
-                    break;
-                case 2:
-                    RunState(State.Deliverying);
-                    break;
-                case 3:
-                    RunState(State.Oven);
-                    break;
-                case 4:
-                    RunState(State.Fridge);
-                    break;
-
-            }
         }
 
         if(previousState == currentState)
         {
-            //Debug.Log("Same State");
+            Debug.Log("Same State");
+            //Best be careful with recursive functions
+            ChangeState();
         }
 
 
@@ -181,6 +173,7 @@ public class DaughterLogic : MonoBehaviour
         if (fearValue >= 100)
         {
             Debug.Log("Fear Too High!");
+            
             FindObjectOfType<PlayerUI>().Lose();
         }
     }

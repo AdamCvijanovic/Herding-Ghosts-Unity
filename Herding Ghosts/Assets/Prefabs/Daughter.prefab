@@ -226,7 +226,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &1858119509
 MonoBehaviour:
@@ -378,14 +378,17 @@ MonoBehaviour:
   thoughtBubble: {fileID: 1387947725925816443}
   currentDestination: {fileID: 0}
   distance: 0
-  minDist: 0.2
+  minDist: 0.8
   cauldron: {fileID: 0}
   barrel: {fileID: 0}
   basement: {fileID: 0}
+  oven: {fileID: 0}
+  fridge: {fileID: 0}
   maxFear: 100
   fearValue: 0
   fearPercentage: 0
   tasksCompleted: 0
+  numTasksToComplete: 25
 --- !u!114 &272607983429083001
 MonoBehaviour:
   m_ObjectHideFlags: 0

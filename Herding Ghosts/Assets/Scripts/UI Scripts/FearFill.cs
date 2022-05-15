@@ -14,7 +14,7 @@ public class FearFill : MonoBehaviour
     public Sprite portrait1;
     public Sprite portrait2;
     public Sprite portrait3;
-    public GameObject _loseMenu;
+    public PlayerUI _playerUI;
 
     public DaughterLogic _daughter;
 
@@ -22,6 +22,7 @@ public class FearFill : MonoBehaviour
     void Start()
     {
         _daughter = FindObjectOfType<DaughterLogic>();
+        _playerUI = FindObjectOfType<PlayerUI>();
     }
 
     // Update is called once per frame
@@ -46,8 +47,7 @@ public class FearFill : MonoBehaviour
                 portrait.sprite = portrait3;
                 break;
             case >= 1.0f:
-                _loseMenu.SetActive(true);
-                Time.timeScale = 0f;
+                //_playerUI.Lose();
                 break;
         }
 
