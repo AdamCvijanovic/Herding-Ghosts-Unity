@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DaughterLogic : MonoBehaviour
 {
-    public enum State {Cooking, Ingredients, Deliverying, Oven, Fridge };
+    public enum State {Cooking, Ingredients, Deliverying, Oven, Fridge, Stunned};
     public State previousState;
     public State currentState;
 
@@ -36,6 +36,10 @@ public class DaughterLogic : MonoBehaviour
 
     public int tasksCompleted;
     public int numTasksToComplete;
+
+
+    private float stunTimer;
+    private float stunTime;
 
 
     // Start is called before the first frame update
@@ -73,6 +77,13 @@ public class DaughterLogic : MonoBehaviour
             Debug.Log("Tasks Complete!");
             FindObjectOfType<PlayerUI>().Win();
         }
+    }
+
+    private void FixedUpdate()
+    {
+
+        StunTimer();
+
     }
 
     public void Animate()
@@ -157,6 +168,9 @@ public class DaughterLogic : MonoBehaviour
             case State.Fridge:
                 FindFridge();
                 break;
+            case State.Stunned:
+                Stun();
+                break;
         }
 
         _navigator.SetDestination(currentDestination.transform);
@@ -166,16 +180,33 @@ public class DaughterLogic : MonoBehaviour
 
     public void IncreaseFear()
     {
-        Debug.Log("I am scared");
-        fearValue+=5;
-
-        //Death Check
-        if (fearValue >= 100)
+        if(currentState != State.Stunned)
         {
-            Debug.Log("Fear Too High!");
-            
-            FindObjectOfType<PlayerUI>().Lose();
+            Debug.Log("I am scared");
+            fearValue += 1;
+
+            RunState(State.Stunned);
+
+            //Death Check
+            if (fearValue >= 100)
+            {
+                Debug.Log("Fear Too High!");
+
+                FindObjectOfType<PlayerUI>().Lose();
+            }
         }
+
+        
+    }
+
+    private void Stun()
+    {
+        StunTimer();
+    }
+
+    private void StunTimer()
+    {
+
     }
 
     private void FindCauldron()
