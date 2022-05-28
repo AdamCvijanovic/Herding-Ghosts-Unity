@@ -37,6 +37,8 @@ public class DaughterLogic : MonoBehaviour
     public int tasksCompleted;
     public int numTasksToComplete;
 
+    public GameObject controlUI;
+
 
     private float stunTimer;
     private float stunTime;
@@ -76,6 +78,7 @@ public class DaughterLogic : MonoBehaviour
         {
             Debug.Log("Tasks Complete!");
             FindObjectOfType<PlayerUI>().Win();
+            controlUI.SetActive(false);
         }
     }
 
