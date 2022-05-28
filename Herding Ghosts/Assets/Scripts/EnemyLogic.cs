@@ -142,6 +142,7 @@ public class EnemyLogic : MonoBehaviour
 
         int value = Random.Range(0, 3);
 
+
         //if(previousState == currentState)
         {
             switch (value)
@@ -164,6 +165,7 @@ public class EnemyLogic : MonoBehaviour
         }
 
 
+        RunState(State.Daughter);
 
         //_navigator.SetDestination(currentDestination.transform);
 
@@ -259,7 +261,6 @@ public class EnemyLogic : MonoBehaviour
 
         if (_currhealth <= 0)
         {
-            
             BanishGhost();
         }
     }

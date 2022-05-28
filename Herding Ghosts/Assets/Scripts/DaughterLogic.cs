@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DaughterLogic : MonoBehaviour
 {
-    public enum State {Cooking, Ingredients, Deliverying, Oven, Fridge };
+    public enum State {Cooking, Ingredients, Deliverying, Oven, Fridge, Stunned};
     public State previousState;
     public State currentState;
 
@@ -40,6 +40,10 @@ public class DaughterLogic : MonoBehaviour
     public GameObject controlUI;
 
 
+    private float stunTimer;
+    private float stunTime;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,11 +65,10 @@ public class DaughterLogic : MonoBehaviour
     {
         Animate();
 
-
         if (CheckDistance())
         {
             ChangeState();
-            //Task COmpletion should really be it's own function or even an event
+            //Task Completion should really be it's own function or even an event
             tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
@@ -77,15 +80,17 @@ public class DaughterLogic : MonoBehaviour
             FindObjectOfType<PlayerUI>().Win();
             controlUI.SetActive(false);
         }
+    }
 
+    private void FixedUpdate()
+    {
 
-        
+        StunTimer();
 
     }
 
     public void Animate()
     {
-        
         _anim.SetFloat("VelocityX", _navigator.agent.desiredVelocity.x);
         _anim.SetFloat("VelocityY", _navigator.agent.desiredVelocity.y);
     }
@@ -109,33 +114,31 @@ public class DaughterLogic : MonoBehaviour
 
         int value = Random.Range(0, 5);
 
-        //if(previousState == currentState)
+        switch (value)
         {
+            case 0:
+                RunState(State.Cooking);
+                break;
+            case 1:
+                RunState(State.Ingredients);
+                break;
+            case 2:
+                RunState(State.Deliverying);
+                break;
+            case 3:
+                RunState(State.Oven);
+                break;
+            case 4:
+                RunState(State.Fridge);
+                break;
 
-            switch (value)
-            {
-                case 0:
-                    RunState(State.Cooking);
-                    break;
-                case 1:
-                    RunState(State.Ingredients);
-                    break;
-                case 2:
-                    RunState(State.Deliverying);
-                    break;
-                case 3:
-                    RunState(State.Oven);
-                    break;
-                case 4:
-                    RunState(State.Fridge);
-                    break;
-
-            }
         }
 
         if(previousState == currentState)
         {
-            //Debug.Log("Same State");
+            Debug.Log("Same State");
+            //Best be careful with recursive functions
+            ChangeState();
         }
 
 
@@ -168,6 +171,9 @@ public class DaughterLogic : MonoBehaviour
             case State.Fridge:
                 FindFridge();
                 break;
+            case State.Stunned:
+                Stun();
+                break;
         }
 
         _navigator.SetDestination(currentDestination.transform);
@@ -177,15 +183,33 @@ public class DaughterLogic : MonoBehaviour
 
     public void IncreaseFear()
     {
-        Debug.Log("I am scared");
-        fearValue+=5;
-
-        //Death Check
-        if (fearValue >= 100)
+        if(currentState != State.Stunned)
         {
-            Debug.Log("Fear Too High!");
-            FindObjectOfType<PlayerUI>().Lose();
+            Debug.Log("I am scared");
+            fearValue += 1;
+
+            RunState(State.Stunned);
+
+            //Death Check
+            if (fearValue >= 100)
+            {
+                Debug.Log("Fear Too High!");
+
+                FindObjectOfType<PlayerUI>().Lose();
+            }
         }
+
+        
+    }
+
+    private void Stun()
+    {
+        StunTimer();
+    }
+
+    private void StunTimer()
+    {
+
     }
 
     private void FindCauldron()
