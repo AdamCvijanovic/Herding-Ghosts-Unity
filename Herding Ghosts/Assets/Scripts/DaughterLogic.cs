@@ -37,6 +37,8 @@ public class DaughterLogic : MonoBehaviour
     public int tasksCompleted;
     public int numTasksToComplete;
 
+    public GameObject controlUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,10 +71,11 @@ public class DaughterLogic : MonoBehaviour
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
         }
 
-        if(tasksCompleted > numTasksToComplete)
+        if(tasksCompleted >= numTasksToComplete)
         {
             Debug.Log("Tasks Complete!");
             FindObjectOfType<PlayerUI>().Win();
+            controlUI.SetActive(false);
         }
 
 
