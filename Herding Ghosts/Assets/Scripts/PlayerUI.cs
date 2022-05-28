@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     public TutorialText tutorialTextPanel;
     public WinTextUI winTextPanel;
 
+    public bool hasLost;
 
     // Start is called before the first frame update
     void Start()
@@ -50,19 +51,23 @@ public class PlayerUI : MonoBehaviour
     {
         Debug.Log("Lose?");
 
-        isPaused = !isPaused;
-
-        if (isPaused)
+        if (!hasLost)
         {
-            pauseMenu.gameObject.SetActive(true);
-            pauseMenu.Lose();
-        }
-        else
-        {
-            pauseMenu.gameObject.SetActive(false);
-            pauseMenu.Resume();
-        }
+            isPaused = !isPaused;
 
+            if (isPaused)
+            {
+                pauseMenu.gameObject.SetActive(true);
+                pauseMenu.Lose();
+            }
+            else
+            {
+                pauseMenu.gameObject.SetActive(false);
+                pauseMenu.Resume();
+            }
+
+            hasLost = true;
+        }
     }
 
     public void Win()
@@ -76,8 +81,6 @@ public class PlayerUI : MonoBehaviour
             pauseMenu.gameObject.SetActive(true);
             pauseMenu.Win();
         }
-        
-
     }
 
     public void UpdateTutorialTextPickup(string text)

@@ -81,9 +81,9 @@ public class BroomItem : Item
     private void PushObject(GameObject broomObj)
     {
 
-        Vector2 dir = (transform.position - broomObj.transform.position).normalized;
+        Vector2 dir = (broomObj.transform.position - transform.position).normalized;
 
-        broomObj.gameObject.GetComponent<Rigidbody2D>().AddForce((transform.right * pushForce), ForceMode2D.Force);
+        broomObj.gameObject.GetComponent<Rigidbody2D>().AddForce((dir * pushForce), ForceMode2D.Force);
     }
 
 }
