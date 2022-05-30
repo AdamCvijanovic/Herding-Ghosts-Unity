@@ -38,8 +38,9 @@ public class DaughterLogic : MonoBehaviour
     public int numTasksToComplete;
 
 
-    private float stunTimer;
-    private float stunTime;
+    public float stunTime;
+    public float graceTime;
+    public bool invulnerable;
 
 
     // Start is called before the first frame update
@@ -82,7 +83,6 @@ public class DaughterLogic : MonoBehaviour
     private void FixedUpdate()
     {
 
-        StunTimer();
 
     }
 
@@ -199,13 +199,22 @@ public class DaughterLogic : MonoBehaviour
         
     }
 
+    private void SwapInvulnerability()
+    {
+
+    }
+
     private void Stun()
     {
-        StunTimer();
+        _navigator.StopNavigation();
+        Invoke("StunTimer", 2.0f);
     }
 
     private void StunTimer()
     {
+        Debug.Log("STUN TIMER");
+
+        ChangeState();
 
     }
 

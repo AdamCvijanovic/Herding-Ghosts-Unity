@@ -107,6 +107,7 @@ public class EnemyLogic : MonoBehaviour
         {
             if (currentState == State.Daughter)
             {
+                if(!daughter.GetComponent<DaughterLogic>().invulnerable)
                 //Debug.Log("Get Scared");
                 currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
             }
