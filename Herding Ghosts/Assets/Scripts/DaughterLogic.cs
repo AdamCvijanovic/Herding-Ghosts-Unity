@@ -201,20 +201,24 @@ public class DaughterLogic : MonoBehaviour
 
     private void SwapInvulnerability()
     {
-
+        invulnerable = !invulnerable;
     }
 
     private void Stun()
     {
+        SwapInvulnerability();
         _navigator.StopNavigation();
-        Invoke("StunTimer", 2.0f);
+
+        Invoke("StunTimer", stunTime);
+
     }
 
     private void StunTimer()
     {
-        Debug.Log("STUN TIMER");
-
+        _navigator.StartNavigation();
         ChangeState();
+        Invoke("SwapInvulnerability", graceTime);
+
 
     }
 
