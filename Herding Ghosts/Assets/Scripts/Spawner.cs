@@ -20,6 +20,8 @@ public class Spawner : MonoBehaviour
         _enemyMngr = FindObjectOfType<EnemyManager>();
 
         countdown = _spawnTime;
+
+        
     }
 
     // Update is called once per frame

@@ -1785,7 +1785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7333399054690047502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2350,6 +2350,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 490643589170813755}
   tutorialTextPanel: {fileID: 2797222512940386148}
   winTextPanel: {fileID: 855561155}
+  hasLost: 0
 --- !u!1 &6633099504858638434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,6 +3356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6544090748486202626}
     m_Modifications:
+    - target: {fileID: 4038299237923914368, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
+      propertyPath: _loseMenu
+      value: 
+      objectReference: {fileID: 8101695457324006580}
     - target: {fileID: 5421080842988268201, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
       propertyPath: m_Pivot.x
       value: 0
