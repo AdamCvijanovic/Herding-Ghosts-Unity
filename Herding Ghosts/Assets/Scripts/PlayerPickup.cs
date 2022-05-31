@@ -26,7 +26,7 @@ public class PlayerPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTutorialText();
+        //UpdateTutorialText();
     }
 
     public void PickupDropAction(InputAction.CallbackContext context)
@@ -132,26 +132,26 @@ public class PlayerPickup : MonoBehaviour
         return nearestItem;
     }
 
-    public void UpdateTutorialText()
-    {
-        if (!_isHolding && _nearbyItems.Count > 0)
-        {
-            Item nearest = GetNearestItem();
+    // public void UpdateTutorialText()
+    // {
+    //     if (!_isHolding && _nearbyItems.Count > 0)
+    //     {
+    //         Item nearest = GetNearestItem();
 
 
-            _player.playerUI.UpdateTutorialTextPickup(nearest.name);
+    //         _player.playerUI.UpdateTutorialTextPickup(nearest.name);
             
-        }
-        else
-        {
-            _player.playerUI.UpdateTutorialTextPickup(" ");
-        }
+    //     }
+    //     else
+    //     {
+    //         _player.playerUI.UpdateTutorialTextPickup(" ");
+    //     }
 
-        if (_isHolding)
-        {
-            _player.playerUI.UpdateTutorialTextUse(_currentItem.GetType().ToString());
-        }
-    }
+    //     if (_isHolding)
+    //     {
+    //         _player.playerUI.UpdateTutorialTextUse(_currentItem.GetType().ToString());
+    //     }
+    // }
 
     //Getters & Setters
 

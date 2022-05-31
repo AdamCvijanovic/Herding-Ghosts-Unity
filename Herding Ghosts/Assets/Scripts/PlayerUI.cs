@@ -30,7 +30,6 @@ public class PlayerUI : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("PAUSE?");
 
         isPaused = !isPaused;
 
@@ -49,7 +48,6 @@ public class PlayerUI : MonoBehaviour
 
     public void Lose()
     {
-        Debug.Log("Lose?");
 
         if (!hasLost)
         {
