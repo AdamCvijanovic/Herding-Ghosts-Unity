@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
             pauseMenuTextGO.SetActive(true);
             Time.timeScale = 0f;
             pausedState = true;
+            // if(tutorialMenu == false){}
         }   
     }
 
