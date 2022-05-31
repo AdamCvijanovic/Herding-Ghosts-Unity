@@ -103,12 +103,19 @@ public class EnemyLogic : MonoBehaviour
             _navigator.SetDestination(currentDestination.transform);
         }
 
+
+        //Move this
         if (CheckDistance())
         {
             if (currentState == State.Daughter)
             {
-                //Debug.Log("Get Scared");
-                currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                if (!daughter.GetComponent<DaughterLogic>().invulnerable)
+                {
+                    currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                    BanishGhost();
+
+                }
+
             }
 
             ChangeState();

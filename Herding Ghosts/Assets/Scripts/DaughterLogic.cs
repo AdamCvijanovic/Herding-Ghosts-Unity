@@ -40,8 +40,9 @@ public class DaughterLogic : MonoBehaviour
     public GameObject controlUI;
 
 
-    private float stunTimer;
-    private float stunTime;
+    public float stunTime;
+    public float graceTime;
+    public bool invulnerable;
 
 
     // Start is called before the first frame update
@@ -85,7 +86,6 @@ public class DaughterLogic : MonoBehaviour
     private void FixedUpdate()
     {
 
-        StunTimer();
 
     }
 
@@ -202,13 +202,26 @@ public class DaughterLogic : MonoBehaviour
         
     }
 
+    private void SwapInvulnerability()
+    {
+        invulnerable = !invulnerable;
+    }
+
     private void Stun()
     {
-        StunTimer();
+        SwapInvulnerability();
+        _navigator.StopNavigation();
+
+        Invoke("StunTimer", stunTime);
+
     }
 
     private void StunTimer()
     {
+        _navigator.StartNavigation();
+        ChangeState();
+        Invoke("SwapInvulnerability", graceTime);
+
 
     }
 
