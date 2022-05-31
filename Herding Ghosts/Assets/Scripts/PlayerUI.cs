@@ -70,7 +70,7 @@ public class PlayerUI : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("Win?");
+        //Debug.Log("Win?");
 
         isPaused = true;
 

@@ -15,8 +15,8 @@ public class FearFill : MonoBehaviour
     public Sprite portrait2;
     public Sprite portrait3;
     public GameObject _loseMenu;
-    //public GameObject _UIBaseElements;
-    //public GameObject _controlUI;
+    public GameObject _UIBaseElements;
+    public GameObject _controlUI;
 
     public DaughterLogic _daughter;
 
@@ -49,9 +49,9 @@ public class FearFill : MonoBehaviour
                 break;
             case >= 1.0f:
                 //_UIBaseElements.SetActive(true);
-                _loseMenu.SetActive(true);
+                //_loseMenu.SetActive(true);
                 //_controlUI.SetActive(false);
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 break;
         }
 

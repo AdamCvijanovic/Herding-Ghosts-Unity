@@ -73,14 +73,15 @@ public class DaughterLogic : MonoBehaviour
             tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
+
+            if(tasksCompleted == numTasksToComplete)
+            {
+            FindObjectOfType<PlayerUI>().Win();
+            //controlUI.SetActive(false);
+            }
         }
 
-        if(tasksCompleted >= numTasksToComplete)
-        {
-            Debug.Log("Tasks Complete!");
-            FindObjectOfType<PlayerUI>().Win();
-            controlUI.SetActive(false);
-        }
+        
     }
 
     private void FixedUpdate()
@@ -114,44 +115,49 @@ public class DaughterLogic : MonoBehaviour
 
         int value = Random.Range(0, 5);
 
+        State newState = new State();
+
+       
         switch (value)
         {
             case 0:
-                RunState(State.Cooking);
+                newState = State.Cooking;
                 break;
             case 1:
-                RunState(State.Ingredients);
+                newState = State.Ingredients;
                 break;
             case 2:
-                RunState(State.Deliverying);
+                newState = State.Deliverying;
                 break;
             case 3:
-                RunState(State.Oven);
+                newState = State.Oven;
                 break;
             case 4:
-                RunState(State.Fridge);
+                newState = State.Fridge;
                 break;
 
         }
+        
 
-        if(previousState == currentState)
+        if(newState == currentState)
         {
             Debug.Log("Same State");
             //Best be careful with recursive functions
             ChangeState();
         }
-
-
-
-        _navigator.SetDestination(currentDestination.transform);
-
-
+        else
+        {
+            RunState(newState);
+            _navigator.SetDestination(currentDestination.transform);
+        }
     }
 
     private void RunState(State state)
     {
-
-        previousState = currentState;
+        if(state != State.Stunned)
+        {
+            previousState = currentState;
+        }
         currentState = state;
 
         switch (currentState)
@@ -183,22 +189,22 @@ public class DaughterLogic : MonoBehaviour
 
     public void IncreaseFear()
     {
-        if(currentState != State.Stunned)
+        if(!invulnerable)
         {
-            Debug.Log("I am scared");
-            fearValue += 1;
-
-            RunState(State.Stunned);
-
-            //Death Check
-            if (fearValue >= 100)
+            invulnerable = true;
+            if(currentState != State.Stunned)
             {
-                Debug.Log("Fear Too High!");
+                fearValue += 1;
 
-                FindObjectOfType<PlayerUI>().Lose();
+                //RunState(State.Stunned);
+                Stun();
+                //Death Check
+                if (fearValue >= 100)
+                {
+                    FindObjectOfType<PlayerUI>().Lose();
+                }
             }
         }
-
         
     }
 
@@ -209,18 +215,18 @@ public class DaughterLogic : MonoBehaviour
 
     private void Stun()
     {
-        SwapInvulnerability();
+        //SwapInvulnerability();
         _navigator.StopNavigation();
-
         Invoke("StunTimer", stunTime);
-
+        Invoke("SwapInvulnerability", graceTime);
     }
 
     private void StunTimer()
     {
         _navigator.StartNavigation();
-        ChangeState();
-        Invoke("SwapInvulnerability", graceTime);
+        
+        //ChangeState();
+        //SwapInvulnerability();
 
 
     }
