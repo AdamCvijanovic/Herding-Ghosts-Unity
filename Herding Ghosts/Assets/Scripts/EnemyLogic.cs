@@ -109,13 +109,8 @@ public class EnemyLogic : MonoBehaviour
         {
             if (currentState == State.Daughter)
             {
-                if (!daughter.GetComponent<DaughterLogic>().invulnerable)
-                {
-                    currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
-                    BanishGhost();
-
-                }
-
+                currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                BanishGhost();
             }
 
             ChangeState();
@@ -278,7 +273,6 @@ public class EnemyLogic : MonoBehaviour
         
         if(alive == true)
         {
-            Debug.Log("Am Bamished");
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
             _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
             Destroy(this.gameObject, .2f);

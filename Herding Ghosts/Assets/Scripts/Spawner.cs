@@ -9,6 +9,8 @@ public class Spawner : MonoBehaviour
 
     public List<GameObject> enemyPrefabs;
 
+
+    public Transform _spawnPosition;
     public float _spawnTime;
     public float countdown;
 
@@ -21,7 +23,8 @@ public class Spawner : MonoBehaviour
 
         countdown = _spawnTime;
 
-        
+
+
     }
 
     // Update is called once per frame
@@ -66,8 +69,18 @@ public class Spawner : MonoBehaviour
 
     public void SpawnEnemy(GameObject enemyPrefab)
     {
-        GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-        _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
+        if(_spawnPosition != null)
+        {
+            GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity);
+            _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
+
+        }
+        else
+        {
+            GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+            _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
+
+        }
 
     }
 
