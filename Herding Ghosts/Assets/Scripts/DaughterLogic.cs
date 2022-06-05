@@ -12,34 +12,40 @@ public class DaughterLogic : MonoBehaviour
     private Animator _anim;
     public AINavigation _navigator;
 
-    public ThoughtBubble thoughtBubble;
+    public ThoughtBubble _thoughtBubble;
 
-    public GameObject currentDestination;
+    public GameObject _currentDestination;
+    public ParticleSystem _particles;
 
 
-    public float distance;
-    public float minDist;
+
+    public float _distance;
+    public float _minDist;
 
     [Header("Destinations")]
-    public GameObject cauldron;
-    public GameObject barrel;
-    public GameObject basement;
-    public GameObject oven;
-    public GameObject fridge;
+    public GameObject _cauldron;
+    public GameObject _barrel;
+    public GameObject _basement;
+    public GameObject _oven;
+    public GameObject _fridge;
 
 
-    public float maxFear = 100f;
+    public float _maxFear = 100f;
 
     [Range(0, 100)]
-    public float fearValue;
-    public float fearPercentage;
+    public float _fearValue;
+    public float _fearPercentage;
 
-    public int tasksCompleted;
-    public int numTasksToComplete;
+    public float _damage = 5f;
 
+    public int _tasksCompleted;
+    public int _numTasksToComplete;
 
-    private float stunTimer;
-    private float stunTime;
+    public GameObject _controlUI;
+
+    public float _stunTime;
+    public float _graceTime;
+    public bool _invulnerable;
 
 
     // Start is called before the first frame update
@@ -50,9 +56,9 @@ public class DaughterLogic : MonoBehaviour
 
 
         //DEstinaation Fill
-        if (oven == null)
+        if (_oven == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
-        if (fridge == null)
+        if (_fridge == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
 
         ChangeState();
@@ -67,22 +73,23 @@ public class DaughterLogic : MonoBehaviour
         {
             ChangeState();
             //Task Completion should really be it's own function or even an event
-            tasksCompleted++;
+            _tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
+
+            if(_tasksCompleted == _numTasksToComplete)
+            {
+            FindObjectOfType<PlayerUI>().Win();
+            //controlUI.SetActive(false);
+            }
         }
 
-        if(tasksCompleted >= numTasksToComplete)
-        {
-            Debug.Log("Tasks Complete!");
-            FindObjectOfType<PlayerUI>().Win();
-        }
+        
     }
 
     private void FixedUpdate()
     {
 
-        StunTimer();
 
     }
 
@@ -96,8 +103,8 @@ public class DaughterLogic : MonoBehaviour
     {
         bool reachedDest = false;
         
-        distance = Vector3.Distance(transform.position, currentDestination.transform.position);
-        if (Vector3.Distance(transform.position, currentDestination.transform.position) < minDist)
+        _distance = Vector3.Distance(transform.position, _currentDestination.transform.position);
+        if (Vector3.Distance(transform.position, _currentDestination.transform.position) < _minDist)
         {
             reachedDest = true;
         }
@@ -111,44 +118,49 @@ public class DaughterLogic : MonoBehaviour
 
         int value = Random.Range(0, 5);
 
+        State newState = new State();
+
+       
         switch (value)
         {
             case 0:
-                RunState(State.Cooking);
+                newState = State.Cooking;
                 break;
             case 1:
-                RunState(State.Ingredients);
+                newState = State.Ingredients;
                 break;
             case 2:
-                RunState(State.Deliverying);
+                newState = State.Deliverying;
                 break;
             case 3:
-                RunState(State.Oven);
+                newState = State.Oven;
                 break;
             case 4:
-                RunState(State.Fridge);
+                newState = State.Fridge;
                 break;
 
         }
+        
 
-        if(previousState == currentState)
+        if(newState == currentState)
         {
             Debug.Log("Same State");
             //Best be careful with recursive functions
             ChangeState();
         }
-
-
-
-        _navigator.SetDestination(currentDestination.transform);
-
-
+        else
+        {
+            RunState(newState);
+            _navigator.SetDestination(_currentDestination.transform);
+        }
     }
 
     private void RunState(State state)
     {
-
-        previousState = currentState;
+        if(state != State.Stunned)
+        {
+            previousState = currentState;
+        }
         currentState = state;
 
         switch (currentState)
@@ -173,80 +185,95 @@ public class DaughterLogic : MonoBehaviour
                 break;
         }
 
-        _navigator.SetDestination(currentDestination.transform);
-        if(currentDestination != null)
-            thoughtBubble.ChangeImage(currentDestination);
+        _navigator.SetDestination(_currentDestination.transform);
+        if(_currentDestination != null)
+            _thoughtBubble.ChangeImage(_currentDestination);
     }
 
     public void IncreaseFear()
     {
-        if(currentState != State.Stunned)
+        if(!_invulnerable)
         {
-            Debug.Log("I am scared");
-            fearValue += 1;
-
-            RunState(State.Stunned);
-
-            //Death Check
-            if (fearValue >= 100)
+            _invulnerable = true;
+            if(currentState != State.Stunned)
             {
-                Debug.Log("Fear Too High!");
+                _fearValue += _damage;
 
-                FindObjectOfType<PlayerUI>().Lose();
+                //RunState(State.Stunned);
+                Stun();
+                //Death Check
+                if (_fearValue >= 100)
+                {
+                    FindObjectOfType<PlayerUI>().Lose();
+                }
             }
         }
-
         
+    }
+
+    private void SwapInvulnerability()
+    {
+        _invulnerable = !_invulnerable;
     }
 
     private void Stun()
     {
-        StunTimer();
+        //SwapInvulnerability();
+        _navigator.StopNavigation();
+        _particles.Play();
+        Invoke("StunTimer", _stunTime);
+        Invoke("SwapInvulnerability", _graceTime);
     }
 
     private void StunTimer()
     {
+        _navigator.StartNavigation();
+        _particles.Clear();
+        _particles.Pause();
+        //ChangeState();
+        //SwapInvulnerability();
+
 
     }
 
     private void FindCauldron()
     {
-        currentDestination = cauldron;
+        _currentDestination = _cauldron;
     }
 
     private void FindBarrel()
     {
-        currentDestination = barrel;
+        _currentDestination = _barrel;
     }
 
     private void FindBasement()
     {
-        currentDestination = basement;
+        _currentDestination = _basement;
     }
 
     private void FindOven()
     {
-        if(oven == null)
+        if(_oven == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
 
 
-        currentDestination = oven;
+        _currentDestination = _oven;
 
 
     }
 
     private void FindFridge()
     {
-        if (fridge == null)
+        if (_fridge == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
 
 
-        currentDestination = fridge;
+        _currentDestination = _fridge;
     }
 
     public float FearPercentage()
     {
-        fearPercentage = fearValue / maxFear;
-        return (fearPercentage);
+        _fearPercentage = _fearValue / _maxFear;
+        return (_fearPercentage);
     }
 }

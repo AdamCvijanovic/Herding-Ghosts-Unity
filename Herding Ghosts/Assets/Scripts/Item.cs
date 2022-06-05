@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public GameObject parentObj;
     public Item subclass;
 
+    public TutorialText helpText;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class Item : MonoBehaviour
     //This also needs to be an event
     public void OnDrop()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
@@ -67,7 +69,32 @@ public class Item : MonoBehaviour
         }
     }
 
-  
+
+    public void UpdateHelpTextPickup()
+    {
+        helpText.UpdateTextPickup("Item");
+    }
+
+    public void DisableHelpTextPickup()
+    {
+        helpText.DisableText();
+    }
+
+    public void UpdateHelpTextUse()
+    {
+        helpText.UpdateTextUse("");
+        FadeOutTextAfterTime();
+    }
+
+    public void DisableHelpTextUse()
+    {
+        helpText.DisableText();
+    }
+
+    public void FadeOutTextAfterTime()
+    {
+        Invoke("DisableHelpTextUse", 1.2f);
+    }
 
 
 

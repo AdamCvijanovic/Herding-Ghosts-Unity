@@ -46,6 +46,7 @@ public class EnemyManager : MonoBehaviour
     public void AddEnemy(Enemy enemy)
     {
         enemies.Add(enemy);
+         
     }
 
     public void RemoveEnemy(Enemy enemy)

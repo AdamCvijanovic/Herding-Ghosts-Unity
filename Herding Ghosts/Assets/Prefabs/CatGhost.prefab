@@ -576,12 +576,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -122387271, guid: aafcd7dbf45e169418d65891935c444e, type: 3}
+  m_Sprite: {fileID: 1876021437, guid: d1649216568697741809b17564ad860d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 0.6666667, y: 0.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -619,7 +619,6 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   distance: 0
   minDist: 1
-  player: {fileID: 0}
   daughter: {fileID: 0}
   cauldron: {fileID: 0}
   basement: {fileID: 0}
@@ -627,7 +626,7 @@ MonoBehaviour:
   _currhealth: 100
   alive: 1
   _stunTime: 1
-  _banishFXPrefab: {fileID: 5580571190702601060, guid: d8ed52f2349c45a42b7cee2b49632965, type: 3}
+  _banishFXPrefab: {fileID: 8860349572874038794, guid: e04c0c6fd2b7677439474291add15aaa, type: 3}
 --- !u!114 &9110286895678964440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +648,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9110286895678964446}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.1
   m_Speed: 1
   m_Acceleration: 8
@@ -681,7 +680,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.6666667, y: 0.6666667}
-    newSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.6666667, y: 0.6666667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

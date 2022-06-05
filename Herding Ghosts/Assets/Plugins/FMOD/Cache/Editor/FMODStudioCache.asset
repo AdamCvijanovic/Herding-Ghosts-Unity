@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8771585586261138214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BroomSwipe
+  m_EditorClassIdentifier: 
+  Path: event:/BroomSwipe
+  Guid:
+    Data1: -17239220
+    Data2: 1304577804
+    Data3: -624075374
+    Data4: -259295642
+  Banks:
+  - {fileID: 5493200247293988379}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &-3268688251665353353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoMenuClick
+  m_EditorClassIdentifier: 
+  Path: event:/PianoMenuClick
+  Guid:
+    Data1: -1505471498
+    Data2: 1316405199
+    Data3: -2123090559
+    Data4: -1315799482
+  Banks:
+  - {fileID: 5493200247293988379}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-1051364751525156736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,12 +99,16 @@ MonoBehaviour:
   - {fileID: 5493200247293988379}
   EditorEvents:
   - {fileID: -1051364751525156736}
+  - {fileID: -8771585586261138214}
+  - {fileID: 4516426165629902671}
+  - {fileID: 4905380887898271836}
+  - {fileID: -3268688251665353353}
   EditorParameters: []
   MasterBanks:
   - {fileID: 134670157265388788}
   StringsBanks:
   - {fileID: 2380887785565191657}
-  cacheTime: 637897839317268277
+  cacheTime: 637900486077058378
   cacheVersion: 10
 --- !u!114 &134670157265388788
 MonoBehaviour:
@@ -67,7 +125,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637897839317263254
+  lastModified: 637878975984864676
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -87,11 +145,65 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637897839317263254
+  lastModified: 637900486077018365
   FileSizes:
   - Name: Desktop
-    Value: 806
+    Value: 1004
   Exists: 1
+--- !u!114 &4516426165629902671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PotLidOff
+  m_EditorClassIdentifier: 
+  Path: event:/PotLidOff
+  Guid:
+    Data1: 2091298686
+    Data2: 1297034067
+    Data3: -1221408579
+    Data4: -890222063
+  Banks:
+  - {fileID: 5493200247293988379}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 404
+--- !u!114 &4905380887898271836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGMusic
+  m_EditorClassIdentifier: 
+  Path: event:/BGMusic
+  Guid:
+    Data1: 1714357424
+    Data2: 1236672886
+    Data3: -1979507285
+    Data4: -242805168
+  Banks:
+  - {fileID: 5493200247293988379}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 42000
 --- !u!114 &5493200247293988379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,8 +219,8 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/MenuClick.bank
   Name: MenuClick
   StudioPath: bank:/MenuClick
-  lastModified: 637897839317268277
+  lastModified: 637900486077058378
   FileSizes:
   - Name: Desktop
-    Value: 11520
+    Value: 782208
   Exists: 1

@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedDestroy : MonoBehaviour
+public class SaltTile : MonoBehaviour
 {
 
     public float timer = 10.0f;
+
+    public SaltItem saltItem;
 
     // Start is called before the first frame update
     void Start()
@@ -17,5 +19,10 @@ public class TimedDestroy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Timer()
+    {
+
     }
 }

@@ -10,7 +10,6 @@ public class PlayerUI : MonoBehaviour
     public PauseMenu pauseMenu;
     //public GameObject pauseMenu;
 
-    public TutorialText tutorialTextPanel;
     public WinTextUI winTextPanel;
 
     public bool hasLost;
@@ -30,7 +29,6 @@ public class PlayerUI : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("PAUSE?");
 
         isPaused = !isPaused;
 
@@ -49,7 +47,6 @@ public class PlayerUI : MonoBehaviour
 
     public void Lose()
     {
-        Debug.Log("Lose?");
 
         if (!hasLost)
         {
@@ -72,7 +69,7 @@ public class PlayerUI : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("Win?");
+        //Debug.Log("Win?");
 
         isPaused = true;
 
@@ -83,15 +80,7 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void UpdateTutorialTextPickup(string text)
-    {
-        tutorialTextPanel.UpdateTextPickup(text);
-    }
-
-    public void UpdateTutorialTextUse(string text)
-    {
-        tutorialTextPanel.UpdateTextUse(text);
-    }
+    
 
     public void UpdateWinText(DaughterLogic daughter)
     {

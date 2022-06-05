@@ -103,12 +103,14 @@ public class EnemyLogic : MonoBehaviour
             _navigator.SetDestination(currentDestination.transform);
         }
 
+
+        //Move this
         if (CheckDistance())
         {
             if (currentState == State.Daughter)
             {
-                //Debug.Log("Get Scared");
                 currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                BanishGhost();
             }
 
             ChangeState();
@@ -271,7 +273,6 @@ public class EnemyLogic : MonoBehaviour
         
         if(alive == true)
         {
-            Debug.Log("Am Bamished");
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
             _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
             Destroy(this.gameObject, .2f);
