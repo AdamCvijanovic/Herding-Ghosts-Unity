@@ -12,37 +12,40 @@ public class DaughterLogic : MonoBehaviour
     private Animator _anim;
     public AINavigation _navigator;
 
-    public ThoughtBubble thoughtBubble;
+    public ThoughtBubble _thoughtBubble;
 
-    public GameObject currentDestination;
+    public GameObject _currentDestination;
+    public ParticleSystem _particles;
 
 
-    public float distance;
-    public float minDist;
+
+    public float _distance;
+    public float _minDist;
 
     [Header("Destinations")]
-    public GameObject cauldron;
-    public GameObject barrel;
-    public GameObject basement;
-    public GameObject oven;
-    public GameObject fridge;
+    public GameObject _cauldron;
+    public GameObject _barrel;
+    public GameObject _basement;
+    public GameObject _oven;
+    public GameObject _fridge;
 
 
-    public float maxFear = 100f;
+    public float _maxFear = 100f;
 
     [Range(0, 100)]
-    public float fearValue;
-    public float fearPercentage;
+    public float _fearValue;
+    public float _fearPercentage;
 
-    public int tasksCompleted;
-    public int numTasksToComplete;
+    public float _damage = 5f;
 
-    public GameObject controlUI;
+    public int _tasksCompleted;
+    public int _numTasksToComplete;
 
+    public GameObject _controlUI;
 
-    public float stunTime;
-    public float graceTime;
-    public bool invulnerable;
+    public float _stunTime;
+    public float _graceTime;
+    public bool _invulnerable;
 
 
     // Start is called before the first frame update
@@ -53,9 +56,9 @@ public class DaughterLogic : MonoBehaviour
 
 
         //DEstinaation Fill
-        if (oven == null)
+        if (_oven == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
-        if (fridge == null)
+        if (_fridge == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
 
         ChangeState();
@@ -70,11 +73,11 @@ public class DaughterLogic : MonoBehaviour
         {
             ChangeState();
             //Task Completion should really be it's own function or even an event
-            tasksCompleted++;
+            _tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
             FindObjectOfType<PlayerUI>().UpdateWinText(this);
 
-            if(tasksCompleted == numTasksToComplete)
+            if(_tasksCompleted == _numTasksToComplete)
             {
             FindObjectOfType<PlayerUI>().Win();
             //controlUI.SetActive(false);
@@ -100,8 +103,8 @@ public class DaughterLogic : MonoBehaviour
     {
         bool reachedDest = false;
         
-        distance = Vector3.Distance(transform.position, currentDestination.transform.position);
-        if (Vector3.Distance(transform.position, currentDestination.transform.position) < minDist)
+        _distance = Vector3.Distance(transform.position, _currentDestination.transform.position);
+        if (Vector3.Distance(transform.position, _currentDestination.transform.position) < _minDist)
         {
             reachedDest = true;
         }
@@ -148,7 +151,7 @@ public class DaughterLogic : MonoBehaviour
         else
         {
             RunState(newState);
-            _navigator.SetDestination(currentDestination.transform);
+            _navigator.SetDestination(_currentDestination.transform);
         }
     }
 
@@ -182,24 +185,24 @@ public class DaughterLogic : MonoBehaviour
                 break;
         }
 
-        _navigator.SetDestination(currentDestination.transform);
-        if(currentDestination != null)
-            thoughtBubble.ChangeImage(currentDestination);
+        _navigator.SetDestination(_currentDestination.transform);
+        if(_currentDestination != null)
+            _thoughtBubble.ChangeImage(_currentDestination);
     }
 
     public void IncreaseFear()
     {
-        if(!invulnerable)
+        if(!_invulnerable)
         {
-            invulnerable = true;
+            _invulnerable = true;
             if(currentState != State.Stunned)
             {
-                fearValue += 1;
+                _fearValue += _damage;
 
                 //RunState(State.Stunned);
                 Stun();
                 //Death Check
-                if (fearValue >= 100)
+                if (_fearValue >= 100)
                 {
                     FindObjectOfType<PlayerUI>().Lose();
                 }
@@ -210,21 +213,23 @@ public class DaughterLogic : MonoBehaviour
 
     private void SwapInvulnerability()
     {
-        invulnerable = !invulnerable;
+        _invulnerable = !_invulnerable;
     }
 
     private void Stun()
     {
         //SwapInvulnerability();
         _navigator.StopNavigation();
-        Invoke("StunTimer", stunTime);
-        Invoke("SwapInvulnerability", graceTime);
+        _particles.Play();
+        Invoke("StunTimer", _stunTime);
+        Invoke("SwapInvulnerability", _graceTime);
     }
 
     private void StunTimer()
     {
         _navigator.StartNavigation();
-        
+        _particles.Clear();
+        _particles.Pause();
         //ChangeState();
         //SwapInvulnerability();
 
@@ -233,42 +238,42 @@ public class DaughterLogic : MonoBehaviour
 
     private void FindCauldron()
     {
-        currentDestination = cauldron;
+        _currentDestination = _cauldron;
     }
 
     private void FindBarrel()
     {
-        currentDestination = barrel;
+        _currentDestination = _barrel;
     }
 
     private void FindBasement()
     {
-        currentDestination = basement;
+        _currentDestination = _basement;
     }
 
     private void FindOven()
     {
-        if(oven == null)
+        if(_oven == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Oven);
 
 
-        currentDestination = oven;
+        _currentDestination = _oven;
 
 
     }
 
     private void FindFridge()
     {
-        if (fridge == null)
+        if (_fridge == null)
             FindObjectOfType<DestinationManager>().GetDestinationOfType(Destination.DestinationType.Fridge);
 
 
-        currentDestination = fridge;
+        _currentDestination = _fridge;
     }
 
     public float FearPercentage()
     {
-        fearPercentage = fearValue / maxFear;
-        return (fearPercentage);
+        _fearPercentage = _fearValue / _maxFear;
+        return (_fearPercentage);
     }
 }
