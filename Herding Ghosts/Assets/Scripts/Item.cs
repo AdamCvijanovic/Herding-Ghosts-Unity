@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public GameObject parentObj;
     public Item subclass;
 
+    public TutorialText helpText;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,21 @@ public class Item : MonoBehaviour
         }
     }
 
-  
+
+    public void UpdateHelpTextPickup(string text)
+    {
+        helpText.UpdateTextPickup(text);
+    }
+
+    public void UpdateHelpTextUse(string text)
+    {
+        helpText.UpdateTextUse(text);
+    }
+
+    public void DisableHelpTextUse(string text)
+    {
+        helpText.UpdateTextUse(text);
+    }
 
 
 

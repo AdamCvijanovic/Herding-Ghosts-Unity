@@ -36,6 +36,8 @@ public class DaughterLogic : MonoBehaviour
     public float _fearValue;
     public float _fearPercentage;
 
+    public float _damage = 5f;
+
     public int _tasksCompleted;
     public int _numTasksToComplete;
 
@@ -195,7 +197,7 @@ public class DaughterLogic : MonoBehaviour
             _invulnerable = true;
             if(currentState != State.Stunned)
             {
-                _fearValue += 1;
+                _fearValue += _damage;
 
                 //RunState(State.Stunned);
                 Stun();
@@ -226,6 +228,7 @@ public class DaughterLogic : MonoBehaviour
     private void StunTimer()
     {
         _navigator.StartNavigation();
+        _particles.Clear();
         _particles.Pause();
         //ChangeState();
         //SwapInvulnerability();
