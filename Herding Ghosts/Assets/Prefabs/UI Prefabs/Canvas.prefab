@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 541746002948586636}
   - component: {fileID: 3526755169328875384}
   - component: {fileID: 3990262448590356594}
+  - component: {fileID: 1047198660}
   m_Layer: 5
   m_Name: MainMenuBTN
   m_TagString: Untagged
@@ -361,6 +362,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1047198660}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1047198660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382005680449562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &207609200781216954
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +552,7 @@ GameObject:
   - component: {fileID: 1083786739947459451}
   - component: {fileID: 8954461041870219762}
   - component: {fileID: 3457548227790827588}
+  - component: {fileID: 1642170926}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -619,7 +663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1037306898}
+      - m_Target: {fileID: 4818369140546565330}
         m_TargetAssemblyTypeName: IngameMenus, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -643,6 +687,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1642170926}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1642170926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582045965528038277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &844537870052751942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,6 +2327,7 @@ GameObject:
   - component: {fileID: 6544090748486202625}
   - component: {fileID: 8689477789280870005}
   - component: {fileID: 1037306898}
+  - component: {fileID: 4818369140546565330}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2349,10 +2436,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   pauseMenu: {fileID: 490643589170813755}
-  tutorialTextPanel: {fileID: 2797222512940386148}
   winTextPanel: {fileID: 855561155}
   hasLost: 0
 --- !u!114 &1037306898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6544090748486202630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ade63cdd8a5c6248b885e927a7bfe4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introductionMenu: {fileID: 3736148852496838303}
+  menuElements: {fileID: 4003900614982333884}
+  pauseMenu: {fileID: 207609200781216954}
+  winMenu: {fileID: 2357761707092447289}
+  loseMenu: {fileID: 8101695457324006580}
+  controlsMenu: {fileID: 1060905599461331805}
+--- !u!114 &4818369140546565330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2382,6 +2486,7 @@ GameObject:
   - component: {fileID: 7442790978527266373}
   - component: {fileID: 2571701598627620364}
   - component: {fileID: 5272270957700043342}
+  - component: {fileID: 1275114073}
   m_Layer: 5
   m_Name: ResumeBTN
   m_TagString: Untagged
@@ -2492,7 +2597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1037306898}
+      - m_Target: {fileID: 4818369140546565330}
         m_TargetAssemblyTypeName: IngameMenus, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -2528,6 +2633,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1275114073}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1275114073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633099504858638434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6874707577878746517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2687,7 @@ GameObject:
   - component: {fileID: 4844651636159383473}
   - component: {fileID: 8800799609238186995}
   - component: {fileID: 3345006104319374631}
+  - component: {fileID: 2128920061}
   m_Layer: 5
   m_Name: ControlsBTN
   m_TagString: Untagged
@@ -2698,6 +2846,48 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2128920061}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &2128920061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874707577878746517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1381486809
+      Data2: 1196457019
+      Data3: -1201380197
+      Data4: 69185386
+    Path: event:/Clicks
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7873451983451713363
 GameObject:
   m_ObjectHideFlags: 0
