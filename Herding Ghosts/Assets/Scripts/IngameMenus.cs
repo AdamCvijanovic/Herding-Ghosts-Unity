@@ -36,6 +36,7 @@ public class IngameMenus : MonoBehaviour
     public void Resume()
     {
         GetComponent<PlayerUI>().isPaused = false;
+        
         Time.timeScale = 1f;
     }
 

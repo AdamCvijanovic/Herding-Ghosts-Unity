@@ -8,6 +8,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuTextGO;
     public GameObject pauseMenuWinGO;
     public GameObject pauseMenuLoseGO;
+    public GameObject controlsGO;
+
+    public GameObject controlsBTN;
+    public GameObject mainMenuBTN;
 
     public bool pausedState;
 
@@ -34,6 +38,12 @@ public class PauseMenu : MonoBehaviour
             pauseMenuTextGO.SetActive(false);
             pauseMenuWinGO.SetActive(false);
             pauseMenuLoseGO.SetActive(false);
+            controlsGO.SetActive(false);
+
+            controlsBTN.SetActive(true);
+            mainMenuBTN.SetActive(true);
+
+           
         }
     }
 

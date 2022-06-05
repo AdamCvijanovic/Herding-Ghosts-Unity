@@ -10,6 +10,8 @@ public class PlayerUI : MonoBehaviour
     public PauseMenu pauseMenu;
     //public GameObject pauseMenu;
 
+    public IngameMenus _gameMenues;
+
     public WinTextUI winTextPanel;
 
     public bool hasLost;
@@ -18,6 +20,7 @@ public class PlayerUI : MonoBehaviour
     void Start()
     {
         winTextPanel = FindObjectOfType<WinTextUI>();
+        _gameMenues = FindObjectOfType<IngameMenus>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class PlayerUI : MonoBehaviour
         else 
         {
             pauseMenu.gameObject.SetActive(false);
+            _gameMenues.Resume();
             pauseMenu.Resume();
         }
 
