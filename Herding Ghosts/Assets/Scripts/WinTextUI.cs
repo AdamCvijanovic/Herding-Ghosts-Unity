@@ -25,6 +25,6 @@ public class WinTextUI : MonoBehaviour
 
     public void UpdateText(DaughterLogic daughter)
     {
-        tmpText.text = pickup + daughter.tasksCompleted + "/" + daughter.numTasksToComplete;
+        tmpText.text = pickup + daughter._tasksCompleted + "/" + daughter._numTasksToComplete;
     }
 }
