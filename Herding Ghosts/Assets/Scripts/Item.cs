@@ -33,6 +33,7 @@ public class Item : MonoBehaviour
     //This also needs to be an event
     public void OnDrop()
     {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
@@ -69,19 +70,30 @@ public class Item : MonoBehaviour
     }
 
 
-    public void UpdateHelpTextPickup(string text)
+    public void UpdateHelpTextPickup()
     {
-        helpText.UpdateTextPickup(text);
+        helpText.UpdateTextPickup("Item");
     }
 
-    public void UpdateHelpTextUse(string text)
+    public void DisableHelpTextPickup()
     {
-        helpText.UpdateTextUse(text);
+        helpText.DisableText();
     }
 
-    public void DisableHelpTextUse(string text)
+    public void UpdateHelpTextUse()
     {
-        helpText.UpdateTextUse(text);
+        helpText.UpdateTextUse("");
+        FadeOutTextAfterTime();
+    }
+
+    public void DisableHelpTextUse()
+    {
+        helpText.DisableText();
+    }
+
+    public void FadeOutTextAfterTime()
+    {
+        Invoke("DisableHelpTextUse", 1.2f);
     }
 
 
