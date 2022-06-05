@@ -48,10 +48,10 @@ public class FearFill : MonoBehaviour
                 portrait.sprite = portrait3;
                 break;
             case >= 1.0f:
-                _UIBaseElements.SetActive(true);
-                _loseMenu.SetActive(true);
-                _controlUI.SetActive(false);
-                Time.timeScale = 0f;
+                //_UIBaseElements.SetActive(true);
+                //_loseMenu.SetActive(true);
+                //_controlUI.SetActive(false);
+                //Time.timeScale = 0f;
                 break;
         }
 
