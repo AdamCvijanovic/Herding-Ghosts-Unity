@@ -21,6 +21,9 @@ public class ThoughtBubble : MonoBehaviour
 
     public void ChangeImage(GameObject destinationObj)
     {
-        destinationImage.sprite = destinationObj.GetComponentInChildren<SpriteRenderer>().sprite;
+        if (destinationObj.GetComponentInChildren<SpriteRenderer>().sprite)
+        {
+            destinationImage.sprite = destinationObj.GetComponentInChildren<SpriteRenderer>().sprite;
+        }
     }
 }

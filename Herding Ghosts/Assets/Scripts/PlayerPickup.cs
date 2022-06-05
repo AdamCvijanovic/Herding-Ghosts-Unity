@@ -63,6 +63,7 @@ public class PlayerPickup : MonoBehaviour
                 _nearbyItems.Remove(nearestItem);
                 _isHolding = true;
                 _currentItem.OnPickup(this);
+                nearestItem.UpdateHelpTextUse();
             }
         }
       
@@ -96,6 +97,7 @@ public class PlayerPickup : MonoBehaviour
         if (collision.gameObject.GetComponent<Item>())
         {
             _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
+            collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
         }
     }
 
@@ -104,6 +106,8 @@ public class PlayerPickup : MonoBehaviour
         if (collision.gameObject.GetComponent<Item>())
         {
             _nearbyItems.Remove(collision.gameObject.GetComponent<Item>());
+            collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
+
         }
     }
 

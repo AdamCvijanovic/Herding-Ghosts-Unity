@@ -36,7 +36,7 @@ public class IngameMenus : MonoBehaviour
 
     public void PauseMenu()
     {
-        if(controlsMenu.active == false && loseMenu.active == false && winMenu.active == false && introductionMenu.active == false && pauseMenu.active == false)
+        if(controlsMenu.activeInHierarchy == false && loseMenu.activeInHierarchy == false && winMenu.activeInHierarchy == false && introductionMenu.activeInHierarchy == false && pauseMenu.activeInHierarchy == false)
         {
             Pause();
             menuElements.SetActive(true);
