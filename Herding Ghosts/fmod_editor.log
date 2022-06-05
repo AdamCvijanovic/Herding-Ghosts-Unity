@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001C1DD5ECE98 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002D5C6CE9F48 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -19,13 +19,118 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 141)
-[LOG] SystemI::mixerSuspend                    : Suspending output.
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001C1012E9EE8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001C1012E9EE8
-[LOG] SoundI::release                          : Young_Feet_on_Old_Floor_test_1-Edit (000001C1012E6588)
-[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000001C129E4A3F8)
-[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000001C1012E9EE8)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000ED893FEFA8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB14E40AD0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB14E40AA0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB14E40BA0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB14E40C60
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002D601368D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='UI_4-menu_taps', format=5, channels=2, frequency=48000, lengthbytes=1664, lengthpcm=7331, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.241333.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000ED893FEFA8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB14E40AD0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB14E40AA0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB14E40BA0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB14E40C60
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002D601368D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='UI_5-menu_taps', format=5, channels=2, frequency=48000, lengthbytes=1664, lengthpcm=7331, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.173706.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000ED893FEFA8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB14E40AD0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB14E40AA0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB14E40BA0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB14E40C60
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002D601368D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='UI_1-menu_taps', format=5, channels=2, frequency=48000, lengthbytes=1664, lengthpcm=7331, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.153442.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000ED893FEFA8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB14E40AD0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB14E40AA0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB14E40BA0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB14E40C60
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002D601368D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='UI_2-menu_taps', format=5, channels=2, frequency=48000, lengthbytes=1632, lengthpcm=7331, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.150116.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000ED893FEFA8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB14E40AD0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB14E40AA0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB14E40BA0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB14E40C60
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000002D601368D48
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='UI_3-menu_taps', format=5, channels=2, frequency=48000, lengthbytes=1664, lengthpcm=7331, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.159241.
+[LOG] SystemI::createSound                     : filename = Assets/Fmod/Build/Desktop/MenuClick.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002D6022FEF88 : node = 000002D5ED402FC0
+[LOG] SystemI::createSound                     : add node to async list : head = 000002D4E495CFF8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002D6022FEF88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Fmod/Build/Desktop/MenuClick.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 769472
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12736
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002D5ED4030D0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Young_Feet_on_Old_Floor_test_1-Edit', format=5, channels=2, frequency=48000, lengthbytes=460480, lengthpcm=2016000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.206024.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002D6022FEF88
+[LOG] SoundI::release                          : Young_Feet_on_Old_Floor_test_1-Edit (000002D601043C58)
+[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000002D601EA5648)
+[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000002D601044828)
+[LOG] SoundI::release                          : Young_Feet_on_Old_Floor_test_1-Edit (000002D6022FEF88)
+[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000002D600EC2228)
+[LOG] SoundI::release                          :     Young_Feet_on_Old_Floor_test_1-Edit (000002D6022FF138)
+[LOG] SoundI::release                          :  (000002D51BDE5DD8)
+[LOG] SoundI::release                          :     UI_1-menu_taps (000002D4DDAF95A8)
+[LOG] SoundI::release                          :  (000002D51BDEB2A8)
+[LOG] SoundI::release                          :     UI_2-menu_taps (000002D4E321F908)
+[LOG] SoundI::release                          :  (000002D51BDE84A8)
+[LOG] SoundI::release                          :     UI_3-menu_taps (000002D4E321F428)
+[LOG] SoundI::release                          :  (000002D51BDE8788)
+[LOG] SoundI::release                          :     UI_4-menu_taps (000002D4DDAF7EE8)
+[LOG] SoundI::release                          :  (000002D51BDEA168)
+[LOG] SoundI::release                          :     UI_5-menu_taps (000002D4DDAFA448)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -36,12 +141,3 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
