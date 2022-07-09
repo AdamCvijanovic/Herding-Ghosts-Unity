@@ -28,6 +28,7 @@ public class IngameMenus : MonoBehaviour
     {
         
     }
+
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -35,12 +36,10 @@ public class IngameMenus : MonoBehaviour
 
     public void Resume()
     {
-        GetComponent<PlayerUI>().isPaused = false;
+       // GetComponent<PlayerUI>().isPaused = false;
         
         Time.timeScale = 1f;
     }
-
-
 
     public void PauseMenu()
     {
@@ -50,11 +49,17 @@ public class IngameMenus : MonoBehaviour
             menuElements.SetActive(true);
             pauseMenu.SetActive(true);
         }
-        
     }
 
-    public void LoseMenu(){}
+    public void LoseMenu()
+    {
+        menuElements.SetActive(true);
+        winMenu.SetActive(true);
+    }
 
-    public void WinMenu(){}
-
+    public void WinMenu()
+    {
+        menuElements.SetActive(true);
+        loseMenu.SetActive(true);
+    }
 }
