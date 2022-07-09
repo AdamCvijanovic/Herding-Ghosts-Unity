@@ -261,7 +261,7 @@ RectTransform:
   m_Children:
   - {fileID: 3057035166860479718}
   m_Father: {fileID: 7333399054690047502}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -435,6 +435,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4715215190813135755}
+  - {fileID: 1655840423690438039}
   m_Father: {fileID: 7333399054690047502}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1888,7 +1889,6 @@ RectTransform:
   - {fileID: 2284546361529525407}
   - {fileID: 4229565130744323402}
   - {fileID: 3656437528985078549}
-  - {fileID: 1655840423690438039}
   - {fileID: 4961988366896477908}
   m_Father: {fileID: 6544090748486202626}
   m_RootOrder: 3
@@ -1964,6 +1964,9 @@ MonoBehaviour:
   pauseMenuTextGO: {fileID: 207609200781216954}
   pauseMenuWinGO: {fileID: 2357761707092447289}
   pauseMenuLoseGO: {fileID: 8101695457324006580}
+  controlsGO: {fileID: 0}
+  controlsBTN: {fileID: 0}
+  mainMenuBTN: {fileID: 0}
   pausedState: 0
 --- !u!1 &4494876970901320588
 GameObject:
@@ -2436,6 +2439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   pauseMenu: {fileID: 490643589170813755}
+  _gameMenues: {fileID: 0}
   winTextPanel: {fileID: 855561155}
   hasLost: 0
 --- !u!114 &1037306898
@@ -2456,6 +2460,7 @@ MonoBehaviour:
   winMenu: {fileID: 2357761707092447289}
   loseMenu: {fileID: 8101695457324006580}
   controlsMenu: {fileID: 1060905599461331805}
+  controlsBTN: {fileID: 0}
 --- !u!114 &4818369140546565330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2474,6 +2479,7 @@ MonoBehaviour:
   winMenu: {fileID: 2357761707092447289}
   loseMenu: {fileID: 8101695457324006580}
   controlsMenu: {fileID: 1060905599461331805}
+  controlsBTN: {fileID: 0}
 --- !u!1 &6633099504858638434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,16 +2710,16 @@ RectTransform:
   m_GameObject: {fileID: 6874707577878746517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.085646, y: 1.3794138, z: 1.0217866}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3101125119524909462}
-  m_Father: {fileID: 7333399054690047502}
-  m_RootOrder: 4
+  m_Father: {fileID: 3656437528985078549}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -44.1}
+  m_AnchoredPosition: {x: 0, y: -76.850815}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4844651636159383473
