@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        helpText = GetComponentInChildren<TutorialText>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Item : MonoBehaviour
     }
 
     //need to make this an event
-    public void OnPickup(PlayerPickup target)
+    public virtual void OnPickup(PlayerPickup target)
     {
         DisableCollider();
         SetItemTransform(target);
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
     }
 
     //This also needs to be an event
-    public void OnDrop()
+    public virtual void OnDrop()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
@@ -55,7 +55,7 @@ public class Item : MonoBehaviour
         transform.position = target.GetHolderTransform().position;
     }
 
-    private void UnsetItemTransform()
+    protected void UnsetItemTransform()
     {
         transform.parent = null;
 
@@ -72,28 +72,33 @@ public class Item : MonoBehaviour
 
     public void UpdateHelpTextPickup()
     {
+        if(helpText != null)
         helpText.UpdateTextPickup("Item");
     }
 
     public void DisableHelpTextPickup()
     {
-        helpText.DisableText();
+        if (helpText != null)
+            helpText.DisableText();
     }
 
     public void UpdateHelpTextUse()
     {
-        helpText.UpdateTextUse("");
+        if (helpText != null)
+            helpText.UpdateTextUse("");
         FadeOutTextAfterTime();
     }
 
     public void DisableHelpTextUse()
     {
-        helpText.DisableText();
+        if (helpText != null)
+            helpText.DisableText();
     }
 
     public void FadeOutTextAfterTime()
     {
-        Invoke("DisableHelpTextUse", 1.2f);
+        if (helpText != null)
+            Invoke("DisableHelpTextUse", 1.2f);
     }
 
 

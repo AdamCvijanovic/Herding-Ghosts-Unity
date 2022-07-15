@@ -9,7 +9,7 @@ public class EnemyLogic : MonoBehaviour
     private DestinationManager _destMngr;
     private EnemyManager _enemyMngr;
 
-    public enum State { Daughter, Cauldron, Basement, Stunned };
+    public enum State {Daughter, Oven, Cauldron, Basement, Stunned };
     public State previousState;
     public State currentState;
 
@@ -27,6 +27,7 @@ public class EnemyLogic : MonoBehaviour
 
     [Header("Destinations")]
     public GameObject daughter;
+    public GameObject oven;
     public GameObject cauldron;
     public GameObject basement;
 
@@ -85,11 +86,14 @@ public class EnemyLogic : MonoBehaviour
         //Fetch Destinations
         if(_destMngr.GetDestinations() != null)
         {
+            oven = _destMngr.GetDestinationOfType(Destination.DestinationType.Oven).gameObject;
             cauldron = _destMngr.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
             basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
         }
     }
 
+
+    //This needs to be improved
     public void StateMachine()
     {
 
@@ -153,9 +157,12 @@ public class EnemyLogic : MonoBehaviour
                     RunState(State.Daughter);
                     break;
                 case 1:
-                    RunState(State.Cauldron);
+                    RunState(State.Oven);
                     break;
                 case 2:
+                    RunState(State.Cauldron);
+                    break;
+                case 3:
                    RunState(State.Basement);
                     break;
             }
@@ -167,7 +174,7 @@ public class EnemyLogic : MonoBehaviour
         }
 
 
-        RunState(State.Daughter);
+        //RunState(State.Daughter);
 
         //_navigator.SetDestination(currentDestination.transform);
 
@@ -182,7 +189,10 @@ public class EnemyLogic : MonoBehaviour
         switch (currentState)
         {
             case State.Daughter:
-                FindDaughter();
+                //FindDaughter();
+                break;
+            case State.Oven:
+                FindOven();
                 break;
             case State.Cauldron:
                 FindCauldron();
@@ -201,6 +211,11 @@ public class EnemyLogic : MonoBehaviour
     private void FindDaughter()
     {
         currentDestination = daughter;
+    }
+
+    private void FindOven()
+    {
+        currentDestination = oven;
     }
 
     private void FindCauldron()

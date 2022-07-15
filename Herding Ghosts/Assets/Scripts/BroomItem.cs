@@ -32,6 +32,7 @@ public class BroomItem : Item
 
     public void CheckPlayerDir()
     {
+        //We can check playerMove script on pickup, and here can be a null check instead
         playerMoveScript = parentObj.GetComponent<PlayerMove>();
 
         if(playerMoveScript._direction == PlayerMove.Direction.Up)

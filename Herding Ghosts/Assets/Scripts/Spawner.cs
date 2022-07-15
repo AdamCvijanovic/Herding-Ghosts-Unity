@@ -50,7 +50,14 @@ public class Spawner : MonoBehaviour
         else
         {
             countdown = time;
-            SpawnRandomEnemy();
+            if(_enemyMngr.CheckMax())
+            {
+                SpawnRandomEnemy();
+            }
+            else
+            {
+                //Debug.Log("Exceeds Max Count");
+            }
         }
 
         
@@ -59,6 +66,8 @@ public class Spawner : MonoBehaviour
 
     public void SpawnRandomEnemy()
     {
+
+
         int i = Random.Range(0, enemyPrefabs.Count);
 
         SpawnEnemy(enemyPrefabs[i]);
@@ -71,13 +80,13 @@ public class Spawner : MonoBehaviour
     {
         if(_spawnPosition != null)
         {
-            GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity, _enemyMngr.transform);
             _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
 
         }
         else
         {
-            GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity, _enemyMngr.transform);
             _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
 
         }

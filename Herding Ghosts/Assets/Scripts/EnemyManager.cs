@@ -10,6 +10,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private List<Enemy> enemies = new List<Enemy>();
 
+    [SerializeField]
+    private int MaxEnemies;
 
     private void Awake()
     {
@@ -52,6 +54,11 @@ public class EnemyManager : MonoBehaviour
     public void RemoveEnemy(Enemy enemy)
     {
         enemies.Remove(enemy);
+    }
+
+    public bool CheckMax()
+    {
+        return enemies.Count < MaxEnemies;
     }
 
 
