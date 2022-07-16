@@ -29,7 +29,8 @@ public class FearFill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateFill();
+        if(_daughter != null)
+            UpdateFill();
     }
 
     void UpdateFill()

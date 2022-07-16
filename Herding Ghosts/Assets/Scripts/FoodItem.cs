@@ -8,7 +8,7 @@ public class FoodItem : Item
     [SerializeField]
     private FoodType foodType;
 
-    public bool InCauldron;
+    public bool _inCauldron;
     public CauldronDestination parentCauldron;
 
     // Start is called before the first frame update
@@ -41,27 +41,30 @@ public class FoodItem : Item
     public override void OnDrop()
     {
 
-        if(parentObj.GetComponent<Player>().nearCauldron != null)
+        if(parentObj.GetComponent<Pickup>().nearCauldron != null)
         {
-            AddToCauldronInventory(parentObj.GetComponent<Player>().nearCauldron);
+            AddToCauldronInventory(parentObj.GetComponent<Pickup>().nearCauldron);
         }
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
+        _isHeld = false;
     }
 
     private void AddToCauldronInventory(CauldronDestination cauldron)
     {
         cauldron.AddItemToList(this);
         parentCauldron = cauldron;
+        _inCauldron = true;
     }
 
     private void RemoveFromCauldronInventory(CauldronDestination cauldron)
     {
         cauldron.RemoveItemFromList(this);
         parentCauldron = null;
+        _inCauldron = false;
     }
 
 

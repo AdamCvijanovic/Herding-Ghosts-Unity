@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerPickup : Pickup
+public class Pickup : MonoBehaviour
 {
-    public Player _player;
+
+    public Transform _itemHolder;
+
+    public bool _isHolding;
+
+    public List<Item> _nearbyItems;
+
+    public Item _currentItem;
+
+
+    public CauldronDestination nearCauldron;
 
     // Start is called before the first frame update
     void Start()
     {
-        _player = GetComponent<Player>();
+
     }
 
     // Update is called once per frame
@@ -19,25 +28,19 @@ public class PlayerPickup : Pickup
         //UpdateTutorialText();
     }
 
-    public void PickupDropAction(InputAction.CallbackContext context)
+    public void PickupDropAction()
     {
-
-
-        if (context.performed)
+        if (_isHolding)
         {
-            if (_isHolding)
-            {
-                Drop();
-            }
-            else
-            {
-                Pickup();
-            }
+            Drop();
         }
-            
+        else
+        {
+            PickupItem();
+        }
     }
 
-    public void Pickup()
+    public void PickupItem()
     {
 
         //if (!_isHolding)
@@ -53,42 +56,62 @@ public class PlayerPickup : Pickup
                 _nearbyItems.Remove(nearestItem);
                 _isHolding = true;
                 _currentItem.OnPickup(this);
-                nearestItem.UpdateHelpTextUse();
+                //nearestItem.UpdateHelpTextUse();
             }
         }
-      
+
 
     }
 
-    //public void Drop()
-    //{
-    //    //if (_isHolding)
-    //    {
-    //        Debug.Log("Drop");
-    //        
-    //        // checking for UsableItem tag
-    //        if(_currentItem.tag == "UsableItem")
-    //        {
-    //            // Name of item
-    //            Debug.Log(_currentItem);
-    //
-    //            //_currentItem.GetComponent<SaltItem>().Activate();
-    //        }
-    //
-    //        _currentItem.OnDrop();
-    //        _isHolding = false;
-    //        _currentItem = null; 
-    //    }
-    //        
-    //}
+    public void PickupItem(Item item)
+    {
+
+        //if (!_isHolding)
+        {
+            Debug.Log("Pickup");
+
+            //get nearby objects
+            //parent to transform
+                _currentItem = item;
+                _isHolding = true;
+                _currentItem.OnPickup(this);
+                //nearestItem.UpdateHelpTextUse();
+        }
+
+
+    }
+
+    public void Drop()
+    {
+        //if (_isHolding)
+        {
+            Debug.Log("Drop");
+
+            // checking for UsableItem tag
+            if (_currentItem.tag == "UsableItem")
+            {
+                // Name of item
+                Debug.Log(_currentItem);
+
+                //_currentItem.GetComponent<SaltItem>().Activate();
+            }
+
+            _currentItem.OnDrop();
+            _isHolding = false;
+            _currentItem = null;
+        }
+
+    }
+
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Item>())
-        {
-            _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
-            collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
-        }
+        //if (collision.gameObject.GetComponent<Item>())
+        //{
+        //    _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
+        //    collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
+        //}
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
@@ -120,7 +143,7 @@ public class PlayerPickup : Pickup
         Item nearestItem = null;
         if (_nearbyItems.Count > 0)
         {
-             nearestItem = _nearbyItems[0];
+            nearestItem = _nearbyItems[0];
             float smallestDist = Vector2.Distance(transform.position, _nearbyItems[0].gameObject.transform.position);
 
 
@@ -135,42 +158,20 @@ public class PlayerPickup : Pickup
                 }
             }
         }
-        
+
         return nearestItem;
     }
 
-    // public void UpdateTutorialText()
-    // {
-    //     if (!_isHolding && _nearbyItems.Count > 0)
-    //     {
-    //         Item nearest = GetNearestItem();
-
-
-    //         _player.playerUI.UpdateTutorialTextPickup(nearest.name);
-            
-    //     }
-    //     else
-    //     {
-    //         _player.playerUI.UpdateTutorialTextPickup(" ");
-    //     }
-
-    //     if (_isHolding)
-    //     {
-    //         _player.playerUI.UpdateTutorialTextUse(_currentItem.GetType().ToString());
-    //     }
-    // }
-
-    //Getters & Setters
 
     public Transform GetHolderTransform()
     {
         return _itemHolder;
     }
 
-   public void ActivateItem(InputAction.CallbackContext context)
+    public void ActivateItem()
     {
 
-        if (_currentItem != null && context.performed)
+        if (_currentItem != null)
         {
             _currentItem.Activate();
         }

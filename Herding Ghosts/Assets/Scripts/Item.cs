@@ -8,6 +8,8 @@ public class Item : MonoBehaviour
     public GameObject parentObj;
     public Item subclass;
 
+    public bool _isHeld;
+
     public TutorialText helpText;
 
     // Start is called before the first frame update
@@ -28,7 +30,17 @@ public class Item : MonoBehaviour
         DisableCollider();
         SetItemTransform(target);
         parentObj = target.gameObject;
+        _isHeld = true;
     }
+
+    public virtual void OnPickup(Pickup target)
+    {
+        DisableCollider();
+        SetItemTransform(target);
+        parentObj = target.gameObject;
+        _isHeld = true;
+    }
+
 
     //This also needs to be an event
     public virtual void OnDrop()
@@ -37,6 +49,7 @@ public class Item : MonoBehaviour
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
+        _isHeld = false;
     }
 
     public void EnableCollider()
@@ -54,6 +67,12 @@ public class Item : MonoBehaviour
         transform.parent = target.GetHolderTransform();
         transform.position = target.GetHolderTransform().position;
     }
+    private void SetItemTransform(Pickup target)
+    {
+        transform.parent = target.GetHolderTransform();
+        transform.position = target.GetHolderTransform().position;
+    }
+
 
     protected void UnsetItemTransform()
     {

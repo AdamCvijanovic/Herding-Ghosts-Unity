@@ -9,7 +9,10 @@ public class EnemyLogic : MonoBehaviour
     private DestinationManager _destMngr;
     private EnemyManager _enemyMngr;
 
-    public enum State {Daughter, Oven, Cauldron, Basement, Stunned };
+    //EnemyParent
+    private Enemy _enemy;
+
+    public enum State {Daughter, Oven, Cauldron, Basement, Stunned, Possess, Steal };
     public State previousState;
     public State currentState;
 
@@ -60,6 +63,8 @@ public class EnemyLogic : MonoBehaviour
         _destMngr = FindObjectOfType<DestinationManager>();
         _enemyMngr = FindObjectOfType<EnemyManager>();
 
+        _enemy = GetComponent<Enemy>();
+
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
         FetchDestinations();
@@ -79,8 +84,9 @@ public class EnemyLogic : MonoBehaviour
 
     public void FetchDestinations()
     {
-        //fetch NPC's (These should always be present)
-        daughter = FindObjectOfType<DaughterLogic>().gameObject;
+        //fetch Daughter
+        //if(FindObjectOfType<DaughterLogic>().gameObject != null)
+        //    daughter = FindObjectOfType<DaughterLogic>().gameObject;
 
 
         //Fetch Destinations
@@ -102,13 +108,12 @@ public class EnemyLogic : MonoBehaviour
             ChangeState();
         }
 
-        if (currentState == State.Daughter)
+        if (currentState == State.Daughter || currentState == State.Steal)
         {
             _navigator.SetDestination(currentDestination.transform);
         }
 
-
-        //Move this
+        //Move this into it's own section We need a complete state check elsewhere
         if (CheckDistance())
         {
             if (currentState == State.Daughter)
@@ -117,7 +122,26 @@ public class EnemyLogic : MonoBehaviour
                 BanishGhost();
             }
 
-            ChangeState();
+            if(currentState == State.Steal)
+            {
+                PickupItem();
+            }
+
+            if (currentState == State.Cauldron && distance <= minDist)
+            {
+                if (_enemy.GetEnemyPickup()._isHolding && _enemy.GetEnemyPickup().nearCauldron)
+                {
+                    _enemy.GetEnemyPickup().Drop();
+                    ChangeState();
+                }
+            }
+
+            //this is awful change it, just asking fo problems
+
+            if (currentState != State.Steal || currentState != State.Cauldron)
+            {
+                ChangeState();
+            }
         }
     }
 
@@ -146,7 +170,7 @@ public class EnemyLogic : MonoBehaviour
     {
 
 
-        int value = Random.Range(0, 3);
+        int value = Random.Range(0, 4);
 
 
         //if(previousState == currentState)
@@ -154,16 +178,16 @@ public class EnemyLogic : MonoBehaviour
             switch (value)
             {
                 case 0:
-                    RunState(State.Daughter);
+                    RunState(State.Steal);
                     break;
                 case 1:
-                    RunState(State.Oven);
+                    RunState(State.Possess);
                     break;
                 case 2:
-                    RunState(State.Cauldron);
+                    RunState(State.Steal);
                     break;
                 case 3:
-                   RunState(State.Basement);
+                   RunState(State.Steal);
                     break;
             }
         }
@@ -178,6 +202,10 @@ public class EnemyLogic : MonoBehaviour
 
         //_navigator.SetDestination(currentDestination.transform);
 
+        if (_enemy.GetEnemyPickup()._isHolding)
+        {
+            RunState(State.Cauldron);
+        }
 
     }
 
@@ -190,6 +218,7 @@ public class EnemyLogic : MonoBehaviour
         {
             case State.Daughter:
                 //FindDaughter();
+                ChangeState();
                 break;
             case State.Oven:
                 FindOven();
@@ -200,12 +229,76 @@ public class EnemyLogic : MonoBehaviour
             case State.Basement:
                 FindBasement();
                 break;
+            case State.Possess:
+                PossessDestination();
+                break;
+            case State.Steal:
+                FindItemToSteal();
+                break;
             case State.Stunned:
                 //run particle effect + stun anim
                 break;
         }
 
         _navigator.SetDestination(currentDestination.transform);
+    }
+
+    public void PossessDestination()
+    {
+        FindOven();
+        _navigator.SetDestination(currentDestination.transform);
+    }
+
+    public void FindItemToSteal()
+    {
+        
+
+
+        FoodItem[] allFoods = FindObjectsOfType<FoodItem>();
+        List<FoodItem> availableItems = new List<FoodItem>();
+
+        foreach( FoodItem f in allFoods)
+        {
+            if (!f._inCauldron || !f._isHeld)
+            {
+                availableItems.Add(f);
+            }
+            else
+            {
+                ChangeState();
+            }
+        }
+
+        currentDestination = availableItems[Random.Range(0, availableItems.Count)].gameObject;
+
+
+        //if (!foodObject.GetComponent<FoodItem>()._inCauldron)
+        //{
+        //    currentDestination = foodObject;
+        //}
+        //else
+        //{
+        //    ChangeState();
+        //}
+
+    }
+
+    public void PickupItem()
+    {
+        if(currentDestination.GetComponent<FoodItem>()._inCauldron)
+        {
+            ChangeState();
+            return;
+        }
+
+        if (_enemy.GetEnemyPickup()._currentItem == null)
+        {
+            if (!currentDestination.GetComponent<Item>()._isHeld)
+                _enemy.GetEnemyPickup().PickupItem(currentDestination.GetComponent<Item>());
+        }
+
+
+        RunState(State.Cauldron);
     }
 
     private void FindDaughter()
