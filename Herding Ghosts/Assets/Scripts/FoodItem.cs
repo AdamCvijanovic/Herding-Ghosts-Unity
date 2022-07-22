@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodItem : Item
 {
-    public enum FoodType { Onion, Carrot};
+    public enum FoodType { CupCake, Carrot};
     [SerializeField]
     private FoodType foodType;
 
@@ -21,6 +21,11 @@ public class FoodItem : Item
     void Update()
     {
         
+    }
+
+    public FoodType GetFoodType()
+    {
+        return foodType;
     }
 
     public override void Activate()
@@ -40,7 +45,7 @@ public class FoodItem : Item
     }
     public override void OnDrop()
     {
-
+        //shoudl change this proximity check to somewhere else.
         if(parentObj.GetComponent<Pickup>().nearCauldron != null)
         {
             AddToCauldronInventory(parentObj.GetComponent<Pickup>().nearCauldron);

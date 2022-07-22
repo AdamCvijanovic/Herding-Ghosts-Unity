@@ -23,10 +23,17 @@ public class CauldronDestination : Destination
         
     }
 
-    public void AddItemToList(Item item)
+    public void AddItemToList(FoodItem item)
     {
+        if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         items.Add(item);
     }
+
+    //Scan through existing recipes
+    //See if items at index's 0-2 match
+    //consume items
+    //output prefab
+
 
     public void RemoveItemFromList()
     {

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyLogic : MonoBehaviour
+public class GhostLogic : MonoBehaviour
 {
     //ManagerFetch
     private DestinationManager _destMngr;
-    private EnemyManager _enemyMngr;
+    private GhostManager _ghostMngr;
 
     //EnemyParent
-    private Enemy _enemy;
+    private Ghost _ghost;
 
     public enum State {Daughter, Oven, Cauldron, Basement, Stunned, Possess, Steal };
     public State previousState;
@@ -19,7 +19,7 @@ public class EnemyLogic : MonoBehaviour
     [SerializeField]
     private Animator _anim;
 
-
+    //Move teh navigator to teh class holder
     [Header("Navigation Settings")]
     public AINavigation _navigator;
     public GameObject currentDestination;
@@ -61,9 +61,9 @@ public class EnemyLogic : MonoBehaviour
     void Start()
     {
         _destMngr = FindObjectOfType<DestinationManager>();
-        _enemyMngr = FindObjectOfType<EnemyManager>();
+        _ghostMngr = FindObjectOfType<GhostManager>();
 
-        _enemy = GetComponent<Enemy>();
+        _ghost = GetComponent<Ghost>();
 
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
@@ -129,19 +129,25 @@ public class EnemyLogic : MonoBehaviour
 
             if (currentState == State.Cauldron && distance <= minDist)
             {
-                if (_enemy.GetEnemyPickup()._isHolding && _enemy.GetEnemyPickup().nearCauldron)
+                if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearCauldron)
                 {
-                    _enemy.GetEnemyPickup().Drop();
+                    _ghost.GetGhostPickup().Drop();
                     ChangeState();
                 }
             }
 
+            if(currentState == State.Possess)
+            {
+                PossessDestination();
+                //ChangeState();
+            }
+
             //this is awful change it, just asking fo problems
 
-            if (currentState != State.Steal || currentState != State.Cauldron)
-            {
-                ChangeState();
-            }
+           // if (currentState != State.Steal || currentState != State.Cauldron)
+           // {
+           //     ChangeState();
+           // }
         }
     }
 
@@ -195,6 +201,7 @@ public class EnemyLogic : MonoBehaviour
         if (previousState == currentState)
         {
             //Debug.Log("Same State");
+            
         }
 
 
@@ -202,7 +209,8 @@ public class EnemyLogic : MonoBehaviour
 
         //_navigator.SetDestination(currentDestination.transform);
 
-        if (_enemy.GetEnemyPickup()._isHolding)
+        //IF THE GHOST IS HOLDING SOMETHING HEAD TO THE CAULDRON
+        if (_ghost.GetGhostPickup()._isHolding)
         {
             RunState(State.Cauldron);
         }
@@ -230,7 +238,7 @@ public class EnemyLogic : MonoBehaviour
                 FindBasement();
                 break;
             case State.Possess:
-                PossessDestination();
+                FindPossessableDestination();
                 break;
             case State.Steal:
                 FindItemToSteal();
@@ -243,10 +251,44 @@ public class EnemyLogic : MonoBehaviour
         _navigator.SetDestination(currentDestination.transform);
     }
 
+    public void FindPossessableDestination()
+    {
+        //We should just do a search for possesable objects and return their availabiloityy
+
+
+
+        //This should return the oven
+        FindOven();
+
+
+        _navigator.SetDestination(currentDestination.transform);
+
+        if (currentDestination.GetComponentInParent<Possessable>()._isPossessed)
+        {
+            ChangeState();
+        }
+    }
+
     public void PossessDestination()
     {
-        FindOven();
-        _navigator.SetDestination(currentDestination.transform);
+        //double check for possessable
+        if (currentDestination.GetComponentInParent<Possessable>())
+        {
+            Possessable possessable = currentDestination.GetComponentInParent<Possessable>();
+            if (!possessable._isPossessed)
+            {
+
+                //TODO Move this Possess object to a method in the class handler
+                possessable.PossessObject(this._ghost);
+
+                Debug.Log("Possessing the oven");
+            }
+            else
+            {
+                ChangeState();
+            }
+        }
+            
     }
 
     public void FindItemToSteal()
@@ -291,10 +333,10 @@ public class EnemyLogic : MonoBehaviour
             return;
         }
 
-        if (_enemy.GetEnemyPickup()._currentItem == null)
+        if (_ghost.GetGhostPickup()._currentItem == null)
         {
             if (!currentDestination.GetComponent<Item>()._isHeld)
-                _enemy.GetEnemyPickup().PickupItem(currentDestination.GetComponent<Item>());
+                _ghost.GetGhostPickup().PickupItem(currentDestination.GetComponent<Item>());
         }
 
 
@@ -382,7 +424,7 @@ public class EnemyLogic : MonoBehaviour
         if(alive == true)
         {
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
-            _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
+            _ghostMngr.RemoveGhost(this.GetComponent<Ghost>());
             Destroy(this.gameObject, .2f);
         }
         alive = false;
