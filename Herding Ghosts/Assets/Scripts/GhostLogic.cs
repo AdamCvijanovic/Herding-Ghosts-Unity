@@ -127,18 +127,29 @@ public class GhostLogic : MonoBehaviour
                 PickupItem();
             }
 
-            if (currentState == State.Cauldron && distance <= minDist)
+            if (currentState == State.Cauldron)
             {
-                if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearCauldron)
+                if(distance <= minDist)
                 {
-                    _ghost.GetGhostPickup().Drop();
-                    ChangeState();
+                    if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearCauldron)
+                    {
+                        _ghost.GetGhostPickup().Drop();
+                        ChangeState();
+                        return;
+                    }
+                    else if (!_ghost.GetGhostPickup()._isHolding)
+                    {
+                        ChangeState();
+                    }
                 }
+                
             }
 
-            if(currentState == State.Possess)
+
+            if (currentState == State.Possess)
             {
                 PossessDestination();
+                return;
                 //ChangeState();
             }
 
@@ -327,6 +338,8 @@ public class GhostLogic : MonoBehaviour
 
     public void PickupItem()
     {
+
+
         if(currentDestination.GetComponent<FoodItem>()._inCauldron)
         {
             ChangeState();
