@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    EnemyManager _enemyMngr;
+    GhostManager _enemyMngr;
 
     public List<GameObject> enemyPrefabs;
 
@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _enemyMngr = FindObjectOfType<EnemyManager>();
+        _enemyMngr = FindObjectOfType<GhostManager>();
 
         countdown = _spawnTime;
 
@@ -50,7 +50,14 @@ public class Spawner : MonoBehaviour
         else
         {
             countdown = time;
-            SpawnRandomEnemy();
+            if(_enemyMngr.CheckMax())
+            {
+                SpawnRandomEnemy();
+            }
+            else
+            {
+                //Debug.Log("Exceeds Max Count");
+            }
         }
 
         
@@ -59,6 +66,8 @@ public class Spawner : MonoBehaviour
 
     public void SpawnRandomEnemy()
     {
+
+
         int i = Random.Range(0, enemyPrefabs.Count);
 
         SpawnEnemy(enemyPrefabs[i]);
@@ -71,14 +80,14 @@ public class Spawner : MonoBehaviour
     {
         if(_spawnPosition != null)
         {
-            GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity);
-            _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
+            GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity, _enemyMngr.transform);
+            _enemyMngr.AddGhost(newEnemy.GetComponent<Ghost>());
 
         }
         else
         {
-            GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity);
-            _enemyMngr.AddEnemy(newEnemy.GetComponent<Enemy>());
+            GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity, _enemyMngr.transform);
+            _enemyMngr.AddGhost(newEnemy.GetComponent<Ghost>());
 
         }
 

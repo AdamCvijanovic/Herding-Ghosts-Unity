@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EnemyLogic : MonoBehaviour
+public class GhostLogic : MonoBehaviour
 {
     //ManagerFetch
     private DestinationManager _destMngr;
-    private EnemyManager _enemyMngr;
+    private GhostManager _ghostMngr;
 
-    public enum State { Daughter, Cauldron, Basement, Stunned };
+    //EnemyParent
+    private Ghost _ghost;
+
+    public enum State {Daughter, Oven, Cauldron, Basement, Stunned, Possess, Steal };
     public State previousState;
     public State currentState;
 
     [SerializeField]
     private Animator _anim;
 
-
+    //Move teh navigator to teh class holder
     [Header("Navigation Settings")]
     public AINavigation _navigator;
     public GameObject currentDestination;
@@ -27,6 +30,7 @@ public class EnemyLogic : MonoBehaviour
 
     [Header("Destinations")]
     public GameObject daughter;
+    public GameObject oven;
     public GameObject cauldron;
     public GameObject basement;
 
@@ -57,7 +61,9 @@ public class EnemyLogic : MonoBehaviour
     void Start()
     {
         _destMngr = FindObjectOfType<DestinationManager>();
-        _enemyMngr = FindObjectOfType<EnemyManager>();
+        _ghostMngr = FindObjectOfType<GhostManager>();
+
+        _ghost = GetComponent<Ghost>();
 
         _anim = GetComponent<Animator>();
         _navigator = GetComponent<AINavigation>();
@@ -78,18 +84,22 @@ public class EnemyLogic : MonoBehaviour
 
     public void FetchDestinations()
     {
-        //fetch NPC's (These should always be present)
-        daughter = FindObjectOfType<DaughterLogic>().gameObject;
+        //fetch Daughter
+        //if(FindObjectOfType<DaughterLogic>().gameObject != null)
+        //    daughter = FindObjectOfType<DaughterLogic>().gameObject;
 
 
         //Fetch Destinations
         if(_destMngr.GetDestinations() != null)
         {
+            oven = _destMngr.GetDestinationOfType(Destination.DestinationType.Oven).gameObject;
             cauldron = _destMngr.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
             basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
         }
     }
 
+
+    //This needs to be improved
     public void StateMachine()
     {
 
@@ -98,13 +108,12 @@ public class EnemyLogic : MonoBehaviour
             ChangeState();
         }
 
-        if (currentState == State.Daughter)
+        if (currentState == State.Daughter || currentState == State.Steal)
         {
             _navigator.SetDestination(currentDestination.transform);
         }
 
-
-        //Move this
+        //Move this into it's own section We need a complete state check elsewhere
         if (CheckDistance())
         {
             if (currentState == State.Daughter)
@@ -113,7 +122,43 @@ public class EnemyLogic : MonoBehaviour
                 BanishGhost();
             }
 
-            ChangeState();
+            if(currentState == State.Steal)
+            {
+                PickupItem();
+            }
+
+            if (currentState == State.Cauldron)
+            {
+                if(distance <= minDist)
+                {
+                    if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearCauldron)
+                    {
+                        _ghost.GetGhostPickup().Drop();
+                        ChangeState();
+                        return;
+                    }
+                    else if (!_ghost.GetGhostPickup()._isHolding)
+                    {
+                        ChangeState();
+                    }
+                }
+                
+            }
+
+
+            if (currentState == State.Possess)
+            {
+                PossessDestination();
+                return;
+                //ChangeState();
+            }
+
+            //this is awful change it, just asking fo problems
+
+           // if (currentState != State.Steal || currentState != State.Cauldron)
+           // {
+           //     ChangeState();
+           // }
         }
     }
 
@@ -142,7 +187,7 @@ public class EnemyLogic : MonoBehaviour
     {
 
 
-        int value = Random.Range(0, 3);
+        int value = Random.Range(0, 4);
 
 
         //if(previousState == currentState)
@@ -150,13 +195,16 @@ public class EnemyLogic : MonoBehaviour
             switch (value)
             {
                 case 0:
-                    RunState(State.Daughter);
+                    RunState(State.Steal);
                     break;
                 case 1:
-                    RunState(State.Cauldron);
+                    RunState(State.Possess);
                     break;
                 case 2:
-                   RunState(State.Basement);
+                    RunState(State.Steal);
+                    break;
+                case 3:
+                   RunState(State.Steal);
                     break;
             }
         }
@@ -164,13 +212,19 @@ public class EnemyLogic : MonoBehaviour
         if (previousState == currentState)
         {
             //Debug.Log("Same State");
+            
         }
 
 
-        RunState(State.Daughter);
+        //RunState(State.Daughter);
 
         //_navigator.SetDestination(currentDestination.transform);
 
+        //IF THE GHOST IS HOLDING SOMETHING HEAD TO THE CAULDRON
+        if (_ghost.GetGhostPickup()._isHolding)
+        {
+            RunState(State.Cauldron);
+        }
 
     }
 
@@ -182,13 +236,23 @@ public class EnemyLogic : MonoBehaviour
         switch (currentState)
         {
             case State.Daughter:
-                FindDaughter();
+                //FindDaughter();
+                ChangeState();
+                break;
+            case State.Oven:
+                FindOven();
                 break;
             case State.Cauldron:
                 FindCauldron();
                 break;
             case State.Basement:
                 FindBasement();
+                break;
+            case State.Possess:
+                FindPossessableDestination();
+                break;
+            case State.Steal:
+                FindItemToSteal();
                 break;
             case State.Stunned:
                 //run particle effect + stun anim
@@ -198,9 +262,108 @@ public class EnemyLogic : MonoBehaviour
         _navigator.SetDestination(currentDestination.transform);
     }
 
+    public void FindPossessableDestination()
+    {
+        //We should just do a search for possesable objects and return their availabiloityy
+
+
+
+        //This should return the oven
+        FindOven();
+
+
+        _navigator.SetDestination(currentDestination.transform);
+
+        if (currentDestination.GetComponentInParent<Possessable>()._isPossessed)
+        {
+            ChangeState();
+        }
+    }
+
+    public void PossessDestination()
+    {
+        //double check for possessable
+        if (currentDestination.GetComponentInParent<Possessable>())
+        {
+            Possessable possessable = currentDestination.GetComponentInParent<Possessable>();
+            if (!possessable._isPossessed)
+            {
+
+                //TODO Move this Possess object to a method in the class handler
+                possessable.PossessObject(this._ghost);
+
+                Debug.Log("Possessing the oven");
+            }
+            else
+            {
+                ChangeState();
+            }
+        }
+            
+    }
+
+    public void FindItemToSteal()
+    {
+        
+
+
+        FoodItem[] allFoods = FindObjectsOfType<FoodItem>();
+        List<FoodItem> availableItems = new List<FoodItem>();
+
+        foreach( FoodItem f in allFoods)
+        {
+            if (!f._inCauldron || !f._isHeld)
+            {
+                availableItems.Add(f);
+            }
+            else
+            {
+                ChangeState();
+            }
+        }
+
+        currentDestination = availableItems[Random.Range(0, availableItems.Count)].gameObject;
+
+
+        //if (!foodObject.GetComponent<FoodItem>()._inCauldron)
+        //{
+        //    currentDestination = foodObject;
+        //}
+        //else
+        //{
+        //    ChangeState();
+        //}
+
+    }
+
+    public void PickupItem()
+    {
+
+
+        if(currentDestination.GetComponent<FoodItem>()._inCauldron)
+        {
+            ChangeState();
+            return;
+        }
+
+        if (_ghost.GetGhostPickup()._currentItem == null)
+        {
+            if (!currentDestination.GetComponent<Item>()._isHeld)
+                _ghost.GetGhostPickup().PickupItem(currentDestination.GetComponent<Item>());
+        }
+
+
+        RunState(State.Cauldron);
+    }
+
     private void FindDaughter()
     {
         currentDestination = daughter;
+    }
+
+    private void FindOven()
+    {
+        currentDestination = oven;
     }
 
     private void FindCauldron()
@@ -274,7 +437,7 @@ public class EnemyLogic : MonoBehaviour
         if(alive == true)
         {
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
-            _enemyMngr.RemoveEnemy(this.GetComponent<Enemy>());
+            _ghostMngr.RemoveGhost(this.GetComponent<Ghost>());
             Destroy(this.gameObject, .2f);
         }
         alive = false;

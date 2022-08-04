@@ -8,12 +8,14 @@ public class Item : MonoBehaviour
     public GameObject parentObj;
     public Item subclass;
 
+    public bool _isHeld;
+
     public TutorialText helpText;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        helpText = GetComponentInChildren<TutorialText>();
     }
 
     // Update is called once per frame
@@ -23,20 +25,31 @@ public class Item : MonoBehaviour
     }
 
     //need to make this an event
-    public void OnPickup(PlayerPickup target)
+    public virtual void OnPickup(PlayerPickup target)
     {
         DisableCollider();
         SetItemTransform(target);
         parentObj = target.gameObject;
+        _isHeld = true;
     }
 
+    public virtual void OnPickup(Pickup target)
+    {
+        DisableCollider();
+        SetItemTransform(target);
+        parentObj = target.gameObject;
+        _isHeld = true;
+    }
+
+
     //This also needs to be an event
-    public void OnDrop()
+    public virtual void OnDrop()
     {
         transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
+        _isHeld = false;
     }
 
     public void EnableCollider()
@@ -54,8 +67,14 @@ public class Item : MonoBehaviour
         transform.parent = target.GetHolderTransform();
         transform.position = target.GetHolderTransform().position;
     }
+    private void SetItemTransform(Pickup target)
+    {
+        transform.parent = target.GetHolderTransform();
+        transform.position = target.GetHolderTransform().position;
+    }
 
-    private void UnsetItemTransform()
+
+    protected void UnsetItemTransform()
     {
         transform.parent = null;
 
@@ -72,28 +91,33 @@ public class Item : MonoBehaviour
 
     public void UpdateHelpTextPickup()
     {
+        if(helpText != null)
         helpText.UpdateTextPickup("Item");
     }
 
     public void DisableHelpTextPickup()
     {
-        helpText.DisableText();
+        if (helpText != null)
+            helpText.DisableText();
     }
 
     public void UpdateHelpTextUse()
     {
-        helpText.UpdateTextUse("");
+        if (helpText != null)
+            helpText.UpdateTextUse("");
         FadeOutTextAfterTime();
     }
 
     public void DisableHelpTextUse()
     {
-        helpText.DisableText();
+        if (helpText != null)
+            helpText.DisableText();
     }
 
     public void FadeOutTextAfterTime()
     {
-        Invoke("DisableHelpTextUse", 1.2f);
+        if (helpText != null)
+            Invoke("DisableHelpTextUse", 1.2f);
     }
 
 
