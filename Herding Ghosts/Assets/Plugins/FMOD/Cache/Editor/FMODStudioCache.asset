@@ -103,12 +103,13 @@ MonoBehaviour:
   - {fileID: 4516426165629902671}
   - {fileID: 4905380887898271836}
   - {fileID: -3268688251665353353}
+  - {fileID: 1145245684017877719}
   EditorParameters: []
   MasterBanks:
   - {fileID: 134670157265388788}
   StringsBanks:
   - {fileID: 2380887785565191657}
-  cacheTime: 637900481409021572
+  cacheTime: 637954942192924031
   cacheVersion: 10
 --- !u!114 &134670157265388788
 MonoBehaviour:
@@ -125,11 +126,38 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637900466954202395
+  lastModified: 637954942190539398
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &1145245684017877719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/LoseTimer
+  m_EditorClassIdentifier: 
+  Path: event:/LoseTimer
+  Guid:
+    Data1: 1612403486
+    Data2: 1283719552
+    Data3: 1116287404
+    Data4: 1177646195
+  Banks:
+  - {fileID: 5493200247293988379}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 10000
 --- !u!114 &2380887785565191657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,10 +173,10 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637900481408961558
+  lastModified: 637954942190549398
   FileSizes:
   - Name: Desktop
-    Value: 1004
+    Value: 1044
   Exists: 1
 --- !u!114 &4516426165629902671
 MonoBehaviour:
@@ -219,8 +247,8 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/MenuClick.bank
   Name: MenuClick
   StudioPath: bank:/MenuClick
-  lastModified: 637900481409021572
+  lastModified: 637954942192924031
   FileSizes:
   - Name: Desktop
-    Value: 782208
+    Value: 982848
   Exists: 1
