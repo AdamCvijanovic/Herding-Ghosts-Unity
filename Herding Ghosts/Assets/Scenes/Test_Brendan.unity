@@ -1055,82 +1055,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &700575397
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 700575398}
-  - component: {fileID: 700575400}
-  - component: {fileID: 700575399}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &700575398
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700575397}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5683751, y: 2.0351536, z: 1.4936906}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1037306903}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 1}
---- !u!114 &700575399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700575397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d69c3b3817fb4864e8488fe35de16a3b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &700575400
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700575397}
-  m_CullTransparentMesh: 1
 --- !u!1001 &730859190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3315,7 +3239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544090748604841777, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -95
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6544090748604841777, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3509,6 +3433,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7886861622526080736, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: shake
+      value: 
+      objectReference: {fileID: 1397488505}
+    - target: {fileID: 7886861622526080736, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: menuBG
+      value: 
+      objectReference: {fileID: 49969056}
+    - target: {fileID: 7886861622526080736, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: losemenu
+      value: 
+      objectReference: {fileID: 1937967044}
+    - target: {fileID: 7916891030369914125, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8101695457324006580, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: LoseMenu
@@ -3525,6 +3465,7 @@ PrefabInstance:
     - {fileID: 1037306898, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
     - {fileID: 4818369140546565330, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
     - {fileID: 490643589170813755, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+    - {fileID: 7356700220326871200, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
 --- !u!1 &969375967 stripped
 GameObject:
@@ -3566,17 +3507,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 272607983429083003, guid: 7528f1f69c24fbb47b2f7a0e9a947ca6, type: 3}
   m_PrefabInstance: {fileID: 167038876}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1033863614 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6544090749921722032, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 964987566}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1037306898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3595,11 +3525,6 @@ MonoBehaviour:
   winMenu: {fileID: 737926427}
   loseMenu: {fileID: 1937967044}
   controlsMenu: {fileID: 1829436867}
---- !u!224 &1037306903 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 964987566}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1047198655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2382005680449562, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -4211,26 +4136,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6544090748604841782, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 964987566}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1397488504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397488501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad9d05b5fed6d64fadc7953d0326fbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdown: 15
-  currentTime: 0
-  timerFill: {fileID: 1033863614}
-  yellowColor: {r: 1, g: 0.8577045, b: 0, a: 1}
-  redColor: {r: 1, g: 0, b: 0, a: 1}
-  shake: {fileID: 1397488505}
-  menues: {fileID: 49969056}
-  losemenu: {fileID: 1937967044}
 --- !u!95 &1397488505
 Animator:
   serializedVersion: 4
