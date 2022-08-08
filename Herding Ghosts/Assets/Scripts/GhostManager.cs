@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class GhostManager : MonoBehaviour
 {
     //Singleton
     //public static EnemyManager EnemyManagerSGLTN { get; private set; }
 
     [SerializeField]
-    private List<Enemy> enemies = new List<Enemy>();
+    private List<Ghost> ghosts = new List<Ghost>();
 
+    [SerializeField]
+    private int MaxGhosts;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FetchExistingEnemies();
+        FetchExistingGhosts();
     }
 
     // Update is called once per frame
@@ -35,23 +37,28 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-    private void FetchExistingEnemies()
+    private void FetchExistingGhosts()
     {
-        foreach (Enemy e in FindObjectsOfType<Enemy>())
+        foreach (Ghost e in FindObjectsOfType<Ghost>())
         {
-            enemies.Add(e);
+            ghosts.Add(e);
         }
     }
 
-    public void AddEnemy(Enemy enemy)
+    public void AddGhost(Ghost ghost)
     {
-        enemies.Add(enemy);
+        ghosts.Add(ghost);
          
     }
 
-    public void RemoveEnemy(Enemy enemy)
+    public void RemoveGhost(Ghost ghost)
     {
-        enemies.Remove(enemy);
+        ghosts.Remove(ghost);
+    }
+
+    public bool CheckMax()
+    {
+        return ghosts.Count < MaxGhosts;
     }
 
 

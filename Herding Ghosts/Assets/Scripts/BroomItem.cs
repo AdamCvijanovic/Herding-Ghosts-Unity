@@ -32,6 +32,7 @@ public class BroomItem : Item
 
     public void CheckPlayerDir()
     {
+        //We can check playerMove script on pickup, and here can be a null check instead
         playerMoveScript = parentObj.GetComponent<PlayerMove>();
 
         if(playerMoveScript._direction == PlayerMove.Direction.Up)
@@ -67,10 +68,10 @@ public class BroomItem : Item
     {
         if(parentObj != null)
         {
-            if (collision.gameObject.GetComponent<EnemyLogic>())
+            if (collision.gameObject.GetComponent<GhostLogic>())
             {
                 Debug.Log("Player hit " + collision.gameObject.name);
-                collision.gameObject.GetComponent<EnemyLogic>().HitByBroom(this.gameObject);
+                collision.gameObject.GetComponent<GhostLogic>().HitByBroom(this.gameObject);
                 PushObject(collision.gameObject);
             }
         }

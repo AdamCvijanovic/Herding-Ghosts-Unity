@@ -39,7 +39,8 @@ public class DestinationManager : MonoBehaviour
     {
         foreach (Destination e in FindObjectsOfType<Destination>())
         {
-            destinations.Add(e);
+            if(!destinations.Contains(e))
+                destinations.Add(e);
         }
     }
 
