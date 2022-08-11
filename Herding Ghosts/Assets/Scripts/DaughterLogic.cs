@@ -79,7 +79,8 @@ public class DaughterLogic : MonoBehaviour
 
             if(_tasksCompleted == _numTasksToComplete)
             {
-            FindObjectOfType<PlayerUI>().Win();
+                FindObjectOfType<IngameMenus>().WinMenu();
+            //FindObjectOfType<PlayerUI>().Win();
             //controlUI.SetActive(false);
             }
         }
