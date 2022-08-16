@@ -14,7 +14,7 @@ public class Pickup : MonoBehaviour
     public Item _currentItem;
 
 
-    public CauldronDestination nearCauldron;
+    public WorkstationDestination nearWorkstation;
 
     // Start is called before the first frame update
     void Start()
@@ -115,7 +115,7 @@ public class Pickup : MonoBehaviour
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
-            nearCauldron = collision.gameObject.GetComponent<CauldronDestination>();
+            nearWorkstation = collision.gameObject.GetComponent<WorkstationDestination>();
         }
     }
 
@@ -130,9 +130,9 @@ public class Pickup : MonoBehaviour
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
-            if (nearCauldron != null)
+            if (nearWorkstation != null)
             {
-                nearCauldron = null;
+                nearWorkstation = null;
             }
         }
     }
