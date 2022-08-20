@@ -9,7 +9,7 @@ public class FoodItem : Item
     private FoodType foodType;
 
     public bool _inCauldron;
-    public CauldronDestination parentCauldron;
+    public WorkstationDestination _parentWorkstation;
 
     // Start is called before the first frame update
     void Start()
@@ -38,17 +38,17 @@ public class FoodItem : Item
     public override void OnPickup(PlayerPickup target)
     {
         base.OnPickup(target);
-        if (parentCauldron != null)
+        if (_parentWorkstation != null)
         {
-            RemoveFromCauldronInventory(parentCauldron);
+            RemoveFromParentInventory(_parentWorkstation);
         }
     }
     public override void OnDrop()
     {
         //shoudl change this proximity check to somewhere else.
-        if(parentObj.GetComponent<Pickup>().nearCauldron != null)
+        if(parentObj.GetComponent<Pickup>().nearWorkstation != null)
         {
-            AddToCauldronInventory(parentObj.GetComponent<Pickup>().nearCauldron);
+            AddToParentInventory(parentObj.GetComponent<Pickup>().nearWorkstation);
         }
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -58,17 +58,21 @@ public class FoodItem : Item
         _isHeld = false;
     }
 
-    private void AddToCauldronInventory(CauldronDestination cauldron)
+    private void AddToParentInventory(WorkstationDestination workstation)
     {
-        cauldron.AddItemToList(this);
-        parentCauldron = cauldron;
-        _inCauldron = true;
+        if (parentObj.GetComponent<Pickup>().nearWorkstation.HasInventorySpace())
+        {
+            workstation.AddItemToList(this);
+            _parentWorkstation = workstation;
+            _inCauldron = true;
+        }
+        
     }
 
-    private void RemoveFromCauldronInventory(CauldronDestination cauldron)
+    private void RemoveFromParentInventory(WorkstationDestination workstation)
     {
-        cauldron.RemoveItemFromList(this);
-        parentCauldron = null;
+        workstation.RemoveItemFromList(this);
+        _parentWorkstation = null;
         _inCauldron = false;
     }
 

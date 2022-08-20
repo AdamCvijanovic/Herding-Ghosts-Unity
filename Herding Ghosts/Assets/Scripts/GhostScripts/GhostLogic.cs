@@ -131,7 +131,7 @@ public class GhostLogic : MonoBehaviour
             {
                 if(distance <= minDist)
                 {
-                    if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearCauldron)
+                    if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearWorkstation)
                     {
                         _ghost.GetGhostPickup().Drop();
                         ChangeState();
@@ -356,6 +356,11 @@ public class GhostLogic : MonoBehaviour
         RunState(State.Cauldron);
     }
 
+    public void DropItem()
+    {
+        _ghost.GetGhostPickup().Drop();
+    }
+
     private void FindDaughter()
     {
         currentDestination = daughter;
@@ -423,6 +428,9 @@ public class GhostLogic : MonoBehaviour
     public void TakeDamage(float damageValue)
     {
         _currhealth -= damageValue;
+
+        if (_ghost.GetGhostPickup()._isHolding)
+            DropItem();
 
         if (_currhealth <= 0)
         {

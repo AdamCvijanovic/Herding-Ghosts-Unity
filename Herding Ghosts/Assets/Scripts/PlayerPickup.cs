@@ -92,7 +92,7 @@ public class PlayerPickup : Pickup
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
-            nearCauldron = collision.gameObject.GetComponent<CauldronDestination>();
+            nearWorkstation = collision.gameObject.GetComponent<CauldronDestination>();
         }
     }
 
@@ -107,9 +107,9 @@ public class PlayerPickup : Pickup
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
-            if (nearCauldron != null)
+            if (nearWorkstation != null)
             {
-                nearCauldron = null;
+                nearWorkstation = null;
             }
         }
     }
@@ -162,10 +162,10 @@ public class PlayerPickup : Pickup
 
     //Getters & Setters
 
-    public Transform GetHolderTransform()
-    {
-        return _itemHolder;
-    }
+    //public Transform GetHolderTransform()
+    //{
+    //    return _itemHolder;
+    //}
 
    public void ActivateItem(InputAction.CallbackContext context)
     {
