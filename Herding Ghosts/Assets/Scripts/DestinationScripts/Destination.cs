@@ -5,7 +5,7 @@ using UnityEngine;
 public class Destination : MonoBehaviour
 {
 
-    public enum DestinationType { Cauldron, Basement, Barrel, Oven, Fridge};
+    public enum DestinationType { Cauldron, Basement, Barrel, Oven, Fridge, PointOfSale};
     [SerializeField]
     private DestinationType destinationType;
 
