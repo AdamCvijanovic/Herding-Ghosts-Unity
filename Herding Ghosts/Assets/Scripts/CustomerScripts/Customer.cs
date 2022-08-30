@@ -15,6 +15,8 @@ public class Customer : MonoBehaviour
     [SerializeField]
     AINavigation _customerNavigation;
 
+    CustomerManager _customerMngr;
+
 
 
     void Start()
@@ -29,4 +31,6 @@ public class Customer : MonoBehaviour
     {
         
     }
+
+
 }

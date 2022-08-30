@@ -10,6 +10,7 @@ public class FoodItem : Item
 
     public bool _inCauldron;
     public WorkstationDestination _parentWorkstation;
+    public Inventory _parentInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,11 @@ public class FoodItem : Item
         {
             RemoveFromParentInventory(_parentWorkstation);
         }
+
+        if (_parentInventory != null)
+        {
+            RemoveFromParentInventory(_parentInventory);
+        }
     }
     public override void OnDrop()
     {
@@ -51,12 +57,19 @@ public class FoodItem : Item
             AddToParentInventory(parentObj.GetComponent<Pickup>().nearWorkstation);
         }
 
+        if (parentObj.GetComponent<Pickup>().nearInventory != null)
+        {
+            AddToParentInventory(parentObj.GetComponent<Pickup>().nearInventory);
+        }
+
         transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
         UnsetItemTransform();
         parentObj = null;
         _isHeld = false;
     }
+
+
 
     private void AddToParentInventory(WorkstationDestination workstation)
     {
@@ -69,9 +82,27 @@ public class FoodItem : Item
         
     }
 
+    private void AddToParentInventory(Inventory inventory)
+    {
+        if (parentObj.GetComponent<Pickup>().nearInventory.HasInventorySpace())
+        {
+            inventory.AddItemToList(this);
+            _parentInventory = inventory;
+            _inCauldron = true;
+        }
+
+    }
+
     private void RemoveFromParentInventory(WorkstationDestination workstation)
     {
         workstation.RemoveItemFromList(this);
+        _parentWorkstation = null;
+        _inCauldron = false;
+    }
+
+    private void RemoveFromParentInventory(Inventory inventory)
+    {
+        inventory.RemoveItemFromList(this);
         _parentWorkstation = null;
         _inCauldron = false;
     }

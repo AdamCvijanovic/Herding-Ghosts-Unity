@@ -1,28 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
-public class PointOfSaleDestination : Destination
+public class Inventory : MonoBehaviour
 {
+
+    public UnityEvent itemAdded;
+
     public int maxItems = 3;
 
     public List<FoodItem> _items = new List<FoodItem>();
 
-
-    //Accepted Items
-
-    //Recipe Outputs
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     //we could do with an inventory script that handles available space and inventory slots seperately
@@ -39,6 +38,8 @@ public class PointOfSaleDestination : Destination
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);
 
+
+        itemAdded.Invoke();
     }
 
     public void RemoveItemFromList()
@@ -57,10 +58,4 @@ public class PointOfSaleDestination : Destination
             _items.Remove(item);
     }
 
-    public void ConsumeItems(GameObject item, GameObject ingredient1, GameObject ingredient2)
-    {
-        RemoveItemFromList(item.GetComponent<FoodItem>());
-
-        Destroy(item);
-    }
 }

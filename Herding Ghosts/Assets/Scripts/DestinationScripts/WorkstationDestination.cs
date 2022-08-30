@@ -8,7 +8,11 @@ public class WorkstationDestination : Destination
     public int maxItems = 3;
 
     public List<FoodItem> _items = new List<FoodItem>();
-    public List <RecipeObject> _recipeList = new List<RecipeObject>();
+    public List<RecipeObject> _recipeList = new List<RecipeObject>();
+
+    //take teh inventory out
+    //_recipe list shoudl be the only relevant thign here
+    //shoudl reference inventory componenet
 
 
     //Accepted Items
