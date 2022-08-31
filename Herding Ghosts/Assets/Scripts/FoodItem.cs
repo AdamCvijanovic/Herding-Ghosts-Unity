@@ -8,7 +8,7 @@ public class FoodItem : Item
     [SerializeField]
     private FoodType foodType;
 
-    public bool _inCauldron;
+    public bool _inInventory;
     public WorkstationDestination _parentWorkstation;
     public Inventory _parentInventory;
 
@@ -71,40 +71,47 @@ public class FoodItem : Item
 
 
 
-    private void AddToParentInventory(WorkstationDestination workstation)
+    public void AddToParentInventory(WorkstationDestination workstation)
     {
         if (parentObj.GetComponent<Pickup>().nearWorkstation.HasInventorySpace())
         {
             workstation.AddItemToList(this);
             _parentWorkstation = workstation;
-            _inCauldron = true;
+            _inInventory = true;
         }
         
     }
 
-    private void AddToParentInventory(Inventory inventory)
+    public void AddToParentInventory(Inventory inventory)
     {
         if (parentObj.GetComponent<Pickup>().nearInventory.HasInventorySpace())
         {
             inventory.AddItemToList(this);
             _parentInventory = inventory;
-            _inCauldron = true;
+            _inInventory = true;
         }
 
     }
 
-    private void RemoveFromParentInventory(WorkstationDestination workstation)
+    public void RemoveFromParentInventory(WorkstationDestination workstation)
     {
         workstation.RemoveItemFromList(this);
         _parentWorkstation = null;
-        _inCauldron = false;
+        _inInventory = false;
     }
 
-    private void RemoveFromParentInventory(Inventory inventory)
+    public void RemoveFromParentInventory(Inventory inventory)
     {
         inventory.RemoveItemFromList(this);
         _parentWorkstation = null;
-        _inCauldron = false;
+        _inInventory = false;
+    }
+
+    public void RemoveFromParentInventory()
+    {
+        _parentInventory.RemoveItemFromList(this);
+        _parentWorkstation = null;
+        _inInventory = false;
     }
 
 

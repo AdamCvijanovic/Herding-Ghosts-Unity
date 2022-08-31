@@ -131,6 +131,8 @@ public class GhostLogic : MonoBehaviour
             {
                 if(distance <= minDist)
                 {
+                    //this needs to be moved
+
                     if (_ghost.GetGhostPickup()._isHolding && _ghost.GetGhostPickup().nearWorkstation)
                     {
                         _ghost.GetGhostPickup().Drop();
@@ -312,7 +314,7 @@ public class GhostLogic : MonoBehaviour
 
         foreach( FoodItem f in allFoods)
         {
-            if (!f._inCauldron || !f._isHeld)
+            if (!f._inInventory || !f._isHeld)
             {
                 availableItems.Add(f);
             }
@@ -340,7 +342,7 @@ public class GhostLogic : MonoBehaviour
     {
 
 
-        if(currentDestination.GetComponent<FoodItem>()._inCauldron)
+        if(currentDestination.GetComponent<FoodItem>()._inInventory)
         {
             ChangeState();
             return;

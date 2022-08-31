@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
 
-    public UnityEvent itemAdded;
 
     public int maxItems = 3;
 
@@ -27,19 +25,14 @@ public class Inventory : MonoBehaviour
     //we could do with an inventory script that handles available space and inventory slots seperately
     public bool HasInventorySpace()
     {
-
-        Debug.Log("ITEM LIST SIZE == " + _items.Count);
-
         return _items.Count <= maxItems - 1;
     }
 
-    public void AddItemToList(FoodItem item)
+    public virtual void AddItemToList(FoodItem item)
     {
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);
 
-
-        itemAdded.Invoke();
     }
 
     public void RemoveItemFromList()

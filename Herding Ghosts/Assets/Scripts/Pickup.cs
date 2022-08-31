@@ -73,10 +73,16 @@ public class Pickup : MonoBehaviour
 
             //get nearby objects
             //parent to transform
-                _currentItem = item;
-                _isHolding = true;
-                _currentItem.OnPickup(this);
-                //nearestItem.UpdateHelpTextUse();
+            _currentItem = item;
+            _isHolding = true;
+            _currentItem.OnPickup(this);
+            //nearestItem.UpdateHelpTextUse();
+
+            if (item.GetComponent<FoodItem>()._inInventory)
+            {
+                item.GetComponent<FoodItem>().RemoveFromParentInventory();
+            }
+
         }
 
 

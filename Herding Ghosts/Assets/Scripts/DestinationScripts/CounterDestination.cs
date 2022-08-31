@@ -23,5 +23,10 @@ public class CounterDestination : Destination
 
     }
 
+    public CounterInventory GetCounterInventory()
+    {
+        return counterInventory;
+    }
+
     
 }

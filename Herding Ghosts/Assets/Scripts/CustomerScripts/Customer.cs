@@ -33,4 +33,14 @@ public class Customer : MonoBehaviour
     }
 
 
+    public AINavigation GetNavigator()
+    {
+        return _customerNavigation;
+    }
+
+    public Pickup GetPickup()
+    {
+        return _customerPickup;
+    }
+
 }
