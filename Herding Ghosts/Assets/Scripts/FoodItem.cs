@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FoodItem : Item
 {
-    public enum FoodType { CupCake, Carrot};
+    public enum FoodType { CupCake, Carrot, Wheat, Sugar, Apple, Milk, Pumpkin, Mushroom, TeaLeaves, Strawberry, Honey, Ectoplasm, Boba};
     [SerializeField]
     private FoodType foodType;
 
