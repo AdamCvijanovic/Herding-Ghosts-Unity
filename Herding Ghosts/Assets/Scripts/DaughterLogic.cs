@@ -75,7 +75,7 @@ public class DaughterLogic : MonoBehaviour
             //Task Completion should really be it's own function or even an event
             _tasksCompleted++;
             //This is terrible, Ideally use a Game Manager to handle this fetching nonsense
-            FindObjectOfType<PlayerUI>().UpdateWinText(this);
+            //FindObjectOfType<PlayerUI>().UpdateWinText(this);
 
             if(_tasksCompleted == _numTasksToComplete)
             {
@@ -191,26 +191,27 @@ public class DaughterLogic : MonoBehaviour
             _thoughtBubble.ChangeImage(_currentDestination);
     }
 
-    public void IncreaseFear()
-    {
-        if(!_invulnerable)
-        {
-            _invulnerable = true;
-            if(currentState != State.Stunned)
-            {
-                _fearValue += _damage;
 
-                //RunState(State.Stunned);
-                Stun();
-                //Death Check
-                if (_fearValue >= 100)
-                {
-                    FindObjectOfType<PlayerUI>().Lose();
-                }
-            }
-        }
-        
-    }
+    // public void IncreaseFear()
+    // {
+    //     if(!_invulnerable)
+    //     {
+    //         _invulnerable = true;
+    //         if(currentState != State.Stunned)
+    //         {
+    //             _fearValue += _damage;
+
+    //             //RunState(State.Stunned);
+    //             Stun();
+    //             //Death Check
+    //             if (_fearValue >= 100)
+    //             {
+    //                 FindObjectOfType<PlayerUI>().Lose();
+    //             }
+    //         }
+    //     }
+    // }
+
 
     private void SwapInvulnerability()
     {
