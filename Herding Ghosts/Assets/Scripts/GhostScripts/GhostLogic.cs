@@ -118,7 +118,7 @@ public class GhostLogic : MonoBehaviour
         {
             if (currentState == State.Daughter)
             {
-                currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                //currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
                 BanishGhost();
             }
 
