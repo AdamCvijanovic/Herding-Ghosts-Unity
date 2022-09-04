@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 
     public int maxItems = 3;
 
-    public List<FoodItem> _items = new List<FoodItem>();
+    public List<Item> _items = new List<Item>();
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Inventory : MonoBehaviour
         return _items.Count <= maxItems - 1;
     }
 
-    public virtual void AddItemToList(FoodItem item)
+    public virtual void AddItemToList(Item item)
     {
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);
@@ -45,10 +45,11 @@ public class Inventory : MonoBehaviour
         _items.Remove(_items[i]);
     }
 
-    public void RemoveItemFromList(FoodItem item)
+    public void RemoveItemFromList(Item item)
     {
         if (_items.Contains(item))
             _items.Remove(item);
     }
+
 
 }

@@ -12,6 +12,9 @@ public class Item : MonoBehaviour
 
     public TutorialText helpText;
 
+    public bool _inInventory;
+    public Inventory _parentInventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,6 +123,22 @@ public class Item : MonoBehaviour
             Invoke("DisableHelpTextUse", 1.2f);
     }
 
+    public void AddToParentInventory(Inventory inventory)
+    {
+        if (parentObj.GetComponent<Pickup>().nearInventory.HasInventorySpace())
+        {
+            inventory.AddItemToList(this);
+            _parentInventory = inventory;
+            _inInventory = true;
+        }
+
+    }
+
+    public void RemoveFromParentInventory()
+    {
+        _parentInventory.RemoveItemFromList(this);
+        _inInventory = false;
+    }
 
 
 

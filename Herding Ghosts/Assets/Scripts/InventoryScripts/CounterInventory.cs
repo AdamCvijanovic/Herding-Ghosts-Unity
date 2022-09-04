@@ -31,7 +31,7 @@ public class CounterInventory : Inventory
         }
     }
 
-    public override void AddItemToList(FoodItem item)
+    public void AddItemToList(FoodItem item)
     {
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);

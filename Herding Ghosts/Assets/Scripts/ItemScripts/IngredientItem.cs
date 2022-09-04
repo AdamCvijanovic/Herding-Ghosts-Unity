@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodItem : Item
+public class IngredientItem : Item
 {
-    public enum FoodType { CupCake, Carrot, Wheat, Sugar, Apple, Milk, Pumpkin, Mushroom, TeaLeaves, Strawberry, Honey, Ectoplasm, Boba};
+    public enum IngredientType { CupCake, Carrot, Wheat, Sugar, Apple, Milk, Pumpkin, Mushroom, TeaLeaves, Strawberry, Honey, Ectoplasm, Boba};
     [SerializeField]
-    private FoodType foodType;
+    private IngredientType foodType;
 
-    public bool _inInventory;
-    public WorkstationDestination _parentWorkstation;
-    public Inventory _parentInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +21,7 @@ public class FoodItem : Item
         
     }
 
-    public FoodType GetFoodType()
+    public IngredientType GetIngredientType()
     {
         return foodType;
     }
@@ -39,10 +36,6 @@ public class FoodItem : Item
     public override void OnPickup(PlayerPickup target)
     {
         base.OnPickup(target);
-        if (_parentWorkstation != null)
-        {
-            RemoveFromParentInventory(_parentWorkstation);
-        }
 
         if (_parentInventory != null)
         {
@@ -76,41 +69,21 @@ public class FoodItem : Item
         if (parentObj.GetComponent<Pickup>().nearWorkstation.HasInventorySpace())
         {
             workstation.AddItemToList(this);
-            _parentWorkstation = workstation;
             _inInventory = true;
         }
         
     }
 
-    public void AddToParentInventory(Inventory inventory)
-    {
-        if (parentObj.GetComponent<Pickup>().nearInventory.HasInventorySpace())
-        {
-            inventory.AddItemToList(this);
-            _parentInventory = inventory;
-            _inInventory = true;
-        }
-
-    }
 
     public void RemoveFromParentInventory(WorkstationDestination workstation)
     {
         workstation.RemoveItemFromList(this);
-        _parentWorkstation = null;
         _inInventory = false;
     }
 
     public void RemoveFromParentInventory(Inventory inventory)
     {
         inventory.RemoveItemFromList(this);
-        _parentWorkstation = null;
-        _inInventory = false;
-    }
-
-    public void RemoveFromParentInventory()
-    {
-        _parentInventory.RemoveItemFromList(this);
-        _parentWorkstation = null;
         _inInventory = false;
     }
 

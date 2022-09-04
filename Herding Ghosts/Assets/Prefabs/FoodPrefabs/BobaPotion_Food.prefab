@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8896932469849304169}
-  - component: {fileID: 793516296424791921}
+  - component: {fileID: -8741043429374105434}
   - component: {fileID: 8896932469849304170}
   - component: {fileID: 8896932469849304171}
   - component: {fileID: 8896932469849304172}
@@ -35,9 +35,9 @@ Transform:
   - {fileID: 8896932471786127790}
   - {fileID: 8896932470722532090}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &793516296424791921
+--- !u!114 &-8741043429374105434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,17 +46,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8896932469849304173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bc012b338ad724293fa60cd1884c1e, type: 3}
+  m_Script: {fileID: 11500000, guid: a305a043561035a4a88150ef62e87505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parentObj: {fileID: 0}
   subclass: {fileID: 0}
   _isHeld: 0
   helpText: {fileID: 0}
-  foodType: 0
   _inInventory: 0
-  _parentWorkstation: {fileID: 0}
   _parentInventory: {fileID: 0}
+  foodType: 1
+  foodSprite: {fileID: 21300000, guid: 0ecb04943e0e84e4fbead35ebb09c12e, type: 3}
 --- !u!61 &8896932469849304170
 BoxCollider2D:
   m_ObjectHideFlags: 0

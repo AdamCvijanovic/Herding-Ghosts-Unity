@@ -10,6 +10,9 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     private int MaxCustomers;
 
+    [SerializeField]
+    public List<GameObject> _foodPrefabs = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +35,10 @@ public class CustomerManager : MonoBehaviour
 
     public void AddCustomer(Customer customer)
     {
+        customer.enabled = true;
         customers.Add(customer);
-
+        customer.SetCustomerManager(this);
+        customer.transform.parent = this.transform;
     }
 
     public void RemoveCustomer(Customer customer)
@@ -44,6 +49,20 @@ public class CustomerManager : MonoBehaviour
     public bool CheckMax()
     {
         return customers.Count < MaxCustomers;
+    }
+
+    public GameObject FindFoodFromEnum(FoodItem.FoodType foodType)
+    {
+
+        GameObject foodObj = _foodPrefabs[0];
+
+        foreach (GameObject i in _foodPrefabs)
+        {
+            if (i.GetComponent<FoodItem>().GetFoodType() == foodType)
+                foodObj = i;
+        }
+
+        return foodObj;
     }
 
 }

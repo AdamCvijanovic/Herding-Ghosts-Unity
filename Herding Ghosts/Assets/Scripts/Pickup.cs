@@ -78,9 +78,9 @@ public class Pickup : MonoBehaviour
             _currentItem.OnPickup(this);
             //nearestItem.UpdateHelpTextUse();
 
-            if (item.GetComponent<FoodItem>()._inInventory)
+            if (item.GetComponent<Item>()._inInventory)
             {
-                item.GetComponent<FoodItem>().RemoveFromParentInventory();
+                item.GetComponent<Item>().RemoveFromParentInventory();
             }
 
         }

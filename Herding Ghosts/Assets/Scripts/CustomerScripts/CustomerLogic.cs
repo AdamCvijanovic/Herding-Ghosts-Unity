@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CustomerLogic : MonoBehaviour
 {
-    public Customer _customer;
+    [SerializeField]
+    private Customer _customer;
 
     public enum CustomerState {Shopping,Leaving};
     public CustomerState currentState;
@@ -32,11 +33,17 @@ public class CustomerLogic : MonoBehaviour
         CheckDistance();
     }
 
+    public void SetCustomer(Customer customer)
+    {
+        _customer = customer;
+    }
+
     public void FetchDestination()
     {
         counter = _destMngr.GetDestinationOfType(Destination.DestinationType.Counter).GetComponent<CounterDestination>();
         customerSpawner = _destMngr.GetDestinationOfType(Destination.DestinationType.CustomerSpawner);
         _customer.GetNavigator().SetDestination(counter.transform);
+
     }
 
     public void CheckDistance()
@@ -45,7 +52,9 @@ public class CustomerLogic : MonoBehaviour
 
         if(dst < minDst)
         {
-            if(counter.GetCounterInventory()._items.Count > 0)
+            _customer.UpdateUI();
+
+            if (counter.GetCounterInventory()._items.Count > 0)
             {
                 GrabItem();
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
@@ -53,6 +62,8 @@ public class CustomerLogic : MonoBehaviour
             }
         }
     }
+
+
 
     public void GrabItem()
     {

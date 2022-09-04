@@ -309,14 +309,14 @@ public class GhostLogic : MonoBehaviour
         
 
 
-        FoodItem[] allFoods = FindObjectsOfType<FoodItem>();
-        List<FoodItem> availableItems = new List<FoodItem>();
+        IngredientItem[] allIngredients = FindObjectsOfType<IngredientItem>();
+        List<IngredientItem> availableItems = new List<IngredientItem>();
 
-        foreach( FoodItem f in allFoods)
+        foreach(IngredientItem i in allIngredients)
         {
-            if (!f._inInventory || !f._isHeld)
+            if (!i._inInventory || !i._isHeld)
             {
-                availableItems.Add(f);
+                availableItems.Add(i);
             }
             else
             {
@@ -342,7 +342,7 @@ public class GhostLogic : MonoBehaviour
     {
 
 
-        if(currentDestination.GetComponent<FoodItem>()._inInventory)
+        if(currentDestination.GetComponent<IngredientItem>()._inInventory)
         {
             ChangeState();
             return;
