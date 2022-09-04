@@ -52,22 +52,38 @@ public class CustomerLogic : MonoBehaviour
 
         if(dst < minDst)
         {
-            _customer.UpdateUI();
+
+            //_customer.UpdateUI();
 
             if (counter.GetCounterInventory()._items.Count > 0)
             {
-                GrabItem();
-                _customer.GetNavigator().SetDestination(customerSpawner.transform);
-                currentState = CustomerState.Leaving;
+                if (DesireditemFound())
+                {
+                    GrabItem();
+                    _customer.GetNavigator().SetDestination(customerSpawner.transform);
+                    currentState = CustomerState.Leaving;
+                }
+
+                
             }
         }
     }
 
 
+    public bool DesireditemFound()
+    { 
+        return counter.GetCounterInventory().SearchForFoodType(_customer._desiredFood);
+    }
+
 
     public void GrabItem()
     {
-        _customer.GetPickup().PickupItem(counter.GetCounterInventory()._items[0]);
+
+        Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
+
+        _customer.GetPickup().PickupItem(desiredFoodItem);
+
+        
     }
 
 

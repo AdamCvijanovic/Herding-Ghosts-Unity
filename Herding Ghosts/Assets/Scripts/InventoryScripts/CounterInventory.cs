@@ -31,15 +31,42 @@ public class CounterInventory : Inventory
         }
     }
 
-    public void AddItemToList(FoodItem item)
+    public override void AddItemToList(Item item)
     {
-        //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
-        _items.Add(item);
+        if (item.GetComponent<FoodItem>())
+        {
+            _items.Add(item);
+            MoveItemsToPostion();
 
-
-        itemAdded.Invoke();
+            itemAdded.Invoke();
+        }
+        
     }
 
+    public bool SearchForFoodType(FoodItem.FoodType foodType)
+    {
+        bool returnObject = false;
 
+        foreach (FoodItem item in _items)
+        { 
+            if (item.GetFoodType() == foodType)
+                returnObject = item.gameObject;
+        }
+
+        return returnObject;
+    }
+
+    public GameObject GrabFoodOfType(FoodItem.FoodType foodType)
+    {
+        GameObject returnObject = null;
+
+        foreach (FoodItem item in _items)
+        {
+            if (item.GetFoodType() == foodType)
+                returnObject = item.gameObject;
+        }
+
+        return returnObject;
+    }
 
 }

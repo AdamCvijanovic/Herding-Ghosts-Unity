@@ -11,6 +11,10 @@ public class CounterDestination : Destination
 
     //Recipe Outputs
 
+    public Queue<Customer> customerQueue;
+
+    public List<CounterQueuePosition> queuePositions = new List<CounterQueuePosition>();
+
     // Start is called before the first frame update
     void Start()
     {

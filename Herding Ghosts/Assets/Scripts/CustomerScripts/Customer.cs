@@ -21,7 +21,7 @@ public class Customer : MonoBehaviour
     [SerializeField]
     CustomerManager _customerMngr;
 
-    public FoodItem.FoodType DesiredFood;
+    public FoodItem.FoodType _desiredFood;
 
     void Start()
     {
@@ -63,13 +63,13 @@ public class Customer : MonoBehaviour
 
     public void SetDesiredFood()
     {
-        DesiredFood = (FoodItem.FoodType)Random.Range(0, System.Enum.GetValues(typeof(FoodItem.FoodType)).Length);
+        _desiredFood = (FoodItem.FoodType)Random.Range(0, System.Enum.GetValues(typeof(FoodItem.FoodType)).Length);
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        _foodItemImage.SelectFoodImage(DesiredFood);
+        _foodItemImage.SelectFoodImage(_desiredFood);
     }
 
     public AINavigation GetNavigator()
