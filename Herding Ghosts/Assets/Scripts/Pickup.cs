@@ -13,8 +13,9 @@ public class Pickup : MonoBehaviour
 
     public Item _currentItem;
 
-
+    //Don't liek this have it be universal to inventories instead
     public WorkstationDestination nearWorkstation;
+    public Inventory nearInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -72,10 +73,16 @@ public class Pickup : MonoBehaviour
 
             //get nearby objects
             //parent to transform
-                _currentItem = item;
-                _isHolding = true;
-                _currentItem.OnPickup(this);
-                //nearestItem.UpdateHelpTextUse();
+            _currentItem = item;
+            _isHolding = true;
+            _currentItem.OnPickup(this);
+            //nearestItem.UpdateHelpTextUse();
+
+            if (item.GetComponent<Item>()._inInventory)
+            {
+                item.GetComponent<Item>().RemoveFromParentInventory();
+            }
+
         }
 
 
@@ -116,6 +123,11 @@ public class Pickup : MonoBehaviour
         if (collision.gameObject.GetComponent<CauldronDestination>())
         {
             nearWorkstation = collision.gameObject.GetComponent<WorkstationDestination>();
+        }
+
+        if (collision.gameObject.GetComponent<Inventory>())
+        {
+            nearInventory = collision.gameObject.GetComponent<Inventory>();
         }
     }
 

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class RecipeObject : ScriptableObject
 {
-    public FoodItem.FoodType ingredient0;
-    public FoodItem.FoodType ingredient1;
-    public FoodItem.FoodType ingredient2;
+    public IngredientItem.IngredientType ingredient0;
+    public IngredientItem.IngredientType ingredient1;
+    public IngredientItem.IngredientType ingredient2;
 
     public GameObject recipePrefab;
 }

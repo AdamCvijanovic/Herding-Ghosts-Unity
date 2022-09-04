@@ -90,9 +90,14 @@ public class PlayerPickup : Pickup
             collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
         }
 
-        if (collision.gameObject.GetComponent<CauldronDestination>())
+        if (collision.gameObject.GetComponent<WorkstationDestination>())
         {
-            nearWorkstation = collision.gameObject.GetComponent<CauldronDestination>();
+            nearWorkstation = collision.gameObject.GetComponent<WorkstationDestination>();
+        }
+
+        if (collision.gameObject.GetComponent<Inventory>())
+        {
+            nearInventory = collision.gameObject.GetComponent<Inventory>();
         }
     }
 
@@ -110,6 +115,14 @@ public class PlayerPickup : Pickup
             if (nearWorkstation != null)
             {
                 nearWorkstation = null;
+            }
+        }
+
+        if (collision.gameObject.GetComponent<Inventory>())
+        {
+            if (nearInventory != null)
+            {
+                nearInventory = null;
             }
         }
     }

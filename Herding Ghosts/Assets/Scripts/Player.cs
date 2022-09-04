@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     //public PlayerSprite playerSprite;
 
     public CauldronDestination nearCauldron;
+    public Inventory nearInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
             {
                 //in retrospect we could have just checked for cauldron destination
                 nearCauldron = collision.gameObject.GetComponent<CauldronDestination>();
+                nearInventory = collision.gameObject.GetComponent<Inventory>();
             }
         }
     }
@@ -49,6 +51,11 @@ public class Player : MonoBehaviour
         if (nearCauldron != null)
         {
             nearCauldron = null;
+        }
+
+        if (nearInventory != null)
+        {
+            nearInventory = null;
         }
     }
 

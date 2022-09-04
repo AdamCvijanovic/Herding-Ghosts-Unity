@@ -7,8 +7,12 @@ public class WorkstationDestination : Destination
 
     public int maxItems = 3;
 
-    public List<FoodItem> _items = new List<FoodItem>();
-    public List <RecipeObject> _recipeList = new List<RecipeObject>();
+    public List<IngredientItem> _items = new List<IngredientItem>();
+    public List<RecipeObject> _recipeList = new List<RecipeObject>();
+
+    //take teh inventory out
+    //_recipe list shoudl be the only relevant thign here
+    //shoudl reference inventory componenet
 
 
     //Accepted Items
@@ -36,7 +40,7 @@ public class WorkstationDestination : Destination
         return _items.Count <= maxItems-1;
     }
 
-    public void AddItemToList(FoodItem item)
+    public void AddItemToList(IngredientItem item)
     {
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);
@@ -73,7 +77,7 @@ public class WorkstationDestination : Destination
         Debug.Log("Recipe Check");
 
 
-        return (_items[0].GetFoodType() == recipeIn.ingredient0 && _items[1].GetFoodType() == recipeIn.ingredient1 && _items[2].GetFoodType() == recipeIn.ingredient2);
+        return (_items[0].GetIngredientType() == recipeIn.ingredient0 && _items[1].GetIngredientType() == recipeIn.ingredient1 && _items[2].GetIngredientType() == recipeIn.ingredient2);
         
     }
 
@@ -100,7 +104,7 @@ public class WorkstationDestination : Destination
         _items.Remove(_items[i]);
     }
 
-    public void RemoveItemFromList(FoodItem item)
+    public void RemoveItemFromList(IngredientItem item)
     {
         if (_items.Contains(item))
             _items.Remove(item);
@@ -108,9 +112,9 @@ public class WorkstationDestination : Destination
 
     public void ConsumeItems(GameObject ingredient0, GameObject ingredient1, GameObject ingredient2)
     {
-        RemoveItemFromList(ingredient0.GetComponent<FoodItem>());
-        RemoveItemFromList(ingredient1.GetComponent<FoodItem>());
-        RemoveItemFromList(ingredient2.GetComponent<FoodItem>());
+        RemoveItemFromList(ingredient0.GetComponent<IngredientItem>());
+        RemoveItemFromList(ingredient1.GetComponent<IngredientItem>());
+        RemoveItemFromList(ingredient2.GetComponent<IngredientItem>());
 
         Destroy(ingredient0);
         Destroy(ingredient1);
