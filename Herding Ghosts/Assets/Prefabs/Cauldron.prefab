@@ -130,7 +130,7 @@ Transform:
   - {fileID: 244459241}
   - {fileID: 1753142783}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4154144965032871887
 Animator:
@@ -165,7 +165,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationType: 0
-  items: []
+  maxItems: 3
+  _items: []
+  _recipeList:
+  - {fileID: 11400000, guid: 509ce9dbdffca80499f14a37774e8725, type: 2}
+  - {fileID: 11400000, guid: 2b2a22e041cce864b84b38f531b89dfe, type: 2}
+  - {fileID: 11400000, guid: 68a94094ab8613e42b79157263e1f1fc, type: 2}
+  - {fileID: 11400000, guid: c6c18cfe8c58e064e95d163576ca5ee6, type: 2}
+  - {fileID: 11400000, guid: ad147515d5e802e478d7ac95348d4a3d, type: 2}
+  - {fileID: 11400000, guid: 0366effd457b71447ad9d4c2529cce1e, type: 2}
+  - {fileID: 11400000, guid: a574efdf6e3e23d42b236d5a77bcc002, type: 2}
+  - {fileID: 11400000, guid: 3bef873620103304d9bb1ba84fc6274b, type: 2}
+  - {fileID: 11400000, guid: 445a3b88b97b87a4d8a6c8b4d276defc, type: 2}
+  - {fileID: 11400000, guid: 11262e8e1a538fc4e9f9de9494a74fb5, type: 2}
+  - {fileID: 11400000, guid: 60b1a291e0cffd34780f4c57203ce4f8, type: 2}
+  - {fileID: 11400000, guid: d1f67a74e5f517a4bb2f2d37196dd4f9, type: 2}
 --- !u!50 &1029707123
 Rigidbody2D:
   serializedVersion: 4
