@@ -1941,7 +1941,6 @@ GameObject:
   - component: {fileID: 2336780698106017934}
   - component: {fileID: 5381386268851758385}
   - component: {fileID: 8502069734700576793}
-  - component: {fileID: 490643589170813755}
   m_Layer: 5
   m_Name: Menues
   m_TagString: Untagged
@@ -2024,26 +2023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c362f2152cee8f34b86cb90488deda65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &490643589170813755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4003900614982333884}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4006f9526db6844d95926cf9ca379b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 3882528715789291606}
-  pauseMenuTextGO: {fileID: 207609200781216954}
-  pauseMenuWinGO: {fileID: 2357761707092447289}
-  pauseMenuLoseGO: {fileID: 8101695457324006580}
-  controlsGO: {fileID: 0}
-  controlsBTN: {fileID: 0}
-  mainMenuBTN: {fileID: 0}
-  pausedState: 1
 --- !u!1 &4494876970901320588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2383,6 @@ GameObject:
   - component: {fileID: 6544090748486202627}
   - component: {fileID: 6544090748486202624}
   - component: {fileID: 6544090748486202625}
-  - component: {fileID: 8689477789280870005}
   - component: {fileID: 7356700220326871200}
   m_Layer: 5
   m_Name: Canvas
@@ -2426,9 +2404,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6544090748604841777}
-  - {fileID: 2542174866881755490}
   - {fileID: 7916891030369914125}
   - {fileID: 855561151}
+  - {fileID: 2542174866881755490}
   - {fileID: 7333399054690047502}
   - {fileID: 404569272146155244}
   - {fileID: 3685804390712296087}
@@ -2458,6 +2436,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2501,23 +2480,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8689477789280870005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6544090748486202630}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6810f6994ccd2904fad5be860b0f0122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPaused: 0
-  pauseMenu: {fileID: 490643589170813755}
-  _gameMenues: {fileID: 0}
-  winTextPanel: {fileID: 855561155}
-  hasLost: 0
 --- !u!114 &7356700220326871200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,6 +2498,7 @@ MonoBehaviour:
   winMenu: {fileID: 2357761707092447289}
   loseMenu: {fileID: 8101695457324006580}
   controlsMenu: {fileID: 1060905599461331805}
+  youWin: 0
 --- !u!1 &6633099504858638434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,6 +3612,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 6544090748486202626}
     m_Modifications:
     - target: {fileID: 73166336354584243, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
@@ -3804,6 +3768,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8101695457324006580}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
 --- !u!224 &6544090748604841777 stripped
 RectTransform:

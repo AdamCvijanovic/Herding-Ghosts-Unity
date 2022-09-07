@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public PlayerUI playerUI;
     public PlayerMove playerMove;
     public PlayerPickup playerPickup;
     //public PlayerSprite playerSprite;
@@ -16,9 +15,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (playerUI == null)
-            playerUI = FindObjectOfType<PlayerUI>();
-
         if (playerMove == null)
             playerMove = GetComponent<PlayerMove>();
 
