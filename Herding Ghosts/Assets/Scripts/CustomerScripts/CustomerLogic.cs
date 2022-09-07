@@ -43,7 +43,6 @@ public class CustomerLogic : MonoBehaviour
         counter = _destMngr.GetDestinationOfType(Destination.DestinationType.Counter).GetComponent<CounterDestination>();
         customerSpawner = _destMngr.GetDestinationOfType(Destination.DestinationType.CustomerSpawner);
         _customer.GetNavigator().SetDestination(counter.transform);
-
     }
 
     public void CheckDistance()
@@ -52,20 +51,29 @@ public class CustomerLogic : MonoBehaviour
 
         if(dst < minDst)
         {
-
             //_customer.UpdateUI();
 
-            if (counter.GetCounterInventory()._items.Count > 0)
+            if (currentState == CustomerState.Shopping)
             {
-                if (DesireditemFound())
+                if (counter.GetCounterInventory()._items.Count > 0)
                 {
-                    GrabItem();
-                    _customer.GetNavigator().SetDestination(customerSpawner.transform);
-                    currentState = CustomerState.Leaving;
+                    if (DesireditemFound())
+                    {
+                        GrabItem();
+                        _customer.GetNavigator().SetDestination(customerSpawner.transform);
+                        currentState = CustomerState.Leaving;
+                    }
                 }
-
-                
             }
+
+            if(currentState == CustomerState.Leaving)
+            {
+                _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
+                Destroy(this.gameObject, .2f);
+            }
+
+            
+            
         }
     }
 
@@ -75,15 +83,10 @@ public class CustomerLogic : MonoBehaviour
         return counter.GetCounterInventory().SearchForFoodType(_customer._desiredFood);
     }
 
-
     public void GrabItem()
     {
-
         Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
-
         _customer.GetPickup().PickupItem(desiredFoodItem);
-
-        
     }
 
 

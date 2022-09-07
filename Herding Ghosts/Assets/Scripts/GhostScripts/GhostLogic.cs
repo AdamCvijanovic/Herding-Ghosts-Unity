@@ -94,7 +94,7 @@ public class GhostLogic : MonoBehaviour
         {
             oven = _destMngr.GetDestinationOfType(Destination.DestinationType.Oven).gameObject;
             cauldron = _destMngr.GetDestinationOfType(Destination.DestinationType.Cauldron).gameObject;
-            basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
+            //basement = _destMngr.GetDestinationOfType(Destination.DestinationType.Basement).gameObject;
         }
     }
 
@@ -118,7 +118,7 @@ public class GhostLogic : MonoBehaviour
         {
             if (currentState == State.Daughter)
             {
-                currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
+                //currentDestination.GetComponent<DaughterLogic>().IncreaseFear();
                 BanishGhost();
             }
 
