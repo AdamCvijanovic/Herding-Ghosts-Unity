@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class IngredientItem : Item
 {
-    public enum IngredientType { CupCake, Carrot, Wheat, Sugar, Apple, Milk, Pumpkin, Mushroom, TeaLeaves, Strawberry, Honey, Ectoplasm, Boba};
+    public enum IngredientType {None, CupCake, Carrot, Wheat, Sugar, Apple, Milk, Pumpkin, Mushroom, TeaLeaves, Strawberry, Honey, Ectoplasm, Boba};
     [SerializeField]
     private IngredientType foodType;
-
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class IngredientItem : Item
         
     }
 
-    public IngredientType GetIngredientType()
+    public override IngredientType GetIngredientType()
     {
         return foodType;
     }
@@ -39,21 +38,19 @@ public class IngredientItem : Item
 
         if (_parentInventory != null)
         {
-            RemoveFromParentInventory(_parentInventory);
+            RemoveFromParentInventory();
         }
     }
     public override void OnDrop()
     {
         //shoudl change this proximity check to somewhere else.
-        if(parentObj.GetComponent<Pickup>().nearWorkstation != null)
-        {
-            AddToParentInventory(parentObj.GetComponent<Pickup>().nearWorkstation);
-        }
-
-        if (parentObj.GetComponent<Pickup>().nearInventory != null)
-        {
+       if (parentObj.GetComponent<Pickup>().nearInventory != null)
+       {
             AddToParentInventory(parentObj.GetComponent<Pickup>().nearInventory);
-        }
+
+            //if(parentObj.GetComponent<Pickup>().nearWorkstation != null)
+                //parentObj.GetComponent<Pickup>().nearWorkstation.AddItemToList(this);
+       }
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
         EnableCollider();
@@ -64,28 +61,29 @@ public class IngredientItem : Item
 
 
 
-    public void AddToParentInventory(WorkstationDestination workstation)
-    {
-        if (parentObj.GetComponent<Pickup>().nearWorkstation.HasInventorySpace())
-        {
-            workstation.AddItemToList(this);
-            _inInventory = true;
-        }
-        
-    }
-
-
-    public void RemoveFromParentInventory(WorkstationDestination workstation)
-    {
-        workstation.RemoveItemFromList(this);
-        _inInventory = false;
-    }
-
-    public void RemoveFromParentInventory(Inventory inventory)
-    {
-        inventory.RemoveItemFromList(this);
-        _inInventory = false;
-    }
+    //public void AddToParentInventory(WorkstationDestination workstation)
+    //{
+    //    if (parentObj.GetComponent<Pickup>().nearWorkstation.HasInventorySpace())
+    //    {
+    //        workstation.AddItemToList(this);
+    //        _parentInventory = inve
+    //        _inInventory = true;
+    //    }
+    //    
+    //}
+    //
+    //
+    //public void RemoveFromParentInventory(WorkstationDestination workstation)
+    //{
+    //    workstation.RemoveItemFromList(this);
+    //    _inInventory = false;
+    //}
+    //
+    //public void RemoveFromParentInventory(Inventory inventory)
+    //{
+    //    inventory.RemoveItemFromList(this);
+    //    _inInventory = false;
+    //}
 
 
 
