@@ -31,13 +31,19 @@ public class WorkstationInventory : Inventory
         }
     }
 
-    public void AddItemToList(FoodItem item)
+    public override void AddItemToList(Item item)
     {
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
-        _items.Add(item);
 
+        if (item.GetComponent<IngredientItem>())
+        {
+            _items.Add(item);
+            MoveItemsToPostion();
 
-        itemAdded.Invoke();
+            GetComponent<WorkstationDestination>().InventoryCheck();
+
+            itemAdded.Invoke();
+        }
     }
 
 

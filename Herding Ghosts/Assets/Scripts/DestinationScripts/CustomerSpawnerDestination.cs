@@ -64,17 +64,17 @@ public class CustomerSpawnerDestination : Destination
 
     }
 
-    public void SpawnCustomer(GameObject enemyPrefab)
+    public void SpawnCustomer(GameObject customerPrefab)
     {
         if (_spawnPosition != null)
         {
-            GameObject newCustomer = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity, _customerMngr.transform);
+            GameObject newCustomer = Instantiate(customerPrefab, _spawnPosition.position, Quaternion.identity, _customerMngr.transform);
             _customerMngr.AddCustomer(newCustomer.GetComponent<Customer>());
 
         }
         else
         {
-            GameObject newCustomer = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity, _customerMngr.transform);
+            GameObject newCustomer = Instantiate(customerPrefab, this.transform.position, Quaternion.identity, _customerMngr.transform);
             _customerMngr.AddCustomer(newCustomer.GetComponent<Customer>());
 
         }

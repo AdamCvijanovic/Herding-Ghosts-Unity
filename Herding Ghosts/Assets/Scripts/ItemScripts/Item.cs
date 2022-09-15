@@ -31,6 +31,10 @@ public class Item : MonoBehaviour
     public virtual void OnPickup(PlayerPickup target)
     {
         DisableCollider();
+        if (_inInventory && _parentInventory!=null)
+        {
+            _parentInventory.RemoveItemFromList(this);
+        }
         SetItemTransform(target);
         parentObj = target.gameObject;
         _isHeld = true;
@@ -39,6 +43,10 @@ public class Item : MonoBehaviour
     public virtual void OnPickup(Pickup target)
     {
         DisableCollider();
+        if (_inInventory)
+        {
+            _parentInventory.RemoveItemFromList(this);
+        }
         SetItemTransform(target);
         parentObj = target.gameObject;
         _isHeld = true;
@@ -130,6 +138,7 @@ public class Item : MonoBehaviour
             inventory.AddItemToList(this);
             _parentInventory = inventory;
             _inInventory = true;
+
         }
 
     }
@@ -140,6 +149,17 @@ public class Item : MonoBehaviour
         _inInventory = false;
     }
 
+    public virtual IngredientItem.IngredientType GetIngredientType()
+    {
+        //IngredientItem.IngredientType ingredientType = IngredientItem.IngredientType.None;
+        //
+        //if (this is IngredientItem child)
+        //{
+        //    ingredientType = child.GetIngredientType();
+        //    // Here is where I want to access the child class methods and variables    
+        //}
 
+        return IngredientItem.IngredientType.None;
+    }
 
 }

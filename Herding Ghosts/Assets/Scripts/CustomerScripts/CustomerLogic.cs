@@ -16,6 +16,8 @@ public class CustomerLogic : MonoBehaviour
 
 
     public float minDst;
+    public float dst;
+    public float despawnTime;
 
 
     // Start is called before the first frame update
@@ -30,7 +32,9 @@ public class CustomerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckDistance();
+        dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
+
+        CheckState();
     }
 
     public void SetCustomer(Customer customer)
@@ -45,36 +49,47 @@ public class CustomerLogic : MonoBehaviour
         _customer.GetNavigator().SetDestination(counter.transform);
     }
 
-    public void CheckDistance()
+    public void CheckState()
     {
-        float dst = Vector3.Distance(counter.transform.position, transform.position);
 
-        if(dst < minDst)
+
+        if (currentState == CustomerState.Shopping)
         {
-            //_customer.UpdateUI();
-
-            if (currentState == CustomerState.Shopping)
+            if (dst < minDst)
             {
+                //_customer.UpdateUI();
+
                 if (counter.GetCounterInventory()._items.Count > 0)
                 {
                     if (DesireditemFound())
                     {
                         GrabItem();
                         _customer.GetNavigator().SetDestination(customerSpawner.transform);
+                        dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                         currentState = CustomerState.Leaving;
+                    }
+                    else
+                    {
+                        //Debug.Log("No item found");
                     }
                 }
             }
-
-            if(currentState == CustomerState.Leaving)
-            {
-                _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
-                Destroy(this.gameObject, .2f);
-            }
-
-            
-            
         }
+
+        if (currentState == CustomerState.Leaving)
+        {
+            if (dst < minDst)
+            {
+                Debug.Log("Remove customer");
+                _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
+                Destroy(this.gameObject, despawnTime);
+            }
+        }       
+    }
+
+    public void RunShopping()
+    {
+
     }
 
 
