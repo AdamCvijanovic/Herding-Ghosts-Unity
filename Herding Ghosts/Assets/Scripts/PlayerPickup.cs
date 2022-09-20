@@ -88,6 +88,7 @@ public class PlayerPickup : Pickup
         {
             _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
             collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
+            collision.gameObject.GetComponent<Item>().ItemHighlight();
         }
 
         if (collision.gameObject.GetComponent<WorkstationDestination>())
@@ -107,7 +108,7 @@ public class PlayerPickup : Pickup
         {
             _nearbyItems.Remove(collision.gameObject.GetComponent<Item>());
             collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
-
+            collision.gameObject.GetComponent<Item>().ItemUnHighlight();
         }
 
         if (collision.gameObject.GetComponent<CauldronDestination>())
@@ -145,6 +146,11 @@ public class PlayerPickup : Pickup
                 {
                     smallestDist = currentDist;
                     nearestItem = i;
+                    //nearestItem.ItemHighlight();
+                }
+                else
+                {
+                    //i.ItemUnHighlight();
                 }
             }
         }
