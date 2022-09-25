@@ -13,6 +13,7 @@ public class WorkstationDestination : Destination
 
     public Inventory _inventory;
 
+    public enum WorkstationType {Cauldron, Oven};
 
     public List<Transform> _itemPositions = new List<Transform>();
     
@@ -25,6 +26,11 @@ public class WorkstationDestination : Destination
     //Recipe Outputs
 
 
+    //Interaction system
+    public SpriteRenderer sprRndr;
+
+    public Material defaultMaterial;
+    public Material highlightMaterial;
 
 
     // Start is called before the first frame update
@@ -38,6 +44,24 @@ public class WorkstationDestination : Destination
     {
 
     }
+
+    //Interaction Systems
+    public void WorkStationHighlight()
+    {
+        if (highlightMaterial != null)
+            sprRndr.material = highlightMaterial;
+    }
+
+    public void WorkstationUnHighlight()
+    {
+        if (defaultMaterial != null)
+        {
+            sprRndr.material = defaultMaterial;
+        }
+        //if item highlighted, unhiglight
+
+    }
+
 
     //we could do with an inventory script that handles available space and inventory slots seperately
     public bool HasInventorySpace()
