@@ -24,7 +24,6 @@ public class UIItemPortrait : MonoBehaviour
     public void GetCustomer()
     {
         Customer currentCustomer = customerManager.GetCurrentCustomer();
-
     }
 
     public void UpdateImage(Image image)
