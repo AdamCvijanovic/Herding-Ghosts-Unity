@@ -82,10 +82,7 @@ public class Pickup : MonoBehaviour
             {
                 item.GetComponent<Item>().RemoveFromParentInventory();
             }
-
         }
-
-
     }
 
     public void Drop()

@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 8509441954223448677}
   - component: {fileID: 8509441954223448678}
   m_Layer: 6
-  m_Name: Customer
+  m_Name: Customer 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ Transform:
   - {fileID: 8509441954757142225}
   - {fileID: 782933522}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8509441954223448702
 SpriteRenderer:
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ab6d739830f59744ea4e03392ca162bc, type: 3}
+  m_Sprite: {fileID: -1608570454, guid: e01fb6063f5f0bc4593fed75e89ca50b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   _customerNavigation: {fileID: 8509441954223448698}
   _foodItemImage: {fileID: 790141887}
   _customerMngr: {fileID: 0}
-  DesiredFood: 0
+  _desiredFood: 0
 --- !u!114 &8509441954223448696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +322,9 @@ MonoBehaviour:
   currentState: 0
   counter: {fileID: 0}
   customerSpawner: {fileID: 0}
-  minDst: 2
+  minDst: 0.2
+  dst: 0
+  despawnTime: 0.2
 --- !u!114 &8509441954223448697
 MonoBehaviour:
   m_ObjectHideFlags: 0
