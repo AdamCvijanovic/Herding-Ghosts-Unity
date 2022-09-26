@@ -16,6 +16,7 @@ public class Pickup : MonoBehaviour
     //Don't liek this have it be universal to inventories instead
     public WorkstationDestination nearWorkstation;
     public Inventory nearInventory;
+    public Interactable nearInteractable;
 
     // Start is called before the first frame update
     void Start()

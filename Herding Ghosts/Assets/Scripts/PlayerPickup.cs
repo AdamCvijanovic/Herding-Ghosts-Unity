@@ -157,11 +157,13 @@ public class PlayerPickup : Pickup
 
     public void PlayerNearInteractable(GameObject go)
     {
+        nearInteractable = go.GetComponent<Interactable>();
         go.GetComponent<Interactable>().Highlight();
     }
 
     public void PlayerLeaveInteractable(GameObject go)
     {
+        nearInteractable = null;
         go.GetComponent<Interactable>().UnHighlight();
     }
 
@@ -224,11 +226,19 @@ public class PlayerPickup : Pickup
     //}
 
    public void ActivateItem(InputAction.CallbackContext context)
-    {
+   {
 
         if (_currentItem != null && context.performed)
         {
             _currentItem.Activate();
+        }
+   }
+
+    public void ActivateInteractable(InputAction.CallbackContext context)
+    {
+        if (nearInteractable != null && context.performed)
+        {
+            nearInteractable.Activate();
         }
     }
 

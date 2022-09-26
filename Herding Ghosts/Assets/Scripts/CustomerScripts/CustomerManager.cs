@@ -62,7 +62,8 @@ public class CustomerManager : MonoBehaviour
 
     public void UpdatePortraitUI()
     {
-        uiItemPortrait.UpdateImage(GetCurrentCustomer().GetUIFoodItemImage()._foodItemImage);
+        if(uiItemPortrait != null)
+            uiItemPortrait.UpdateImage(GetCurrentCustomer().GetUIFoodItemImage()._foodItemImage);
     }
 
     public bool CheckMax()

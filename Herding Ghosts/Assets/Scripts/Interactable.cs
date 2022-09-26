@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Interactable : MonoBehaviour
 
     public Material defaultMaterial;
     public Material highlightMaterial;
+
+    UnityEvent m_MyEvent = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,11 @@ public class Interactable : MonoBehaviour
         }
         //if item highlighted, unhiglight
 
+    }
+
+    public void Activate()
+    {
+        Debug.Log("ACTIVATE");
     }
 
 }
