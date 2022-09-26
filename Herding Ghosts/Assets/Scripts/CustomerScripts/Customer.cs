@@ -56,6 +56,11 @@ public class Customer : MonoBehaviour
         return _customerMngr;
     }
 
+    public UIFoodItemImage GetUIFoodItemImage()
+    {
+        return _foodItemImage;
+    }
+
     public void SetCustomerManager(CustomerManager customerManager)
     {
         _customerMngr = customerManager;
@@ -70,6 +75,7 @@ public class Customer : MonoBehaviour
     public void UpdateUI()
     {
         _foodItemImage.SelectFoodImage(_desiredFood);
+        _customerMngr.UpdatePortraitUI();
     }
 
     public AINavigation GetNavigator()

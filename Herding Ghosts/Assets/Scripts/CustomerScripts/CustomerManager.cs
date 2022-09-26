@@ -13,16 +13,30 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> _foodPrefabs = new List<GameObject>();
 
+    public UIItemPortrait uiItemPortrait;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        uiItemPortrait = FindObjectOfType<UIItemPortrait>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public Customer GetCurrentCustomer()
+    {
+        if (customers.Count >= 1)
+        {
+            return customers[0];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     private void FetchExistingCustomers()
@@ -44,6 +58,11 @@ public class CustomerManager : MonoBehaviour
     public void RemoveCustomer(Customer customer)
     {
         customers.Remove(customer);
+    }
+
+    public void UpdatePortraitUI()
+    {
+        uiItemPortrait.UpdateImage(GetCurrentCustomer().GetUIFoodItemImage()._foodItemImage);
     }
 
     public bool CheckMax()
