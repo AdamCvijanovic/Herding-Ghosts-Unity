@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _ActivateEvent.AddListener(Activate);
+        //_ActivateEvent.AddListener(Activate);
     }
 
     // Update is called once per frame

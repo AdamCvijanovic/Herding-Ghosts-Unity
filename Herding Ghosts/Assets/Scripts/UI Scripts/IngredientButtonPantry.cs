@@ -6,10 +6,12 @@ public class IngredientButtonPantry : MonoBehaviour
 {
     public IngredientItem.IngredientType ingredientType;
 
+    public PantryUI pantryUI;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        pantryUI = GetComponentInParent<PantryUI>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class IngredientButtonPantry : MonoBehaviour
 
     public void SpawnIngredient()
     {
-
+        if (pantryUI != null)
+            pantryUI.SpawnIngredient(ingredientType);
     }
 }

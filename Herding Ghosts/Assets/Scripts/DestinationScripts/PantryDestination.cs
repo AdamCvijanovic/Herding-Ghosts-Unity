@@ -12,7 +12,7 @@ public class PantryDestination : Destination
     public Transform spawnPosition;
 
 
-    public List<IngredientItem> ingredients = new List<IngredientItem>();
+    public List<GameObject> ingredientprefabs = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +29,18 @@ public class PantryDestination : Destination
     public void ActivatePantryUI()
     {
         FindObjectOfType<IngameMenus>().PantryActivate();
+    }
+
+    public void SpawnIngredient(IngredientItem.IngredientType ingredientType)
+    {
+        Debug.Log("IngredeintType: " + ingredientType );
+
+        foreach(GameObject i in ingredientprefabs)
+        {
+            if(i.GetComponent<IngredientItem>().GetIngredientType() == ingredientType)
+            {
+                Instantiate(i, spawnPosition.transform.position, Quaternion.identity);
+            }
+        }
     }
 }
