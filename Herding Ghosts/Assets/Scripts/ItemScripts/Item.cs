@@ -15,14 +15,23 @@ public class Item : MonoBehaviour
     public bool _inInventory;
     public Inventory _parentInventory;
 
+    public SpriteRenderer sprRndr;
+
+    public Material defaultMaterial;
+    public Material highlightMaterial;
+
     // Start is called before the first frame update
-    void Start()
+    protected new void Start()
     {
         helpText = GetComponentInChildren<TutorialText>();
+
+        sprRndr = GetComponent<SpriteRenderer>();
+        if(sprRndr == null)
+            sprRndr = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected new void Update()
     {
         
     }
@@ -99,6 +108,21 @@ public class Item : MonoBehaviour
         }
     }
 
+    public void ItemHighlight()
+    {
+        if (highlightMaterial!= null)
+            sprRndr.material = highlightMaterial;
+    }
+
+    public void ItemUnHighlight()
+    {
+        if (defaultMaterial != null)
+        {
+                sprRndr.material = defaultMaterial;
+        }
+        //if item highlighted, unhiglight
+        
+    }
 
     public void UpdateHelpTextPickup()
     {

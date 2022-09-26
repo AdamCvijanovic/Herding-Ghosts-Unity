@@ -56,7 +56,7 @@ public class PlayerPickup : Pickup
                 nearestItem.UpdateHelpTextUse();
             }
         }
-      
+
 
     }
 
@@ -88,16 +88,22 @@ public class PlayerPickup : Pickup
         {
             _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
             collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
+            collision.gameObject.GetComponent<Item>().ItemHighlight();
         }
 
         if (collision.gameObject.GetComponent<WorkstationDestination>())
         {
-            nearWorkstation = collision.gameObject.GetComponent<WorkstationDestination>();
+            PlayerNearWorkstation(collision.gameObject);
         }
 
         if (collision.gameObject.GetComponent<Inventory>())
         {
             nearInventory = collision.gameObject.GetComponent<Inventory>();
+        }
+
+        if (collision.gameObject.GetComponent<Interactable>())
+        {
+            PlayerNearInteractable(collision.gameObject);
         }
     }
 
@@ -107,15 +113,20 @@ public class PlayerPickup : Pickup
         {
             _nearbyItems.Remove(collision.gameObject.GetComponent<Item>());
             collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
-
+            collision.gameObject.GetComponent<Item>().ItemUnHighlight();
         }
 
-        if (collision.gameObject.GetComponent<CauldronDestination>())
+        if (collision.gameObject.GetComponent<WorkstationDestination>())
         {
             if (nearWorkstation != null)
             {
+                
+                PlayerLeaveWorkstation(collision.gameObject);
+
                 nearWorkstation = null;
             }
+
+
         }
 
         if (collision.gameObject.GetComponent<Inventory>())
@@ -125,6 +136,33 @@ public class PlayerPickup : Pickup
                 nearInventory = null;
             }
         }
+
+        if (collision.gameObject.GetComponent<Interactable>())
+        {
+            PlayerLeaveInteractable(collision.gameObject);
+        }
+    }
+
+    public void PlayerNearWorkstation(GameObject go)
+    {
+        nearWorkstation = go.GetComponent<WorkstationDestination>();
+        nearWorkstation.WorkStationHighlight();
+    }
+
+    public void PlayerLeaveWorkstation(GameObject go)
+    {
+        nearWorkstation = go.GetComponent<WorkstationDestination>();
+        nearWorkstation.WorkstationUnHighlight();
+    }
+
+    public void PlayerNearInteractable(GameObject go)
+    {
+        go.GetComponent<Interactable>().Highlight();
+    }
+
+    public void PlayerLeaveInteractable(GameObject go)
+    {
+        go.GetComponent<Interactable>().UnHighlight();
     }
 
     private Item GetNearestItem()
@@ -145,6 +183,11 @@ public class PlayerPickup : Pickup
                 {
                     smallestDist = currentDist;
                     nearestItem = i;
+                    //nearestItem.ItemHighlight();
+                }
+                else
+                {
+                    //i.ItemUnHighlight();
                 }
             }
         }

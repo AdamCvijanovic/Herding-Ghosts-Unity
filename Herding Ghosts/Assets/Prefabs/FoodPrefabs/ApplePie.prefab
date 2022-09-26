@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 05fd07fc76aa97a4d89317802d47d40c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -490,7 +490,7 @@ Transform:
   - {fileID: 3355919831869813557}
   - {fileID: 3355919833026044001}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-6929965554567143463
 MonoBehaviour:
@@ -510,6 +510,9 @@ MonoBehaviour:
   helpText: {fileID: 0}
   _inInventory: 0
   _parentInventory: {fileID: 0}
+  sprRndr: {fileID: 0}
+  defaultMaterial: {fileID: 2100000, guid: 05fd07fc76aa97a4d89317802d47d40c, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
   foodType: 0
   foodSprite: {fileID: 21300000, guid: eb171384bd91ee24aabb38eaeac127a5, type: 3}
 --- !u!61 &3355919833764667121
