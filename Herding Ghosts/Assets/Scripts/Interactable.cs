@@ -13,12 +13,12 @@ public class Interactable : MonoBehaviour
     public Material defaultMaterial;
     public Material highlightMaterial;
 
-    UnityEvent m_MyEvent = new UnityEvent();
+    public UnityEvent _ActivateEvent = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _ActivateEvent.AddListener(Activate);
     }
 
     // Update is called once per frame
@@ -46,6 +46,7 @@ public class Interactable : MonoBehaviour
     public void Activate()
     {
         Debug.Log("ACTIVATE");
+        _ActivateEvent.Invoke();
     }
 
 }

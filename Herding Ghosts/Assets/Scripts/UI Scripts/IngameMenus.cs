@@ -11,6 +11,7 @@ public class IngameMenus : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject controlsMenu;
+    public GameObject pantryUI;
     public bool youWin = false;
 
     // Start is called before the first frame update
@@ -71,4 +72,16 @@ public class IngameMenus : MonoBehaviour
         }
     }
     
+    public void PantryActivate()
+    {
+        pantryUI.SetActive(true);
+        pantryUI.GetComponent<PantryUI>();
+    }
+
+    public void PantryDeactivate()
+    {
+        pantryUI.GetComponent<PantryUI>();
+        pantryUI.SetActive(false);
+    }
+
 }

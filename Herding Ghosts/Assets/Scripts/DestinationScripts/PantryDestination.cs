@@ -25,4 +25,9 @@ public class PantryDestination : Destination
     {
         
     }
+
+    public void ActivatePantryUI()
+    {
+        FindObjectOfType<IngameMenus>().PantryActivate();
+    }
 }
