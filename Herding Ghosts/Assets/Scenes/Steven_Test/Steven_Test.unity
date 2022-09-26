@@ -3365,12 +3365,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.60090315, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 99a078af650054d40a7cbdb90c66c127, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11748,6 +11748,10 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.528191
       objectReference: {fileID: 0}
@@ -11792,16 +11796,28 @@ PrefabInstance:
       value: GrowingPlant (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: 1018594283, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: sprout
+      value: 
+      objectReference: {fileID: -1633603833, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: seedling
+      value: 
+      objectReference: {fileID: -1868867678, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: currentTime
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: firstTransition
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: secondTransition
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -11937,6 +11953,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.704741
       objectReference: {fileID: 0}
@@ -11981,12 +12001,28 @@ PrefabInstance:
       value: GrowingPlant
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: -1828640188, guid: a8fac8d1986ae76479bca4c1d8e961fb, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: sprout
+      value: 
+      objectReference: {fileID: 520146932, guid: a8fac8d1986ae76479bca4c1d8e961fb, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: seedling
+      value: 
+      objectReference: {fileID: -195186813, guid: a8fac8d1986ae76479bca4c1d8e961fb, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: currentTime
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: firstTransition
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: secondTransition
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -12620,6 +12656,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.733438
       objectReference: {fileID: 0}
@@ -12968,12 +13008,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.60090315, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 99a078af650054d40a7cbdb90c66c127, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13052,12 +13092,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.60090315, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 99a078af650054d40a7cbdb90c66c127, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13546,6 +13586,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3695802429657208699, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 16b425fce5dd056499bba778009cd4b4, type: 3}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13727,6 +13771,10 @@ PrefabInstance:
       value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654273, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.585583
       objectReference: {fileID: 0}
@@ -13771,12 +13819,28 @@ PrefabInstance:
       value: GrowingPlant (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: 214035042, guid: 44b2af7608a1a4e40b5f0fb2aa9b2559, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: sprout
+      value: 
+      objectReference: {fileID: 116566486, guid: 44b2af7608a1a4e40b5f0fb2aa9b2559, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: seedling
+      value: 
+      objectReference: {fileID: -1756600488, guid: 44b2af7608a1a4e40b5f0fb2aa9b2559, type: 3}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: currentTime
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
       propertyPath: firstTransition
-      value: 70
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338544383139654287, guid: a599e4dd8ff18214896d6eb31c0e7b49, type: 3}
+      propertyPath: secondTransition
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -13973,7 +14037,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 83.2468}
+  m_SizeDelta: {x: 84.9875, y: 89.9733}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448503357
 MonoBehaviour:
