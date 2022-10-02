@@ -8,6 +8,10 @@ public class IngredientButtonPantry : MonoBehaviour
 
     public PantryUI pantryUI;
 
+    public string ingredientDescription;
+
+    public Sprite ingredientSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,14 @@ public class IngredientButtonPantry : MonoBehaviour
     public IngredientItem.IngredientType GetIngredientType()
     {
         return ingredientType;
+    }
+
+    public void SelectIngredient()
+    {
+        if(pantryUI != null)
+        {
+            pantryUI.SelectIngredient(this);
+        }
     }
 
     public void SpawnIngredient()

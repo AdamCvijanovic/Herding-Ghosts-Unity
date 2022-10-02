@@ -48,6 +48,9 @@ public class IngameMenus : MonoBehaviour
 
     public void PauseMenu()
     {
+        //Disable Other Menus
+        DisableOtherMenus();
+
         if (pauseMenu.activeSelf)
         {
             menuElements.SetActive(false);
@@ -88,6 +91,14 @@ public class IngameMenus : MonoBehaviour
     {
         pantryUI.GetComponent<PantryUI>();
         pantryUI.SetActive(false);
+    }
+
+    public void DisableOtherMenus()
+    {
+        if (pantryUI.activeInHierarchy)
+        {
+            PantryDeactivate();
+        }
     }
 
 }

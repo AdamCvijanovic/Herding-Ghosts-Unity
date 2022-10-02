@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 10
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Juicy Strawberry
+  ingredientSprite: {fileID: 21300000, guid: 1573a118bb26f204480f8a06f29be7f3, type: 3}
 --- !u!114 &8463099638549022202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -269,7 +271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2376358706060904522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5952802708757004037}
+        m_TargetAssemblyTypeName: PantryUI, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2376358706141728176
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,8 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bb9614f22d01d45895617f9c33aaf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientType: 0
-  pantryUI: {fileID: 0}
+  ingredientType: 5
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Perfect Apple
+  ingredientSprite: {fileID: 21300000, guid: 34595083088e5224ba1648e313b7ff2d, type: 3}
 --- !u!114 &2376358706141728190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,7 +421,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2376358706141728191}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4831096920749980764}
+        m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
+        m_MethodName: SelectIngredient
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2376358706152502096
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2376358706152502097}
+  - component: {fileID: 5952802708757004037}
   m_Layer: 5
   m_Name: PantryUI
   m_TagString: Untagged
@@ -443,6 +472,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5952802708757004037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376358706152502096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058b3cb21451f304b94c2665e5c21af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientButtons:
+  - {fileID: 4831096920749980764}
+  - {fileID: 465737699196749812}
+  - {fileID: 7279390410538920088}
+  - {fileID: 7614177438386798959}
+  - {fileID: 8473692014313924644}
+  - {fileID: 2857938638527049611}
+  - {fileID: 7752174860666565647}
+  - {fileID: 8797589989043271690}
+  - {fileID: 8305464582128272174}
+  - {fileID: 738646078332501172}
+  - {fileID: 5822117941597466096}
+  - {fileID: 8975596783678947852}
+  selectedIngredient: {fileID: 0}
+  itemDescriptionText: {fileID: 1262309923077175465}
+  itemDisplayImage: {fileID: 4073374898850669962}
 --- !u!1 &2376358706345961473
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +732,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1104284780584228042}
-  - {fileID: 5674178761810597587}
+  - {fileID: 8528183195698127151}
+  - {fileID: 7186616514358878986}
   m_Father: {fileID: 2376358706345961486}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1085,7 +1143,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 11
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: An Honey
+  ingredientSprite: {fileID: 21300000, guid: 97dcee2506d3f844cbe35508f5baef56, type: 3}
 --- !u!114 &8491864613403290895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,9 +1190,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8473692014313924644}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 2
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Fresh Carrot
+  ingredientSprite: {fileID: 21300000, guid: cea8470e71e52454ea0c7c18c2408fc9, type: 3}
 --- !u!114 &8342252731993767533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,9 +1340,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7279390410538920088}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1381,7 +1443,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 7
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Spooky Pumpkin
+  ingredientSprite: {fileID: 21300000, guid: 066d9aa1cae06b04492eba4b20aa1454, type: 3}
 --- !u!114 &5612611455611768677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,9 +1490,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8797589989043271690}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1438,6 +1502,143 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4271485431399920564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8528183195698127151}
+  - component: {fileID: 2749154267967399646}
+  - component: {fileID: 1262309923077175465}
+  m_Layer: 5
+  m_Name: DescriptionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8528183195698127151
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271485431399920564}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2376358706807133832}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 44.25479, y: -60.10002}
+  m_SizeDelta: {x: 111.4905, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2749154267967399646
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271485431399920564}
+  m_CullTransparentMesh: 1
+--- !u!114 &1262309923077175465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271485431399920564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'ItemDescriptions
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 12
+  m_fontSizeBase: 12
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4568659266403167221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 8
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Tasty Mushroom
+  ingredientSprite: {fileID: 21300000, guid: a0bfdf965f90fa5439a6622c0abb31b1, type: 3}
 --- !u!114 &5720587352959161596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,9 +1777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7752174860666565647}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1586,143 +1789,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &4779864258010824138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5674178761810597587}
-  - component: {fileID: 4079176151467353004}
-  - component: {fileID: 6317722569571677404}
-  m_Layer: 5
-  m_Name: Text (TMP)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5674178761810597587
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4779864258010824138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2376358706807133832}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60.1}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4079176151467353004
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4779864258010824138}
-  m_CullTransparentMesh: 1
---- !u!114 &6317722569571677404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4779864258010824138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'ItemDescriptions
-
-'
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4779994364331219355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,7 +1880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 4
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: Sweet Sugar for treats
+  ingredientSprite: {fileID: 21300000, guid: a7864566b17b7f844a95bbbe70749b1c, type: 3}
 --- !u!114 &1307637315257835857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,9 +1927,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 738646078332501172}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1962,7 +2030,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 13
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: Delicious Boba Pearls
+  ingredientSprite: {fileID: 21300000, guid: 95ff0e4f5a4f7c74bbc54cb4e6c7ca73, type: 3}
 --- !u!114 &5538146389442179263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,7 +2079,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465737699196749812}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2110,7 +2180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 9
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: Teas Leaves for brewing tea
+  ingredientSprite: {fileID: 21300000, guid: ffaec212bb65d574abe1de7581deff66, type: 3}
 --- !u!114 &5185578785835355860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,9 +2227,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5822117941597466096}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2258,7 +2330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 12
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: Ectoplams from a ghost
+  ingredientSprite: {fileID: 21300000, guid: 0e53762eff96bb1469976fd22183873f, type: 3}
 --- !u!114 &8000335457834956828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2303,9 +2377,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7614177438386798959}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2406,7 +2480,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 3
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: Wheat for making baked goods
+  ingredientSprite: {fileID: 21300000, guid: f48ace905f4e25e40806827acbf743bf, type: 3}
 --- !u!114 &5403417545890586414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2451,9 +2527,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8975596783678947852}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2511,6 +2587,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8136235033805109938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7186616514358878986}
+  - component: {fileID: 482138363565773575}
+  - component: {fileID: 4073374898850669962}
+  m_Layer: 5
+  m_Name: SelectedItemImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7186616514358878986
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136235033805109938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2376358706807133832}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -70, y: -44.899994}
+  m_SizeDelta: {x: 54.3623, y: 54.3623}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &482138363565773575
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136235033805109938}
+  m_CullTransparentMesh: 1
+--- !u!114 &4073374898850669962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136235033805109938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8321196153255455315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,7 +2754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientType: 6
-  pantryUI: {fileID: 0}
+  pantryUI: {fileID: 5952802708757004037}
+  ingredientDescription: A Milk
+  ingredientSprite: {fileID: 21300000, guid: 920bc3f652d056d429e15668a9f7c7b4, type: 3}
 --- !u!114 &3855933124762538013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2647,9 +2801,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2857938638527049611}
+      - m_Target: {fileID: 8305464582128272174}
         m_TargetAssemblyTypeName: IngredientButtonPantry, Assembly-CSharp
-        m_MethodName: SpawnIngredient
+        m_MethodName: SelectIngredient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
