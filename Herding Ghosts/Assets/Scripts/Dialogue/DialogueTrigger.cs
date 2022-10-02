@@ -5,8 +5,17 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue convisation;
+
+    private GameObject chooseDialogue;
+    private ChooseDialogueSystem cDS;
+
     public bool talkNow = false;
 
+    void Start()
+    {
+        chooseDialogue = GameObject.Find("DialogueElements");
+        cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
+    }
 
     void Update()
     {
@@ -27,7 +36,7 @@ public class DialogueTrigger : MonoBehaviour
         Debug.Log("Player entred chat area");
         if(other.gameObject.CompareTag("Player"))
         {
-            
+            cDS.NDTrue();
             DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
             dt.TriggerDialogue();
             Time.timeScale = 0f;

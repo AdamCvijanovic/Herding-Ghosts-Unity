@@ -11,19 +11,23 @@ public class DialogueManager : MonoBehaviour
 
     public Image playerIMG;
     public Image customerIMG;
-    public Color colorChange;
+    //public Color colorChange;
 
-    public TextMeshProUGUI playerNameText;
-    public TextMeshProUGUI customerNameText;
+    //textmesh pro GUIs
+    //public TextMeshProUGUI playerNameText;
+    //public TextMeshProUGUI customerNameText;
     public TextMeshProUGUI dialogueText;
 
+    //Animators
     public Animator animator;
-    public Animator playerAnimator;
-    public Animator customerAnimator;
+    //public Animator playerAnimator;
+    //public Animator customerAnimator;
 
+    private GameObject chooseDialogue;
+    private ChooseDialogueSystem cDS;
 
-    private Queue<string> sentences;
-    public int sentenceCounter = 0;
+    public Queue<string> sentences;
+    private int sentenceCounter = 0;
     public int[] playerTalking;
     public int[] customerTalking;
 
@@ -31,21 +35,23 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
-        colorChange.a = 1;
+        //colorChange.a = 1;
+        chooseDialogue = GameObject.Find("DialogueElements");
+        cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
     }
 
     public void StartDialogue(Dialogue convisation)
     {
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
-        playerAnimator.SetBool("PlayerActive", true);
-        customerAnimator.SetBool("CustomerActive", true);
+        //playerAnimator.SetBool("PlayerActive", true);
+        //customerAnimator.SetBool("CustomerActive", true);
 
         sentenceCounter = 0;
         //player name
-        playerNameText.text = convisation.playerName;
+        //playerNameText.text = convisation.playerName;
         //customer name
-        customerNameText.text = convisation.customerName;
+        //customerNameText.text = convisation.customerName;
 
         sentences.Clear();
         foreach (string sentence in convisation.sentences)
@@ -81,9 +87,9 @@ public class DialogueManager : MonoBehaviour
            {
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
-                customerNameplate.SetActive(true);
-                playerIMG.color = colorChange;
-                customerIMG.color = Color.white;
+                customerNameplate.SetActive(false);
+                //playerIMG.color = colorChange;
+                //customerIMG.color = Color.white;
 
            }  
         }
@@ -93,10 +99,10 @@ public class DialogueManager : MonoBehaviour
            if(sentenceCounter == playerTalking[j])
            {
                 Debug.Log("Player");
-                playerNameplate.SetActive(true);
+                playerNameplate.SetActive(false);
                 customerNameplate.SetActive(false);
-                customerIMG.color = colorChange;
-                playerIMG.color = Color.white;
+                //customerIMG.color = colorChange;
+                //playerIMG.color = Color.white;
            }
               
         }
@@ -113,10 +119,10 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         Debug.Log("End of conversation.");
+        cDS.NCOff();
         animator.SetBool("IsOpen", false);
-        playerAnimator.SetBool("PlayerActive", false);
-        customerAnimator.SetBool("CustomerActive", false);
+        //playerAnimator.SetBool("PlayerActive", false);
+        //customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
     }
 }
-

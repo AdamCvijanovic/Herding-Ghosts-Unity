@@ -19,6 +19,9 @@ public class Customer : MonoBehaviour
     UIFoodItemImage _foodItemImage;
 
     [SerializeField]
+    ConversationManager _foodItemName;
+
+    [SerializeField]
     CustomerManager _customerMngr;
 
     public FoodItem.FoodType _desiredFood;
@@ -38,6 +41,8 @@ public class Customer : MonoBehaviour
         _customerPickup = GetComponent<Pickup>();
         _foodItemImage = GetComponentInChildren<UIFoodItemImage>();
         _foodItemImage.SetCustomer(this);
+        _foodItemName = GetComponentInChildren<ConversationManager>();
+        _foodItemName.SetCustomer(this);
 
         SetDesiredFood();
     }
@@ -70,12 +75,18 @@ public class Customer : MonoBehaviour
     {
         _desiredFood = (FoodItem.FoodType)Random.Range(0, System.Enum.GetValues(typeof(FoodItem.FoodType)).Length);
         UpdateUI();
+        UpdateConverMngr();
     }
 
     public void UpdateUI()
     {
         _foodItemImage.SelectFoodImage(_desiredFood);
         _customerMngr.UpdatePortraitUI();
+    }
+
+    public void UpdateConverMngr()
+    {
+        _foodItemName.WhatFoodIsIt(_desiredFood);
     }
 
     public AINavigation GetNavigator()
