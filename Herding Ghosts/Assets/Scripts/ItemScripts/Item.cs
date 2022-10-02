@@ -20,10 +20,13 @@ public class Item : MonoBehaviour
     public Material defaultMaterial;
     public Material highlightMaterial;
 
+    public string pickupString = "Press E to pickup: ";
+    public string useString = "Press E to Drop: ";
+
     // Start is called before the first frame update
     protected new void Start()
     {
-        helpText = GetComponentInChildren<TutorialText>();
+        //helpText = GetComponentInChildren<TutorialText>();
 
         sprRndr = GetComponent<SpriteRenderer>();
         if(sprRndr == null)
@@ -124,36 +127,36 @@ public class Item : MonoBehaviour
         
     }
 
-    public void UpdateHelpTextPickup()
-    {
-        if(helpText != null)
-        helpText.UpdateTextPickup("Item");
-    }
-
-    public void DisableHelpTextPickup()
-    {
-        if (helpText != null)
-            helpText.DisableText();
-    }
-
-    public void UpdateHelpTextUse()
-    {
-        if (helpText != null)
-            helpText.UpdateTextUse("");
-        FadeOutTextAfterTime();
-    }
-
-    public void DisableHelpTextUse()
-    {
-        if (helpText != null)
-            helpText.DisableText();
-    }
-
-    public void FadeOutTextAfterTime()
-    {
-        if (helpText != null)
-            Invoke("DisableHelpTextUse", 1.2f);
-    }
+    //public void UpdateHelpTextPickup()
+    //{
+    //    if(helpText != null)
+    //    helpText.UpdateTextPickup("Item");
+    //}
+    //
+    //public void DisableHelpTextPickup()
+    //{
+    //    if (helpText != null)
+    //        helpText.DisableText();
+    //}
+    //
+    //public void UpdateHelpTextUse()
+    //{
+    //    if (helpText != null)
+    //        helpText.UpdateTextUse("");
+    //    FadeOutTextAfterTime();
+    //}
+    //
+    //public void DisableHelpTextUse()
+    //{
+    //    if (helpText != null)
+    //        helpText.DisableText();
+    //}
+    //
+    //public void FadeOutTextAfterTime()
+    //{
+    //    if (helpText != null)
+    //        Invoke("DisableHelpTextUse", 1.2f);
+    //}
 
     public void AddToParentInventory(Inventory inventory)
     {
