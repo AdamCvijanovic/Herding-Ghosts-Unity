@@ -233,6 +233,7 @@ Transform:
   - {fileID: 8509441954695462167}
   - {fileID: 8509441954757142225}
   - {fileID: 782933522}
+  - {fileID: 6435604731051556615}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,6 +345,7 @@ MonoBehaviour:
   _currentItem: {fileID: 0}
   nearWorkstation: {fileID: 0}
   nearInventory: {fileID: 0}
+  nearInteractable: {fileID: 0}
 --- !u!114 &8509441954223448698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,3 +974,74 @@ Transform:
   m_Father: {fileID: 8509441954223448701}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8980682224177613068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6435604731051556615}
+  - component: {fileID: 7423193929829669742}
+  - component: {fileID: 8673194820957948492}
+  m_Layer: 0
+  m_Name: ConversationTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6435604731051556615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980682224177613068}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3255263, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8509441954223448701}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7423193929829669742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980682224177613068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf8c50613d4f0849894f6ca23a20b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randMin: 1
+  randMax: 8
+  convOne: {fileID: 11400000, guid: 08f017e76ac89ba43a8bb0bb4e0e0b4a, type: 2}
+  convTwo: {fileID: 11400000, guid: 29936869e5f7ece448099d187e9f5b88, type: 2}
+  convThree: {fileID: 11400000, guid: eb480e2281674704aa737f8ca0ee50ed, type: 2}
+  convFour: {fileID: 11400000, guid: 85f70657e9d3c094688993dbd8366332, type: 2}
+  convFive: {fileID: 11400000, guid: 97b1f35db555bac438f01671a4d41191, type: 2}
+  convSix: {fileID: 11400000, guid: d4f26a33e132a4848adc9991ebba2881, type: 2}
+  convSeven: {fileID: 11400000, guid: b161b7c07ae7f434e90fa41d33103cf3, type: 2}
+  talkNow: 0
+--- !u!58 &8673194820957948492
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980682224177613068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5

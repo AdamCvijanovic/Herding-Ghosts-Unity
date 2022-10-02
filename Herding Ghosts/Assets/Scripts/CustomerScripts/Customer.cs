@@ -41,7 +41,7 @@ public class Customer : MonoBehaviour
         _customerPickup = GetComponent<Pickup>();
         _foodItemImage = GetComponentInChildren<UIFoodItemImage>();
         _foodItemImage.SetCustomer(this);
-        _foodItemName = GetComponentInChildren<ConversationManager>();
+        _foodItemName = FindObjectOfType<ConversationManager>();
         _foodItemName.SetCustomer(this);
 
         SetDesiredFood();
