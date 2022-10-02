@@ -134,7 +134,7 @@ public class Pickup : MonoBehaviour
         if (collision.gameObject.GetComponent<Item>())
         {
             _nearbyItems.Remove(collision.gameObject.GetComponent<Item>());
-            collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
+            //collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
 
         }
 

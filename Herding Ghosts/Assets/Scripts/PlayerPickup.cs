@@ -53,42 +53,23 @@ public class PlayerPickup : Pickup
                 _nearbyItems.Remove(nearestItem);
                 _isHolding = true;
                 _currentItem.OnPickup(this);
-                nearestItem.UpdateHelpTextUse();
+                UpdateHelpTextUse(nearestItem);
             }
         }
 
 
     }
 
-    //public void Drop()
-    //{
-    //    //if (_isHolding)
-    //    {
-    //        Debug.Log("Drop");
-    //        
-    //        // checking for UsableItem tag
-    //        if(_currentItem.tag == "UsableItem")
-    //        {
-    //            // Name of item
-    //            Debug.Log(_currentItem);
-    //
-    //            //_currentItem.GetComponent<SaltItem>().Activate();
-    //        }
-    //
-    //        _currentItem.OnDrop();
-    //        _isHolding = false;
-    //        _currentItem = null; 
-    //    }
-    //        
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<Item>())
         {
-            _nearbyItems.Add(collision.gameObject.GetComponent<Item>());
-            collision.gameObject.GetComponent<Item>().UpdateHelpTextPickup();
-            collision.gameObject.GetComponent<Item>().ItemHighlight();
+            Item collidedItem = collision.gameObject.GetComponent<Item>();
+            _nearbyItems.Add(collidedItem);
+
+            UpdateHelpTextPickup(collidedItem);
+            collidedItem.ItemHighlight();
+
         }
 
         if (collision.gameObject.GetComponent<WorkstationDestination>())
@@ -111,9 +92,12 @@ public class PlayerPickup : Pickup
     {
         if (collision.gameObject.GetComponent<Item>())
         {
-            _nearbyItems.Remove(collision.gameObject.GetComponent<Item>());
-            collision.gameObject.GetComponent<Item>().DisableHelpTextPickup();
-            collision.gameObject.GetComponent<Item>().ItemUnHighlight();
+            Item collidedItem = collision.gameObject.GetComponent<Item>();
+            _nearbyItems.Remove(collidedItem);
+
+            DisableHelpTextPickup();
+
+            collidedItem.ItemUnHighlight();
         }
 
         if (collision.gameObject.GetComponent<WorkstationDestination>())
@@ -187,43 +171,11 @@ public class PlayerPickup : Pickup
                     nearestItem = i;
                     //nearestItem.ItemHighlight();
                 }
-                else
-                {
-                    //i.ItemUnHighlight();
-                }
             }
         }
         
         return nearestItem;
     }
-
-    // public void UpdateTutorialText()
-    // {
-    //     if (!_isHolding && _nearbyItems.Count > 0)
-    //     {
-    //         Item nearest = GetNearestItem();
-
-
-    //         _player.playerUI.UpdateTutorialTextPickup(nearest.name);
-            
-    //     }
-    //     else
-    //     {
-    //         _player.playerUI.UpdateTutorialTextPickup(" ");
-    //     }
-
-    //     if (_isHolding)
-    //     {
-    //         _player.playerUI.UpdateTutorialTextUse(_currentItem.GetType().ToString());
-    //     }
-    // }
-
-    //Getters & Setters
-
-    //public Transform GetHolderTransform()
-    //{
-    //    return _itemHolder;
-    //}
 
    public void ActivateItem(InputAction.CallbackContext context)
    {
@@ -242,5 +194,35 @@ public class PlayerPickup : Pickup
         }
     }
 
+    public void UpdateHelpTextPickup(Item item)
+    {
+        //if (_player.helpText != null)
+            _player.helpText.UpdateTextPickup(item.pickupString);
+    }
+
+    public void DisableHelpTextPickup()
+    {
+        if (_player.helpText != null)
+            _player.helpText.DisableText();
+    }
+
+    public void UpdateHelpTextUse(Item item)
+    {
+        if (_player.helpText != null)
+            _player.helpText.UpdateTextUse(item.useString);
+        //FadeOutTextAfterTime();
+    }
+
+    public void DisableHelpTextUse()
+    {
+        if (_player.helpText != null)
+            _player.helpText.DisableText();
+    }
+
+    public void FadeOutTextAfterTime()
+    {
+        if (_player.helpText != null)
+            Invoke("DisableHelpTextUse", 1.2f);
+    }
 
 }

@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public CauldronDestination nearCauldron;
     public Inventory nearInventory;
 
+    //Worldspace/Local UI Element controllers
+    public TutorialText helpText;
+
     // Start is called before the first frame update
     void Start()
     {
