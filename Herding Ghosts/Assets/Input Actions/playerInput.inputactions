@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleGrimoire",
+                    "type": "Button",
+                    "id": "0221607f-62fa-480e-bc82-4034a8f11230",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -289,6 +298,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Gamepad",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e09de85-c4a7-4aed-b113-af8bcc3720ac",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleGrimoire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

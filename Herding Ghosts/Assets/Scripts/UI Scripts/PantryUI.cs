@@ -54,6 +54,6 @@ public class PantryUI : MonoBehaviour
 
     public void Deactivate()
     {
-        FindObjectOfType<IngameMenus>().PantryDeactivate();
+        FindObjectOfType<CanvasManager>().PantryDeactivate();
     }
 }

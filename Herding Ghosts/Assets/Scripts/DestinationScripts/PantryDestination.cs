@@ -6,7 +6,6 @@ public class PantryDestination : Destination
 {
     public Interactable interactable;
 
-
     public GameObject UIPanel;
 
     public Transform spawnPosition;
@@ -28,7 +27,7 @@ public class PantryDestination : Destination
 
     public void ActivatePantryUI()
     {
-        FindObjectOfType<IngameMenus>().PantryActivate();
+        FindObjectOfType<CanvasManager>().PantryActivate();
     }
 
     public void SpawnIngredient(IngredientItem.IngredientType ingredientType)

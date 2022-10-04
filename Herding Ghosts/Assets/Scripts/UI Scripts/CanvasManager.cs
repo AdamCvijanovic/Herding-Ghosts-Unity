@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngameMenus : MonoBehaviour
+public class CanvasManager : MonoBehaviour
 {
 
     public GameObject introductionMenu;
@@ -12,6 +12,9 @@ public class IngameMenus : MonoBehaviour
     public GameObject loseMenu;
     public GameObject controlsMenu;
     public GameObject pantryUI;
+
+    public GrimoireUI grimoireUI;
+
     public bool youWin = false;
 
     // Start is called before the first frame update
@@ -23,6 +26,9 @@ public class IngameMenus : MonoBehaviour
         loseMenu.SetActive(false);
         winMenu.SetActive(false);
         controlsMenu.SetActive(false);
+
+        GrimoireDeactivate();
+
     }
 
     // Update is called once per frame
@@ -81,6 +87,29 @@ public class IngameMenus : MonoBehaviour
         }
     }
     
+    public void GrimoireToggle()
+    {
+
+        if (!grimoireUI.isActive)
+        {
+            GrimoireActivate();
+        }
+        else
+        {
+            GrimoireDeactivate();
+        }
+    }
+
+    public void GrimoireActivate()
+    {
+        grimoireUI.gameObject.SetActive(true);
+        grimoireUI.Activate();
+    }
+
+    public void GrimoireDeactivate()
+    {
+        grimoireUI.Deactivate();
+    }
     public void PantryActivate()
     {
         pantryUI.SetActive(true);
