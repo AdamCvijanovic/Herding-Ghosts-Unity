@@ -46,7 +46,7 @@ public class CustomerLogic : MonoBehaviour
     {
         counter = _destMngr.GetDestinationOfType(Destination.DestinationType.Counter).GetComponent<CounterDestination>();
         customerSpawner = _destMngr.GetDestinationOfType(Destination.DestinationType.CustomerSpawner);
-        _customer.GetNavigator().SetDestination(counter.transform);
+        _customer.GetNavigator().SetDestination(counter.queuePositions[0].transform.position);
     }
 
     public void CheckState()
@@ -61,7 +61,7 @@ public class CustomerLogic : MonoBehaviour
 
                 if (counter.GetCounterInventory()._items.Count > 0)
                 {
-                    if (DesireditemFound())
+                    if (DesiredItemFound())
                     {
                         GrabItem();
                         _customer.GetNavigator().SetDestination(customerSpawner.transform);
@@ -93,7 +93,7 @@ public class CustomerLogic : MonoBehaviour
     }
 
 
-    public bool DesireditemFound()
+    public bool DesiredItemFound()
     { 
         return counter.GetCounterInventory().SearchForFoodType(_customer._desiredFood);
     }

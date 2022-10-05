@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 3338544383139654273}
   - component: {fileID: 3338544383139654286}
   - component: {fileID: 3338544383139654287}
+  - component: {fileID: 341972808}
+  - component: {fileID: 341972809}
   m_Layer: 0
-  m_Name: GrowingPlant
+  m_Name: GrowingPlantWheat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3338544383139654286
 SpriteRenderer:
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -1868867678, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,10 +99,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a925f1d4f74f1cb4aa146091a20dac44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedling: {fileID: 21300000, guid: 28647b73f1265b145b3f9d0ffe7b9c74, type: 3}
-  sprout: {fileID: 21300000, guid: d110525021e95134b9e3eeb8cbb28d9a, type: 3}
-  plant: {fileID: 21300000, guid: 891c1e33f27abd249b4a0e27e5bbc60a, type: 3}
-  firstTransition: 10
+  ingredientType: 3
+  prefab: {fileID: 102959163552759066, guid: 55c2c7de882a5b04fb1de44bfd353672, type: 3}
+  interactable: {fileID: 341972808}
+  seedling: {fileID: -1868867678, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+  sprout: {fileID: -1633603833, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+  plant: {fileID: 1018594283, guid: 24b780811e42d7f4e9bbfb4c37577347, type: 3}
+  firstTransition: 20
   secondTransition: 5
-  currentTime: 15
+  currentTime: 30
+  maxTime: 30
   foodPicked: 0
+--- !u!114 &341972808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338544383139654284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dc4024d78bcdb418054ade7912284d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprRndr: {fileID: 3338544383139654286}
+  defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
+  _ActivateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3338544383139654287}
+        m_TargetAssemblyTypeName: PlantTimer, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &341972809
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338544383139654284}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5}
+  m_EdgeRadius: 0
