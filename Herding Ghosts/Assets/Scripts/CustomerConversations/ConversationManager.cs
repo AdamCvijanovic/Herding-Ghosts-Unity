@@ -128,7 +128,7 @@ public class ConversationManager : MonoBehaviour
     {
         if(convSentences.Count == 0)
         {
-            EndConvisation();
+            EndConversation();
             return;
         }
         string sentence = convSentences.Dequeue();
@@ -138,11 +138,11 @@ public class ConversationManager : MonoBehaviour
         //Debug.Log(sentence);
         //dialogueText.text = sentence;
         StopAllCoroutines();
-        StartCoroutine(TypeConvisation(sentence));
+        StartCoroutine(TypeConversation(sentence));
         
     }
 
-    IEnumerator TypeConvisation(string sentence)
+    IEnumerator TypeConversation(string sentence)
     {
       for(int i = 0; i < customerTalking.Length; i++)
         {
@@ -178,7 +178,7 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    void EndConvisation()
+    void EndConversation()
     {
         Debug.Log("End of conversation.");
         cDS.NCOff();

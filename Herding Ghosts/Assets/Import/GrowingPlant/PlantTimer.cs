@@ -71,21 +71,29 @@ public class PlantTimer : MonoBehaviour
     public void TimerReset()
     {
         // Timer Reset
-        if (foodPicked == true && currentTime <= secondTransition)
+        if (foodPicked == true)
         {
             currentTime = maxTime;
             displayImage.sprite = seedling;
             foodPicked = false;
+            interactable.UnHighlight();
             interactable.enabled = false;
         }
     }
     public void SpawnItem()
     {
-        Instantiate(prefab, this.transform.position, Quaternion.identity);
-        foodPicked = true;
-        interactable.enabled = false;
-        displayImage.sprite = seedling;
-        currentTime = maxTime;
+        if(displayImage.sprite == plant && foodPicked != true)
+        {
+            Item item = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Item>();
+            item.transform.parent = this.transform;
+            FindObjectOfType<PlayerPickup>().PickupItem(item);
+            foodPicked = true;
+            interactable.UnHighlight();
+            interactable.enabled = false;
+            displayImage.sprite = seedling;
+            currentTime = maxTime;
+
+        }
     }
 
 
