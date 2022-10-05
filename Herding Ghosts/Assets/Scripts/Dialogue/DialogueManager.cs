@@ -42,8 +42,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue convisation)
     {
+        
+
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
+        
         //playerAnimator.SetBool("PlayerActive", true);
         //customerAnimator.SetBool("CustomerActive", true);
 

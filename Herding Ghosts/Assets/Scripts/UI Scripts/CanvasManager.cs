@@ -55,7 +55,7 @@ public class CanvasManager : MonoBehaviour
     public void PauseMenu()
     {
         //Disable Other Menus
-        DisableOtherMenus();
+        DisableOtherUIElements();
 
         if (pauseMenu.activeSelf)
         {
@@ -122,12 +122,20 @@ public class CanvasManager : MonoBehaviour
         pantryUI.SetActive(false);
     }
 
-    public void DisableOtherMenus()
+    public void DisableOtherUIElements()
     {
         if (pantryUI.activeInHierarchy)
         {
             PantryDeactivate();
         }
+
+        grimoireUI.tooltipAnimator.SetBool("isActive", false);
+        grimoireUI.grimoireAnimator.SetBool("isActive", false);
+    }
+
+    public void EnableUIElements()
+    {
+        grimoireUI.tooltipAnimator.SetBool("isActive", true);
     }
 
 }

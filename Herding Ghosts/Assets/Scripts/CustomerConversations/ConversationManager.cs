@@ -185,6 +185,8 @@ public class ConversationManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
+        FindObjectOfType<CanvasManager>().EnableUIElements();
+
         Time.timeScale = 1f;
     }
 }

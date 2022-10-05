@@ -31,7 +31,10 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(convisation);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        //clear UI of other elements
+        FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
         Debug.Log("Player entred chat area");
         if(other.gameObject.CompareTag("Player"))

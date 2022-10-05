@@ -34,7 +34,7 @@ public class ConversationTrigger : MonoBehaviour
         if(talkNow == true)
         {
             talkNow = false;
-            TalkConvisation();
+            TalkConversation();
         }
     }
     
@@ -76,10 +76,13 @@ public class ConversationTrigger : MonoBehaviour
         FindObjectOfType<ConversationManager>().StartConvisation(convChosen);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        //clear UI of other elements
+        FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
         //Debug.Log("Player entred chat area");
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             cDS.NCTrue();
             ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
@@ -88,7 +91,7 @@ public class ConversationTrigger : MonoBehaviour
         }
     }
 
-    private void TalkConvisation()
+    private void TalkConversation()
     {
         ConversationTrigger bt = gameObject.GetComponent<ConversationTrigger>();
         bt.TriggerConvisation();
