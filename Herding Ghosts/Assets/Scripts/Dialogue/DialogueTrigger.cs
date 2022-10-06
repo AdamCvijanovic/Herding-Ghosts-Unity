@@ -31,19 +31,30 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(convisation);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    //private void OnTriggerEnter2D(Collider2D other) 
+    //{
+    //    //clear UI of other elements
+    //    FindObjectOfType<CanvasManager>().DisableOtherUIElements();
+    //
+    //    Debug.Log("Player entred chat area");
+    //    if(other.gameObject.CompareTag("Player"))
+    //    {
+    //        cDS.NDTrue();
+    //        DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
+    //        dt.TriggerDialogue();
+    //        Time.timeScale = 0f;
+    //    }
+    //}
+
+    public void ActivateDialogue()
     {
         //clear UI of other elements
         FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
-        Debug.Log("Player entred chat area");
-        if(other.gameObject.CompareTag("Player"))
-        {
-            cDS.NDTrue();
-            DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
-            dt.TriggerDialogue();
-            Time.timeScale = 0f;
-        }
+        cDS.NDTrue();
+        DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
+        dt.TriggerDialogue();
+        Time.timeScale = 0f;
     }
 
     private void Talk()

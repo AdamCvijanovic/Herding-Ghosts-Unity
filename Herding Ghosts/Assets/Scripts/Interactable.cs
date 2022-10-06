@@ -15,6 +15,9 @@ public class Interactable : MonoBehaviour
 
     public UnityEvent _ActivateEvent = new UnityEvent();
 
+    public string pickupString = "Press E to Interact";
+    public string useString = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class Interactable : MonoBehaviour
     {
         if (highlightMaterial != null)
             sprRndr.material = highlightMaterial;
+
+        UpdateHelpTextPickup();
     }
 
     public void UnHighlight()
@@ -47,6 +52,12 @@ public class Interactable : MonoBehaviour
     {
         Debug.Log("ACTIVATE");
         _ActivateEvent.Invoke();
+    }
+
+    public void UpdateHelpTextPickup()
+    {
+        //if (_player.helpText != null)
+        FindObjectOfType<Player>().helpText.UpdateTextPickup(pickupString);
     }
 
 }

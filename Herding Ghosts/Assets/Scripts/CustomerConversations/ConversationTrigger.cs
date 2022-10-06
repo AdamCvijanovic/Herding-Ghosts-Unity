@@ -71,30 +71,42 @@ public class ConversationTrigger : MonoBehaviour
         }
     }
 
-    public void TriggerConvisation()
+    public void TriggerConversation()
     {
         FindObjectOfType<ConversationManager>().StartConvisation(convChosen);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    //private void OnTriggerEnter2D(Collider2D other) 
+    //{
+    //    //clear UI of other elements
+    //    FindObjectOfType<CanvasManager>().DisableOtherUIElements();
+    //
+    //    //Debug.Log("Player entred chat area");
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        cDS.NCTrue();
+    //        ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
+    //        dt.TriggerConversation();
+    //        Time.timeScale = 0f;
+    //    }
+    //}
+
+    public void ActivateConversation()
     {
         //clear UI of other elements
         FindObjectOfType<CanvasManager>().DisableOtherUIElements();
+        
+        cDS.NCTrue();
+        ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
+        dt.TriggerConversation();
+        Time.timeScale = 0f;
 
-        //Debug.Log("Player entred chat area");
-        if (other.gameObject.CompareTag("Player"))
-        {
-            cDS.NCTrue();
-            ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
-            dt.TriggerConvisation();
-            Time.timeScale = 0f;
-        }
     }
 
     private void TalkConversation()
     {
         ConversationTrigger bt = gameObject.GetComponent<ConversationTrigger>();
-        bt.TriggerConvisation();
+        bt.TriggerConversation();
         Time.timeScale = 0f;
     }
 }

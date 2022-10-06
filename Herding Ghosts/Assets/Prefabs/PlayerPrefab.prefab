@@ -196,8 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 1247961675210804518}
-  pickup: Press E to pickup
-  use: 'Press LMB to use: '
 --- !u!114 &5838951193321209643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +346,7 @@ Transform:
   - {fileID: 4487000596320016036}
   - {fileID: 9089031462530899493}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4487000596320016037
 GameObject:
@@ -413,7 +411,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777027, y: 1}
+    m_SensorSize: {x: 1.7753884, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -598,7 +596,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -702,6 +700,7 @@ GameObject:
   - component: {fileID: 5911210580863749875}
   - component: {fileID: 9089031462738997637}
   - component: {fileID: 9089031462738997634}
+  - component: {fileID: 1624105183244720893}
   - component: {fileID: 9089031462738997638}
   - component: {fileID: 9089031462738997633}
   - component: {fileID: 9089031462738997632}
@@ -838,6 +837,20 @@ MonoBehaviour:
   nearInventory: {fileID: 0}
   nearInteractable: {fileID: 0}
   _player: {fileID: 0}
+--- !u!114 &1624105183244720893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089031462738997691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxItems: 3
+  _items: []
 --- !u!114 &9089031462738997638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,6 +1000,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 933ed302-6156-4198-83e4-c192386fd01c
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0221607f-62fa-480e-bc82-4034a8f11230
+    m_ActionName: Player/ToggleGrimoire[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1009,7 +1026,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.3333334}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

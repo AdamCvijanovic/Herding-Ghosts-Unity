@@ -7,6 +7,8 @@ public class PlayerPickup : Pickup
 {
     public Player _player;
 
+    public Inventory playerInventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,6 +127,7 @@ public class PlayerPickup : Pickup
         if (collision.gameObject.GetComponent<Interactable>())
         {
             PlayerLeaveInteractable(collision.gameObject);
+            _player.helpText.DisableText();
         }
     }
 
