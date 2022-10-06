@@ -26,8 +26,12 @@ public class Customer : MonoBehaviour
 
     public FoodItem.FoodType _desiredFood;
 
+    public bool isSpokenTo;
+
     void Start()
     {
+        isSpokenTo = false;
+
         enabled = true;
 
         if (_customerMngr == null)
@@ -74,8 +78,15 @@ public class Customer : MonoBehaviour
     public void SetDesiredFood()
     {
         _desiredFood = (FoodItem.FoodType)Random.Range(0, System.Enum.GetValues(typeof(FoodItem.FoodType)).Length);
-        UpdateUI();
+        //UpdateUI();
         UpdateConverMngr();
+    }
+
+    public void AmSpokenTo()
+    {
+
+        UpdateUI();
+        isSpokenTo = true;
     }
 
     public void UpdateUI()

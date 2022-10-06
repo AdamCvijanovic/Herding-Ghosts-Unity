@@ -101,10 +101,16 @@ public class ConversationManager : MonoBehaviour
 
         Debug.Log("Food Sprite " + foodPrefab.GetComponent<FoodItem>().foodSprite.name);
         foodName = foodPrefab.GetComponent<FoodItem>().foodSprite.name;
+
+        
     }
 
-    public void StartConvisation(Conversations convisation)
+    public void StartConversation(Conversations convisation)
     {
+
+        CustomerManager mngr = customer.GetCustomerManager();
+        mngr.GetCurrentCustomer().AmSpokenTo();
+
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
         playerAnimator.SetBool("PlayerActive", true);

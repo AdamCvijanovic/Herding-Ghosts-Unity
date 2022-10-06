@@ -73,7 +73,7 @@ public class ConversationTrigger : MonoBehaviour
 
     public void TriggerConversation()
     {
-        FindObjectOfType<ConversationManager>().StartConvisation(convChosen);
+        FindObjectOfType<ConversationManager>().StartConversation(convChosen);
     }
 
     //private void OnTriggerEnter2D(Collider2D other) 
