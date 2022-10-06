@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 84914347933702779}
   - component: {fileID: 6724603568655695901}
-  - component: {fileID: 5268508507769638648}
   m_Layer: 0
   m_Name: CustomerManager
   m_TagString: Untagged
@@ -45,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c186d086a101f7458e1d9413944a6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customers:
-  - {fileID: 0}
+  customers: []
   MaxCustomers: 1
   _foodPrefabs:
   - {fileID: 3355919833764667126, guid: 894c2dd158959ec42aebcc008c9e8767, type: 3}
@@ -58,20 +56,6 @@ MonoBehaviour:
   - {fileID: 1429433798216921116, guid: b7083a5085717ff4a8c4b10e72dd77bb, type: 3}
   - {fileID: 1757770236579845998, guid: 919102774991b12449aea06cb26d61f0, type: 3}
   - {fileID: 7040830265051980708, guid: 045c5091200cdbc448249174461828c4, type: 3}
-  - {fileID: 8710172173145538869, guid: d078fdf6d9029e14297652bb5ba2ff2b, type: 3}
+  - {fileID: 5018852715105858520, guid: d078fdf6d9029e14297652bb5ba2ff2b, type: 3}
   - {fileID: 8596892388958258116, guid: f2f6fd78490fd5c4aa66a5cdc959b168, type: 3}
---- !u!114 &5268508507769638648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 780230048138709580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763b0acb460e3184792971e5a7e618a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customerOne: {fileID: 8509441954223448672, guid: a7c0fa6849b50184eb7a57ab0326ef8d, type: 3}
-  customerTwo: {fileID: 8509441954223448672, guid: 2a32536d742489944a03bd2bffde6c2a, type: 3}
-  customerThree: {fileID: 8509441954223448672, guid: 3595604aca45d784ab7e6e9ed9a25921, type: 3}
+  uiItemPortrait: {fileID: 0}

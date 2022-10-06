@@ -45,6 +45,7 @@ public class PantryUI : MonoBehaviour
     public void TakeButton()
     {
         SpawnIngredient(selectedIngredient.ingredientType);
+        Deactivate();
     }
 
     public void Activate()
