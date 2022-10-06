@@ -126,9 +126,7 @@ public class WorkstationDestination : Destination
         bool ingredient2 = false;
 
         //For the love of god fix this
-        if(_inventory._items[0].GetIngredientType() == recipeIn.ingredient0 ||
-            _inventory._items[0].GetIngredientType() == recipeIn.ingredient1 ||
-            _inventory._items[0].GetIngredientType() == recipeIn.ingredient2)
+        if(_inventory._items[0].GetIngredientType() == recipeIn.ingredient0)
         {
             ingredient0 = true;
         }
@@ -137,9 +135,7 @@ public class WorkstationDestination : Destination
             ingredient0 = false;
         }
 
-        if(_inventory._items[1].GetIngredientType() == recipeIn.ingredient0 ||
-            _inventory._items[1].GetIngredientType() == recipeIn.ingredient1 ||
-            _inventory._items[1].GetIngredientType() == recipeIn.ingredient2)
+        if(_inventory._items[1].GetIngredientType() == recipeIn.ingredient1)
         {
             ingredient1 = true;
         }
@@ -148,9 +144,7 @@ public class WorkstationDestination : Destination
             ingredient1 = false;
         }
 
-        if(_inventory._items[2].GetIngredientType() == recipeIn.ingredient0 ||
-           _inventory._items[2].GetIngredientType() == recipeIn.ingredient1 ||
-           _inventory._items[2].GetIngredientType() == recipeIn.ingredient2)
+        if(_inventory._items[2].GetIngredientType() == recipeIn.ingredient2)
         {
             ingredient2 = true;
         }
