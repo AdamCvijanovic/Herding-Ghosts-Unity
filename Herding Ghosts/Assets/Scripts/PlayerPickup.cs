@@ -7,8 +7,6 @@ public class PlayerPickup : Pickup
 {
     public Player _player;
 
-    public Inventory playerInventory;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -86,14 +84,7 @@ public class PlayerPickup : Pickup
 
         if (collision.gameObject.GetComponent<Interactable>())
         {
-            if(collision.gameObject.GetComponent<Interactable>().enabled)
-                PlayerNearInteractable(collision.gameObject);
-        }
-
-        if (collision.gameObject.GetComponent<Customer>())
-        {
-            if (collision.gameObject.GetComponent<Customer>().enabled)
-                PlayerNearCustomer(collision.gameObject);
+            PlayerNearInteractable(collision.gameObject);
         }
     }
 
@@ -133,13 +124,6 @@ public class PlayerPickup : Pickup
         if (collision.gameObject.GetComponent<Interactable>())
         {
             PlayerLeaveInteractable(collision.gameObject);
-            _player.helpText.DisableText();
-        }
-
-        if (collision.gameObject.GetComponent<Customer>())
-        {
-            PlayerLeaveInteractable(collision.gameObject);
-            _player.helpText.DisableText();
         }
     }
 
@@ -164,18 +148,6 @@ public class PlayerPickup : Pickup
     public void PlayerLeaveInteractable(GameObject go)
     {
         nearInteractable = null;
-        go.GetComponent<Interactable>().UnHighlight();
-    }
-
-    public void PlayerNearCustomer(GameObject go)
-    {
-        nearCustomer = go.GetComponent<Interactable>();
-        go.GetComponent<Interactable>().Highlight();
-    }
-
-    public void PlayerLeaveCustomer(GameObject go)
-    {
-        nearCustomer = null;
         go.GetComponent<Interactable>().UnHighlight();
     }
 
