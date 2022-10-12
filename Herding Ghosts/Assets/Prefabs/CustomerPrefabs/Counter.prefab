@@ -693,9 +693,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1595829588265836285}
   - component: {fileID: 6316770881092599794}
-  - component: {fileID: 1894773629}
   - component: {fileID: 1894773630}
-  - component: {fileID: 1894773633}
+  - component: {fileID: 3685348584502210930}
   m_Layer: 0
   m_Name: ShopCounterImg
   m_TagString: Untagged
@@ -770,40 +769,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1894773629
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6306813896582055766}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2.4375}
-    newSize: {x: 3, y: 3.21875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.75, y: 0.90625}
-      - {x: -0.8125, y: 1.21875}
-      - {x: -1.40625, y: 1.21875}
-      - {x: -1.5, y: 1.1875}
-      - {x: -1.5, y: -1.21875}
-      - {x: 1.5, y: -1.21875}
-      - {x: 1.5, y: 0.8125}
-      - {x: 1.125, y: 1.15625}
-  m_UseDelaunayMesh: 0
 --- !u!1839735485 &1894773630
 Tilemap:
   m_ObjectHideFlags: 0
@@ -842,8 +807,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!60 &1894773633
-PolygonCollider2D:
+--- !u!61 &3685348584502210930
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -855,7 +820,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.27205873}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -865,20 +830,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.715724, y: 0.6388984}
-      - {x: -1.0639772, y: 0.6417525}
-      - {x: -0.9463601, y: 1.2170212}
-      - {x: -1.0387206, y: 1.2461708}
-      - {x: -1.365119, y: 1.1296327}
-      - {x: -1.5137105, y: 1.0846725}
-      - {x: -1.5, y: -1.21875}
-      - {x: 1.5, y: -1.21875}
-      - {x: 1.506855, y: 0.778224}
-      - {x: 1.1883659, y: 1.0415864}
-      - {x: 0.85764885, y: 0.9505949}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1.8933825}
+  m_EdgeRadius: 0
 --- !u!1 &8335720832428418040
 GameObject:
   m_ObjectHideFlags: 0

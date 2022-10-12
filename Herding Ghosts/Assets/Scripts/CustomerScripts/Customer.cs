@@ -65,6 +65,11 @@ public class Customer : MonoBehaviour
         return _customerMngr;
     }
 
+    public CustomerLogic GetCustomerLogic()
+    {
+        return _customerLogic;
+    }
+
     public UIFoodItemImage GetUIFoodItemImage()
     {
         return _foodItemImage;
@@ -110,6 +115,35 @@ public class Customer : MonoBehaviour
         return _customerPickup;
     }
 
-   
+    //I'm sure there's a better way to do this
+    public bool IsPlayerHoldingItem()
+    {
+
+        return FindObjectOfType<Player>().playerPickup._isHolding;
+    }
+
+    public bool IsPlayerHoldingDesiredItem()
+   {
+        bool isHolding = false;
+
+        if (FindObjectOfType<PlayerPickup>()._currentItem.GetType() == typeof(FoodItem))
+        {
+            FoodItem _playerItem = (FoodItem)FindObjectOfType<PlayerPickup>()._currentItem;
+            if (_playerItem.GetFoodType() == _desiredFood ) 
+
+            isHolding = true;
+        }
+
+        return isHolding;
+   }
+
+    public void PickupDesiredItem()
+    {
+        Item item = FindObjectOfType<PlayerPickup>()._currentItem;
+        FindObjectOfType<PlayerPickup>().Drop();
+        _customerPickup.PickupItem(item);
+    }
+
+
 
 }

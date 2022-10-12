@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ConversationTrigger : MonoBehaviour
 {
+    public Customer _customer;
+
     public int randMin = 1;
     public int randMax = 8;
 
@@ -93,14 +95,22 @@ public class ConversationTrigger : MonoBehaviour
 
     public void ActivateConversation()
     {
-        //clear UI of other elements
-        FindObjectOfType<CanvasManager>().DisableOtherUIElements();
-        
-        cDS.NCTrue();
-        ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
-        dt.TriggerConversation();
-        Time.timeScale = 0f;
+        //this shoudl really be in the logic section
+        if (_customer.IsPlayerHoldingItem() && _customer.IsPlayerHoldingDesiredItem())
+        {
+            _customer.PickupDesiredItem();
+            _customer.GetCustomerLogic().SetState(CustomerLogic.CustomerState.Leaving);
+        }
+        else if(!_customer.IsPlayerHoldingItem())
+        {
+            //clear UI of other elements
+            FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
+            cDS.NCTrue();
+            ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
+            dt.TriggerConversation();
+            Time.timeScale = 0f;
+        }
     }
 
     private void TalkConversation()

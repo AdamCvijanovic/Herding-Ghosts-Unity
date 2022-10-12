@@ -49,6 +49,11 @@ public class CustomerLogic : MonoBehaviour
         _customer.GetNavigator().SetDestination(counter.queuePositions[0].transform.position);
     }
 
+    public void SetState(CustomerState state)
+    {
+        currentState = state;
+    }
+
     public void CheckState()
     {
 
@@ -80,6 +85,8 @@ public class CustomerLogic : MonoBehaviour
         {
             if (dst < minDst)
             {
+                _customer.GetNavigator().SetDestination(customerSpawner.transform);
+                dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 Debug.Log("Remove customer");
                 _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
                 Destroy(this.gameObject, despawnTime);
