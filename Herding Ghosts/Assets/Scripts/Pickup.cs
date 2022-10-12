@@ -17,6 +17,7 @@ public class Pickup : MonoBehaviour
     public WorkstationDestination nearWorkstation;
     public Inventory nearInventory;
     public Interactable nearInteractable;
+    public Interactable nearCustomer;
 
     // Start is called before the first frame update
     void Start()

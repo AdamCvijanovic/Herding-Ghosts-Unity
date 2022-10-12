@@ -169,13 +169,13 @@ public class PlayerPickup : Pickup
 
     public void PlayerNearCustomer(GameObject go)
     {
-        nearInteractable = go.GetComponent<Interactable>();
+        nearCustomer = go.GetComponent<Interactable>();
         go.GetComponent<Interactable>().Highlight();
     }
 
     public void PlayerLeaveCustomer(GameObject go)
     {
-        nearInteractable = null;
+        nearCustomer = null;
         go.GetComponent<Interactable>().UnHighlight();
     }
 
