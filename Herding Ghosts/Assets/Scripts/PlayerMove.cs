@@ -9,7 +9,7 @@ public class PlayerMove : MonoBehaviour
 {
 
     //privates
-
+    private Player _player;
     [SerializeField]
     private InputActions _inputActions;
     [SerializeField]
@@ -37,6 +37,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        _player = GetComponent<Player>();
         _direction = Direction.None;
         _colDir = Direction.None;
         _inputActions = new InputActions();
@@ -195,6 +196,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Animate()
     {
+        _anim.SetBool("Holding", _player.playerPickup._isHolding);
         _anim.SetFloat("VelocityX", _rb.velocity.x);
         _anim.SetFloat("VelocityY", _rb.velocity.y);
     }
