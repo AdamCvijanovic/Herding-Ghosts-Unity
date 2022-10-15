@@ -404,14 +404,14 @@ MonoBehaviour:
   m_Follow: {fileID: 9089031462738997639}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7793428, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -596,7 +596,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 725174173}
   - component: {fileID: 6707527618810780010}
   - component: {fileID: 9174461369730253537}
+  - component: {fileID: 697204750633050521}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -773,7 +774,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -55747224, guid: ac9b23a98e796f14ebc3fac575998f1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -841,7 +842,6 @@ MonoBehaviour:
   nearInventory: {fileID: 0}
   nearInteractable: {fileID: 0}
   _player: {fileID: 0}
-  playerInventory: {fileID: 0}
 --- !u!114 &1624105183244720893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,6 +1161,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxItems: 3
   _items: []
+--- !u!114 &697204750633050521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089031462738997691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxItems: 3
+  _items: []
 --- !u!1 &9089031463761900625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9089031463761900625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

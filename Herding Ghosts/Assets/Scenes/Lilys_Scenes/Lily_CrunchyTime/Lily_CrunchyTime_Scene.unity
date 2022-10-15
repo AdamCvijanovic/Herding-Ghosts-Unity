@@ -9331,25 +9331,6 @@ Transform:
   m_Father: {fileID: 1606490058}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &725174163 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9089031462738997691, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-  m_PrefabInstance: {fileID: 1757017163}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &725174173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725174163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxItems: 3
-  _items: []
 --- !u!1 &726345073
 GameObject:
   m_ObjectHideFlags: 0
@@ -12348,10 +12329,6 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8287311730624315099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -15797,98 +15774,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 4487000596320016036, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487000596320016038, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7770382
-      objectReference: {fileID: 0}
-    - target: {fileID: 4487000596320016038, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021858606905662343, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 8021858606905662343, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899674, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899674, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: orthographic size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899674, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462530899674, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997633, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5195861
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997633, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Size.y
-      value: 0.22093964
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997633, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.019756079
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997633, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.89172745
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997636, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
-      value: 0221607f-62fa-480e-bc82-4034a8f11230
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
-      value: Player/ToggleGrimoire[/Keyboard/tab]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15897,26 +15782,6 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 374574563}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GrimoireToggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CanvasManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9089031462738997645, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f840c13efe508554098ccb05596c7e7c, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
