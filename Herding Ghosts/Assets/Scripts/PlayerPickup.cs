@@ -124,7 +124,10 @@ public class PlayerPickup : Pickup
         if (collision.gameObject.GetComponent<Interactable>())
         {
             PlayerLeaveInteractable(collision.gameObject);
+            DisableHelpTextPickup();
         }
+
+        
     }
 
     public void PlayerNearWorkstation(GameObject go)
