@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8230509894381897149}
   - component: {fileID: 6932405315982681550}
   - component: {fileID: 6932405315982681536}
-  - component: {fileID: 8846916712785233786}
   m_Layer: 0
   m_Name: ChatArea
   m_TagString: Untagged
@@ -133,23 +132,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convisation:
-    playerName: Cupcake
-    customerName: Mettaton
+    playerName: Lavender
+    customerName: Granny Fluffins
     sentences:
-    - Welcome to Herding Ghosts, A game all about creating spectral delights to for
-      your hungry (somehow?) ghost customers.
-    - At the upper left of the map you will find your Shop, followed by your Kitchen
-      then your Pantry and finaly your Greenhouse/Lab. Currently you are in the Lounge
-      with your Bedroom to the left
-    - Entre your shop where you can find out what your customer would like to order
-      by talking to them by getting up close and pressing "".
-    - Next open up your grimoire by pressing "" to find out how to craft your customers
-      order.
-    - Head on over to the Pantry or the Greenhgouse/Lab on the right side of the
-      map to get the components to craft with.
-    - Dump your ingredients into the recomended crafting station and then bring it
-      to your customer.
-    - Now get ready and start baking.
+    - Good morning Lavender. I hope your looking forward to another day of baking,
+      gardening and selling.
+    - When a customer enters the shop (top left) make sure to pay attention to what
+      they want my dear, cant be giving a customer the wrong thing now can't we.
+    - Those ingredients can be tricky to work with so make sure to craft your food
+      in the correct pattern and if you make a mistake you can use the leaver to
+      flush the failed mess away.
+    - Remember to keep an eye on the garden and pantry, wouldnt want to run out of
+      something and leave the customer waiting too long.
+    - (customer orders will have a time limit, once you have finished talking to
+      them the timer starts, take too long and the customer will leave lowering your
+      score)
+    - (To craft a tasty treat you must gather the ingredients from either the greenhouse
+      or the pantry, both lokated in the upper right of the map )
+    - 'And remember to take a look at my old grimoire in case you need a reminder
+      on the recipies dear.
+
+
+      (Press TAB to open grimoire)'
   talkNow: 0
 --- !u!61 &6932405315982681536
 BoxCollider2D:
@@ -176,30 +180,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.0154175, y: 1.5497346}
-  m_EdgeRadius: 0
---- !u!61 &8846916712785233786
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6932405315982681539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2.03125}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.52}
   m_EdgeRadius: 0
