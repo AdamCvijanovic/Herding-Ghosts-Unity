@@ -9,19 +9,20 @@ public class DialogueManager : MonoBehaviour
     public GameObject playerNameplate;
     public GameObject customerNameplate;
 
-    public Image playerIMG;
+    //public Image playerIMG;
     public Image customerIMG;
+    public Sprite grandmaImg;
     //public Color colorChange;
 
     //textmesh pro GUIs
     //public TextMeshProUGUI playerNameText;
-    //public TextMeshProUGUI customerNameText;
+    public TextMeshProUGUI customerNameText;
     public TextMeshProUGUI dialogueText;
 
     //Animators
     public Animator animator;
     //public Animator playerAnimator;
-    //public Animator customerAnimator;
+    public Animator customerAnimator;
 
     private GameObject chooseDialogue;
     private ChooseDialogueSystem cDS;
@@ -38,23 +39,24 @@ public class DialogueManager : MonoBehaviour
         //colorChange.a = 1;
         chooseDialogue = GameObject.Find("DialogueElements");
         cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
+        
     }
 
     public void StartDialogue(Dialogue convisation)
     {
         
-
+        customerIMG.sprite = grandmaImg;
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
         
         //playerAnimator.SetBool("PlayerActive", true);
-        //customerAnimator.SetBool("CustomerActive", true);
+        customerAnimator.SetBool("CustomerActive", true);
 
         sentenceCounter = 0;
         //player name
         //playerNameText.text = convisation.playerName;
         //customer name
-        //customerNameText.text = convisation.customerName;
+        customerNameText.text = convisation.customerName;
 
         sentences.Clear();
         foreach (string sentence in convisation.sentences)
@@ -90,10 +92,9 @@ public class DialogueManager : MonoBehaviour
            {
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
-                customerNameplate.SetActive(false);
+                customerNameplate.SetActive(true);
                 //playerIMG.color = colorChange;
-                //customerIMG.color = Color.white;
-
+                customerIMG.color = Color.white;
            }  
         }
 
@@ -103,8 +104,8 @@ public class DialogueManager : MonoBehaviour
            {
                 Debug.Log("Player");
                 playerNameplate.SetActive(false);
-                customerNameplate.SetActive(false);
-                //customerIMG.color = colorChange;
+                customerNameplate.SetActive(true);
+                customerIMG.color = Color.white;
                 //playerIMG.color = Color.white;
            }
               
@@ -125,7 +126,7 @@ public class DialogueManager : MonoBehaviour
         cDS.NCOff();
         animator.SetBool("IsOpen", false);
         //playerAnimator.SetBool("PlayerActive", false);
-        //customerAnimator.SetBool("CustomerActive", false);
+        customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
     }
 }
