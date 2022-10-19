@@ -38,6 +38,7 @@ public class ConversationManager : MonoBehaviour
     private Queue<string> convSentences;
 
     private Customer customer;
+    private Sprite customerSprite;
     private string foodName;
 
     //public Button butn;
@@ -95,14 +96,17 @@ public class ConversationManager : MonoBehaviour
 
     public void WhatFoodIsIt(FoodItem.FoodType foodtype)
     {
-        
         CustomerManager mngr = customer.GetCustomerManager();
         GameObject foodPrefab = mngr.FindFoodFromEnum(foodtype);
 
         Debug.Log("Food Sprite " + foodPrefab.GetComponent<FoodItem>().foodSprite.name);
         foodName = foodPrefab.GetComponent<FoodItem>().foodSprite.name;
+    }
 
-        
+    public void SetCustomerSprite(Sprite cusImage)
+    {
+        customerSprite = cusImage;
+        customerIMG.sprite = cusImage;
     }
 
     public void StartConversation(Conversations convisation)
@@ -156,6 +160,7 @@ public class ConversationManager : MonoBehaviour
            {
             
                 Debug.Log("Customer");
+                customerIMG.sprite = customerSprite;
                 playerNameplate.SetActive(false);
                 customerNameplate.SetActive(true);
                 playerIMG.color = colorChange;
@@ -168,6 +173,7 @@ public class ConversationManager : MonoBehaviour
            if(sentenceCounter == playerTalking[j])
            {
                 Debug.Log("Player");
+                customerIMG.sprite = customerSprite;
                 playerNameplate.SetActive(true);
                 customerNameplate.SetActive(false);
                 customerIMG.color = colorChange;
