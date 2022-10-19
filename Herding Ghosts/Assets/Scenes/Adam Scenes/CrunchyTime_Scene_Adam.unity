@@ -588,10 +588,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 473970878}
     m_Modifications:
-    - target: {fileID: 2801539676512630596, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2801539676716693972, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -639,10 +635,6 @@ PrefabInstance:
     - target: {fileID: 2801539676716693975, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
       propertyPath: m_Name
       value: Boba
-      objectReference: {fileID: 0}
-    - target: {fileID: 2801539676716693975, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -7588,7 +7580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3283878948226000209, guid: 20bde082594851847b3b83824693623c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3283878948226000214, guid: 20bde082594851847b3b83824693623c, type: 3}
       propertyPath: m_Enabled
@@ -12759,17 +12751,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2123736177010902820, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1334489666 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2123736177010902826, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334489664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1334489668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12810,7 +12791,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1334489666}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

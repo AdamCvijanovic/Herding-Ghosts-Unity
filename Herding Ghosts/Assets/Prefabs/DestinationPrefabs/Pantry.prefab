@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498249069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1, y: -1.15, z: 0}
+  m_LocalPosition: {x: 1.41, y: -3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4438321891122096253}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,8 +103,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 1275942415, guid: 0df9f551dfadb2b418600d6afb2b715c, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: 9f578280471ad19469cc0955c18ca057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,7 +150,7 @@ Transform:
   - {fileID: 4438321891122096252}
   - {fileID: 1498249070}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4438321892560898279
 MonoBehaviour:
@@ -167,8 +167,20 @@ MonoBehaviour:
   destinationType: 7
   interactable: {fileID: 4438321892560898278}
   UIPanel: {fileID: 0}
-  spawnPosition: {fileID: 0}
-  ingredients: []
+  spawnPosition: {fileID: 1498249070}
+  ingredientprefabs:
+  - {fileID: 5255984961339103586, guid: 380ff785d5c0c0f4293478c4605ffa9a, type: 3}
+  - {fileID: 2801539676716693975, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
+  - {fileID: 8221175992337594427, guid: fef2387497bfc4043a78bd5a28addafd, type: 3}
+  - {fileID: 272730741210586799, guid: 17f9caa49441a604193d7e3a1f3cc092, type: 3}
+  - {fileID: 1415745603147382487, guid: 1ed3173fbb9d6ee40b3545ca5746ae6c, type: 3}
+  - {fileID: 8363166914277866476, guid: a3fbc8590b38a5c41907df245446a24a, type: 3}
+  - {fileID: 3629117048914181383, guid: 6691b7f5d684af74590c7eec61dad6f6, type: 3}
+  - {fileID: 5683874934119006450, guid: b86170795f7ce1b4cb3fb12543ba3077, type: 3}
+  - {fileID: 5080916752356339123, guid: bb31881ddf12797409011b14b80bfd95, type: 3}
+  - {fileID: 636003972730446154, guid: 9db05a157309eb744bc9bd9f36721d98, type: 3}
+  - {fileID: 7825911925580469492, guid: 7691b91fe970d274e863a2e9530d5c86, type: 3}
+  - {fileID: 102959163552759066, guid: 55c2c7de882a5b04fb1de44bfd353672, type: 3}
 --- !u!114 &4438321892560898278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +211,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  pickupString: Press E to Interact
+  useString: 
 --- !u!50 &4438321892560898272
 Rigidbody2D:
   serializedVersion: 4
