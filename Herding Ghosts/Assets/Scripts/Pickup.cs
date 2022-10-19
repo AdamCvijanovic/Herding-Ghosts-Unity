@@ -16,7 +16,9 @@ public class Pickup : MonoBehaviour
     //Don't liek this have it be universal to inventories instead
     public WorkstationDestination nearWorkstation;
     public Inventory nearInventory;
+
     public Interactable nearInteractable;
+    public List<Interactable> _nearbyinteractables;
 
     // Start is called before the first frame update
     void Start()
@@ -170,6 +172,31 @@ public class Pickup : MonoBehaviour
         }
 
         return nearestItem;
+    }
+
+    public Interactable GetNearestInteractable()
+    {
+        //I do this here because this method should never be called if there are no items nearby
+        Interactable nearestInteractable = null;
+        if (_nearbyinteractables.Count > 0)
+        {
+            nearestInteractable = _nearbyinteractables[0];
+            float smallestDist = Vector2.Distance(transform.position, _nearbyinteractables[0].gameObject.transform.position);
+
+
+            //we only really need to do this if there is more than one item
+            foreach (Interactable i in _nearbyinteractables)
+            {
+                float currentDist = Vector2.Distance(transform.position, i.gameObject.transform.position);
+                if (currentDist < smallestDist)
+                {
+                    smallestDist = currentDist;
+                    nearestInteractable = i;
+                }
+            }
+        }
+
+        return nearestInteractable;
     }
 
 

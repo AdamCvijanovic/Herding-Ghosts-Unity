@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
@@ -32,32 +33,47 @@ public class Interactable : MonoBehaviour
     //Interaction Systems
     public void Highlight()
     {
-        if (highlightMaterial != null)
-            sprRndr.material = highlightMaterial;
+        if (this.enabled)
+        {
+            if (highlightMaterial != null && sprRndr != null)
+                sprRndr.material = highlightMaterial;
 
-        UpdateHelpTextPickup();
+            UpdateHelpTextPickup();
+        }
+
+        
     }
 
     public void UnHighlight()
     {
-        if (defaultMaterial != null)
+        if (this.enabled)
         {
-            sprRndr.material = defaultMaterial;
+            if (defaultMaterial != null && sprRndr != null)
+            {
+                sprRndr.material = defaultMaterial;
+            }
+            //if item highlighted, unhiglight
         }
-        //if item highlighted, unhiglight
+
+
 
     }
 
-    public void Activate()
+    public void Activate(InputAction.CallbackContext context)
     {
-        Debug.Log("ACTIVATE");
-        _ActivateEvent.Invoke();
+        if (context.performed)
+        {
+            Debug.Log("ACTIVATE");
+            _ActivateEvent.Invoke();
+        }
+
+
     }
 
     public void UpdateHelpTextPickup()
     {
-        //if (_player.helpText != null)
-        FindObjectOfType<Player>().helpText.UpdateTextPickup(pickupString);
+        if (FindObjectOfType<Player>().helpText != null)
+            FindObjectOfType<Player>().helpText.UpdateTextPickup(pickupString);
     }
 
 }

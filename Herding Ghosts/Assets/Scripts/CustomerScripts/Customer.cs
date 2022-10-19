@@ -122,7 +122,7 @@ public class Customer : MonoBehaviour
         return FindObjectOfType<Player>().playerPickup._isHolding;
     }
 
-    public bool IsPlayerHoldingDesiredItem()
+   public bool IsPlayerHoldingDesiredItem()
    {
         bool isHolding = false;
 

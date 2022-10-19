@@ -411,7 +411,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7793428, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 725174173}
   - component: {fileID: 6707527618810780010}
   - component: {fileID: 9174461369730253537}
+  - component: {fileID: 7790146900159171694}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -773,7 +774,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: -55747224, guid: ac9b23a98e796f14ebc3fac575998f1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -841,7 +842,6 @@ MonoBehaviour:
   nearInventory: {fileID: 0}
   nearInteractable: {fileID: 0}
   _player: {fileID: 0}
-  playerInventory: {fileID: 0}
 --- !u!114 &1624105183244720893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +957,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9089031462738997634}
         m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
-        m_MethodName: PickupDropAction
+        m_MethodName: ActivateInteractable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -969,7 +969,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 9089031462738997634}
         m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
-        m_MethodName: ActivateInteractable
+        m_MethodName: PickupDropAction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1148,6 +1148,20 @@ MonoBehaviour:
   maxItems: 3
   _items: []
 --- !u!114 &9174461369730253537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089031462738997691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxItems: 3
+  _items: []
+--- !u!114 &7790146900159171694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

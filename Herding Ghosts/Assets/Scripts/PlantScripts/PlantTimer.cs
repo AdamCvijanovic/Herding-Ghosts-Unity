@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PlantTimer : MonoBehaviour
 {
 
+    public PlanterBox parentPlanter;
+
     public IngredientItem.IngredientType ingredientType;
     public GameObject prefab;
 
@@ -82,18 +84,41 @@ public class PlantTimer : MonoBehaviour
     }
     public void SpawnItem()
     {
-        if(displayImage.sprite == plant && foodPicked != true)
+        if (!FindObjectOfType<PlayerPickup>()._isHolding)
         {
-            Item item = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Item>();
-            item.transform.parent = this.transform;
-            FindObjectOfType<PlayerPickup>().PickupItem(item);
-            foodPicked = true;
-            interactable.UnHighlight();
-            interactable.enabled = false;
-            displayImage.sprite = seedling;
-            currentTime = maxTime;
+            if (displayImage.sprite == plant && foodPicked != true)
+            {
+                Item item = Instantiate(prefab, this.transform.position, Quaternion.identity).GetComponent<Item>();
+                item.transform.parent = this.transform;
+                FindObjectOfType<PlayerPickup>().PickupItem(item);
+                foodPicked = true;
+                interactable.UnHighlight();
+                interactable.enabled = false;
+                displayImage.sprite = seedling;
+                currentTime = maxTime;
 
+                StartCoroutine(CoroutineAction(item));
+
+                
+            }
         }
+
+    }
+
+    public IEnumerator CoroutineAction(Item item)
+    {
+        // do some actions here
+        yield return new WaitForEndOfFrame(); // wait for end of update
+                                              // do some actions after waiting for update
+        FindObjectOfType<PlayerPickup>().PickupItem(item);
+
+        //clear parent planter if one exists
+        if (parentPlanter != null)
+        {
+            Destroy(this.gameObject);
+        }
+
+        //yield return null;
     }
 
 

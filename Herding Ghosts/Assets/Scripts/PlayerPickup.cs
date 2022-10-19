@@ -21,8 +21,6 @@ public class PlayerPickup : Pickup
 
     public void PickupDropAction(InputAction.CallbackContext context)
     {
-
-
         if (context.performed)
         {
             if (_isHolding)
@@ -33,8 +31,7 @@ public class PlayerPickup : Pickup
             {
                 Pickup();
             }
-        }
-            
+        }   
     }
 
     public void Pickup()
@@ -54,11 +51,14 @@ public class PlayerPickup : Pickup
                 _isHolding = true;
                 _currentItem.OnPickup(this);
                 UpdateHelpTextUse(nearestItem);
+                nearestItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 7;
             }
         }
 
 
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,6 +84,7 @@ public class PlayerPickup : Pickup
 
         if (collision.gameObject.GetComponent<Interactable>())
         {
+            _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
             PlayerNearInteractable(collision.gameObject);
         }
     }
@@ -123,6 +124,7 @@ public class PlayerPickup : Pickup
 
         if (collision.gameObject.GetComponent<Interactable>())
         {
+            _nearbyinteractables.Remove(collision.gameObject.GetComponent<Interactable>());
             PlayerLeaveInteractable(collision.gameObject);
             DisableHelpTextPickup();
         }
@@ -191,9 +193,14 @@ public class PlayerPickup : Pickup
 
     public void ActivateInteractable(InputAction.CallbackContext context)
     {
-        if (nearInteractable != null && context.performed)
+        if(_nearbyinteractables.Count > 0)
         {
-            nearInteractable.Activate();
+            Interactable nearestInteractable = GetNearestInteractable();
+
+            if (nearestInteractable != null && context.performed)
+            {
+                nearestInteractable.Activate(context);
+            }
         }
     }
 

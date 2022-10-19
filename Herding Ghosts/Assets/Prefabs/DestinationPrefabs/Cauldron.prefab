@@ -208,7 +208,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5371278945478046385}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -242,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: a7a8f170933d2294d885f3a9ae0a3d5e, type: 3}
+  m_Sprite: {fileID: 1313480079, guid: 66b744d0a7acb8a41a9148f1b4cd5cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,10 +418,10 @@ GameObject:
   - component: {fileID: 5371278946558997757}
   - component: {fileID: 5371278946558997745}
   - component: {fileID: 5371278946558997746}
+  - component: {fileID: 1852324251255636598}
   - component: {fileID: 5371278946558997744}
   - component: {fileID: 5371278946558997759}
   - component: {fileID: 7072540621977644643}
-  - component: {fileID: 4403290646697597677}
   m_Layer: 0
   m_Name: Cauldron
   m_TagString: Untagged
@@ -446,7 +446,7 @@ Transform:
   - {fileID: 5371278945022084449}
   - {fileID: 5371278945478046386}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5371278946558997745
 MonoBehaviour:
@@ -516,6 +516,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1852324251255636598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371278946558997756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dc4024d78bcdb418054ade7912284d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprRndr: {fileID: 7072540621977644643}
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 0}
+  _ActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pickupString: Press E to Interact
+  useString: 
 --- !u!50 &5371278946558997744
 Rigidbody2D:
   serializedVersion: 4
@@ -603,8 +623,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 1313480079, guid: 66b744d0a7acb8a41a9148f1b4cd5cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -612,26 +632,6 @@ SpriteRenderer:
   m_Size: {x: 2.0625, y: 4.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4403290646697597677
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371278946558997756}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35ec1ffee2c5c604f8741c19ad9afa1f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
