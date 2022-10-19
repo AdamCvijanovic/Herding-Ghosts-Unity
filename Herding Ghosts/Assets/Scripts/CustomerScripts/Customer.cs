@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Customer : MonoBehaviour
 
     [SerializeField]
     ConversationManager _foodItemName;
+
+
+    public Sprite _customerAppearance;
 
     [SerializeField]
     CustomerManager _customerMngr;
@@ -47,6 +51,7 @@ public class Customer : MonoBehaviour
         _foodItemImage.SetCustomer(this);
         _foodItemName = FindObjectOfType<ConversationManager>();
         _foodItemName.SetCustomer(this);
+
 
         SetDesiredFood();
     }
@@ -103,6 +108,7 @@ public class Customer : MonoBehaviour
     public void UpdateConverMngr()
     {
         _foodItemName.WhatFoodIsIt(_desiredFood);
+        _foodItemName.SetCustomerSprite(_customerAppearance);
     }
 
     public AINavigation GetNavigator()
