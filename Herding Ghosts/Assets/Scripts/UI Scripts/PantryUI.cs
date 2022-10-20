@@ -8,7 +8,7 @@ public class PantryUI : MonoBehaviour
 {
     public List<IngredientButtonPantry> ingredientButtons = new List<IngredientButtonPantry>();
 
-    public IngredientButtonPantry selectedIngredient;
+    public IngredientButtonPantry _selectedIngredient;
 
     public TextMeshProUGUI itemDescriptionText;
 
@@ -32,7 +32,7 @@ public class PantryUI : MonoBehaviour
 
     public void SelectIngredient(IngredientButtonPantry ingredientbutton)
     {
-        selectedIngredient = ingredientbutton;
+        _selectedIngredient = ingredientbutton;
         itemDisplayImage.sprite = ingredientbutton.ingredientSprite;
         itemDescriptionText.text = ingredientbutton.ingredientDescription;
     }
@@ -44,9 +44,9 @@ public class PantryUI : MonoBehaviour
 
     public void TakeButton()
     {
-        if(selectedIngredient != null)
+        if(_selectedIngredient != null)
         {
-            SpawnIngredient(selectedIngredient.ingredientType);
+            SpawnIngredient(_selectedIngredient.ingredientType);
             Deactivate();
         }
         

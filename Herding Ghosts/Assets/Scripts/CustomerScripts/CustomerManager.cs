@@ -13,12 +13,18 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> _foodPrefabs = new List<GameObject>();
 
+
+    //UI ELEMENTYS
     public UIItemPortrait uiItemPortrait;
+
+    public UICustomerCounter uiCustomerCounter;
+    public int satisfiedCustomerCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         uiItemPortrait = FindObjectOfType<UIItemPortrait>();
+        uiCustomerCounter = FindObjectOfType<UICustomerCounter>();
     }
 
     // Update is called once per frame
@@ -83,6 +89,12 @@ public class CustomerManager : MonoBehaviour
         }
 
         return foodObj;
+    }
+
+    public void IncrementCounter()
+    {
+        satisfiedCustomerCounter++;
+        uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
     }
 
 }

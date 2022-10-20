@@ -150,6 +150,9 @@ public class Customer : MonoBehaviour
         _customerPickup.PickupItem(item);
     }
 
-
+    public void AmSatisfied()
+    {
+        _customerMngr.IncrementCounter();
+    }
 
 }

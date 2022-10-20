@@ -83,11 +83,15 @@ public class CustomerLogic : MonoBehaviour
 
         if (currentState == CustomerState.Leaving)
         {
+  
+
             if (dst < minDst)
             {
+
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 Debug.Log("Remove customer");
+                _customer.AmSatisfied();
                 _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
                 //remove from list if it exists in it
                 if( FindObjectOfType<PlayerPickup>()._nearbyinteractables.Contains(this.GetComponentInChildren<Interactable>()))
@@ -114,6 +118,8 @@ public class CustomerLogic : MonoBehaviour
     {
         Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
         _customer.GetPickup().PickupItem(desiredFoodItem);
+
+        
     }
 
 
