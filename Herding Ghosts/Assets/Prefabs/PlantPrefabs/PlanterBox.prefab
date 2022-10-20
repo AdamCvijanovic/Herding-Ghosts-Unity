@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8810986573073045259}
   - component: {fileID: 8810986573073045261}
   - component: {fileID: 8810986573073045258}
+  - component: {fileID: 2096555795090047715}
   m_Layer: 0
   m_Name: PlanterBox
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 8810986574927445397}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8810986573073045257
 SpriteRenderer:
@@ -136,6 +137,7 @@ MonoBehaviour:
   plantObj: {fileID: 0}
   plantTimer: {fileID: 0}
   plantHolder: {fileID: 8810986574927445397}
+  boxCollider: {fileID: 0}
   seedBag: {fileID: 0}
   interactable: {fileID: 0}
 --- !u!61 &8810986573073045261
@@ -151,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.010527134, y: -0.18599111}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -162,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.196519, y: 1.9017407}
   m_EdgeRadius: 0
 --- !u!50 &8810986573073045258
 Rigidbody2D:
@@ -185,6 +187,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &2096555795090047715
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810986573073045255}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017542839, y: -0.22810233}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6104708, y: 1.3402579}
+  m_EdgeRadius: 0
 --- !u!1 &8810986574927445394
 GameObject:
   m_ObjectHideFlags: 0
