@@ -87,6 +87,7 @@ public class ConversationManager : MonoBehaviour
 
         convSentences = new Queue<string>();
         colorChange.a = 1;
+        colorChange = Color.grey;
     }
 
     public void SetCustomer(Customer _customer)
