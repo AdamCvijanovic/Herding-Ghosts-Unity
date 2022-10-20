@@ -20,11 +20,14 @@ public class CustomerManager : MonoBehaviour
     public UICustomerCounter uiCustomerCounter;
     public int satisfiedCustomerCounter = 0;
 
+    public Door_Anim_Script _doorAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         uiItemPortrait = FindObjectOfType<UIItemPortrait>();
         uiCustomerCounter = FindObjectOfType<UICustomerCounter>();
+        _doorAnimator = FindObjectOfType<Door_Anim_Script>();
     }
 
     // Update is called once per frame
@@ -59,6 +62,8 @@ public class CustomerManager : MonoBehaviour
         customers.Add(customer);
         customer.SetCustomerManager(this);
         customer.transform.parent = this.transform;
+
+        _doorAnimator.OpenDoor();
     }
 
     public void RemoveCustomer(Customer customer)
