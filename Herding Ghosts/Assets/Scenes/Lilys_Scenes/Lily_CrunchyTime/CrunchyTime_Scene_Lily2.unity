@@ -10574,6 +10574,8 @@ GameObject:
   - component: {fileID: 705248575}
   - component: {fileID: 705248574}
   - component: {fileID: 705248573}
+  - component: {fileID: 705248576}
+  - component: {fileID: 705248577}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -10668,6 +10670,47 @@ Transform:
   m_Father: {fileID: 1606490058}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &705248576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705248572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f5f8220788bc84394ef05a849bc6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spideranim: {fileID: 705248573}
+  spiderAlone: 1
+  spiderCounter: 5
+--- !u!61 &705248577
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705248572}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.90940666, y: -2.0828342}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.8188133, y: 5.1656685}
+  m_EdgeRadius: 0
 --- !u!114 &725174184 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9089031462738997634, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
