@@ -130,7 +130,7 @@ Transform:
   - {fileID: 244459241}
   - {fileID: 1753142783}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4154144965032871887
 Animator:
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationType: 0
   maxItems: 3
-  _items: []
+  _inventory: {fileID: 0}
+  _itemPositions: []
   _recipeList:
   - {fileID: 11400000, guid: 509ce9dbdffca80499f14a37774e8725, type: 2}
   - {fileID: 11400000, guid: 2b2a22e041cce864b84b38f531b89dfe, type: 2}
@@ -180,6 +181,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11262e8e1a538fc4e9f9de9494a74fb5, type: 2}
   - {fileID: 11400000, guid: 60b1a291e0cffd34780f4c57203ce4f8, type: 2}
   - {fileID: 11400000, guid: d1f67a74e5f517a4bb2f2d37196dd4f9, type: 2}
+  sprRndr: {fileID: 0}
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 0}
 --- !u!50 &1029707123
 Rigidbody2D:
   serializedVersion: 4
@@ -300,12 +304,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1570861706, guid: f24da775eded1b740b5bd33ac8a626d1, type: 3}
+  m_Sprite: {fileID: 1313480079, guid: 66b744d0a7acb8a41a9148f1b4cd5cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 2.0625, y: 4.4375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

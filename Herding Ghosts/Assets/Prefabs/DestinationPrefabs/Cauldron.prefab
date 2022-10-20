@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 5371278945478046386}
   - component: {fileID: 5371278945478046387}
   - component: {fileID: 204149541}
+  - component: {fileID: 5311414784242818517}
   m_Layer: 0
   m_Name: CauldronImg
   m_TagString: Untagged
@@ -254,6 +255,76 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &204149541
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371278945478046385}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.0625, y: 4.4375}
+    newSize: {x: 0.66, y: 1.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.03125, y: -0.65625}
+      - {x: 0.84375, y: -0.28125}
+      - {x: 0.21875, y: 1.9375}
+      - {x: 0.125, y: 2.21875}
+      - {x: -0.15625, y: 2.21875}
+      - {x: -0.25, y: 1.9375}
+      - {x: -0.34375, y: 1.5}
+      - {x: -0.90625, y: -0.5}
+      - {x: -1.03125, y: -0.6875}
+      - {x: -1.03125, y: -1.71875}
+      - {x: -0.9375, y: -1.84375}
+      - {x: -0.65625, y: -2.125}
+      - {x: -0.5, y: -2.21875}
+      - {x: 0.53125, y: -2.21875}
+      - {x: 0.59375, y: -2.1875}
+      - {x: 0.9375, y: -1.875}
+      - {x: 1.03125, y: -1.65625}
+    - - {x: -0.65625, y: -0.625}
+      - {x: -0.65625, y: -0.53125}
+      - {x: -0.625, y: -0.5}
+      - {x: -0.5, y: -0.0625}
+      - {x: -0.4375, y: 0.25}
+      - {x: -0.375, y: 0.375}
+      - {x: -0.125, y: 1.25}
+      - {x: -0.0625, y: 1.5}
+      - {x: -0.03125, y: 1.6875}
+      - {x: 0.03125, y: 1.8125}
+      - {x: 0, y: 1.90625}
+      - {x: -0.03125, y: 1.8125}
+      - {x: 0.03125, y: 1.6875}
+      - {x: 0.03125, y: 1.59375}
+      - {x: 0.125, y: 1.25}
+      - {x: 0.4375, y: 0.15625}
+      - {x: 0.53125, y: -0.1875}
+      - {x: 0.59375, y: -0.40625}
+      - {x: 0.6875, y: -0.65625}
+      - {x: 0.59375, y: -0.53125}
+      - {x: 0.53125, y: -0.4375}
+      - {x: 0.25, y: -0.34375}
+      - {x: -0.25, y: -0.375}
+      - {x: -0.375, y: -0.40625}
+      - {x: -0.53125, y: -0.46875}
+      - {x: -0.71875, y: -0.65625}
+      - {x: -0.6875, y: -0.65625}
+  m_UseDelaunayMesh: 0
+--- !u!60 &5311414784242818517
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

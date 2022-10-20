@@ -139,7 +139,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000014514, y: -0.000012495}
-  m_SizeDelta: {x: 0.9, y: 0.9}
+  m_SizeDelta: {x: 0.8, y: 0.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &790141886
 CanvasRenderer:
@@ -280,7 +280,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pickupString: Press E to Talk
+  pickupString: Press E to Interact
   useString: 
 --- !u!58 &4816789452299992814
 CircleCollider2D:
@@ -295,9 +295,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.17259932}
+  m_Offset: {x: 0, y: -0.34945416}
   serializedVersion: 2
-  m_Radius: 1.5664864
+  m_Radius: 1.8494542
 --- !u!1 &8509441954223448672
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   _customerNavigation: {fileID: 8509441954223448698}
   _foodItemImage: {fileID: 790141887}
   _foodItemName: {fileID: 0}
+  _customerAppearance: {fileID: 1978995868, guid: e01fb6063f5f0bc4593fed75e89ca50b, type: 3}
   _customerMngr: {fileID: 0}
   _desiredFood: 0
   isSpokenTo: 0
@@ -452,7 +453,6 @@ MonoBehaviour:
   nearWorkstation: {fileID: 0}
   nearInventory: {fileID: 0}
   nearInteractable: {fileID: 0}
-  _nearbyinteractables: []
 --- !u!114 &8509441954223448698
 MonoBehaviour:
   m_ObjectHideFlags: 0
