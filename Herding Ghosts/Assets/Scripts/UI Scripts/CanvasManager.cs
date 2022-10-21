@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class CanvasManager : MonoBehaviour
     public GameObject pantryUI;
 
     public GrimoireUI grimoireUI;
+    
+    //public Image playerIMG;
+    public Image customerIMG;
 
     public bool youWin = false;
 

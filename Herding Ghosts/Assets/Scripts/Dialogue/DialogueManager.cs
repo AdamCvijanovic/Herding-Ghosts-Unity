@@ -39,6 +39,9 @@ public class DialogueManager : MonoBehaviour
         //colorChange.a = 1;
         chooseDialogue = GameObject.Find("DialogueElements");
         cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
+
+        //retrieve customer image from Canvas
+        customerIMG = FindObjectOfType<CanvasManager>().customerIMG;
         
     }
 
