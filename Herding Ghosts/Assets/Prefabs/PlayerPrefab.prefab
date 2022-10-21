@@ -346,7 +346,7 @@ Transform:
   - {fileID: 4487000596320016036}
   - {fileID: 9089031462530899493}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4487000596320016037
 GameObject:
@@ -404,14 +404,14 @@ MonoBehaviour:
   m_Follow: {fileID: 9089031462738997639}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7764423, y: 1}
+    m_SensorSize: {x: 1.7775974, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -660,7 +660,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -784,9 +784,6 @@ GameObject:
   - component: {fileID: 3359547926936675180}
   - component: {fileID: 9089031462738997632}
   - component: {fileID: 9089031462738997645}
-  - component: {fileID: 725174173}
-  - component: {fileID: 6707527618810780010}
-  - component: {fileID: 9174461369730253537}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -918,6 +915,7 @@ MonoBehaviour:
   nearWorkstation: {fileID: 0}
   nearInventory: {fileID: 0}
   nearInteractable: {fileID: 0}
+  _nearbyinteractables: []
   _player: {fileID: 0}
 --- !u!114 &1624105183244720893
 MonoBehaviour:
@@ -1196,48 +1194,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &725174173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089031462738997691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxItems: 3
-  _items: []
---- !u!114 &6707527618810780010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089031462738997691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxItems: 3
-  _items: []
---- !u!114 &9174461369730253537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089031462738997691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxItems: 3
-  _items: []
 --- !u!1 &9089031463761900625
 GameObject:
   m_ObjectHideFlags: 0
