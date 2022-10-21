@@ -346,7 +346,7 @@ Transform:
   - {fileID: 4487000596320016036}
   - {fileID: 9089031462530899493}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4487000596320016037
 GameObject:
@@ -404,14 +404,14 @@ MonoBehaviour:
   m_Follow: {fileID: 9089031462738997639}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6
+    OrthographicSize: 3.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7764423, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -432,6 +432,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5242580441733816364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 191913782588667983}
+  - component: {fileID: 8484958539863404996}
+  m_Layer: 3
+  m_Name: BGAudioEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &191913782588667983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242580441733816364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05000019, y: -0.34000015, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9089031462530899493}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8484958539863404996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5242580441733816364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1714357424
+      Data2: 1236672886
+      Data3: -1979507285
+      Data4: -242805168
+    Path: event:/BGMusic
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8539808163384216972
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +609,7 @@ GameObject:
   - component: {fileID: 9089031462530899672}
   - component: {fileID: 4487000595578591259}
   - component: {fileID: 9089031462530899677}
+  - component: {fileID: 4404298261981583751}
   m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -565,7 +628,8 @@ Transform:
   m_LocalPosition: {x: -4.71, y: -7.33, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 191913782588667983}
   m_Father: {fileID: 4487000595292736108}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -17.064, z: 0}
@@ -596,7 +660,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -619,7 +683,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9089031462530899673}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &4487000595578591259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,6 +751,20 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4404298261981583751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9089031462530899673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &9089031462738997691
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,7 +787,6 @@ GameObject:
   - component: {fileID: 725174173}
   - component: {fileID: 6707527618810780010}
   - component: {fileID: 9174461369730253537}
-  - component: {fileID: 697204750633050521}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -774,7 +851,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_Sprite: {fileID: -55747224, guid: ac9b23a98e796f14ebc3fac575998f1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -957,7 +1034,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9089031462738997634}
         m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
-        m_MethodName: PickupDropAction
+        m_MethodName: ActivateInteractable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -969,7 +1046,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 9089031462738997634}
         m_TargetAssemblyTypeName: PlayerPickup, Assembly-CSharp
-        m_MethodName: ActivateInteractable
+        m_MethodName: PickupDropAction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1161,20 +1238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxItems: 3
   _items: []
---- !u!114 &697204750633050521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089031462738997691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b65c42f11c3ed4389edc08ec969a24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxItems: 3
-  _items: []
 --- !u!1 &9089031463761900625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9089031463761900625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.166, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
