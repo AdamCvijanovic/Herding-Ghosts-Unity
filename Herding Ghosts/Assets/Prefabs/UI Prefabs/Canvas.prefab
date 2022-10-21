@@ -2359,7 +2359,7 @@ RectTransform:
   - {fileID: 578568948}
   - {fileID: 5204531729746204092}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2448,6 +2448,7 @@ MonoBehaviour:
   controlsMenu: {fileID: 1060905599461331805}
   pantryUI: {fileID: 8287311730624315099}
   grimoireUI: {fileID: 67886913}
+  customerIMG: {fileID: 0}
   youWin: 0
 --- !u!1 &6633099504858638434
 GameObject:
@@ -3953,6 +3954,74 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6544090748486202626}
     m_Modifications:
+    - target: {fileID: 7146125260890872506, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872506, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d099797cb2b3de4e8025143bdc3efde, type: 3}
+    - target: {fileID: 7146125260890872506, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872506, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872506, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872507, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 626.5756
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872507, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 217.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872507, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.2507
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125260890872507, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.8791
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870456, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870456, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.2765664
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870456, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.2841434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870456, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286859080
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870457, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 462.534
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870457, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 134.8404
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870457, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.7696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146125261274870457, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11.544
+      objectReference: {fileID: 0}
     - target: {fileID: 7146125261274870458, guid: 486aded4a1c6798438f5a7c507702892, type: 3}
       propertyPath: m_Name
       value: DialogueText
@@ -5151,7 +5220,7 @@ MonoBehaviour:
   - {fileID: 6465133914587672895}
   - {fileID: 230992896284827771}
   - {fileID: 3420288217603690375}
-  selectedIngredient: {fileID: 0}
+  _selectedIngredient: {fileID: 0}
   itemDescriptionText: {fileID: 4790800399409706274}
   itemDisplayImage: {fileID: 7746049904179865601}
 --- !u!114 &8381629604895318528 stripped
