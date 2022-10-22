@@ -75,7 +75,7 @@ public class ConversationTrigger : MonoBehaviour
 
     public void TriggerConversation()
     {
-        FindObjectOfType<ConversationManager>().StartConversation(convChosen);
+        FindObjectOfType<ConversationManager>().StartConversation(convChosen);       
     }
 
     //private void OnTriggerEnter2D(Collider2D other) 
@@ -95,26 +95,35 @@ public class ConversationTrigger : MonoBehaviour
 
     public void ActivateConversation()
     {
-        //this shoudl really be in the logic section
-        if (_customer.IsPlayerHoldingItem() && _customer.IsPlayerHoldingDesiredItem())
+        if (_customer.GetCustomerLogic().currentState == CustomerLogic.CustomerState.Leaving)
         {
-            _customer.PickupDesiredItem();
-            _customer.GetCustomerLogic().SetState(CustomerLogic.CustomerState.Leaving);
-            if (FindObjectOfType<PlayerPickup>()._isHolding)
-            { 
-                FindObjectOfType<PlayerPickup>().Drop();
+            Debug.Log("Customer Leaving, Cannot Talk");
+        }
+        else
+        {
+            //this shoudl really be in the logic section
+            if (_customer.IsPlayerHoldingItem() && _customer.IsPlayerHoldingDesiredItem())
+            {
+                _customer.PickupDesiredItem();
+                _customer.GetCustomerLogic().SetState(CustomerLogic.CustomerState.Leaving);
+                if (FindObjectOfType<PlayerPickup>()._isHolding)
+                {
+                    FindObjectOfType<PlayerPickup>().Drop();
+                }
+            }
+            else if (!_customer.IsPlayerHoldingItem())
+            {
+                //clear UI of other elements
+                FindObjectOfType<CanvasManager>().DisableOtherUIElements();
+
+                cDS.NCTrue();
+                ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
+                dt.TriggerConversation();
+                Time.timeScale = 0f;
             }
         }
-        else if(!_customer.IsPlayerHoldingItem())
-        {
-            //clear UI of other elements
-            FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
-            cDS.NCTrue();
-            ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
-            dt.TriggerConversation();
-            Time.timeScale = 0f;
-        }
+        
     }
 
     private void TalkConversation()

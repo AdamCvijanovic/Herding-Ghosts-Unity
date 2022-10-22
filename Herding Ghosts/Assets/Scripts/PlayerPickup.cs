@@ -82,10 +82,13 @@ public class PlayerPickup : Pickup
             nearInventory = collision.gameObject.GetComponent<Inventory>();
         }
 
-        if (collision.gameObject.GetComponent<Interactable>())
+        if (collision.gameObject.GetComponent<Interactable>() && collision.gameObject.GetComponent<Interactable>().enabled)
         {
-            _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
-            PlayerNearInteractable(collision.gameObject);
+            if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<Interactable>()))
+            {
+                _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
+                PlayerNearInteractable(collision.gameObject);
+            }
         }
     }
 

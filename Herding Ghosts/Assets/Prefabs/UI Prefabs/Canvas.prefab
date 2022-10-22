@@ -179,8 +179,9 @@ GameObject:
   - component: {fileID: 1493358200}
   - component: {fileID: 1493358202}
   - component: {fileID: 1493358201}
+  - component: {fileID: 7609482849105705929}
   m_Layer: 5
-  m_Name: WinText
+  m_Name: CustomerCounterText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,6 +304,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7609482849105705929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493358199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd508bd00c8734442a5da3a7e332663b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterText: {fileID: 1493358201}
 --- !u!1 &2382005680449562
 GameObject:
   m_ObjectHideFlags: 0

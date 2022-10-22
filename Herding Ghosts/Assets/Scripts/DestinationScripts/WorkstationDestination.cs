@@ -16,7 +16,8 @@ public class WorkstationDestination : Destination
     public enum WorkstationType {Cauldron, Oven};
 
     public List<Transform> _itemPositions = new List<Transform>();
-    
+
+    public Transform finishedItemPosition;
 
     //_recipe list shoudl be the only relevant thing here
     public List<RecipeObject> _recipeList = new List<RecipeObject>();
@@ -168,7 +169,7 @@ public class WorkstationDestination : Destination
 
         ConsumeItems(ingredient0, ingredient1, ingredient2);
 
-        Instantiate(recipeIn.recipePrefab, this.gameObject.transform.position, Quaternion.identity);
+        Instantiate(recipeIn.recipePrefab, finishedItemPosition.position, Quaternion.identity);
     }
 
 

@@ -83,22 +83,21 @@ public class CustomerLogic : MonoBehaviour
 
         if (currentState == CustomerState.Leaving)
         {
-  
+            //remove from list if it exists in it
+            if (FindObjectOfType<PlayerPickup>()._nearbyinteractables.Contains(this.GetComponentInChildren<Interactable>()))
+            {
+                FindObjectOfType<PlayerPickup>()._nearbyinteractables.Remove(this.GetComponentInChildren<Interactable>());
+            }
+            _customer.GetConversationTrigger().enabled = false;
 
             if (dst < minDst)
             {
 
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
-                Debug.Log("Remove customer");
+                RemoveCustomer();
                 _customer.AmSatisfied();
-                _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
-                //remove from list if it exists in it
-                if( FindObjectOfType<PlayerPickup>()._nearbyinteractables.Contains(this.GetComponentInChildren<Interactable>()))
-                {
-                    FindObjectOfType<PlayerPickup>()._nearbyinteractables.Remove(this.GetComponentInChildren<Interactable>());
-                }
-                Destroy(this.gameObject, despawnTime);
+                
             }
         }       
     }
@@ -108,6 +107,17 @@ public class CustomerLogic : MonoBehaviour
 
     }
 
+
+    public void RemoveCustomer()
+    {
+        Debug.Log("Remove customer");
+
+        
+
+        _customer.GetCustomerManager().RemoveCustomer(this.GetComponent<Customer>());
+        
+        Destroy(this.gameObject, despawnTime);
+    }
 
     public bool DesiredItemFound()
     { 

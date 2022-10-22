@@ -20,7 +20,10 @@ public class Customer : MonoBehaviour
     UIFoodItemImage _foodItemImage;
 
     [SerializeField]
-    ConversationManager _foodItemName;
+    ConversationTrigger _conversationTrigger;
+
+    [SerializeField]
+    ConversationManager _conversationManager;
 
 
     public Sprite _customerAppearance;
@@ -49,8 +52,9 @@ public class Customer : MonoBehaviour
         _customerPickup = GetComponent<Pickup>();
         _foodItemImage = GetComponentInChildren<UIFoodItemImage>();
         _foodItemImage.SetCustomer(this);
-        _foodItemName = FindObjectOfType<ConversationManager>();
-        _foodItemName.SetCustomer(this);
+        _conversationManager = FindObjectOfType<ConversationManager>();
+        _conversationManager.SetCustomer(this);
+        _conversationTrigger = GetComponentInChildren<ConversationTrigger>();
 
 
         SetDesiredFood();
@@ -80,6 +84,11 @@ public class Customer : MonoBehaviour
         return _foodItemImage;
     }
 
+    public ConversationTrigger GetConversationTrigger()
+    {
+        return _conversationTrigger;
+    }
+
     public void SetCustomerManager(CustomerManager customerManager)
     {
         _customerMngr = customerManager;
@@ -107,8 +116,8 @@ public class Customer : MonoBehaviour
 
     public void UpdateConverMngr()
     {
-        _foodItemName.WhatFoodIsIt(_desiredFood);
-        _foodItemName.SetCustomerSprite(_customerAppearance);
+        _conversationManager.WhatFoodIsIt(_desiredFood);
+        _conversationManager.SetCustomerSprite(_customerAppearance);
     }
 
     public AINavigation GetNavigator()
