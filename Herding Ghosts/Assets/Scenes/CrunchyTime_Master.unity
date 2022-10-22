@@ -16532,6 +16532,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8810986573073045256, guid: 618a3f3763c3eb742b42ee8c4ca2d9e4, type: 3}
   m_PrefabInstance: {fileID: 1299354825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337913296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
+  m_PrefabInstance: {fileID: 4438321891639330037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68b14f60e42df145a01ddf139a4e86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1347400687
 GameObject:
   m_ObjectHideFlags: 0
@@ -24547,6 +24558,22 @@ PrefabInstance:
     - target: {fileID: 4438321892560898277, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1337913296}
+    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivatePantryUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PantryDestination, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
       propertyPath: UIPanel
