@@ -12,5 +12,10 @@ public class SeedBag : Item
 
 
 
+    public override IngredientItem.IngredientType GetIngredientType()
+    {
+        return ingredientType;
+    }
+
 
 }

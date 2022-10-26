@@ -1067,11 +1067,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
---- !u!4 &319283388 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1498249070, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-  m_PrefabInstance: {fileID: 4438321891639330037}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337824767
 GameObject:
   m_ObjectHideFlags: 0
@@ -21141,17 +21136,6 @@ Transform:
   m_Father: {fileID: 337824768}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744357023 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-  m_PrefabInstance: {fileID: 4438321891639330037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68b14f60e42df145a01ddf139a4e86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1749310499
 GameObject:
   m_ObjectHideFlags: 0
@@ -24725,42 +24709,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1498249069, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498249070, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498249070, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321891122096252, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321891122096252, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321891122096253, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_Name
-      value: PantryImg
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321891122096253, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321891122096255, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9f578280471ad19469cc0955c18ca057, type: 3}
-    - target: {fileID: 4438321891122096255, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4438321892560898276, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -24809,94 +24757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pantry
       objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898277, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744357023}
-    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivatePantryUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898278, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PantryDestination, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
       propertyPath: UIPanel
       value: 
       objectReference: {fileID: 1692492841}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: spawnPosition
-      value: 
-      objectReference: {fileID: 319283388}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredients.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredients.Array.data[0]
-      value: 
-      objectReference: {fileID: 5255984961339103598, guid: 380ff785d5c0c0f4293478c4605ffa9a, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5255984961339103586, guid: 380ff785d5c0c0f4293478c4605ffa9a, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 2801539676716693975, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 8221175992337594427, guid: fef2387497bfc4043a78bd5a28addafd, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 272730741210586799, guid: 17f9caa49441a604193d7e3a1f3cc092, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 1415745603147382487, guid: 1ed3173fbb9d6ee40b3545ca5746ae6c, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[5]
-      value: 
-      objectReference: {fileID: 8363166914277866476, guid: a3fbc8590b38a5c41907df245446a24a, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[6]
-      value: 
-      objectReference: {fileID: 3629117048914181383, guid: 6691b7f5d684af74590c7eec61dad6f6, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[7]
-      value: 
-      objectReference: {fileID: 5683874934119006450, guid: b86170795f7ce1b4cb3fb12543ba3077, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[8]
-      value: 
-      objectReference: {fileID: 5080916752356339123, guid: bb31881ddf12797409011b14b80bfd95, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[9]
-      value: 
-      objectReference: {fileID: 636003972730446154, guid: 9db05a157309eb744bc9bd9f36721d98, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[10]
-      value: 
-      objectReference: {fileID: 7825911925580469492, guid: 7691b91fe970d274e863a2e9530d5c86, type: 3}
-    - target: {fileID: 4438321892560898279, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}
-      propertyPath: ingredientprefabs.Array.data[11]
-      value: 
-      objectReference: {fileID: 102959163552759066, guid: 55c2c7de882a5b04fb1de44bfd353672, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bfa4cf7108e413c418f754fa9cb4fd8f, type: 3}

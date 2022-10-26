@@ -32,7 +32,7 @@ public class PantryDestination : Destination
 
     public void SpawnIngredient(IngredientItem.IngredientType ingredientType)
     {
-        Debug.Log("IngredeintType: " + ingredientType );
+        Debug.Log("IngredientType: " + ingredientType );
 
         foreach(GameObject i in ingredientprefabs)
         {
