@@ -35,7 +35,7 @@ Transform:
   - {fileID: 6188208735394628789}
   - {fileID: 7528040762027269031}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3867826115014656902
 MonoBehaviour:
@@ -53,7 +53,7 @@ MonoBehaviour:
   interactable: {fileID: 6188208734484309039}
   UIPanel: {fileID: 0}
   spawnPosition: {fileID: 7528040762027269031}
-  ingredientprefabs:
+  seedbagPrefabs:
   - {fileID: 4180509118748665846, guid: 9bb5c119c25f36e4abbfb9ef55aed194, type: 3}
   - {fileID: 8814417932616371227, guid: f2a7dd8ce98d241458dc1261f3e3fe26, type: 3}
   - {fileID: 3149776519001545780, guid: 1596cc5d843ad484abe0c065ae76e20c, type: 3}
@@ -80,7 +80,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3867826115014656902}
         m_TargetAssemblyTypeName: SeedBarrelDestination, Assembly-CSharp
-        m_MethodName: ActivatePantryUI
+        m_MethodName: ActivateSeedBarrelUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -247,7 +247,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528040762027269028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0.86, z: 0}
+  m_LocalPosition: {x: 1.17, y: -0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
