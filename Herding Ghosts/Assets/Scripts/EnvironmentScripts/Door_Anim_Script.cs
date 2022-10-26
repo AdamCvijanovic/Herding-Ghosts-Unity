@@ -17,7 +17,6 @@ public class Door_Anim_Script : MonoBehaviour
     {
         if (doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Door_Open"))
         {
-            Debug.Log("DOOR IS CLOSIGN");
             CloseDoor();
         }
     }

@@ -38,6 +38,11 @@ public class CustomerManager : MonoBehaviour
         
     }
 
+    public void OpenStore()
+    {
+
+    }
+
     public Customer GetCurrentCustomer()
     {
         if (customers.Count >= 1)

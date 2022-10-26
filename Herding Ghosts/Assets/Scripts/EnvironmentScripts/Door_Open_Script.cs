@@ -11,10 +11,12 @@ public class Door_Open_Script : MonoBehaviour
 
     public Door_Sign_Script doorSign;
 
+    CustomerManager _customerMngr;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _customerMngr = FindObjectOfType<CustomerManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,10 @@ public class Door_Open_Script : MonoBehaviour
     {
         isStoreOpen = !isStoreOpen;
 
-        FindObjectOfType<CustomerManager>().storeOpen = isStoreOpen;
+
+        _customerMngr.storeOpen = isStoreOpen;
+
+        FindObjectOfType<CustomerSpawnerDestination>().countdown = 1f;
+
     }
 }
