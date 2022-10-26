@@ -6,7 +6,7 @@ public class CustomerSpawnerDestination : Destination
 {
     public List<GameObject> customerPrefabs;
 
-    CustomerManager _customerMngr;
+    public CustomerManager _customerMngr;
 
     public Transform _spawnPosition;
     public float _spawnTime;
@@ -23,8 +23,8 @@ public class CustomerSpawnerDestination : Destination
     // Update is called once per frame
     void Update()
     {
-
-        SpawnCountDown(_spawnTime);
+        if(_customerMngr.storeOpen)
+            SpawnCountDown(_spawnTime);
     }
 
     private void SpawnCountDown(float time)
@@ -70,12 +70,14 @@ public class CustomerSpawnerDestination : Destination
         {
             GameObject newCustomer = Instantiate(customerPrefab, _spawnPosition.position, Quaternion.identity, _customerMngr.transform);
             _customerMngr.AddCustomer(newCustomer.GetComponent<Customer>());
+            newCustomer.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
         else
         {
             GameObject newCustomer = Instantiate(customerPrefab, this.transform.position, Quaternion.identity, _customerMngr.transform);
             _customerMngr.AddCustomer(newCustomer.GetComponent<Customer>());
+            newCustomer.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         }
 

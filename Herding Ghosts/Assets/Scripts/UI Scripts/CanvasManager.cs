@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject controlsMenu;
     public GameObject pantryUI;
+    public GameObject seedBarrelUI;
 
     public GrimoireUI grimoireUI;
     
@@ -124,6 +125,18 @@ public class CanvasManager : MonoBehaviour
     {
         pantryUI.GetComponent<PantryUI>();
         pantryUI.SetActive(false);
+    }
+
+    public void SeedBarrelActivate()
+    {
+        seedBarrelUI.SetActive(true);
+        seedBarrelUI.GetComponent<SeedButtonUI>();
+    }
+
+    public void SeedBarrelDeactivate()
+    {
+        seedBarrelUI.GetComponent<SeedButtonUI>();
+        seedBarrelUI.SetActive(false);
     }
 
     public void DisableOtherUIElements()

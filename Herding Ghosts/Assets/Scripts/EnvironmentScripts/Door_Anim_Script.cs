@@ -15,7 +15,10 @@ public class Door_Anim_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Door_Open"))
+        {
+            CloseDoor();
+        }
     }
 
     public void OpenDoor()

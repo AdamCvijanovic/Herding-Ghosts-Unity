@@ -13,6 +13,8 @@ public class CustomerManager : MonoBehaviour
     [SerializeField]
     public List<GameObject> _foodPrefabs = new List<GameObject>();
 
+    //Store Open Bool
+    public bool storeOpen;
 
     //UI ELEMENTYS
     public UIItemPortrait uiItemPortrait;
@@ -34,6 +36,11 @@ public class CustomerManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenStore()
+    {
+
     }
 
     public Customer GetCurrentCustomer()
@@ -68,6 +75,7 @@ public class CustomerManager : MonoBehaviour
 
     public void RemoveCustomer(Customer customer)
     {
+        _doorAnimator.OpenDoor();
         customers.Remove(customer);
     }
 
