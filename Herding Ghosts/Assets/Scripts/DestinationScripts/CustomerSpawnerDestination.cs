@@ -23,8 +23,8 @@ public class CustomerSpawnerDestination : Destination
     // Update is called once per frame
     void Update()
     {
-
-        SpawnCountDown(_spawnTime);
+        if(_customerMngr.storeOpen)
+            SpawnCountDown(_spawnTime);
     }
 
     private void SpawnCountDown(float time)
