@@ -17,6 +17,7 @@ public class CanvasManager : MonoBehaviour
     public GrimoireUI grimoireUI;
     
     //public Image playerIMG;
+    public Image playerIMG;
     public Image customerIMG;
 
     public bool youWin = false;

@@ -6,22 +6,35 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public bool isTherePlayer = true;
+    public bool isTherecustomer = true;
+
     public GameObject playerNameplate;
     public GameObject customerNameplate;
 
-    //public Image playerIMG;
+    //player images
+    public Image playerIMG;
+    public Sprite playerIMGOne;
+    public Sprite playerIMGTwo;
+    public Sprite playerIMGThree;
+    public Sprite playerIMGFour;
+    
+    //customer images
     public Image customerIMG;
+    public Sprite customerIMGOne;
+    public Sprite customerIMGTwo;
+    public Sprite customerIMGThree;
     public Sprite grandmaImg;
-    //public Color colorChange;
+    public Color colorChange;
 
     //textmesh pro GUIs
-    //public TextMeshProUGUI playerNameText;
+    public TextMeshProUGUI playerNameText;
     public TextMeshProUGUI customerNameText;
     public TextMeshProUGUI dialogueText;
 
     //Animators
     public Animator animator;
-    //public Animator playerAnimator;
+    public Animator playerAnimator;
     public Animator customerAnimator;
 
     private GameObject chooseDialogue;
@@ -31,18 +44,53 @@ public class DialogueManager : MonoBehaviour
     private int sentenceCounter = 0;
     public int[] playerTalking;
     public int[] customerTalking;
+    public int[] imagePlacement;
 
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
-        //colorChange.a = 1;
+        colorChange.a = 1;
         chooseDialogue = GameObject.Find("DialogueElements");
         cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
 
         //retrieve customer image from Canvas
         customerIMG = FindObjectOfType<CanvasManager>().customerIMG;
+        playerIMG = FindObjectOfType<CanvasManager>().playerIMG;
         
+    }
+
+    public void ChangePlayerImageSprite(int num)
+    {
+        if(num == 1)
+        {
+            playerIMG.sprite = playerIMGOne;
+        }else if(num == 2)
+        {
+            playerIMG.sprite = playerIMGTwo;
+        }else if(num == 3)
+        {
+            playerIMG.sprite = playerIMGThree;
+        }else if(num == 4)
+        {
+            playerIMG.sprite = playerIMGFour;
+        }
+            
+    }
+
+    public void ChangeCustomerImageSprite(int num)
+    {
+        if(num == 1)
+        {
+            customerIMG.sprite = customerIMGOne;
+        }else if(num == 2)
+        {
+            customerIMG.sprite = customerIMGTwo;
+        }else if(num == 3)
+        {
+            customerIMG.sprite = customerIMGThree;
+        }
+            
     }
 
     public void StartDialogue(Dialogue convisation)
@@ -52,12 +100,12 @@ public class DialogueManager : MonoBehaviour
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
         
-        //playerAnimator.SetBool("PlayerActive", true);
-        customerAnimator.SetBool("CustomerActive", true);
+        if(isTherePlayer == true){playerAnimator.SetBool("PlayerActive", true);}
+        if(isTherecustomer == true){customerAnimator.SetBool("CustomerActive", true);}
 
         sentenceCounter = 0;
         //player name
-        //playerNameText.text = convisation.playerName;
+        playerNameText.text = convisation.playerName;
         //customer name
         customerNameText.text = convisation.customerName;
 
@@ -97,7 +145,7 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
                 customerNameplate.SetActive(true);
-                //playerIMG.color = colorChange;
+                playerIMG.color = colorChange;
                 customerIMG.color = Color.white;
            }  
         }
@@ -107,10 +155,10 @@ public class DialogueManager : MonoBehaviour
            if(sentenceCounter == playerTalking[j])
            {
                 Debug.Log("Player");
-                playerNameplate.SetActive(false);
-                customerNameplate.SetActive(true);
-                customerIMG.color = Color.white;
-                //playerIMG.color = Color.white;
+                playerNameplate.SetActive(true);
+                customerNameplate.SetActive(false);
+                customerIMG.color = colorChange;
+                playerIMG.color = Color.white;
            }
               
         }
@@ -129,7 +177,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("End of conversation.");
         cDS.NCOff();
         animator.SetBool("IsOpen", false);
-        //playerAnimator.SetBool("PlayerActive", false);
+        playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
     }
