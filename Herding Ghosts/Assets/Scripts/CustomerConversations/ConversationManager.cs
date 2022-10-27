@@ -143,6 +143,7 @@ public class ConversationManager : MonoBehaviour
             return;
         }
         string sentence = convSentences.Dequeue();
+        sentence = sentence.Replace("FOODITEM","<b><color=blue>FOODITEM</color></b>"); // has glitch during text output
         sentence = sentence.Replace("FOODITEM",foodName);
     
 

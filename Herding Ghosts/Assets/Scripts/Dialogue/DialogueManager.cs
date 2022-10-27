@@ -79,6 +79,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
+        //sentence = sentence.Replace("greenhouse","<b><color=#4AB055>Greenhouse</color></b>"); // has glitch during text output
         
         //Debug.Log(sentence);
         //dialogueText.text = sentence;

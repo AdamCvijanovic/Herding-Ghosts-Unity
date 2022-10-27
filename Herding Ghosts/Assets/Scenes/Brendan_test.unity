@@ -11847,17 +11847,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2123736177010902820, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1334489666 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2123736177010902826, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334489664}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1334489668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11898,7 +11887,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1334489666}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -12010,6 +11999,22 @@ PrefabInstance:
     - target: {fileID: 855561151, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -170.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493358201, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493358201, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493358201, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493358201, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2123736176999514548, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12144,8 +12149,12 @@ PrefabInstance:
       value: 1.4727491
       objectReference: {fileID: 0}
     - target: {fileID: 7780018310833867637, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -273
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780018310833867637, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 85
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7916891030369914125, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_LocalScale.y
@@ -15616,11 +15625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9089031462530899672, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_Enabled
@@ -15772,6 +15781,17 @@ PrefabInstance:
     - target: {fileID: 6932405315982681539, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
       propertyPath: m_Name
       value: Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[0]
+      value: Good morning <color=purple>Lavender</color>. I hope your looking forward
+        to another day of baking, gardening and selling.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[5]
+      value: (To craft a tasty treat you must gather the ingredients from either
+        the greenhouse or the pantry, both lokated in the upper right of the map
+        )
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
