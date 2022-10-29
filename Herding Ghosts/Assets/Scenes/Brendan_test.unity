@@ -889,11 +889,11 @@ PrefabInstance:
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerIMGOne
       value: 
-      objectReference: {fileID: 21300000, guid: 5360c0f8ce447ee4b84a585187a846c4, type: 3}
+      objectReference: {fileID: -624820663, guid: 543d279bccf7f5146bf8b92379290d3a, type: 3}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerIMGTwo
       value: 
-      objectReference: {fileID: -326731801, guid: 597e7cf4fd0bc2a42a59eee01e38c4b7, type: 3}
+      objectReference: {fileID: -884057304, guid: 543d279bccf7f5146bf8b92379290d3a, type: 3}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerAnimator
       value: 
@@ -907,6 +907,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1377240961}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: isTherecustomer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerNameplate
       value: 
       objectReference: {fileID: 1377240962}
@@ -917,54 +921,78 @@ PrefabInstance:
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerIMGThree
       value: 
-      objectReference: {fileID: -116203602, guid: 57b1e2331122f8c439e6a7e9a35b9b77, type: 3}
+      objectReference: {fileID: -55752399, guid: 543d279bccf7f5146bf8b92379290d3a, type: 3}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerNameText
       value: 
       objectReference: {fileID: 1377240959}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: imgChangeCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerNameplate
       value: 
       objectReference: {fileID: 1377240960}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: playerTalking.Array.size
+      propertyPath: playerImageColored
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerImageColored
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: playerTalking.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: imagePlacement.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerTalking.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerTalking.Array.data[0]
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerTalking.Array.data[1]
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerTalking.Array.data[2]
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerTalking.Array.data[3]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerTalking.Array.data[4]
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: playerTalking.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: playerTalking.Array.data[6]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: playerTalking.Array.data[7]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: imagePlacement.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: imagePlacement.Array.data[1]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: imagePlacement.Array.data[2]
@@ -972,31 +1000,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: imagePlacement.Array.data[3]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: imagePlacement.Array.data[4]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: customerTalking.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: customerTalking.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: customerTalking.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: customerTalking.Array.data[3]
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
-      propertyPath: customerTalking.Array.data[4]
+      propertyPath: imagePlacement.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: imagePlacement.Array.data[5]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: imagePlacement.Array.data[6]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: imagePlacement.Array.data[7]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[3]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[4]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerTalking.Array.data[5]
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1070034245087427390, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: m_Name
@@ -15894,26 +15938,54 @@ PrefabInstance:
       value: Instructions
       objectReference: {fileID: 0}
     - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
       propertyPath: convisation.sentences.Array.data[0]
+      value: Good morning Granny Fluffins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[1]
       value: Good morning <color=purple>Lavender</color>. I hope your looking forward
         to another day of baking, gardening and selling.
       objectReference: {fileID: 0}
     - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
-      propertyPath: convisation.sentences.Array.data[1]
+      propertyPath: convisation.sentences.Array.data[2]
       value: When a customer enters the <color=blue>Shop</color> (top left) make
         sure to pay attention to what they want my dear, cant be giving a customer
         the wrong thing now can't we.
       objectReference: {fileID: 0}
     - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
       propertyPath: convisation.sentences.Array.data[3]
+      value: Those ingredients can be tricky to work with so make sure to craft your
+        food in the correct pattern and if you make a mistake you can use the leaver
+        to flush the failed mess away.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[4]
       value: Remember to keep an eye on the <color=green>Greenhouse</color> and <color=red>Pantry</color>,
         wouldnt want to run out of something and leave the customer waiting too long.
       objectReference: {fileID: 0}
     - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
       propertyPath: convisation.sentences.Array.data[5]
+      value: (customer orders will have a time limit, once you have finished talking
+        to them the timer starts, take too long and the customer will leave lowering
+        your score)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[6]
       value: (To craft a tasty treat you must gather the ingredients from either
         the <color=green>Greenhouse</color> or the <color=red>Pantry</color>, both
         located in the upper right of the map)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: convisation.sentences.Array.data[7]
+      value: 'And remember to take a look at my old grimoire in case you need a reminder
+        on the recipies dear.
+
+
+        (Press TAB to open grimoire)'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -7,7 +7,13 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public bool isTherePlayer = true;
-    public bool isTherecustomer = true;
+    public bool isThereCustomer = true;
+
+    public bool playerImageColored = false;
+    public bool customerImageColored = false;
+
+    public int imgChangeCounter = 0;
+    public int maxSentSize = 8;
 
     public GameObject playerNameplate;
     public GameObject customerNameplate;
@@ -53,10 +59,8 @@ public class DialogueManager : MonoBehaviour
         colorChange.a = 1;
         chooseDialogue = GameObject.Find("DialogueElements");
         cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
-
-        //retrieve customer image from Canvas
-        customerIMG = FindObjectOfType<CanvasManager>().customerIMG;
-        playerIMG = FindObjectOfType<CanvasManager>().playerIMG;
+        customerNameplate.SetActive(false);
+        playerNameplate.SetActive(false);
         
     }
 
@@ -80,6 +84,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ChangeCustomerImageSprite(int num)
     {
+        Debug.Log("Number: " + num);
         if(num == 1)
         {
             customerIMG.sprite = customerIMGOne;
@@ -95,13 +100,14 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue convisation)
     {
-        
-        customerIMG.sprite = grandmaImg;
+
+        imgChangeCounter = 0;
+        //customerIMG.sprite = grandmaImg;
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);
         
         if(isTherePlayer == true){playerAnimator.SetBool("PlayerActive", true);}
-        if(isTherecustomer == true){customerAnimator.SetBool("CustomerActive", true);}
+        if(isThereCustomer == true){customerAnimator.SetBool("CustomerActive", true);}
 
         sentenceCounter = 0;
         //player name
@@ -115,6 +121,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         
+        
         DisplayNextSentence();
          
     }
@@ -127,7 +134,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        //sentence = sentence.Replace("greenhouse","<b><color=#4AB055>Greenhouse</color></b>"); // has glitch during text output
+        Debug.Log(imgChangeCounter);
+        if(imgChangeCounter <= maxSentSize)
+        {
+            Debug.Log("imgChangeCounter");
+            ChangeCustomerImageSprite(imagePlacement[imgChangeCounter]);
+            imgChangeCounter++;
+        }
         
         //Debug.Log(sentence);
         //dialogueText.text = sentence;
@@ -144,8 +157,8 @@ public class DialogueManager : MonoBehaviour
            {
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
-                customerNameplate.SetActive(true);
-                playerIMG.color = colorChange;
+                if(isThereCustomer == true){customerNameplate.SetActive(true);}
+                if(playerImageColored == true){playerIMG.color = colorChange;}
                 customerIMG.color = Color.white;
            }  
         }
@@ -155,9 +168,9 @@ public class DialogueManager : MonoBehaviour
            if(sentenceCounter == playerTalking[j])
            {
                 Debug.Log("Player");
-                playerNameplate.SetActive(true);
+                if(isTherePlayer == true){playerNameplate.SetActive(true);}
                 customerNameplate.SetActive(false);
-                customerIMG.color = colorChange;
+                if(customerImageColored == true){customerIMG.color = colorChange;}
                 playerIMG.color = Color.white;
            }
               
