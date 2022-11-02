@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: e0434d96a55200240a18962666a2bce9, type: 3}
   m_Color: {r: 0.46967247, g: 0.43867922, b: 1, a: 0}
   m_FlipX: 0
@@ -208,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1731916052, guid: b541e3f7d9f20574892f68bdd16deb40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -276,7 +276,7 @@ Transform:
   - {fileID: 1881337888}
   - {fileID: 1649787084}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6932405315982681548
 SpriteRenderer:
@@ -318,7 +318,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 4d4e7581616953045bb64532d38463ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -374,27 +374,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53476f4cf469754587f15a65fe57f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversation:
+  convisation:
     playerName: Lavender
     customerName: Granny Fluffins
     sentences:
-    - Good morning Lavender. I hope your looking forward to another day of baking,
-      gardening and selling.
-    - When a customer enters the shop (top left) make sure to pay attention to what
-      they want my dear, cant be giving a customer the wrong thing now can't we.
-    - "\rThose ingredients can be tricky to work with so make sure to craft your
-      food in the correct pattern and if you make a mistake you can use the leaver
-      to flush the failed mess away.\r\n"
-    - Remember to keep an eye on the garden and pantry, wouldnt want to run out of
-      something and leave the customer waiting too long.
+    - Good morning Granny Fluffins.
+    - Good morning <color=purple>Lavender</color>. I hope your looking forward to
+      another day of baking, gardening and selling.
+    - When a customer enters the <color=blue>Shop</color> (top left) make sure to
+      pay attention to what they want my dear, cant be giving a customer the wrong
+      thing now can't we.
+    - Those ingredients can be tricky to work with so make sure to craft your food
+      in the correct pattern and if you make a mistake you can use the leaver to
+      flush the failed mess away.
+    - Remember to keep an eye on the <color=green>Greenhouse</color> and <color=red>Pantry</color>,
+      wouldnt want to run out of something and leave the customer waiting too long.
     - (customer orders will have a time limit, once you have finished talking to
       them the timer starts, take too long and the customer will leave lowering your
       score)
-    - (To craft a tasty treat you must gather the ingredients from either the greenhouse
-      or the pantry, both lokated in the upper right of the map )
-    - And remember to take a look at my old grimoire in case you need a reminder
+    - (To craft a tasty treat you must gather the ingredients from either the <color=green>Greenhouse</color>
+      or the <color=red>Pantry</color>, both located in the upper right of the map)
+    - 'And remember to take a look at my old grimoire in case you need a reminder
       on the recipies dear.
-    - (Press TAB to open grimoire)
+
+
+      (Press TAB to open grimoire)'
   talkNow: 0
 --- !u!61 &6932405315982681536
 BoxCollider2D:
