@@ -16,17 +16,22 @@ public class CustomerManager : MonoBehaviour
     //Store Open Bool
     public bool storeOpen;
 
-    //UI ELEMENTYS
+    //UI ELEMENTS
+    public CanvasManager _canvasManager;
+
     public UIItemPortrait uiItemPortrait;
 
     public UICustomerCounter uiCustomerCounter;
     public int satisfiedCustomerCounter = 0;
+    public int maxSatisfiedCustomers = 3;
+
 
     public Door_Anim_Script _doorAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+        _canvasManager = FindObjectOfType<CanvasManager>();
         uiItemPortrait = FindObjectOfType<UIItemPortrait>();
         uiCustomerCounter = FindObjectOfType<UICustomerCounter>();
         _doorAnimator = FindObjectOfType<Door_Anim_Script>();
@@ -70,6 +75,10 @@ public class CustomerManager : MonoBehaviour
         customer.SetCustomerManager(this);
         customer.transform.parent = this.transform;
 
+        //updateUI
+        ActivateTimerUI();
+
+        //worldAnimations
         _doorAnimator.OpenDoor();
     }
 
@@ -81,8 +90,7 @@ public class CustomerManager : MonoBehaviour
 
     public void UpdatePortraitUI()
     {
-        if(uiItemPortrait != null)
-            uiItemPortrait.UpdateImage(GetCurrentCustomer().GetUIFoodItemImage()._foodItemImage);
+        
     }
 
     public bool CheckMax()
@@ -110,4 +118,9 @@ public class CustomerManager : MonoBehaviour
         uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
     }
 
+
+    public void ActivateTimerUI()
+    {
+        _canvasManager.ActivateTimer();
+    }
 }

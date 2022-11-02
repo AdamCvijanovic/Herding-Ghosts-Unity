@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     public GameObject controlsMenu;
     public GameObject pantryUI;
     public GameObject seedBarrelUI;
+    public GameObject timerUI;
 
     public GrimoireUI grimoireUI;
     
@@ -138,6 +139,23 @@ public class CanvasManager : MonoBehaviour
     {
         seedBarrelUI.GetComponent<SeedButtonUI>();
         seedBarrelUI.SetActive(false);
+    }
+
+    public void ActivateTimer()
+    {
+        timerUI.SetActive(true);
+        UpdateTimerGFX();
+    }
+
+    public void DeActivateTimer()
+    {
+        timerUI.SetActive(false);
+    }
+
+    public void UpdateTimerGFX()
+    {
+
+        timerUI.GetComponent<UITimer>().UpdateTimerImg(FindObjectOfType<CustomerManager>().GetCurrentCustomer()._customerAppearance);
     }
 
     public void DisableOtherUIElements()

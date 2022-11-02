@@ -8,6 +8,7 @@ public class UITimer : MonoBehaviour
 public float countdown = 15.0f;
 public float currentTime;
 public Image timerFill;
+public Image timerPortrait;
 public Color yellowColor;
 public Color redColor;
 public Animator shake;
@@ -58,10 +59,15 @@ FMOD.Studio.EventInstance LastTenSeconds;
         if(currentTime <= 0.0f)
         {
             Time.timeScale = 0f;
-            menuBG.SetActive(true);
-            losemenu.SetActive(true);
+            //menuBG.SetActive(true);
+            //losemenu.SetActive(true);
         }
 
+    }
+
+    public void UpdateTimerImg(Sprite sprite)
+    {
+        timerPortrait.sprite = sprite;
     }
 
     void ShakeThat()
