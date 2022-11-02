@@ -27,19 +27,13 @@ public class ChooseDialogueSystem : MonoBehaviour
 
         if(nextDial == true)
         {
-            Debug.Log("CDS One");
             dM.DisplayNextSentence();
-            Debug.Log("CDS Two");
         }else if(nextConve == true)
         {
-            Debug.Log("CDS Three");
             //Get the ConversationManager
             cManager = GameObject.Find("ConversationManager");
-            Debug.Log("CDS Four");
             cM = cManager.GetComponent<ConversationManager>();
-            Debug.Log("CDS Five"); 
             cM.DisplayNextConversationSentence();
-            Debug.Log("CDS Six");
         }
     }
 
