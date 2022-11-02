@@ -53,6 +53,9 @@ public class ConversationManager : MonoBehaviour
     public int[] playerTalking;
     public int[] customerTalking;
 
+    public bool conversationActive = false;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -134,8 +137,10 @@ public class ConversationManager : MonoBehaviour
         {
             convSentences.Enqueue(sentence);
         }
+
+        conversationActive = true;
+
         DisplayNextConversationSentence();
-         
     }
 
     public void DisplayNextConversationSentence()
@@ -205,5 +210,7 @@ public class ConversationManager : MonoBehaviour
         FindObjectOfType<CanvasManager>().EnableUIElements();
 
         Time.timeScale = 1f;
+        conversationActive = false;
+
     }
 }

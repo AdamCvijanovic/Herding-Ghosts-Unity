@@ -52,6 +52,9 @@ public class DialogueManager : MonoBehaviour
     public int[] customerTalking;
     public int[] imagePlacement;
 
+    public bool dialogueActive = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,8 +123,9 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-        
-        
+
+        dialogueActive = true;
+
         DisplayNextSentence();
          
     }
@@ -193,5 +197,7 @@ public class DialogueManager : MonoBehaviour
         playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
+
+        dialogueActive = false;
     }
 }

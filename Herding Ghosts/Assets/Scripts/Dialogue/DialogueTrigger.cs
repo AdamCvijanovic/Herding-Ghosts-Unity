@@ -11,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public bool talkNow = false;
 
+
     void Start()
     {
         chooseDialogue = GameObject.Find("DialogueElements");
@@ -48,13 +49,21 @@ public class DialogueTrigger : MonoBehaviour
 
     public void ActivateDialogue()
     {
-        //clear UI of other elements
-        FindObjectOfType<CanvasManager>().DisableOtherUIElements();
+        if(FindObjectOfType<DialogueManager>().dialogueActive != true)
+        {
+            //clear UI of other elements
+            FindObjectOfType<CanvasManager>().DisableOtherUIElements();
 
-        cDS.NDTrue();
-        DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
-        dt.TriggerDialogue();
-        Time.timeScale = 0f;
+            cDS.NDTrue();
+            DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
+            dt.TriggerDialogue();
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            ProgressDialogue();
+        }
+        
     }
 
     private void Talk()
@@ -62,5 +71,10 @@ public class DialogueTrigger : MonoBehaviour
         DialogueTrigger bt = gameObject.GetComponent<DialogueTrigger>();
         bt.TriggerDialogue();
         Time.timeScale = 0f;
+    }
+
+    public void ProgressDialogue()
+    {
+        FindObjectOfType<ChooseDialogueSystem>().PressEtoProgressDialogue();
     }
 }

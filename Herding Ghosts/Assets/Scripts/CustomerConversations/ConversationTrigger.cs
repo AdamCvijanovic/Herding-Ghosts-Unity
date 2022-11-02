@@ -75,7 +75,15 @@ public class ConversationTrigger : MonoBehaviour
 
     public void TriggerConversation()
     {
-        FindObjectOfType<ConversationManager>().StartConversation(convChosen);       
+        if(FindObjectOfType<ConversationManager>().conversationActive != true)
+        {
+            FindObjectOfType<ConversationManager>().StartConversation(convChosen);
+        }
+        else
+        {
+            ProgressDialogue();
+        }
+            
     }
 
     //private void OnTriggerEnter2D(Collider2D other) 
@@ -131,5 +139,10 @@ public class ConversationTrigger : MonoBehaviour
         ConversationTrigger bt = gameObject.GetComponent<ConversationTrigger>();
         bt.TriggerConversation();
         Time.timeScale = 0f;
+    }
+
+    public void ProgressDialogue()
+    {
+        FindObjectOfType<ChooseDialogueSystem>().PressEtoProgressDialogue();
     }
 }

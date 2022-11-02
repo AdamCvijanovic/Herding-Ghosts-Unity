@@ -37,6 +37,11 @@ public class ChooseDialogueSystem : MonoBehaviour
         }
     }
 
+    public void PressEtoProgressDialogue()
+    {
+        JudgeNext();
+    }
+
     public void NDTrue()
     {
         nextDial = true;

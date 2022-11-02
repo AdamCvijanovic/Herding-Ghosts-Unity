@@ -276,7 +276,7 @@ Transform:
   - {fileID: 1881337888}
   - {fileID: 1649787084}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6932405315982681548
 SpriteRenderer:
@@ -374,11 +374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53476f4cf469754587f15a65fe57f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  convisation:
+  conversation:
     playerName: Lavender
     customerName: Granny Fluffins
     sentences:
-    - Good morning Granny Fluffins.
     - Good morning <color=purple>Lavender</color>. I hope your looking forward to
       another day of baking, gardening and selling.
     - When a customer enters the <color=blue>Shop</color> (top left) make sure to
@@ -397,6 +396,7 @@ MonoBehaviour:
     - 'And remember to take a look at my old grimoire in case you need a reminder
       on the recipies dear.
 
+      
 
       (Press TAB to open grimoire)'
   talkNow: 0
