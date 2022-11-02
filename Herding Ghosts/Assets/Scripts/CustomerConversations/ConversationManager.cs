@@ -18,8 +18,11 @@ public class ConversationManager : MonoBehaviour
     private Color colorChange;
 
     //textmesh pro GUI gameobject holders
+    [SerializeField]
     private GameObject textOne;
+    [SerializeField]
     private GameObject textTwo;
+    [SerializeField]
     private GameObject textThree; 
     //textmesh pro GUIs
     private TextMeshProUGUI playerNameText;
@@ -51,7 +54,7 @@ public class ConversationManager : MonoBehaviour
     public int[] customerTalking;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerTalking = new int[] {0, 1, 4};
         customerTalking = new int[] {2, 3};
