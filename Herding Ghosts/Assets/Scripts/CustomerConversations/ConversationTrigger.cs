@@ -78,6 +78,8 @@ public class ConversationTrigger : MonoBehaviour
         if(FindObjectOfType<ConversationManager>().conversationActive != true)
         {
             FindObjectOfType<ConversationManager>().StartConversation(convChosen);
+
+            Time.timeScale = 0f;
         }
         else
         {
@@ -127,7 +129,7 @@ public class ConversationTrigger : MonoBehaviour
                 cDS.NCTrue();
                 ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
                 dt.TriggerConversation();
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
             }
         }
 

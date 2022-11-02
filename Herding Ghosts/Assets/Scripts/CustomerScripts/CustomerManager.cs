@@ -88,9 +88,9 @@ public class CustomerManager : MonoBehaviour
         customers.Remove(customer);
     }
 
-    public void UpdatePortraitUI()
+    public void UpdatePortraitUI(UIFoodItemImage foodItemImage)
     {
-        
+        uiItemPortrait.UpdateImage(foodItemImage._foodItemImage);
     }
 
     public bool CheckMax()

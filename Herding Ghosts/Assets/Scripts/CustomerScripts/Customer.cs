@@ -111,7 +111,7 @@ public class Customer : MonoBehaviour
     public void UpdateUI()
     {
         _foodItemImage.SelectFoodImage(_desiredFood);
-        _customerMngr.UpdatePortraitUI();
+        _customerMngr.UpdatePortraitUI(_foodItemImage);
     }
 
     public void UpdateConverMngr()

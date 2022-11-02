@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ChooseDialogueSystem : MonoBehaviour
 {
-    private GameObject cManager;
-    private GameObject dManager;
-
     private DialogueManager dM;
     private ConversationManager cM;
 
@@ -21,9 +18,7 @@ public class ChooseDialogueSystem : MonoBehaviour
 
     public void JudgeNext()
     {
-        //Get the DialogueManager
-        dManager = GameObject.Find("DialogueManager");
-        dM = dManager.GetComponent<DialogueManager>();
+        dM = FindObjectOfType<DialogueManager>();
 
         if(nextDial == true)
         {
@@ -31,8 +26,7 @@ public class ChooseDialogueSystem : MonoBehaviour
         }else if(nextConve == true)
         {
             //Get the ConversationManager
-            cManager = GameObject.Find("ConversationManager");
-            cM = cManager.GetComponent<ConversationManager>();
+            cM = FindObjectOfType<ConversationManager>();
             cM.DisplayNextConversationSentence();
         }
     }

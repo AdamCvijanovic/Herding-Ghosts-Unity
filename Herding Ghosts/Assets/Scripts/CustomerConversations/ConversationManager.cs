@@ -141,6 +141,7 @@ public class ConversationManager : MonoBehaviour
         conversationActive = true;
 
         DisplayNextConversationSentence();
+
     }
 
     public void DisplayNextConversationSentence()
@@ -209,8 +210,8 @@ public class ConversationManager : MonoBehaviour
         customerAnimator.SetBool("CustomerActive", false);
         FindObjectOfType<CanvasManager>().EnableUIElements();
 
-        Time.timeScale = 1f;
         conversationActive = false;
+        Time.timeScale = 1f;
 
     }
 }
