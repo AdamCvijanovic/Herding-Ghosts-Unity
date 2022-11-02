@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public Dialogue convisation;
+    public Dialogue conversation;
 
     private GameObject chooseDialogue;
     private ChooseDialogueSystem cDS;
@@ -28,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(convisation);
+        FindObjectOfType<DialogueManager>().StartDialogue(conversation);
     }
 
     //private void OnTriggerEnter2D(Collider2D other) 

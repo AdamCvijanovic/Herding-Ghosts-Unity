@@ -93,7 +93,7 @@ public class DialogueManager : MonoBehaviour
             
     }
 
-    public void StartDialogue(Dialogue convisation)
+    public void StartDialogue(Dialogue conversation)
     {
         
         customerIMG.sprite = grandmaImg;
@@ -105,12 +105,12 @@ public class DialogueManager : MonoBehaviour
 
         sentenceCounter = 0;
         //player name
-        playerNameText.text = convisation.playerName;
+        playerNameText.text = conversation.playerName;
         //customer name
-        customerNameText.text = convisation.customerName;
+        customerNameText.text = conversation.customerName;
 
         sentences.Clear();
-        foreach (string sentence in convisation.sentences)
+        foreach (string sentence in conversation.sentences)
         {
             sentences.Enqueue(sentence);
         }
