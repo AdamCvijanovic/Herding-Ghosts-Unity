@@ -68,7 +68,7 @@ public class CauldronDestination : WorkstationDestination
         }
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         AnimationCheck();
     }
