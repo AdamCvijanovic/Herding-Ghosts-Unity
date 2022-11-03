@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class UITImerClock : MonoBehaviour
 {
+    public bool isCounting;
+
     public float maxTime = 15.0f;
     public float currentTime;
 
@@ -26,19 +28,39 @@ public class UITImerClock : MonoBehaviour
 
     public void ResetClock()
     {
+        isCounting = false;
         currentTime = maxTime;
-        DEbugPrint();
+    }
+
+    public void StartClock()
+    {
+        isCounting = true;
+    }
+
+    public void StopClock()
+    {
+        isCounting = true;
     }
 
     public void Countdown()
     {
-        currentTime -= Time.deltaTime;
-        _animator.SetFloat("TimerProgression", (currentTime/maxTime));
-
-        if(currentTime <= 0)
+        if (isCounting)
         {
-            this.CountdownComplete.Invoke();
+            currentTime -= Time.deltaTime;
+            _animator.SetFloat("TimerProgression", -(currentTime / maxTime));
+
+            if (currentTime <= 0)
+            {
+                this.CountdownComplete.Invoke();
+            }
         }
+        
+    }
+
+    public void CountDownFinished()
+    {
+        FindObjectOfType<CustomerLogic>().SetState(CustomerLogic.CustomerState.Leaving);
+        ResetClock();
     }
 
     [SerializeField]
@@ -51,11 +73,4 @@ public class UITImerClock : MonoBehaviour
             return this._countdownCompleteEvent;
         }
     }
-
-    public void DEbugPrint()
-    {
-        Debug.Log("TIMER COMPELTE");
-    }
-
-
 }
