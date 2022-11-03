@@ -143,19 +143,24 @@ public class CanvasManager : MonoBehaviour
 
     public void ActivateTimer()
     {
-        timerUI.SetActive(true);
+        timerUI.GetComponent<UITImerClock>().ResetClock();
+        timerUI.GetComponent<UITImerClock>().StartClock();
         UpdateTimerGFX();
     }
 
     public void DeActivateTimer()
     {
-        timerUI.SetActive(false);
+        timerUI.GetComponent<UITImerClock>().StopClock();
     }
 
     public void UpdateTimerGFX()
     {
+        //old timer
+        //timerUI.GetComponent<UITimer>().UpdateTimerImg(FindObjectOfType<CustomerManager>().GetCurrentCustomer()._customerAppearance);
 
-        timerUI.GetComponent<UITimer>().UpdateTimerImg(FindObjectOfType<CustomerManager>().GetCurrentCustomer()._customerAppearance);
+        //clock timer
+
+
     }
 
     public void DisableOtherUIElements()

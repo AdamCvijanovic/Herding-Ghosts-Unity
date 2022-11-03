@@ -96,6 +96,7 @@ public class CustomerLogic : MonoBehaviour
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 RemoveCustomer();
+                //if(_cus)
                 _customer.AmSatisfied();
                 
             }

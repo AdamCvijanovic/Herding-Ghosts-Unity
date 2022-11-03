@@ -15730,14 +15730,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab6350148dd9074ca29aa37f303a229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 10
+  isCounting: 0
+  maxTime: 15
   currentTime: 0
+  _animator: {fileID: 0}
   _countdownCompleteEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1186731109}
         m_TargetAssemblyTypeName: UITImerClock, Assembly-CSharp
-        m_MethodName: ResetClock
+        m_MethodName: CountDownFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16759,6 +16761,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 855561151, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.699951
+      objectReference: {fileID: 0}
+    - target: {fileID: 855561151, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -170.80005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16846,6 +16864,18 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544090748604841782, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7356700220326871200, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: timerUI
+      value: 
+      objectReference: {fileID: 1186731105}
+    - target: {fileID: 7916891030369914125, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.699951
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
