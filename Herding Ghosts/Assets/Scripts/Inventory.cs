@@ -51,5 +51,10 @@ public class Inventory : MonoBehaviour
             _items.Remove(item);
     }
 
+    public void RemoveAllItems()
+    {
+        _items.Clear();
+    }
+
 
 }

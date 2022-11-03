@@ -7,7 +7,7 @@ public class CustomerLogic : MonoBehaviour
     [SerializeField]
     private Customer _customer;
 
-    public enum CustomerState {Shopping,Leaving};
+    public enum CustomerState {Shopping,Leaving,Dissapointed};
     public CustomerState currentState;
 
     DestinationManager _destMngr;
@@ -81,7 +81,7 @@ public class CustomerLogic : MonoBehaviour
             }
         }
 
-        if (currentState == CustomerState.Leaving)
+        if (currentState == CustomerState.Leaving || currentState == CustomerState.Dissapointed)
         {
             //remove from list if it exists in it
             if (FindObjectOfType<PlayerPickup>()._nearbyinteractables.Contains(this.GetComponentInChildren<Interactable>()))
@@ -96,9 +96,10 @@ public class CustomerLogic : MonoBehaviour
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 RemoveCustomer();
-                //if(_cus)
-                _customer.AmSatisfied();
-                
+                if(currentState != CustomerState.Dissapointed)
+                {
+                    _customer.AmSatisfied();
+                }
             }
         }       
     }

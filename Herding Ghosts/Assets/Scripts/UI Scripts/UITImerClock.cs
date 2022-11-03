@@ -59,7 +59,7 @@ public class UITImerClock : MonoBehaviour
 
     public void CountDownFinished()
     {
-        FindObjectOfType<CustomerLogic>().SetState(CustomerLogic.CustomerState.Leaving);
+        FindObjectOfType<CustomerLogic>().SetState(CustomerLogic.CustomerState.Dissapointed);
         ResetClock();
     }
 

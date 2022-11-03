@@ -111,6 +111,8 @@ public class ConversationTrigger : MonoBehaviour
         }
         else
         {
+
+
             //this shoudl really be in the logic section
             if (_customer.IsPlayerHoldingItem() && _customer.IsPlayerHoldingDesiredItem())
             {
@@ -129,6 +131,9 @@ public class ConversationTrigger : MonoBehaviour
                 cDS.NCTrue();
                 ConversationTrigger dt = gameObject.GetComponent<ConversationTrigger>();
                 dt.TriggerConversation();
+
+                FindObjectOfType<CustomerManager>().ActivateTimerUI();
+
                 //Time.timeScale = 0f;
             }
         }
