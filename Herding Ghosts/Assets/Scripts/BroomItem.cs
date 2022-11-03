@@ -68,6 +68,13 @@ public class BroomItem : Item
     {
         if(parentObj != null)
         {
+            if (collision.gameObject.GetComponent<GhibliGhost>())
+            {
+                Debug.Log("Player hit " + collision.gameObject.name);
+                collision.gameObject.GetComponent<GhibliGhost>().HitByBroom(this.gameObject);
+                PushObject(collision.gameObject);
+            }
+
             if (collision.gameObject.GetComponent<GhostLogic>())
             {
                 Debug.Log("Player hit " + collision.gameObject.name);
