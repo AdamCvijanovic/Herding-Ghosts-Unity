@@ -13203,6 +13203,10 @@ PrefabInstance:
       value: PurgeLever
       objectReference: {fileID: 0}
     - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: pickupString
+      value: Press E to Purge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
       propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -13211,8 +13215,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1769672381}
+    - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
       propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PullLever
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PurgeLever, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184601195587725120, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8435621496618717756, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -20969,6 +20993,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+--- !u!114 &1769672381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6031460765430866666, guid: 11670814eda897048b6a0f18a7ebe0c5, type: 3}
+  m_PrefabInstance: {fileID: 1007119145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674258d8864ba934cadbb4c7d9dac710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1778489985
 PrefabInstance:
   m_ObjectHideFlags: 0

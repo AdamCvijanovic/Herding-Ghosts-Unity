@@ -53,7 +53,18 @@ public class Inventory : MonoBehaviour
 
     public void RemoveAllItems()
     {
+
+
+        foreach (Item i in _items)
+        {
+
+            //RemoveItemFromList(i);
+            Destroy(i.gameObject);
+        }
         _items.Clear();
+
+
+
     }
 
 

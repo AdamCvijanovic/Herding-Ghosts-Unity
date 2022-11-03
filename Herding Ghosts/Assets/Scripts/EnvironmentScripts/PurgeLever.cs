@@ -7,12 +7,13 @@ public class PurgeLever : MonoBehaviour
 
     public CauldronDestination _cauldron;
     public Animator _animator;
+    public int layer;
 
     // Start is called before the first frame update
     void Start()
     {
         _cauldron = FindObjectOfType<CauldronDestination>();
-        _animaator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,8 @@ public class PurgeLever : MonoBehaviour
 
     public void PullLever()
     {
-        //_animator.Play
+        _animator.Play("Base Layer.Purge", layer, 1f);
+        PurgeCauldron();
     }
 
     public void PurgeCauldron()
@@ -31,6 +33,11 @@ public class PurgeLever : MonoBehaviour
         Inventory inventory = _cauldron._inventory;
         inventory.RemoveAllItems();
         Debug.Log("RemoveAll");
+    }
+
+    public void ResetCauldron()
+    {
+
     }
 
 }
