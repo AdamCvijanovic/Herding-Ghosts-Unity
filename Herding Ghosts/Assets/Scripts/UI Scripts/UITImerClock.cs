@@ -33,7 +33,7 @@ public class UITImerClock : MonoBehaviour
     public void Countdown()
     {
         currentTime -= Time.deltaTime;
-        _animator.SetFloat("TimerProgression", (currentTime/maxTime));
+        _animator.SetFloat("TimerProgression", -(currentTime/maxTime));
 
         if(currentTime <= 0)
         {
