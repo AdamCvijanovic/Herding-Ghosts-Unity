@@ -70,7 +70,7 @@ public class GhibliGhost : MonoBehaviour
         if(alive == true)
         {
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
-            Instantiate(_ectoplasmPrefab, transform.position, Quarternion.identity);
+            Instantiate(_ectoplasmPrefab, transform.position, Quaternion.identity);
             //_ghostMngr.RemoveGhost(this.GetComponent<Ghost>());
             Destroy(this.gameObject, .2f);
         }
