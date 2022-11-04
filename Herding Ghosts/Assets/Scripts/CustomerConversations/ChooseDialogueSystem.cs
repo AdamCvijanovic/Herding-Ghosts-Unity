@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChooseDialogueSystem : MonoBehaviour
 {
@@ -34,6 +35,20 @@ public class ChooseDialogueSystem : MonoBehaviour
             cManager = GameObject.Find("ConversationManager");
             cM = cManager.GetComponent<ConversationManager>();
             cM.DisplayNextConversationSentence();
+        }
+    }
+
+    public void EndAllDialogue()
+    {
+        if(nextDial == true)
+        {
+            Debug.Log("End Dialogue");
+            dM.EndDialogue();
+        }
+        else if(nextConve == true)
+        {
+            Debug.Log("End Conversation");
+            cM.EndConversation();
         }
     }
 

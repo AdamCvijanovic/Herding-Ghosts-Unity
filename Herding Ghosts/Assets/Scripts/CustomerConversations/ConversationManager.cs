@@ -6,6 +6,8 @@ using TMPro;
 
 public class ConversationManager : MonoBehaviour
 {
+    public GameObject panelButton;
+
     private GameObject playerNameplate;
     private GameObject customerNameplate;
 
@@ -58,6 +60,7 @@ public class ConversationManager : MonoBehaviour
 
         playerNameplate = GameObject.Find("PlayerName");
         customerNameplate = GameObject.Find("GhostName");
+        panelButton = GameObject.Find("PanelBtn");
 
         imageObjectOne = GameObject.Find("PlayerDialogueImage");
         playerIMG = imageObjectOne.GetComponent<Image>();
@@ -120,6 +123,8 @@ public class ConversationManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         playerAnimator.SetBool("PlayerActive", true);
         customerAnimator.SetBool("CustomerActive", true);
+
+        panelButton.SetActive(true);
 
         sentenceCounter = 0;
         //player name
@@ -192,7 +197,7 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    void EndConversation()
+    public void EndConversation()
     {
         Debug.Log("End of conversation.");
         cDS.NCOff();
@@ -200,7 +205,7 @@ public class ConversationManager : MonoBehaviour
         playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
         FindObjectOfType<CanvasManager>().EnableUIElements();
-
         Time.timeScale = 1f;
+        panelButton.SetActive(false);
     }
 }

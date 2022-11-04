@@ -8,10 +8,10 @@ public class CanvasManager : MonoBehaviour
 
     public GameObject introductionMenu;
     public GameObject menuElements;
-    public GameObject pauseMenu;
+    //public GameObject pauseMenu;
     public GameObject winMenu;
-    public GameObject loseMenu;
-    public GameObject controlsMenu;
+    //public GameObject loseMenu;
+    //public GameObject controlsMenu;
     public GameObject pantryUI;
 
     public GrimoireUI grimoireUI;
@@ -25,12 +25,12 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Pause();
+        
         introductionMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-        loseMenu.SetActive(false);
+        //pauseMenu.SetActive(false);
+        //loseMenu.SetActive(false);
         winMenu.SetActive(false);
-        controlsMenu.SetActive(false);
+        //controlsMenu.SetActive(false);
 
         GrimoireDeactivate();
 
@@ -39,6 +39,8 @@ public class CanvasManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(introductionMenu.activeInHierarchy ){Pause();}
+
         if(youWin == true)
         {
             WinMenu();
@@ -51,13 +53,11 @@ public class CanvasManager : MonoBehaviour
     }
 
     public void Resume()
-    {
-       // GetComponent<PlayerUI>().isPaused = false;
-        
+    {   
         Time.timeScale = 1f;
     }
 
-    public void PauseMenu()
+    /* public void PauseMenu()
     {
         //Disable Other Menus
         DisableOtherUIElements();
@@ -74,7 +74,8 @@ public class CanvasManager : MonoBehaviour
             menuElements.SetActive(true);
             pauseMenu.SetActive(true);
         }
-    }
+    }  */
+
 /*
     public void LoseMenu()
     {
@@ -84,12 +85,15 @@ public class CanvasManager : MonoBehaviour
 */
     public void WinMenu()
     {
-        if(controlsMenu.activeInHierarchy == false && loseMenu.activeInHierarchy == false && winMenu.activeInHierarchy == false && introductionMenu.activeInHierarchy == false && pauseMenu.activeInHierarchy == false)
+        /* if(controlsMenu.activeInHierarchy == false && loseMenu.activeInHierarchy == false && winMenu.activeInHierarchy == false && introductionMenu.activeInHierarchy == false && pauseMenu.activeInHierarchy == false )
         {
             Pause();
             menuElements.SetActive(true);
             winMenu.SetActive(true);
-        }
+        } */
+            Pause();
+            menuElements.SetActive(true);
+            winMenu.SetActive(true);
     }
     
     public void GrimoireToggle()

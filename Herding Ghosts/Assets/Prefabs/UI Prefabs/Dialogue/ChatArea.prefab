@@ -276,7 +276,7 @@ Transform:
   - {fileID: 1881337888}
   - {fileID: 1649787084}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6932405315982681548
 SpriteRenderer:
@@ -378,20 +378,22 @@ MonoBehaviour:
     playerName: Lavender
     customerName: Granny Fluffins
     sentences:
-    - Good morning Lavender. I hope your looking forward to another day of baking,
-      gardening and selling.
-    - When a customer enters the shop (top left) make sure to pay attention to what
-      they want my dear, cant be giving a customer the wrong thing now can't we.
+    - Good morning Granny Fluffins.
+    - Good morning <color=purple>Lavender</color>. I hope your looking forward to
+      another day of baking, gardening and selling.
+    - When a customer enters the <color=blue>Shop</color> (top left) make sure to
+      pay attention to what they want my dear, cant be giving a customer the wrong
+      thing now can't we.
     - Those ingredients can be tricky to work with so make sure to craft your food
       in the correct pattern and if you make a mistake you can use the leaver to
       flush the failed mess away.
-    - Remember to keep an eye on the garden and pantry, wouldnt want to run out of
-      something and leave the customer waiting too long.
+    - Remember to keep an eye on the <color=green>Greenhouse</color> and <color=red>Pantry</color>,
+      wouldnt want to run out of something and leave the customer waiting too long.
     - (customer orders will have a time limit, once you have finished talking to
       them the timer starts, take too long and the customer will leave lowering your
       score)
-    - (To craft a tasty treat you must gather the ingredients from either the greenhouse
-      or the pantry, both lokated in the upper right of the map )
+    - (To craft a tasty treat you must gather the ingredients from either the <color=green>Greenhouse</color>
+      or the <color=red>Pantry</color>, both located in the upper right of the map)
     - 'And remember to take a look at my old grimoire in case you need a reminder
       on the recipies dear.
 
