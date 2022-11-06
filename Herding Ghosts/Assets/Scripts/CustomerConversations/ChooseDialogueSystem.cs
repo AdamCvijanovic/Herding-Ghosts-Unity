@@ -12,6 +12,8 @@ public class ChooseDialogueSystem : MonoBehaviour
     private DialogueManager dM;
     [SerializeField]
     private ConversationManager cM;
+    [SerializeField]
+    private CutSceneManager cScM;
 
     public bool nextDial = false;
     public bool nextConve = false;
@@ -21,6 +23,7 @@ public class ChooseDialogueSystem : MonoBehaviour
          //cManager = GameObject.Find("ConversationManager");
         cM = FindObjectOfType<ConversationManager>();
         dM = FindObjectOfType<DialogueManager>();
+        cScM = FindObjectOfType<CutSceneManager>();
     }
 
     public void PressEtoProgressDialogue()
@@ -31,19 +34,33 @@ public class ChooseDialogueSystem : MonoBehaviour
     public void JudgeNext()
     {
         //Get the DialogueManager
-        dManager = GameObject.Find("DialogueManager");
-        dM = dManager.GetComponent<DialogueManager>();
+        //Why? we get it in start?
+        //dManager = GameObject.Find("DialogueManager");
+        //dM = dManager.GetComponent<DialogueManager>();
 
-        if(nextDial == true)
+        if(cScM != null)
         {
-            dM.DisplayNextSentence();
-        }else if(nextConve == true)
-        {
-            //Get the ConversationManager
-            cManager = GameObject.Find("ConversationManager");
-            cM = cManager.GetComponent<ConversationManager>();
-            cM.DisplayNextConversationSentence();
+            if (nextDial == true)
+            {
+                cScM.DisplayNextSentence();
+            }
         }
+        else
+        {
+            if (nextDial == true)
+            {
+                dM.DisplayNextSentence();
+            }
+            else if (nextConve == true)
+            {
+                //Get the ConversationManager
+                cManager = GameObject.Find("ConversationManager");
+                cM = cManager.GetComponent<ConversationManager>();
+                cM.DisplayNextConversationSentence();
+            }
+        }
+
+        
     }
 
     public void EndAllDialogue()
