@@ -96,6 +96,11 @@ public class CutSceneManager : MonoBehaviour
             
     }
 
+    public void ChangePlayerImageSprite(Sprite sprite)
+    {
+        playerIMG.sprite = sprite;
+    }
+
     public void ChangeCustomerImageSprite(int num)
     {
 
@@ -103,6 +108,11 @@ public class CutSceneManager : MonoBehaviour
 
         Debug.Log("Number: " + num);
             
+    }
+
+    public void ChangeCustomerImageSprite(Sprite sprite)
+    {
+        customerIMG.sprite = sprite;
     }
 
     public void StartCutScene(CutSceneDialogue cutSceneDialogue)
@@ -143,12 +153,14 @@ public class CutSceneManager : MonoBehaviour
             EndCutscene();
             return;
         }
-        Sentence sentence = sentences.Dequeue();
+        Sentence currSentence = sentences.Dequeue();
         Debug.Log("imgChangeCounter" + imgChangeCounter);
         if(imgChangeCounter <= maxSentSize)
         {
             Debug.Log("imgChangeCounter" + imgChangeCounter + "Is Less Than or Equal to maxSentSize");
-            ChangeCustomerImageSprite(imagePlacement[imgChangeCounter]);
+            //ChangeCustomerImageSprite(imagePlacement[imgChangeCounter]);
+            ChangeCustomerImageSprite(currSentence.customerImage);
+            //ChangePlayerImageSprite(imagePlacement[imgChangeCounter]);
             ChangePlayerImageSprite(imagePlacement[imgChangeCounter]);
             imgChangeCounter++;
         }
@@ -156,7 +168,7 @@ public class CutSceneManager : MonoBehaviour
         //Debug.Log(sentence);
         //dialogueText.text = sentence;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence.sentenceText));
+        StartCoroutine(TypeSentence(currSentence.sentenceText));
         
     }
 

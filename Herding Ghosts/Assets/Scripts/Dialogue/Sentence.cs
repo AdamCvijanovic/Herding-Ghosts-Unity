@@ -10,9 +10,9 @@ public class Sentence
     public string playerName;
     public string customerName;
 
-    public Image customerImage;
-    public Image playerImage;
-    public Image background;
+    public Sprite customerImage;
+    public Sprite playerImage;
+    public Sprite background;
 
     public enum Speaker {Player, Customer}
     public Speaker currentSpeaker;
