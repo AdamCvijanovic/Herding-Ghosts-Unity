@@ -8,7 +8,9 @@ public class ChooseDialogueSystem : MonoBehaviour
     private GameObject cManager;
     private GameObject dManager;
 
+    [SerializeField]
     private DialogueManager dM;
+    [SerializeField]
     private ConversationManager cM;
 
     public bool nextDial = false;
@@ -16,8 +18,9 @@ public class ChooseDialogueSystem : MonoBehaviour
 
     void Update()
     {
-        /* cManager = GameObject.Find("ConversationManager");
-        cM = cManager.GetComponent<ConversationManager>(); */
+         //cManager = GameObject.Find("ConversationManager");
+        cM = FindObjectOfType<ConversationManager>();
+        dM = FindObjectOfType<DialogueManager>();
     }
 
     public void PressEtoProgressDialogue()

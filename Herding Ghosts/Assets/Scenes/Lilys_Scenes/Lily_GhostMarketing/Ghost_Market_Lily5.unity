@@ -845,6 +845,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1377240968}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: panelButton
+      value: 
+      objectReference: {fileID: 447795686}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1377240963}
@@ -9239,6 +9243,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5080916752356339120, guid: bb31881ddf12797409011b14b80bfd95, type: 3}
   m_PrefabInstance: {fileID: 433981415}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &447795686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4929217827660584755, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+  m_PrefabInstance: {fileID: 1377240958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473970877
 GameObject:
   m_ObjectHideFlags: 0
@@ -15718,42 +15727,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
   m_UseDelaunayMesh: 0
---- !u!1 &1186731105 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 909377303461656291, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1186731109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186731105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab6350148dd9074ca29aa37f303a229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCounting: 0
-  maxTime: 15
-  currentTime: 0
-  _animator: {fileID: 0}
-  _countdownCompleteEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1186731109}
-        m_TargetAssemblyTypeName: UITImerClock, Assembly-CSharp
-        m_MethodName: CountDownFinished
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1196387551
 GameObject:
   m_ObjectHideFlags: 0
@@ -16766,22 +16739,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 855561151, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -9.699951
-      objectReference: {fileID: 0}
-    - target: {fileID: 855561151, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -170.80005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 47.399902
-      objectReference: {fileID: 0}
-    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -47.099976
-      objectReference: {fileID: 0}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16869,18 +16826,6 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6544090748604841782, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7356700220326871200, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: timerUI
-      value: 
-      objectReference: {fileID: 1186731105}
-    - target: {fileID: 7916891030369914125, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -9.699951
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -24214,11 +24159,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: aaff8712d4f541f41b0b2e1eb47c6bbd, type: 3}
---- !u!1 &2376358705774904962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2376358707149259260, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2683349767434185809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24593,7 +24533,7 @@ PrefabInstance:
     - target: {fileID: 3867826115014656902, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
       propertyPath: UIPanel
       value: 
-      objectReference: {fileID: 2376358705774904962}
+      objectReference: {fileID: 0}
     - target: {fileID: 6188208734484309036, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
       propertyPath: m_Name
       value: SeedsBarrel

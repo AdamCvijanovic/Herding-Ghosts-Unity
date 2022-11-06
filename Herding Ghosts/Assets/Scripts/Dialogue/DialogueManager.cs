@@ -105,6 +105,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue convisation)
     {
+        dialogueActive = true;
+
         imgChangeCounter = 0;
         //customerIMG.sprite = grandmaImg;
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
@@ -200,5 +202,6 @@ public class DialogueManager : MonoBehaviour
         customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
         panelButton.SetActive(false);
+        dialogueActive = false;
     }
 }

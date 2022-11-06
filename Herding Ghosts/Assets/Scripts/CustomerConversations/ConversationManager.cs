@@ -148,6 +148,8 @@ public class ConversationManager : MonoBehaviour
     public void StartConversation(Conversations convisation)
     {
 
+        conversationActive = true;
+
         CustomerManager mngr = customer.GetCustomerManager();
         mngr.GetCurrentCustomer().AmSpokenTo();
 
@@ -239,5 +241,6 @@ public class ConversationManager : MonoBehaviour
         FindObjectOfType<CanvasManager>().EnableUIElements();
         Time.timeScale = 1f;
         panelButton.SetActive(false);
+        conversationActive = false;
     }
 }
