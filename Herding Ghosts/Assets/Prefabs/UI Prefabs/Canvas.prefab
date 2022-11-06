@@ -114,7 +114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.700012, y: -170.8}
+  m_AnchoredPosition: {x: -9.699951, y: -170.80005}
   m_SizeDelta: {x: 156.227, y: 65.4435}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &855561154
@@ -972,6 +972,7 @@ GameObject:
   - component: {fileID: 1178235405718564190}
   - component: {fileID: 1823483467425069097}
   - component: {fileID: 3916773716412049721}
+  - component: {fileID: 1186731109}
   m_Layer: 5
   m_Name: Customer_Clock
   m_TagString: Untagged
@@ -997,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 47.4, y: -47.1}
+  m_AnchoredPosition: {x: 47.399902, y: -47.099976}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1823483467425069097
@@ -1038,6 +1039,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1186731109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909377303461656291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab6350148dd9074ca29aa37f303a229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCounting: 0
+  maxTime: 15
+  currentTime: 0
+  _animator: {fileID: 0}
+  _countdownCompleteEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1186731109}
+        m_TargetAssemblyTypeName: UITImerClock, Assembly-CSharp
+        m_MethodName: CountDownFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1030183197703748139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.700012, y: -10.599976}
+  m_AnchoredPosition: {x: -9.699951, y: -10.599976}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6652440146498652825
@@ -2643,7 +2675,7 @@ MonoBehaviour:
   controlsMenu: {fileID: 1060905599461331805}
   pantryUI: {fileID: 8287311730624315099}
   seedBarrelUI: {fileID: 2376358707149259260}
-  timerUI: {fileID: 6544090748604841782}
+  timerUI: {fileID: 909377303461656291}
   grimoireUI: {fileID: 67886913}
   playerIMG: {fileID: 7780018310833867643}
   customerIMG: {fileID: 8403234331212153370}
@@ -5311,11 +5343,6 @@ MonoBehaviour:
 --- !u!224 &6544090748604841777 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5421080842988268201, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
-  m_PrefabInstance: {fileID: 1291068066163021208}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6544090748604841782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5421080842988268206, guid: e9bab660b3fd660459f4b7749a070282, type: 3}
   m_PrefabInstance: {fileID: 1291068066163021208}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2180802003966517593
