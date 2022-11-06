@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
     public int imgChangeCounter = 0;
     public int maxSentSize = 8;
 
+    public GameObject panelButton;
+
     public GameObject playerNameplate;
     public GameObject customerNameplate;
 
@@ -52,9 +54,6 @@ public class DialogueManager : MonoBehaviour
     public int[] customerTalking;
     public int[] imagePlacement;
 
-    public bool dialogueActive = false;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +63,7 @@ public class DialogueManager : MonoBehaviour
         cDS = chooseDialogue.GetComponent<ChooseDialogueSystem>();
         customerNameplate.SetActive(false);
         playerNameplate.SetActive(false);
+        panelButton.SetActive(false);
         
     }
 
@@ -101,9 +101,8 @@ public class DialogueManager : MonoBehaviour
             
     }
 
-    public void StartDialogue(Dialogue conversation)
+    public void StartDialogue(Dialogue convisation)
     {
-
         imgChangeCounter = 0;
         //customerIMG.sprite = grandmaImg;
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
@@ -112,20 +111,21 @@ public class DialogueManager : MonoBehaviour
         if(isTherePlayer == true){playerAnimator.SetBool("PlayerActive", true);}
         if(isThereCustomer == true){customerAnimator.SetBool("CustomerActive", true);}
 
+        panelButton.SetActive(true);
+
         sentenceCounter = 0;
         //player name
-        playerNameText.text = conversation.playerName;
+        playerNameText.text = convisation.playerName;
         //customer name
-        customerNameText.text = conversation.customerName;
+        customerNameText.text = convisation.customerName;
 
         sentences.Clear();
-        foreach (string sentence in conversation.sentences)
+        foreach (string sentence in convisation.sentences)
         {
             sentences.Enqueue(sentence);
         }
-
-        dialogueActive = true;
-
+        
+        
         DisplayNextSentence();
          
     }
@@ -189,7 +189,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         Debug.Log("End of conversation.");
         cDS.NCOff();
@@ -197,7 +197,6 @@ public class DialogueManager : MonoBehaviour
         playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
         Time.timeScale = 1f;
-
-        dialogueActive = false;
+        panelButton.SetActive(false);
     }
 }

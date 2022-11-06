@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChooseDialogueSystem : MonoBehaviour
 {
+    private GameObject cManager;
+    private GameObject dManager;
+
     private DialogueManager dM;
     private ConversationManager cM;
 
@@ -18,7 +22,9 @@ public class ChooseDialogueSystem : MonoBehaviour
 
     public void JudgeNext()
     {
-        dM = FindObjectOfType<DialogueManager>();
+        //Get the DialogueManager
+        dManager = GameObject.Find("DialogueManager");
+        dM = dManager.GetComponent<DialogueManager>();
 
         if(nextDial == true)
         {
@@ -26,14 +32,24 @@ public class ChooseDialogueSystem : MonoBehaviour
         }else if(nextConve == true)
         {
             //Get the ConversationManager
-            cM = FindObjectOfType<ConversationManager>();
+            cManager = GameObject.Find("ConversationManager");
+            cM = cManager.GetComponent<ConversationManager>();
             cM.DisplayNextConversationSentence();
         }
     }
 
-    public void PressEtoProgressDialogue()
+    public void EndAllDialogue()
     {
-        JudgeNext();
+        if(nextDial == true)
+        {
+            Debug.Log("End Dialogue");
+            dM.EndDialogue();
+        }
+        else if(nextConve == true)
+        {
+            Debug.Log("End Conversation");
+            cM.EndConversation();
+        }
     }
 
     public void NDTrue()

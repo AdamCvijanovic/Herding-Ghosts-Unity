@@ -26,13 +26,25 @@ public class GrimoireUI : MonoBehaviour
     public void Activate()
     {
         isActive = true;
+        GPause();
         animationActivate();
     }
 
     public void Deactivate()
     {
         isActive = false;
+        GResume();
         animationDeactivate();
+    }
+
+    public void GPause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void GResume()
+    {   
+        Time.timeScale = 1f;
     }
 
     public void animationActivate()

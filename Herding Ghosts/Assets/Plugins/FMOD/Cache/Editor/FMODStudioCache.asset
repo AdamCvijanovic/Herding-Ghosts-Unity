@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9008240359328238530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DoorBell
+  m_EditorClassIdentifier: 
+  Path: event:/DoorBell
+  Guid:
+    Data1: 1355121309
+    Data2: 1302738697
+    Data3: -1140448350
+    Data4: 800702048
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2150
 --- !u!114 &-8771585586261138214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,7 +46,7 @@ MonoBehaviour:
     Data3: -624075374
     Data4: -259295642
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -5067354317279356618}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -27,6 +54,100 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-8408186138864985730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGMusic.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/Build/Desktop/BGMusic.bank
+  Name: BGMusic
+  StudioPath: bank:/BGMusic
+  lastModified: 638031818629811023
+  FileSizes:
+  - Name: Desktop
+    Value: 1262112
+  Exists: 1
+--- !u!114 &-6565753354572630155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BushRustle
+  m_EditorClassIdentifier: 
+  Path: event:/BushRustle
+  Guid:
+    Data1: 530014764
+    Data2: 1256942126
+    Data3: -718364998
+    Data4: -775708437
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 956
+--- !u!114 &-5067354317279356618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SoundEffects.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Fmod/Build/Desktop/SoundEffects.bank
+  Name: SoundEffects
+  StudioPath: bank:/SoundEffects
+  lastModified: 638031818629620730
+  FileSizes:
+  - Name: Desktop
+    Value: 650976
+  Exists: 1
+--- !u!114 &-4141438974820737200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BookOpen
+  m_EditorClassIdentifier: 
+  Path: event:/BookOpen
+  Guid:
+    Data1: -2056343501
+    Data2: 1150389516
+    Data3: 133566082
+    Data4: -1566903947
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 353
 --- !u!114 &-3268688251665353353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,7 +167,7 @@ MonoBehaviour:
     Data3: -2123090559
     Data4: -1315799482
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -5067354317279356618}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -54,6 +175,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &-2458159441669676835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BookFlip2
+  m_EditorClassIdentifier: 
+  Path: event:/BookFlip2
+  Guid:
+    Data1: -1865326937
+    Data2: 1086069053
+    Data3: 2008571782
+    Data4: 1852318279
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 563
 --- !u!114 &-1051364751525156736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +221,7 @@ MonoBehaviour:
     Data3: -1201380197
     Data4: 69185386
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -5067354317279356618}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -81,6 +229,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 150
+--- !u!114 &-827832330792349683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/WoodSteps
+  m_EditorClassIdentifier: 
+  Path: event:/WoodSteps
+  Guid:
+    Data1: -629857198
+    Data2: 1304857862
+    Data3: 2103719058
+    Data4: 1947638191
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 322
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +271,8 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 2380887785565191657}
   - {fileID: 134670157265388788}
-  - {fileID: 5493200247293988379}
+  - {fileID: -8408186138864985730}
+  - {fileID: -5067354317279356618}
   EditorEvents:
   - {fileID: -1051364751525156736}
   - {fileID: -8771585586261138214}
@@ -104,12 +280,24 @@ MonoBehaviour:
   - {fileID: 4905380887898271836}
   - {fileID: -3268688251665353353}
   - {fileID: 1145245684017877719}
+  - {fileID: 2638711185965304153}
+  - {fileID: -6565753354572630155}
+  - {fileID: -4141438974820737200}
+  - {fileID: -827832330792349683}
+  - {fileID: -9008240359328238530}
+  - {fileID: -2458159441669676835}
+  - {fileID: 6021979735762424651}
+  - {fileID: 8713606005906572322}
+  - {fileID: 1105267361607667333}
+  - {fileID: 6561076696166428970}
+  - {fileID: 1122333974376750291}
+  - {fileID: 8301982490278495157}
   EditorParameters: []
   MasterBanks:
   - {fileID: 134670157265388788}
   StringsBanks:
   - {fileID: 2380887785565191657}
-  cacheTime: 637988528001366160
+  cacheTime: 638031818629811023
   cacheVersion: 10
 --- !u!114 &134670157265388788
 MonoBehaviour:
@@ -126,11 +314,65 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637988528000428823
+  lastModified: 638031818629220711
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 1486
   Exists: 1
+--- !u!114 &1105267361607667333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DoorOpen
+  m_EditorClassIdentifier: 
+  Path: event:/DoorOpen
+  Guid:
+    Data1: 1967071435
+    Data2: 1111612322
+    Data3: 497974933
+    Data4: 1492170178
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 480
+--- !u!114 &1122333974376750291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BookClose
+  m_EditorClassIdentifier: 
+  Path: event:/BookClose
+  Guid:
+    Data1: 906312166
+    Data2: 1128688997
+    Data3: 1327258247
+    Data4: 1534136000
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 276
 --- !u!114 &1145245684017877719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +392,7 @@ MonoBehaviour:
     Data3: 1116287404
     Data4: 1177646195
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -5067354317279356618}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -173,11 +415,38 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637988528000897486
+  lastModified: 638031818629230424
   FileSizes:
   - Name: Desktop
-    Value: 1044
+    Value: 1736
   Exists: 1
+--- !u!114 &2638711185965304153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ouija_time_-_Totos_Dream_looped
+  m_EditorClassIdentifier: 
+  Path: event:/Ouija_time_-_Totos_Dream_looped
+  Guid:
+    Data1: -1809675057
+    Data2: 1144280931
+    Data3: 1897370794
+    Data4: -1411371352
+  Banks:
+  - {fileID: -8408186138864985730}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60003
 --- !u!114 &4516426165629902671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +466,7 @@ MonoBehaviour:
     Data3: -1221408579
     Data4: -890222063
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -5067354317279356618}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -224,7 +493,7 @@ MonoBehaviour:
     Data3: -1979507285
     Data4: -242805168
   Banks:
-  - {fileID: 5493200247293988379}
+  - {fileID: -8408186138864985730}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -232,7 +501,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 42000
---- !u!114 &5493200247293988379
+--- !u!114 &6021979735762424651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,14 +510,102 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/MenuClick.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/DoorClose
   m_EditorClassIdentifier: 
-  Path: Assets/Fmod/Build/Desktop/MenuClick.bank
-  Name: MenuClick
-  StudioPath: bank:/MenuClick
-  lastModified: 637988528001366160
-  FileSizes:
-  - Name: Desktop
-    Value: 982848
-  Exists: 1
+  Path: event:/DoorClose
+  Guid:
+    Data1: 30238895
+    Data2: 1230946503
+    Data3: 621312139
+    Data4: -83996506
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 675
+--- !u!114 &6561076696166428970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/CoinsSound
+  m_EditorClassIdentifier: 
+  Path: event:/CoinsSound
+  Guid:
+    Data1: -1156420659
+    Data2: 1241000037
+    Data3: -397589352
+    Data4: 643031143
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 557
+--- !u!114 &8301982490278495157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bird_song
+  m_EditorClassIdentifier: 
+  Path: event:/Bird_song
+  Guid:
+    Data1: 354867952
+    Data2: 1095224164
+    Data3: 1479514287
+    Data4: -1448351259
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1893
+--- !u!114 &8713606005906572322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/StoneSteps
+  m_EditorClassIdentifier: 
+  Path: event:/StoneSteps
+  Guid:
+    Data1: -490342724
+    Data2: 1202987763
+    Data3: 1291082893
+    Data4: -928561949
+  Banks:
+  - {fileID: -5067354317279356618}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 221

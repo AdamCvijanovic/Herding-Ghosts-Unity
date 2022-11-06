@@ -6,6 +6,8 @@ using TMPro;
 
 public class ConversationManager : MonoBehaviour
 {
+    public GameObject panelButton;
+
     private GameObject playerNameplate;
     private GameObject customerNameplate;
 
@@ -18,11 +20,8 @@ public class ConversationManager : MonoBehaviour
     private Color colorChange;
 
     //textmesh pro GUI gameobject holders
-    [SerializeField]
     private GameObject textOne;
-    [SerializeField]
     private GameObject textTwo;
-    [SerializeField]
     private GameObject textThree; 
     //textmesh pro GUIs
     private TextMeshProUGUI playerNameText;
@@ -53,17 +52,15 @@ public class ConversationManager : MonoBehaviour
     public int[] playerTalking;
     public int[] customerTalking;
 
-    public bool conversationActive = false;
-
-
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         playerTalking = new int[] {0, 1, 4};
         customerTalking = new int[] {2, 3};
 
         playerNameplate = GameObject.Find("PlayerName");
         customerNameplate = GameObject.Find("GhostName");
+        panelButton = GameObject.Find("PanelBtn");
 
         imageObjectOne = GameObject.Find("PlayerDialogueImage");
         playerIMG = imageObjectOne.GetComponent<Image>();
@@ -127,6 +124,8 @@ public class ConversationManager : MonoBehaviour
         playerAnimator.SetBool("PlayerActive", true);
         customerAnimator.SetBool("CustomerActive", true);
 
+        panelButton.SetActive(true);
+
         sentenceCounter = 0;
         //player name
         playerNameText.text = convisation.playerName;
@@ -137,11 +136,8 @@ public class ConversationManager : MonoBehaviour
         {
             convSentences.Enqueue(sentence);
         }
-
-        conversationActive = true;
-
         DisplayNextConversationSentence();
-
+         
     }
 
     public void DisplayNextConversationSentence()
@@ -201,7 +197,7 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    void EndConversation()
+    public void EndConversation()
     {
         Debug.Log("End of conversation.");
         cDS.NCOff();
@@ -209,9 +205,7 @@ public class ConversationManager : MonoBehaviour
         playerAnimator.SetBool("PlayerActive", false);
         customerAnimator.SetBool("CustomerActive", false);
         FindObjectOfType<CanvasManager>().EnableUIElements();
-
-        conversationActive = false;
         Time.timeScale = 1f;
-
+        panelButton.SetActive(false);
     }
 }
