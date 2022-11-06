@@ -6,54 +6,86 @@ using TMPro;
 
 public class ConversationManager : MonoBehaviour
 {
+    [SerializeField]
     public GameObject panelButton;
 
+    [SerializeField]
     private GameObject playerNameplate;
+    [SerializeField]
     private GameObject customerNameplate;
 
     //image gameobject holders
+    [SerializeField]
     private GameObject imageObjectOne;
+    [SerializeField]
     private GameObject imageObjectTwo;
     //images
+    [SerializeField]
     private Image playerIMG;
+    [SerializeField]
     private Image customerIMG;
+    [SerializeField]
     private Color colorChange;
 
     //textmesh pro GUI gameobject holders
+    [SerializeField]
     private GameObject textOne;
+    [SerializeField]
     private GameObject textTwo;
+    [SerializeField]
     private GameObject textThree; 
     //textmesh pro GUIs
+    [SerializeField]
     private TextMeshProUGUI playerNameText;
+    [SerializeField]
     private TextMeshProUGUI customerNameText;
+    [SerializeField]
     private TextMeshProUGUI dialogueText;
 
     //Animator gameobject holders
+    [SerializeField]
     private GameObject animOne;
+    [SerializeField]
     private GameObject animTwo;
+    [SerializeField]
     private GameObject animThree;
     //Animators
+    [SerializeField]
     private Animator animator;
+    [SerializeField]
     private Animator playerAnimator;
+    [SerializeField]
     private Animator customerAnimator;
 
+    [SerializeField]
     private Queue<string> convSentences;
 
+    [SerializeField]
     private Customer customer;
+    [SerializeField]
     private Sprite customerSprite;
+    [SerializeField]
     private string foodName;
 
     //public Button butn;
 
+    [SerializeField]
     private GameObject chooseDialogue;
+    [SerializeField]
     private ChooseDialogueSystem cDS;
 
+    [SerializeField]
     private int sentenceCounter = 0;
+    [SerializeField]
     public int[] playerTalking;
+    [SerializeField]
     public int[] customerTalking;
 
+    [SerializeField]
+    public bool conversationActive;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerTalking = new int[] {0, 1, 4};
         customerTalking = new int[] {2, 3};

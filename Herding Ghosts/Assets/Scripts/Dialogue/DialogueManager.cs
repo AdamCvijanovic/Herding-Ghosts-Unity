@@ -54,6 +54,8 @@ public class DialogueManager : MonoBehaviour
     public int[] customerTalking;
     public int[] imagePlacement;
 
+    public bool dialogueActive;
+
     // Start is called before the first frame update
     void Start()
     {

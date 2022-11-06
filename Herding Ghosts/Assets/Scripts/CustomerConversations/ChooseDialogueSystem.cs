@@ -20,6 +20,11 @@ public class ChooseDialogueSystem : MonoBehaviour
         cM = cManager.GetComponent<ConversationManager>(); */
     }
 
+    public void PressEtoProgressDialogue()
+    {
+        JudgeNext();
+    }
+
     public void JudgeNext()
     {
         //Get the DialogueManager
