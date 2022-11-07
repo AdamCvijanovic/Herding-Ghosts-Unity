@@ -12,7 +12,7 @@ public class Sentence
 
     public Sprite customerImage;
     public Sprite playerImage;
-    public Sprite background;
+    public Sprite backgroundImage;
 
     public enum Speaker {Player, Customer}
     public Speaker currentSpeaker;
