@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CutSceneManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class CutSceneManager : MonoBehaviour
 
     public int imgChangeCounter = 0;
     public int maxSentSize = 8;
+
+    public GameObject endCutSceneButton;
 
     public GameObject panelButton;
 
@@ -51,13 +54,15 @@ public class CutSceneManager : MonoBehaviour
     public Queue<Sentence> sentences;
     [SerializeField]
     private int sentenceCounter = 0;
-    public int[] playerTalking;
-    public int[] customerTalking;
-    public int[] imagePlacement;
+    //public int[] playerTalking;
+    //public int[] customerTalking;
+    //public int[] imagePlacement;
 
     public bool cutSceneActive;
 
     public CutSceneTrigger cutSceneTrigger;
+
+    public Sentence currSentence;
 
     // Start is called before the first frame update
     void Start()
@@ -91,8 +96,9 @@ public class CutSceneManager : MonoBehaviour
     public void ChangePlayerImageSprite(int num)
     {
         playerIMG.sprite = playerImageList[num];
+        playerIMG.sprite = cutSceneTrigger.cutSceneConvo.sentences[num].playerImage;
 
-        Debug.Log("Number: " + num);
+        Debug.Log("Player Image Number: " + num);
             
     }
 
@@ -103,11 +109,8 @@ public class CutSceneManager : MonoBehaviour
 
     public void ChangeCustomerImageSprite(int num)
     {
-
         customerIMG.sprite = customerImageList[num];
-
         Debug.Log("Number: " + num);
-            
     }
 
     public void ChangeCustomerImageSprite(Sprite sprite)
@@ -115,6 +118,19 @@ public class CutSceneManager : MonoBehaviour
         customerIMG.sprite = sprite;
     }
 
+    public void ChangeBackgroundImageSprite(int num)
+    {
+        backgroundIMG.sprite = backgroundImageList[num];
+        Debug.Log("Number: " + num);
+    }
+
+    public void ChangeBackgroundImageSprite(Sprite sprite)
+    {
+        backgroundIMG.sprite = sprite;
+    }
+
+
+    //Activate Cutscene Run
     public void StartCutScene(CutSceneDialogue cutSceneDialogue)
     {
         cutSceneActive = true;
@@ -131,6 +147,7 @@ public class CutSceneManager : MonoBehaviour
         sentenceCounter = 0;
         //player name
         playerNameText.text = cutSceneDialogue.playerName;
+
         //customer name
         customerNameText.text = cutSceneDialogue.customerName;
 
@@ -138,14 +155,12 @@ public class CutSceneManager : MonoBehaviour
         foreach (Sentence sentence in cutSceneDialogue.sentences)
         {
             sentences.Enqueue(sentence);
-            Debug.Log("THE AMOUNT OF SENTENCES IS " + sentences.Count);
         }
-        
-        
         DisplayNextSentence();
          
     }
 
+    // Display Sentence & Images
     public void DisplayNextSentence()
     {
         if(sentences.Count == 0)
@@ -153,15 +168,18 @@ public class CutSceneManager : MonoBehaviour
             EndCutscene();
             return;
         }
-        Sentence currSentence = sentences.Dequeue();
+        currSentence = sentences.Dequeue();
         Debug.Log("imgChangeCounter" + imgChangeCounter);
-        if(imgChangeCounter <= maxSentSize)
+        //if(imgChangeCounter <= maxSentSize)
         {
-            Debug.Log("imgChangeCounter" + imgChangeCounter + "Is Less Than or Equal to maxSentSize");
-            //ChangeCustomerImageSprite(imagePlacement[imgChangeCounter]);
+            //Debug.Log("imgChangeCounter" + imgChangeCounter + "Is Less Than or Equal to maxSentSize");
+            //Change Customer Sprite
             ChangeCustomerImageSprite(currSentence.customerImage);
-            //ChangePlayerImageSprite(imagePlacement[imgChangeCounter]);
-            ChangePlayerImageSprite(imagePlacement[imgChangeCounter]);
+            //Change Player Sprite
+            ChangePlayerImageSprite(currSentence.playerImage);
+            //Change background Sprite
+            ChangeBackgroundImageSprite(currSentence.backgroundImage);
+
             imgChangeCounter++;
         }
         
@@ -174,28 +192,32 @@ public class CutSceneManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
-      for(int i = 0; i < customerTalking.Length; i++)
+      //for(int i = 0; i < customerTalking.Length; i++)
         {
-           if(sentenceCounter == customerTalking[i])
+           //if(sentenceCounter == customerTalking[i])
+           if(currSentence.currentSpeaker == Sentence.Speaker.Customer)
            {
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
                 if(isThereCustomer == true){customerNameplate.SetActive(true);}
-                if(playerImageColored == true){playerIMG.color = colorChange;}
+                //if(playerImageColored == true){playerIMG.color = colorChange;}
                 customerIMG.color = Color.white;
-           }  
+                playerIMG.color = colorChange;
+            }  
         }
 
-        for(int j = 0; j < playerTalking.Length; j++)
+        //for(int j = 0; j < playerTalking.Length; j++)
         {
-           if(sentenceCounter == playerTalking[j])
+           //if(sentenceCounter == playerTalking[j])
+           if(currSentence.currentSpeaker == Sentence.Speaker.Player)
            {
                 Debug.Log("Player");
                 if(isTherePlayer == true){playerNameplate.SetActive(true);}
                 customerNameplate.SetActive(false);
-                if(customerImageColored == true){customerIMG.color = colorChange;}
+                //if(customerImageColored == true){playerIMG.color = colorChange;}
                 playerIMG.color = Color.white;
-           }
+                customerIMG.color = colorChange;
+            }
               
         }
        
@@ -218,10 +240,21 @@ public class CutSceneManager : MonoBehaviour
         Time.timeScale = 1f;
         panelButton.SetActive(false);
         cutSceneActive = false;
+
+        ActivateStartGameButton();
     }
 
     public void ActivateStartGameButton()
     {
-
+        if(endCutSceneButton != null)
+        {
+            endCutSceneButton.GetComponent<Animator>().SetBool("EndCutScene",true);
+        }
     }
+
+    public void EndCutSceneButtonPressed()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Brackeys is God
+    }
+
 }
