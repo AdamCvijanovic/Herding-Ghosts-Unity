@@ -32,7 +32,7 @@ public class Door_Open_Script : MonoBehaviour
 
         _customerMngr.storeOpen = isStoreOpen;
 
-        FindObjectOfType<CustomerSpawnerDestination>().countdown = 1f;
+        FindObjectOfType<CustomerSpawnerDestination>().RestartCounter();
 
     }
 }

@@ -50,6 +50,4 @@ public class Inventory : MonoBehaviour
         if (_items.Contains(item))
             _items.Remove(item);
     }
-
-
 }

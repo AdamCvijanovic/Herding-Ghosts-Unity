@@ -609,6 +609,36 @@ MonoBehaviour:
   sprRndr: {fileID: 5371278945478046387}
   defaultMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
+  _OnHasItems:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4224081303638102767}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cauldron_Stirring
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHasntItems:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4224081303638102767}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Cauldron_Idle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5371278946558997746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +799,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5371278946558997756}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 35ec1ffee2c5c604f8741c19ad9afa1f, type: 2}
   m_CullingMode: 0

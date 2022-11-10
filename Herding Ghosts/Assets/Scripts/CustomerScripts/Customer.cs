@@ -66,7 +66,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DynamicLayering();
     }
     public CustomerManager GetCustomerManager()
     {
@@ -165,6 +165,18 @@ public class Customer : MonoBehaviour
     public void AmSatisfied()
     {
         _customerMngr.IncrementCounter();
+    }
+
+    public void DynamicLayering()
+    {
+        if(transform.position.y < 6)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 4;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 3;
+        }
     }
 
 }
