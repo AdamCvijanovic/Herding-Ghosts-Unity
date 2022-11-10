@@ -10807,10 +10807,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 186143825, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
-      propertyPath: pickupString
-      value: Place Food In Cabinet
-      objectReference: {fileID: 0}
     - target: {fileID: 5334532694047523548, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_Name
       value: Counter
@@ -21058,11 +21054,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7869369987924524962, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
   m_PrefabInstance: {fileID: 7869369986513418739}
   m_PrefabAsset: {fileID: 0}
---- !u!212 &1813825112 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7869369987924524963, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-  m_PrefabInstance: {fileID: 7869369986513418739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825105128
 GameObject:
   m_ObjectHideFlags: 0
@@ -24760,10 +24751,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1606490058}
     m_Modifications:
-    - target: {fileID: 7869369987924524961, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-      propertyPath: sprRndr
-      value: 
-      objectReference: {fileID: 1813825112}
     - target: {fileID: 7869369987924524962, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -24808,25 +24795,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7869369987924524963, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7869369987924524989, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
       propertyPath: m_Name
       value: Door
-      objectReference: {fileID: 0}
-    - target: {fileID: 9068280221716305828, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenCloseDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 9068280221716305828, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Door_Open_Script, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 9068280221716305828, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
-      propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
