@@ -90,6 +90,23 @@ public class WorkstationDestination : Destination
         }
     }
 
+    public void ClearInventory()
+    {
+
+        List<IngredientItem> temp = new List<IngredientItem>();
+
+        foreach(IngredientItem i in _inventory._items)
+        {
+            temp.Add(i);
+        }
+
+        foreach(IngredientItem i in temp)
+        {
+            RemoveItemFromList(i);
+            Destroy(i.gameObject);
+        }
+
+    }
     public void InventoryCheck()
     {
         RecipeObject tempRecipe = null;

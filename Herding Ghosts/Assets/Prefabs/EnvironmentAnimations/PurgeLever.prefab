@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8435621496618717756
 SpriteRenderer:
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1771057579, guid: 2ece19d099f6f5749a493565d132cb5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,7 +125,19 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
   _ActivateEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6031460765430866666}
+        m_TargetAssemblyTypeName: PurgeLever, Assembly-CSharp
+        m_MethodName: LeverPulled
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   pickupString: Press E to Interact
   useString: 
 --- !u!114 &6031460765430866666
@@ -140,6 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674258d8864ba934cadbb4c7d9dac710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cauldron: {fileID: 0}
+  _animator: {fileID: 0}
+  ResetCountdown: 0
+  isResetting: 0
+  maxTime: 15
+  currentTime: 0
 --- !u!61 &1007119147
 BoxCollider2D:
   m_ObjectHideFlags: 0

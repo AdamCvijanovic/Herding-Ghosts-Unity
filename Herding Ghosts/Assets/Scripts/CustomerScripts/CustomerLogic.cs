@@ -32,9 +32,8 @@ public class CustomerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
-
         CheckState();
+        dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
     }
 
     public void SetCustomer(Customer customer)
@@ -51,7 +50,14 @@ public class CustomerLogic : MonoBehaviour
 
     public void SetState(CustomerState state)
     {
+        if(state == CustomerState.Leaving)
+        {
+            _customer.GetNavigator().SetDestination(customerSpawner.transform);
+            dst = Vector3.Distance(customerSpawner.transform.position, transform.position);
+        }
+
         currentState = state;
+
     }
 
     public void CheckState()
@@ -70,7 +76,7 @@ public class CustomerLogic : MonoBehaviour
                     {
                         GrabItem();
                         _customer.GetNavigator().SetDestination(customerSpawner.transform);
-                        dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
+                        dst = Vector3.Distance(customerSpawner.transform.position, transform.position);
                         currentState = CustomerState.Leaving;
                     }
                     else
@@ -96,9 +102,10 @@ public class CustomerLogic : MonoBehaviour
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 RemoveCustomer();
-                //if(_cus)
-                _customer.AmSatisfied();
-                
+                if (_customer.isSatisfied)
+                {
+                    _customer.AmSatisfied();
+                }
             }
         }       
     }
@@ -129,7 +136,7 @@ public class CustomerLogic : MonoBehaviour
     {
         Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
         _customer.GetPickup().PickupItem(desiredFoodItem);
-
+        _customer.isSatisfied = true;
         
     }
 

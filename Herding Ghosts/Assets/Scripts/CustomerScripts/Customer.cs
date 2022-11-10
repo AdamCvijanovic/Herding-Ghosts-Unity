@@ -27,11 +27,14 @@ public class Customer : MonoBehaviour
 
 
     public Sprite _customerAppearance;
+    public Sprite _customerRasterImg;
 
     [SerializeField]
     CustomerManager _customerMngr;
 
     public FoodItem.FoodType _desiredFood;
+
+    public bool isSatisfied;
 
     public bool isSpokenTo;
 
@@ -63,7 +66,7 @@ public class Customer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DynamicLayering();
     }
     public CustomerManager GetCustomerManager()
     {
@@ -117,7 +120,7 @@ public class Customer : MonoBehaviour
     public void UpdateConverMngr()
     {
         _conversationManager.WhatFoodIsIt(_desiredFood);
-        _conversationManager.SetCustomerSprite(_customerAppearance);
+        _conversationManager.SetCustomerSprite(_customerRasterImg);
     }
 
     public AINavigation GetNavigator()
@@ -162,6 +165,18 @@ public class Customer : MonoBehaviour
     public void AmSatisfied()
     {
         _customerMngr.IncrementCounter();
+    }
+
+    public void DynamicLayering()
+    {
+        if(transform.position.y < 6)
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 4;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sortingOrder = 3;
+        }
     }
 
 }

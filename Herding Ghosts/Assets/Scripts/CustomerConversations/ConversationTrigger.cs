@@ -78,8 +78,11 @@ public class ConversationTrigger : MonoBehaviour
         if(FindObjectOfType<ConversationManager>().conversationActive != true)
         {
             FindObjectOfType<ConversationManager>().StartConversation(convChosen);
+            FindObjectOfType<CustomerManager>().ActivateTimerUI();
 
             Time.timeScale = 0f;
+
+            
         }
         else
         {

@@ -12,6 +12,7 @@ public class CustomerSpawnerDestination : Destination
     public float _spawnTime;
     public float countdown;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,13 @@ public class CustomerSpawnerDestination : Destination
     // Update is called once per frame
     void Update()
     {
-        if(_customerMngr.storeOpen)
+        if(_customerMngr.storeOpen && _customerMngr.GetCurrentCustomer() == null)
             SpawnCountDown(_spawnTime);
+    }
+
+    public void RestartCounter()
+    {
+        countdown = _spawnTime;
     }
 
     private void SpawnCountDown(float time)
