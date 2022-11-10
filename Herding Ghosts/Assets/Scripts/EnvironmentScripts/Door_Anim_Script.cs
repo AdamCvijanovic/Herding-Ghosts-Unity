@@ -5,11 +5,12 @@ using UnityEngine;
 public class Door_Anim_Script : MonoBehaviour
 {
     public Animator doorAnimator;
+    public SpriteRenderer sprRndr;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        sprRndr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,5 +31,15 @@ public class Door_Anim_Script : MonoBehaviour
     {
         doorAnimator.ResetTrigger("Open");
         doorAnimator.SetTrigger("Close");
+    }
+
+    public void ChangeLayerInFrontOfGhost()
+    {
+        sprRndr.sortingOrder = 4;
+    }
+
+    public void ChangeLayerBehindGhost()
+    {
+        sprRndr.sortingOrder = 3;
     }
 }

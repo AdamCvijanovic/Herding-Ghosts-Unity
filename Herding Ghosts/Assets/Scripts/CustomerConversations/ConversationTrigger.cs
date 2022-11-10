@@ -132,8 +132,6 @@ public class ConversationTrigger : MonoBehaviour
                 //Time.timeScale = 0f;
             }
         }
-
-        
     }
 
     private void TalkConversation()
