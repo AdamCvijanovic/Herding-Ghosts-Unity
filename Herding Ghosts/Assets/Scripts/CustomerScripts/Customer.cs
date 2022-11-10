@@ -27,11 +27,14 @@ public class Customer : MonoBehaviour
 
 
     public Sprite _customerAppearance;
+    public Sprite _customerRasterImg;
 
     [SerializeField]
     CustomerManager _customerMngr;
 
     public FoodItem.FoodType _desiredFood;
+
+    public bool isSatisfied;
 
     public bool isSpokenTo;
 
@@ -117,7 +120,7 @@ public class Customer : MonoBehaviour
     public void UpdateConverMngr()
     {
         _conversationManager.WhatFoodIsIt(_desiredFood);
-        _conversationManager.SetCustomerSprite(_customerAppearance);
+        _conversationManager.SetCustomerSprite(_customerRasterImg);
     }
 
     public AINavigation GetNavigator()

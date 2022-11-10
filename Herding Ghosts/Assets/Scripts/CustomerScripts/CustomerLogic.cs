@@ -96,9 +96,10 @@ public class CustomerLogic : MonoBehaviour
                 _customer.GetNavigator().SetDestination(customerSpawner.transform);
                 dst = Vector3.Distance(_customer.GetNavigator().GetDestination(), transform.position);
                 RemoveCustomer();
-                //if(_cus)
-                _customer.AmSatisfied();
-                
+                if (_customer.isSatisfied)
+                {
+                    _customer.AmSatisfied();
+                }
             }
         }       
     }
@@ -129,7 +130,7 @@ public class CustomerLogic : MonoBehaviour
     {
         Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
         _customer.GetPickup().PickupItem(desiredFoodItem);
-
+        _customer.isSatisfied = true;
         
     }
 

@@ -76,7 +76,7 @@ public class CustomerManager : MonoBehaviour
         customer.transform.parent = this.transform;
 
         //updateUI
-        ActivateTimerUI();
+        //ActivateTimerUI();
 
         //worldAnimations
         _doorAnimator.OpenDoor();

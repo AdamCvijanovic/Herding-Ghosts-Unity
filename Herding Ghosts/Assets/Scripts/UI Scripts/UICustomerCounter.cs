@@ -24,7 +24,7 @@ public class UICustomerCounter : MonoBehaviour
 
     public void UpdateCounter(int count)
     {
-        counterText.text = "SatisfiedCustomers " + count;
+        counterText.text = "SatisfiedCustomers" + " \n" + count;
     }
 
 
