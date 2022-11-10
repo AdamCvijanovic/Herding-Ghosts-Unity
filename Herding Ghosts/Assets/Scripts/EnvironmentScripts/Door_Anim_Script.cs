@@ -37,6 +37,7 @@ public class Door_Anim_Script : MonoBehaviour
     {
         sprRndr.sortingOrder = 4;
 
+
     }
 
     public void ChangeLayerBehindGhost()
