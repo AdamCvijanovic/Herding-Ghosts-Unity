@@ -17,6 +17,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject timerUI;
 
     public GrimoireUI grimoireUI;
+
+    public UIFadeInOut levelChanger;
     
     //public Image playerIMG;
     public Image playerIMG;
@@ -27,7 +29,10 @@ public class CanvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //populate vars
+        levelChanger = GetComponentInChildren<UIFadeInOut>();
+
+        //set active or not
         introductionMenu.SetActive(true);
         //pauseMenu.SetActive(false);
         //loseMenu.SetActive(false);
