@@ -8477,8 +8477,8 @@ Tilemap:
   - first: {x: -2, y: -11, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 113
-      m_TileSpriteIndex: 113
+      m_TileIndex: 102
+      m_TileSpriteIndex: 102
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8527,8 +8527,8 @@ Tilemap:
   - first: {x: -2, y: -10, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 112
-      m_TileSpriteIndex: 112
+      m_TileIndex: 101
+      m_TileSpriteIndex: 101
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9268,10 +9268,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 240e99e1a6afe084786bbf3e8e1f8db3, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 47e44d404385012479e793150447b2ad, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: f1d1a8f240976534f96842e22f3c7ee6, type: 2}
   - m_RefCount: 1
@@ -9290,9 +9290,9 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: da7f2da5770ff184a829e88d964f2e7e, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 185dcbb6c577ae84ebcc459134e11ada, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 688208697db9d2341b24eb4956e9d5ff, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 4947dc9826ae87a49a44e1350b4dcfda, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9d6bdd8d6917e0149a41d2ec8df1328e, type: 2}
@@ -9589,10 +9589,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -712591647, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1881754814, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1573718364, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
   - m_RefCount: 1
@@ -9611,9 +9611,9 @@ Tilemap:
     m_Data: {fileID: -2106210520, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1294186442, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 2091726209, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 960834356, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -298105878, guid: 0cc9fc5a95de6884c8b045695516bdef, type: 3}
@@ -17144,29 +17144,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 404569272146155244, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6891817
+    - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: ingredientDescription
+      value: A jar of honey
       objectReference: {fileID: 0}
-    - target: {fileID: 404569272146155244, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6891817
+    - target: {fileID: 4202432065120799972, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: ingredientDescription
+      value: Ectoplasm
       objectReference: {fileID: 0}
-    - target: {fileID: 404569272146155244, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6891817
+    - target: {fileID: 4790800399409706274, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_text
+      value: Items stored in the pantry
       objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.3005
+    - target: {fileID: 6164959786665970303, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: ingredientDescription
+      value: Boba pearls
       objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.3005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.3005
+    - target: {fileID: 6465133914587672895, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: ingredientDescription
+      value: Sugar
       objectReference: {fileID: 0}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
@@ -17255,6 +17251,10 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381629604895318528, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: ingredientDescription
+      value: Fresh Milk
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
