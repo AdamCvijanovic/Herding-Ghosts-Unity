@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -16,7 +17,10 @@ public class CutSceneManager : MonoBehaviour
     public int imgChangeCounter = 0;
     public int maxSentSize = 8;
 
+    //end cutscene button
     public GameObject endCutSceneButton;
+    //end cutscene event
+    public UnityEvent _ActivateEvent = new UnityEvent();
 
     public GameObject panelButton;
 
@@ -250,11 +254,23 @@ public class CutSceneManager : MonoBehaviour
         {
             endCutSceneButton.GetComponent<Animator>().SetBool("EndCutScene",true);
         }
+        else
+        {
+            ActivateEvent();
+        }
     }
 
     public void EndCutSceneButtonPressed()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Brackeys is God
     }
+
+    public void ActivateEvent()
+    {
+        Debug.Log("ACTIVATE");
+        _ActivateEvent.Invoke();
+    }
+
+
 
 }

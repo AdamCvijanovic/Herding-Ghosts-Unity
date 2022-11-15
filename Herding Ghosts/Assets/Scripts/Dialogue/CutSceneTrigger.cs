@@ -59,7 +59,7 @@ public class CutSceneTrigger : MonoBehaviour
             cDS.NDTrue();
             DialogueTrigger dt = gameObject.GetComponent<DialogueTrigger>();
             dt.TriggerDialogue();
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }
         else
         {

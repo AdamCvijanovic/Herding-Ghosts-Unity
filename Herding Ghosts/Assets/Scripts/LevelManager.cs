@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -13,6 +14,9 @@ public class LevelManager : MonoBehaviour
     public Color nightColor;
 
     public int maxCustomerCount;
+
+    //end cutscene event
+    public UnityEvent _ActivateEvent = new UnityEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -29,22 +33,37 @@ public class LevelManager : MonoBehaviour
 
     public void StartDay()
     {
-        uiFadeInOut.FadeIn();
+        if(uiFadeInOut != null)
+            uiFadeInOut.FadeIn();
     }
 
     public void EndDay()
     {
-        uiFadeInOut.FadeOut();
+        if (uiFadeInOut != null)
+            uiFadeInOut.FadeOut();
     }
+
+
 
     public void RollCredits()
     {
-        SceneManager.LoadScene("NightToDayCutscene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Game_Outro_Cutscene", LoadSceneMode.Single);
+    }
+
+    public void RollCredits2()
+    {
+        SceneManager.LoadScene("Game_Credits", LoadSceneMode.Single);
     }
 
     public void NightDayScene()
     {
-        SceneManager.LoadScene("Game_Outro_Cutscene", LoadSceneMode.Single);
+        SceneManager.LoadScene("NightToDayCutscene", LoadSceneMode.Single);
+    }
+
+    public void ActivateEventAfterFade()
+    {
+        Debug.Log("ACTIVATE");
+        _ActivateEvent.Invoke();
     }
 
 }

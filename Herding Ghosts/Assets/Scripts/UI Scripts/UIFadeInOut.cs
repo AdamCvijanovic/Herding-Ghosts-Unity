@@ -30,7 +30,11 @@ public class UIFadeInOut : MonoBehaviour
 
     public void ChangeSceneAnimEvent()
     {
-        FindObjectOfType<LevelManager>().NightDayScene();
+
+        //put level change logic here
+
+        //FindObjectOfType<LevelManager>().NightDayScene();
+        FindObjectOfType<LevelManager>().ActivateEventAfterFade();
     }
 
 }

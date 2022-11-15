@@ -536,11 +536,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2801539676716693972, guid: 91c5678728f64d849a5e2feaa58186fa, type: 3}
   m_PrefabInstance: {fileID: 75485359}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &94422599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3828822591055680558, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
-  m_PrefabInstance: {fileID: 3828822591862659510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &106852960 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828822591756872662, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
@@ -10221,6 +10216,21 @@ MonoBehaviour:
   dayColor: {r: 0, g: 0, b: 0, a: 0}
   nightColor: {r: 0, g: 0, b: 0, a: 0}
   maxCustomerCount: 0
+  _ActivateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 535844594}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: RollCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &535844595
 Transform:
   m_ObjectHideFlags: 0
@@ -26156,28 +26166,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelChanger
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3828822591862659513, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
---- !u!95 &3828822591862659511 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3828822591055680554, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
+--- !u!114 &3828822591862659517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3828822591862659517, guid: fad37997cd94eda49b05e1f72fe0f983, type: 3}
   m_PrefabInstance: {fileID: 3828822591862659510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3828822591862659517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94422599}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5326c18a850d7fc48be791d5c27fd6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3828822591862659511}
 --- !u!1001 &4438321891639330037
 PrefabInstance:
   m_ObjectHideFlags: 0
