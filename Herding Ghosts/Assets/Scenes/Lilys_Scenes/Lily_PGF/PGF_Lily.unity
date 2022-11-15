@@ -17144,6 +17144,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.099976
+      objectReference: {fileID: 0}
     - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
       value: A jar of honey
@@ -17155,6 +17163,22 @@ PrefabInstance:
     - target: {fileID: 4790800399409706274, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_text
       value: Items stored in the pantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2430309
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2430309
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2430309
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -950
       objectReference: {fileID: 0}
     - target: {fileID: 6164959786665970303, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
@@ -17252,6 +17276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6544090748604841782, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8381629604895318528, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
       value: Fresh Milk
@@ -17275,6 +17303,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7146125261833370680, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1377240961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 909377303461656291, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+  m_PrefabInstance: {fileID: 1377240958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377240962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7146125260632709267, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -17296,6 +17329,26 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7146125261759521901, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1377240965
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377240961}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b83fe827056ff774ab78212eefdce9c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &1377240966 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8403234331212153369, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -26138,7 +26191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _OnHasItems.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -26153,9 +26206,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
+      propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 388882998}
+    - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
+      propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7547429498352673351}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _OnHasItems.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -26169,6 +26230,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
+      propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
       objectReference: {fileID: 0}
@@ -26178,6 +26243,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
       propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
+      propertyPath: _onHasntItems.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.Animator, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5371278946558997745, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
@@ -26254,6 +26323,11 @@ PrefabInstance:
 --- !u!4 &7547429498352673350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5371278946558997757, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
+  m_PrefabInstance: {fileID: 7547429498352673349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7547429498352673351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5371278945478046385, guid: 6fb6432e517045149a4d9f0cf474a0d1, type: 3}
   m_PrefabInstance: {fileID: 7547429498352673349}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7604522238148994414
