@@ -1117,7 +1117,7 @@ MonoBehaviour:
   uiFadeInOut: {fileID: 0}
   dayColor: {r: 0, g: 0, b: 0, a: 0}
   nightColor: {r: 0, g: 0, b: 0, a: 0}
-  maxCustomerCount: 0
+  maxCustomerCount: 1
   _ActivateEvent:
     m_PersistentCalls:
       m_Calls:
@@ -22169,9 +22169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c7cbea111fb5b4883650dc81d53ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customersServed: 0
-  DayNumber: 0
-  ThirdItem: 0
+  satisfiedCustomers: 0
+  disastisfiedCustomers: 0
+  points: 0
+  dayNumber: 0
 --- !u!4 &1895333278
 Transform:
   m_ObjectHideFlags: 0
