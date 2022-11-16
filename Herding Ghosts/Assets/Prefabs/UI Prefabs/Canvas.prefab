@@ -1190,9 +1190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCounting: 0
-  maxTime: 15
+  maxTime: 90
   currentTime: 0
-  _animator: {fileID: 0}
+  _animatorHand: {fileID: 1377240965}
+  _animatorClock: {fileID: 0}
   _countdownCompleteEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1770,7 +1771,6 @@ GameObject:
   - component: {fileID: 5064917458216658774}
   - component: {fileID: 1845407283521514628}
   - component: {fileID: 4032592614444577569}
-  - component: {fileID: 2761211802468091402}
   m_Layer: 5
   m_Name: Customer_ClockHand
   m_TagString: Untagged
@@ -1836,26 +1836,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2761211802468091402
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2340747829827076555}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 499b394c19561474ab45b0f3ec84613c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2357761707092447289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,6 +5504,28 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6544090748486202626}
     m_Modifications:
+    - target: {fileID: 670711418225374389, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18.700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136987321686354780, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_text
+      value: 'A barrel of seeds for growing crops
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229754235564590911, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1522624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229754235564590911, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1522624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229754235564590911, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1522624
+      objectReference: {fileID: 0}
     - target: {fileID: 1293638055121796256, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5556,6 +5558,22 @@ PrefabInstance:
       propertyPath: seedBagButtons.Array.data[5]
       value: 
       objectReference: {fileID: 6139566782191886138}
+    - target: {fileID: 2552124315044999590, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Carrot Seeds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683376447227810602, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Pumpkin Seeds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2793440396468254335, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 474c2d29fa4ea3141b7f487530b41a71, type: 3}
+    - target: {fileID: 3054042070043944675, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Mushroom Spores
+      objectReference: {fileID: 0}
     - target: {fileID: 3152736761129059304, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5563,6 +5581,34 @@ PrefabInstance:
     - target: {fileID: 3152736761129059304, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SeedButtonUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345118329620853049, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Apple Seeds
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382505890453185558, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3311677
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382505890453185558, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7453834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382505890453185558, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.7453834
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382505890453185558, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382505890453185558, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721186887196228, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50.300007
       objectReference: {fileID: 0}
     - target: {fileID: 4519721186887196235, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5609,6 +5655,18 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.15895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.15895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.15895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5642,7 +5700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40
+      value: -124
       objectReference: {fileID: 0}
     - target: {fileID: 4519721186907365540, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5680,10 +5738,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SeedBarrelUI, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 4519721187830302077, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0876133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721187830302077, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0876133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721187830302077, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0876133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519721187830302077, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5041487073112404564, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Strawberry Seeds
+      objectReference: {fileID: 0}
     - target: {fileID: 5438057705907928675, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: seedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 975db855bbf454640a3b1a9eebccccd1, type: 3}
+    - target: {fileID: 5438057705907928675, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: seedDescription
+      value: Wheat Seeds
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814785542008143210, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -49.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5814785542008143210, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5951701600830219082, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5691,6 +5781,22 @@ PrefabInstance:
     - target: {fileID: 5951701600830219082, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SeedButtonUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501293494930059994, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 164.6085
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501293494930059994, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 38.9624
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501293494930059994, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.1518
+      objectReference: {fileID: 0}
+    - target: {fileID: 7501293494930059994, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27.5086
       objectReference: {fileID: 0}
     - target: {fileID: 7753767001924255482, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5708,6 +5814,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SeedButtonUI, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7987676840371230768, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33cb3b6559fdb4b42acd8dae9b03e696, type: 3}
     - target: {fileID: 8161971028663020521, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5715,6 +5825,38 @@ PrefabInstance:
     - target: {fileID: 8161971028663020521, guid: c23b978418428e64b97bbced58748dc4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SeedButtonUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632245067560688039, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 57.999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632245067560688039, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 18.700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633493419744609515, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 58.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077073745710608639, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.56319195
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077073745710608639, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75221
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077073745710608639, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75221
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077073745710608639, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -22.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077073745710608639, guid: c23b978418428e64b97bbced58748dc4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -6054,6 +6196,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6544090748486202626}
     m_Modifications:
+    - target: {fileID: 841018795403172, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
     - target: {fileID: 465737699196749812, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
@@ -6074,6 +6220,14 @@ PrefabInstance:
       propertyPath: ingredientDescription
       value: Sugar
       objectReference: {fileID: 0}
+    - target: {fileID: 926254486630690034, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181722946210081478, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
     - target: {fileID: 1262309923077175465, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_text
       value: Items stored in the pantry
@@ -6082,10 +6236,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6465133914587672895}
+    - target: {fileID: 1661014233998223168, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661014233998223168, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30.000015
+      objectReference: {fileID: 0}
     - target: {fileID: 2376358706060904525, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1692492843}
+    - target: {fileID: 2376358706141728177, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
     - target: {fileID: 2376358706152502096, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_Name
       value: PantryUI
@@ -6131,6 +6297,18 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1568332
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1568332
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1568332
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6164,7 +6342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40
+      value: -124
       objectReference: {fileID: 0}
     - target: {fileID: 2376358706152502097, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6206,6 +6384,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2376358706807133832, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8893735
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706807133832, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1061
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706807133832, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1061
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706807133832, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -116.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358706807133832, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 2857938638527049611, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
@@ -6214,10 +6412,46 @@ PrefabInstance:
       propertyPath: ingredientDescription
       value: Fresh Milk
       objectReference: {fileID: 0}
+    - target: {fileID: 2901850893747989489, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509096796090218467, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 105.4591
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509096796090218467, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 105.4591
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509096796090218467, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509096796090218467, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.5773
+      objectReference: {fileID: 0}
     - target: {fileID: 3855933124762538013, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8381629604895318528}
+    - target: {fileID: 4073374898850669962, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 474c2d29fa4ea3141b7f487530b41a71, type: 3}
+    - target: {fileID: 4470032288992916971, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470032288992916971, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470032288992916971, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 56.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4779864258010824138, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_Name
       value: DescriptionText
@@ -6254,6 +6488,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 44.2548
       objectReference: {fileID: 0}
+    - target: {fileID: 5688476764451581599, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688476764451581599, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 18.000011
+      objectReference: {fileID: 0}
     - target: {fileID: 5720587352959161596, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6261,6 +6503,42 @@ PrefabInstance:
     - target: {fileID: 5822117941597466096, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120681376824930086, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377582607526915199, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919430228651590798, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919430228651590798, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.899996
+      objectReference: {fileID: 0}
+    - target: {fileID: 6919430228651590798, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616514358878986, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 54.9288
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616514358878986, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 53.7958
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616514358878986, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -23.9586
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616514358878986, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 16.8864
       objectReference: {fileID: 0}
     - target: {fileID: 7279390410538920088, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
@@ -6273,6 +6551,22 @@ PrefabInstance:
     - target: {fileID: 7279390410538920088, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: ingredientDescription
       value: A Carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604370822984714834, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604370822984714834, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604370822984714834, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607590616562079518, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2529688
       objectReference: {fileID: 0}
     - target: {fileID: 7614177438386798959, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
@@ -6314,6 +6608,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2765331421031867823}
+    - target: {fileID: 8528183195698127151, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 181.3077
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528183195698127151, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 22.6802
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528183195698127151, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528183195698127151, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.553907
+      objectReference: {fileID: 0}
     - target: {fileID: 8797589989043271690, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
