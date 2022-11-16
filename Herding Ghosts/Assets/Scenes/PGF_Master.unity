@@ -17119,6 +17119,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1186731109, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: maxTime
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186731109, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: _animatorHand
+      value: 
+      objectReference: {fileID: 2000368146}
+    - target: {fileID: 2761211802468091402, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
       value: A jar of honey
@@ -17231,7 +17243,8 @@ PrefabInstance:
       propertyPath: ingredientDescription
       value: Fresh Milk
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2761211802468091402, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
 --- !u!114 &1377240959 stripped
@@ -23409,6 +23422,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6032504776814986532, guid: 05f4d6625e87eea4baa223e5bb9e3c92, type: 3}
   m_PrefabInstance: {fileID: 1969334847}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2000368146 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1377240965, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+  m_PrefabInstance: {fileID: 1377240958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2009160170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25952,6 +25970,10 @@ PrefabInstance:
     - target: {fileID: 2287410243664894260, guid: aaff8712d4f541f41b0b2e1eb47c6bbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2287410243664894261, guid: aaff8712d4f541f41b0b2e1eb47c6bbd, type: 3}
+      propertyPath: _spawnTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

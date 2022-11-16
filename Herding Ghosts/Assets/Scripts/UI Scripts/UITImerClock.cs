@@ -11,12 +11,14 @@ public class UITImerClock : MonoBehaviour
     public float maxTime = 15.0f;
     public float currentTime;
 
-    public Animator _animator;
+    public Animator _animatorHand;
+    public Animator _animatorClock;
 
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponentInChildren<Animator>();
+        _animatorClock = GetComponent<Animator>();
+        _animatorHand = GetComponentInChildren<Animator>();
         ResetClock();
     }
 
@@ -47,7 +49,8 @@ public class UITImerClock : MonoBehaviour
         if (isCounting)
         {
             currentTime -= Time.deltaTime;
-            _animator.SetFloat("TimerProgression", -(currentTime / maxTime));
+            _animatorHand.SetFloat("TimerProgression", 1-(currentTime / maxTime));
+            _animatorClock.SetFloat("Threshold",currentTime);
 
             if (currentTime <= 0)
             {
@@ -59,7 +62,8 @@ public class UITImerClock : MonoBehaviour
 
     public void CountDownFinished()
     {
-        FindObjectOfType<CustomerLogic>().SetState(CustomerLogic.CustomerState.Leaving);
+        FindObjectOfType<CustomerLogic>().CustomerDisatisfied();
+        _animatorClock.SetFloat("Threshold", maxTime);
         ResetClock();
     }
 

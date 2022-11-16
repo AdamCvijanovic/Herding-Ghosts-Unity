@@ -119,6 +119,10 @@ public class CustomerManager : MonoBehaviour
         GameManager.instance.UpdateCustomerCounter(satisfiedCustomerCounter);
     }
 
+    public void IncrementDisatisfiedCustomerCounter()
+    {
+
+    }
 
     public void ActivateTimerUI()
     {

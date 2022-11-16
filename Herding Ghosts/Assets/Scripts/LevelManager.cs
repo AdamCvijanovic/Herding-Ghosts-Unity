@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     {
         canvasManager = FindObjectOfType<CanvasManager>();
         uiFadeInOut = FindObjectOfType<UIFadeInOut>();
+        SetMaxCustomers();
     }
 
     // Update is called once per frame
@@ -44,6 +45,19 @@ public class LevelManager : MonoBehaviour
     }
 
 
+    public void RepeatDay()
+    {
+        if (GameManager.instance.dayNumber >= 9)
+        {
+            Debug.Log("Third Day passed");
+            RollCredits();
+        }
+        else
+        {
+            Debug.Log("A new day begins");
+            SceneManager.LoadScene("PGF_Master", LoadSceneMode.Single);
+        }
+    }
 
     public void RollCredits()
     {
@@ -63,6 +77,8 @@ public class LevelManager : MonoBehaviour
     public void NightDayScene()
     {
         GameManager.instance.IncrementDay();
+
+        Debug.Log("Third Day passed");
         SceneManager.LoadScene("NightToDayCutscene", LoadSceneMode.Single);
     }
 
@@ -70,6 +86,25 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("ACTIVATE");
         _ActivateEvent.Invoke();
+    }
+
+    public void SetMaxCustomers()
+    {
+        switch (GameManager.instance.dayNumber)
+        {
+            case 3:
+                maxCustomerCount = 1;
+                break;
+            case 6:
+                maxCustomerCount = 3;
+                break;
+            case 9:
+                maxCustomerCount = 5;
+                break;
+            default:
+                maxCustomerCount = 1;
+                break;
+        }
     }
 
 }
