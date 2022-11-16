@@ -29,6 +29,28 @@ public class CauldronDestination : WorkstationDestination
         }
     }
 
+    [SerializeField]
+    private UnityEvent _onPurge;
+
+    public UnityEvent OnPurge
+    {
+        get
+        {
+            return this._onPurge;
+        }
+    }
+
+    [SerializeField]
+    private UnityEvent _onSuccess;
+
+    public UnityEvent OnSuccess
+    {
+        get
+        {
+            return this._onSuccess;
+        }
+    }
+
     public enum ItemState
     {
         HasItems, HasntItems
@@ -56,8 +78,8 @@ public class CauldronDestination : WorkstationDestination
                 case ItemState.HasItems:
 
                     this.OnHasItems.Invoke();
-                
-                break;
+
+                    break;
 
                 case ItemState.HasntItems:
 
@@ -83,11 +105,24 @@ public class CauldronDestination : WorkstationDestination
         {
             CurrentState = ItemState.HasntItems;
         }
+
     }
 
     public bool ItemCheck()
     {
         return _inventory._items.Count > 0;
+    }
+
+    public override void RecipeCook(RecipeObject recipeIn)
+    {
+        this.OnSuccess.Invoke();
+        base.RecipeCook(recipeIn);
+    }
+
+    public void PurgeCauldron()
+    {
+        ClearInventory();
+        this.OnPurge.Invoke();
     }
 
 }

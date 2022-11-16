@@ -177,7 +177,7 @@ public class WorkstationDestination : Destination
         
     }
 
-    public void RecipeCook(RecipeObject recipeIn)
+    public virtual void RecipeCook(RecipeObject recipeIn)
     {
         //temp store
         GameObject ingredient0 = _inventory._items[0].gameObject;
