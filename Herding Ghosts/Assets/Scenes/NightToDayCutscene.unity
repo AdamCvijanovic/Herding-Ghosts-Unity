@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 194954185}
   - component: {fileID: 194954187}
+  - component: {fileID: 194954188}
   - component: {fileID: 194954186}
   m_Layer: 5
   m_Name: StatsTXT
@@ -264,6 +265,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194954184}
   m_CullTransparentMesh: 1
+--- !u!114 &194954188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194954184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a48123cbe6412743aadf08db94cc48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayBanner: {fileID: 1869448232}
+  textMeshProUGUI: {fileID: 0}
+  bannertext: 
+  statsString: 
+  satisfiedCustomers: 0
+  disastisfiedCustomers: 0
+  points: 0
 --- !u!1 &274381667
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,6 +116,7 @@ public class CustomerManager : MonoBehaviour
     {
         satisfiedCustomerCounter++;
         uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
+        GameManager.instance.UpdateCustomerCounter(satisfiedCustomerCounter);
     }
 
 

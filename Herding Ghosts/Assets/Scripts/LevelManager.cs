@@ -62,6 +62,7 @@ public class LevelManager : MonoBehaviour
 
     public void NightDayScene()
     {
+        GameManager.instance.IncrementDay();
         SceneManager.LoadScene("NightToDayCutscene", LoadSceneMode.Single);
     }
 

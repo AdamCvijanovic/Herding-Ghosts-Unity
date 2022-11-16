@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class BedScript : MonoBehaviour
 {
     public LevelManager levelManager;
+    public bool sleepActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,11 @@ public class BedScript : MonoBehaviour
 
     public void Sleep()
     {
-        Debug.Log("Sleep");
-        levelManager.EndDay();
+        if (!sleepActive)
+        {
+            Debug.Log("Sleep");
+            levelManager.EndDay();
+            sleepActive = true;
+        }
     }
 }
