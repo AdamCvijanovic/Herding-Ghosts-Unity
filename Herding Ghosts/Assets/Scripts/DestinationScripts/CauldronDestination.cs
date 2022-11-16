@@ -83,7 +83,7 @@ public class CauldronDestination : WorkstationDestination
 
                 case ItemState.HasntItems:
 
-                    this.OnHasntItems.Invoke();
+                    //this.OnHasntItems.Invoke();
                 
                 break;
             }
