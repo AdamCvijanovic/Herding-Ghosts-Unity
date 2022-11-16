@@ -10815,6 +10815,7 @@ GameObject:
   - component: {fileID: 726345074}
   - component: {fileID: 726345075}
   - component: {fileID: 726345076}
+  - component: {fileID: 726345077}
   m_Layer: 0
   m_Name: PrepTableImg
   m_TagString: Untagged
@@ -10915,6 +10916,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.75, y: 1.4375}
   m_EdgeRadius: 0
+--- !u!95 &726345077
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726345073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71947592fc3d7dc418361c1154391368, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &738123057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17087,17 +17108,125 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 507201363501245101, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104284781434005094, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0677993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104284781434005094, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0677993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104284781434005094, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0677993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104284781434005094, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661014235032671724, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.400007
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092327476252992276, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 58.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358705958282276, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358705958282276, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358705958282276, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376358707149259260, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
       value: A jar of honey
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477634468854591105, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 45.2034
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477634468854591105, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 45.2034
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477634468854591105, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.76800513
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477634468854591105, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477634468854591105, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746491977874180357, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746491977874180357, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073374899863099174, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 474c2d29fa4ea3141b7f487530b41a71, type: 3}
+    - target: {fileID: 4073374899863099174, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073374899863099174, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073374899863099174, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4202432065120799972, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
       value: Ectoplasm
       objectReference: {fileID: 0}
+    - target: {fileID: 4211095733823277017, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211095733823277017, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4790800399409706274, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_text
       value: Items stored in the pantry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969137378636507851, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969137378636507851, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 58.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688476763334286387, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 6164959786665970303, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
@@ -17194,6 +17323,54 @@ PrefabInstance:
     - target: {fileID: 6544090748486202630, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616515359707558, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.53572917
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616515359707558, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.70658606
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616515359707558, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.71553016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186616515359707558, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -23.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604370821736364286, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.400007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746049904179865601, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 474c2d29fa4ea3141b7f487530b41a71, type: 3}
+    - target: {fileID: 7921912101270501472, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -34.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921912101270501472, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 58.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287311729970322179, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1061
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287311729970322179, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1061
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287311729970322179, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1061
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287311730624315099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8381629604895318528, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: ingredientDescription
