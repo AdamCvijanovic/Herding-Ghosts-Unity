@@ -64,7 +64,7 @@ public class PurgeLever : MonoBehaviour
 
     public void PurgeCauldron()
     {
-        _cauldron.ClearInventory();
+        _cauldron.PurgeCauldron();
     }
 
 }
