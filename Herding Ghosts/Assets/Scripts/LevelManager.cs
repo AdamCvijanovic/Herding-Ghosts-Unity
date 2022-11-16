@@ -55,6 +55,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Game_Credits", LoadSceneMode.Single);
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+    }
+
     public void NightDayScene()
     {
         SceneManager.LoadScene("NightToDayCutscene", LoadSceneMode.Single);

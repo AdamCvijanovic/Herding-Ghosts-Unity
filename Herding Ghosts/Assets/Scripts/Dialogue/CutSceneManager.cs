@@ -204,6 +204,7 @@ public class CutSceneManager : MonoBehaviour
                 Debug.Log("Customer");
                 playerNameplate.SetActive(false);
                 if(isThereCustomer == true){customerNameplate.SetActive(true);}
+                customerNameText.text = currSentence.customerName;
                 //if(playerImageColored == true){playerIMG.color = colorChange;}
                 customerIMG.color = Color.white;
                 playerIMG.color = colorChange;
