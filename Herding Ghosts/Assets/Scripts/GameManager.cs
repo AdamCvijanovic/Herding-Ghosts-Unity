@@ -33,4 +33,10 @@ public class GameManager : MonoBehaviour
         // Do not destroy this object, when we load a new scene.
         DontDestroyOnLoad(gameObject);
     }
+
+    public void UpdateCustomerCounter(int i)
+    {
+        customersServed = i;
+    }
+
 }
