@@ -1150,6 +1150,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1730781182}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: grandmaImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b21b302f38454e47a163f2e97d7c871, type: 3}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerIMG
       value: 
       objectReference: {fileID: 1377240968}
@@ -1161,6 +1165,14 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1377240963}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerIMGOne
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b21b302f38454e47a163f2e97d7c871, type: 3}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerIMGTwo
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b21b302f38454e47a163f2e97d7c871, type: 3}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: playerAnimator
       value: 
@@ -1177,6 +1189,10 @@ PrefabInstance:
       propertyPath: customerAnimator
       value: 
       objectReference: {fileID: 1377240966}
+    - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: customerIMGThree
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b21b302f38454e47a163f2e97d7c871, type: 3}
     - target: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
       propertyPath: customerNameText
       value: 
@@ -17144,49 +17160,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 47.399902
-      objectReference: {fileID: 0}
-    - target: {fileID: 1178235405718564190, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -47.099976
-      objectReference: {fileID: 0}
-    - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: A jar of honey
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202432065120799972, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Ectoplasm
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790800399409706274, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_text
-      value: Items stored in the pantry
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2430309
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2430309
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2430309
-      objectReference: {fileID: 0}
-    - target: {fileID: 5204531729746204092, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -950
-      objectReference: {fileID: 0}
-    - target: {fileID: 6164959786665970303, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Boba pearls
-      objectReference: {fileID: 0}
-    - target: {fileID: 6465133914587672895, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Sugar
+    - target: {fileID: 855561150, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
@@ -17276,14 +17252,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6544090748604841782, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 1.024339
       objectReference: {fileID: 0}
-    - target: {fileID: 8381629604895318528, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Fresh Milk
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 289.9
       objectReference: {fileID: 0}
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 263.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.97119063
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403234331212153368, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.31915283
+      objectReference: {fileID: 0}
+    - target: {fileID: 8403234331212153370, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b21b302f38454e47a163f2e97d7c871, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -17301,11 +17297,6 @@ MonoBehaviour:
 --- !u!1 &1377240960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7146125261833370680, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1377240961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 909377303461656291, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1377240962 stripped
@@ -17329,26 +17320,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7146125261759521901, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1377240965
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377240961}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b83fe827056ff774ab78212eefdce9c9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &1377240966 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8403234331212153369, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -26406,6 +26377,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1606490058}
     m_Modifications:
+    - target: {fileID: 4801131164285268664, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801131164285268664, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.954
+      objectReference: {fileID: 0}
     - target: {fileID: 7869369987924524962, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -26449,6 +26428,10 @@ PrefabInstance:
     - target: {fileID: 7869369987924524962, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869369987924524963, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7869369987924524989, guid: 208bb156df4ae21469c663c3496ce740, type: 3}
       propertyPath: m_Name

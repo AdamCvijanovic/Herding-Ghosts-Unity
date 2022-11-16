@@ -244,8 +244,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1493358200}
   - {fileID: 2118892293975042785}
+  - {fileID: 1493358200}
   m_Father: {fileID: 6544090748486202626}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1110,6 +1110,7 @@ GameObject:
   - component: {fileID: 1823483467425069097}
   - component: {fileID: 3916773716412049721}
   - component: {fileID: 1186731109}
+  - component: {fileID: 1377240965}
   m_Layer: 5
   m_Name: Customer_Clock
   m_TagString: Untagged
@@ -1189,7 +1190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCounting: 0
-  maxTime: 150
+  maxTime: 15
   currentTime: 0
   _animator: {fileID: 0}
   _countdownCompleteEvent:
@@ -1207,6 +1208,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &1377240965
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909377303461656291}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b83fe827056ff774ab78212eefdce9c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1030183197703748139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,9 +3005,9 @@ RectTransform:
   - {fileID: 6544090748604841777}
   - {fileID: 2542174866881755490}
   - {fileID: 7916891030369914125}
+  - {fileID: 855561151}
   - {fileID: 8403234331212153368}
   - {fileID: 7333399054690047502}
-  - {fileID: 855561151}
   - {fileID: 7780018310833867637}
   - {fileID: 404569272146155244}
   - {fileID: 3685804390712296087}
@@ -2997,7 +3018,7 @@ RectTransform:
   - {fileID: 2376358707149259261}
   - {fileID: 1178235405718564190}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4961,15 +4982,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3005
+      value: 1.2430309
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.3005
+      value: 1.2430309
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.3005
+      value: 1.2430309
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5001,7 +5022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -813
+      value: -950
       objectReference: {fileID: 0}
     - target: {fileID: 5204531730060484647, guid: 9de31162f3576b24b9333e0b538df1b7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5922,11 +5943,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 95ff0e4f5a4f7c74bbc54cb4e6c7ca73, type: 3}
     - target: {fileID: 465737699196749812, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: ingredientDescription
-      value: A boba
+      value: Boba pearls
       objectReference: {fileID: 0}
     - target: {fileID: 738646078332501172, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 738646078332501172, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: ingredientDescription
+      value: Sugar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262309923077175465, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: m_text
+      value: Items stored in the pantry
       objectReference: {fileID: 0}
     - target: {fileID: 1307637315257835857, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6060,6 +6089,10 @@ PrefabInstance:
       propertyPath: pantryUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2857938638527049611, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: ingredientDescription
+      value: Fresh Milk
+      objectReference: {fileID: 0}
     - target: {fileID: 3855933124762538013, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6130,7 +6163,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0e53762eff96bb1469976fd22183873f, type: 3}
     - target: {fileID: 7614177438386798959, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: ingredientDescription
-      value: an ectoplasm
+      value: Ectoplasm
       objectReference: {fileID: 0}
     - target: {fileID: 7752174860666565647, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
@@ -6151,6 +6184,10 @@ PrefabInstance:
     - target: {fileID: 8473692014313924644, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: pantryUI
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473692014313924644, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
+      propertyPath: ingredientDescription
+      value: A jar of honey
       objectReference: {fileID: 0}
     - target: {fileID: 8491864613403290895, guid: fac84a5a2e572e543b00af8144cf5d56, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
