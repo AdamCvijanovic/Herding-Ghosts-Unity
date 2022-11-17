@@ -17190,38 +17190,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1186731109, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: maxTime
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186731109, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: _animatorHand
-      value: 
-      objectReference: {fileID: 2000368146}
-    - target: {fileID: 2761211802468091402, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2765331421031867823, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: A jar of honey
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202432065120799972, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Ectoplasm
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790800399409706274, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: m_text
-      value: Items stored in the pantry
-      objectReference: {fileID: 0}
-    - target: {fileID: 6164959786665970303, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Boba pearls
-      objectReference: {fileID: 0}
-    - target: {fileID: 6465133914587672895, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Sugar
-      objectReference: {fileID: 0}
     - target: {fileID: 6544090748486202626, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -17310,12 +17278,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8381629604895318528, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-      propertyPath: ingredientDescription
-      value: Fresh Milk
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2761211802468091402, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
 --- !u!114 &1377240959 stripped
@@ -21643,6 +21606,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrystalBall
       objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: conversation.sentences.Array.data[0]
+      value: Good morning Lavender. I hope your looking forward to another day of
+        baking, gardening and selling.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: conversation.sentences.Array.data[1]
+      value: When a customer enters the Shop (top left) make sure to pay attention
+        to what they want my dear, cant be giving a customer the wrong thing now
+        can't we.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: conversation.sentences.Array.data[3]
+      value: Remember to keep an eye on the Greenhouse and Pantry, wouldnt want to
+        run out of something and leave the customer waiting too long.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932405315982681550, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
+      propertyPath: conversation.sentences.Array.data[5]
+      value: (To craft a tasty treat you must gather the ingredients from either
+        the Greenhouse or the Pantry, both located in the upper right of the map)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4965c3c9130f2374ea840e21915701f5, type: 3}
@@ -23568,11 +23552,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6032504776814986532, guid: 05f4d6625e87eea4baa223e5bb9e3c92, type: 3}
   m_PrefabInstance: {fileID: 1969334847}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2000368146 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1377240965, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
-  m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2009160170
 PrefabInstance:
