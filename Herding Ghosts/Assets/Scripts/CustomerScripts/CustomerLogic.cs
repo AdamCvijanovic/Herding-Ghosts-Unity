@@ -136,8 +136,17 @@ public class CustomerLogic : MonoBehaviour
     {
         Item desiredFoodItem = counter.GetCounterInventory().GrabFoodOfType(_customer._desiredFood).GetComponent<Item>();
         _customer.GetPickup().PickupItem(desiredFoodItem);
+
+        //Reset Timer
+        //FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().ResetClock();
+        Debug.Log("TIMER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
+        FindObjectOfType<CanvasManager>().RestartTimer();
+        Debug.Log("TIMER AFTER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
+
         _customer.isSatisfied = true;
+
         
+
     }
 
     public void CustomerDisatisfied()

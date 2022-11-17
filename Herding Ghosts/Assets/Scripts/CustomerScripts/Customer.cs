@@ -165,6 +165,8 @@ public class Customer : MonoBehaviour
     public void AmSatisfied()
     {
         _customerMngr.IncrementCounter();
+        
+        
     }
 
     public void DynamicLayering()

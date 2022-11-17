@@ -162,6 +162,11 @@ public class CanvasManager : MonoBehaviour
         timerUI.GetComponent<UITImerClock>().StopClock();
     }
 
+    public void RestartTimer()
+    {
+        timerUI.GetComponent<UITImerClock>().ResetClock();
+    }
+
     public void UpdateTimerGFX()
     {
         //old timer

@@ -32,6 +32,9 @@ public class UITImerClock : MonoBehaviour
     {
         isCounting = false;
         currentTime = maxTime;
+        
+        // ideally we should have a animation function
+        _animatorHand.SetFloat("TimerProgression", 1 - (currentTime / maxTime));
     }
 
     public void StartClock()
@@ -41,7 +44,7 @@ public class UITImerClock : MonoBehaviour
 
     public void StopClock()
     {
-        isCounting = true;
+        isCounting = false;
     }
 
     public void Countdown()
