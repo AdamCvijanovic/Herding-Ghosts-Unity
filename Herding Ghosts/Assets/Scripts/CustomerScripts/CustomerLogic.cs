@@ -154,8 +154,9 @@ public class CustomerLogic : MonoBehaviour
         Debug.Log("TIMER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
         FindObjectOfType<CanvasManager>().RestartTimer();
         Debug.Log("TIMER AFTER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
-
         _customer.isSatisfied = true;
+        _customer.GetCustomerManager().IncrementCounter();
+
     }
 
     public void CustomerDisatisfied()

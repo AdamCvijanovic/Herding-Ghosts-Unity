@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateDisatisfiedCustomerCounter(int i)
     {
-        satisfiedCustomers = i;
+        disastisfiedCustomers = i;
     }
 
     public void UpdatePoints(int i)
