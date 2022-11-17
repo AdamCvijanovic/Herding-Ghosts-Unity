@@ -1247,6 +1247,9 @@ MonoBehaviour:
   dayColor: {r: 0, g: 0, b: 0, a: 0}
   nightColor: {r: 0, g: 0, b: 0, a: 0}
   maxCustomerCount: 0
+  dayNumber: 0
+  isStoreOpen: 0
+  minCustomersServed: 0
   _ActivateEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2026,12 +2029,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 050fd663716bbe34fb1bb968ab23a78a, type: 2}
     - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 421.9388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 278.4854
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.64951974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1679367
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.30454284
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 236.03
+      value: 331
       objectReference: {fileID: 0}
     - target: {fileID: 1657681750222314840, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14.10498
+      value: -2.5533
       objectReference: {fileID: 0}
     - target: {fileID: 4129319288942242370, guid: 55031b86a37164c43ab51e684ca3caaa, type: 3}
       propertyPath: m_Pivot.x
