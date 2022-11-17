@@ -11,7 +11,7 @@ public class Ghost : MonoBehaviour
     [SerializeField]
     Pickup ghostPickup;
 
-    GhostManager _ghostMngr;
+    protected GhostManager _ghostMngr;
 
     // Start is called before the first frame update
     void Awake()

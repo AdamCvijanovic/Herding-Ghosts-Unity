@@ -27,7 +27,20 @@ public class BroomItem : Item
     // Update is called once per frame
     void Update()
     {
+        UpdateHeldAnim();
         
+    }
+
+    public void UpdateHeldAnim()
+    {
+        if (_isHeld)
+        {
+            _anim.SetBool("Held",true);
+        }
+        else
+        {
+            _anim.SetBool("Held", false);
+        }
     }
 
     public void CheckPlayerDir()

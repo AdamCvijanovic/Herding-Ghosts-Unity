@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 543612440}
   - component: {fileID: 7626546614166398566}
   - component: {fileID: 8214734184018180120}
+  - component: {fileID: 1055283829}
   m_Layer: 0
   m_Name: GhibliGhost
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8978591418617188289
 SpriteRenderer:
@@ -120,11 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf86bb924f3a98b49973a83412a8449b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostLogic: {fileID: 0}
+  ghostPickup: {fileID: 0}
   _maxHealth: 100
   _currhealth: 100
   alive: 1
   _stunTime: 0
   _banishFXPrefab: {fileID: 8860349572874038794, guid: e04c0c6fd2b7677439474291add15aaa, type: 3}
+  _ectoplasmPrefab: {fileID: 272730741210586799, guid: 17f9caa49441a604193d7e3a1f3cc092, type: 3}
 --- !u!50 &7626546614166398566
 Rigidbody2D:
   serializedVersion: 4
@@ -162,3 +166,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.375
+--- !u!114 &1055283829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978591418617188295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dc4024d78bcdb418054ade7912284d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprRndr: {fileID: 8978591418617188289}
+  defaultMaterial: {fileID: 2100000, guid: 05fd07fc76aa97a4d89317802d47d40c, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
+  _ActivateEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  pickupString: Sweep Ghost
+  useString: 

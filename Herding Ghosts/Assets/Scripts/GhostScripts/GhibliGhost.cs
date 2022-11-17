@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhibliGhost : MonoBehaviour
+public class GhibliGhost : Ghost
 {
     
     [Header("Health")]
@@ -22,7 +22,7 @@ public class GhibliGhost : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _ghostMngr = FindObjectOfType<GhostManager>();
     }
 
     // Update is called once per frame
@@ -71,6 +71,12 @@ public class GhibliGhost : MonoBehaviour
         {
             Instantiate(_banishFXPrefab, transform.position, Quaternion.identity);
             Instantiate(_ectoplasmPrefab, transform.position, Quaternion.identity);
+            _ghostMngr.RemoveGhost(this);
+            if (FindObjectOfType<PlayerPickup>().ExistsInInteractable(GetComponent<Interactable>()))
+            {
+                FindObjectOfType<PlayerPickup>()._nearbyinteractables.Remove(GetComponent<Interactable>());
+                FindObjectOfType<PlayerPickup>().nearInteractable = null;
+            }
             //_ghostMngr.RemoveGhost(this.GetComponent<Ghost>());
             Destroy(this.gameObject, .2f);
         }

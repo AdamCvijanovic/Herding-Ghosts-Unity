@@ -199,7 +199,17 @@ public class Pickup : MonoBehaviour
         return nearestInteractable;
     }
 
-
+    public bool ExistsInInteractable(Interactable interactable)
+    {
+        if(_nearbyinteractables.Contains(interactable))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public Transform GetHolderTransform()
     {
         return _itemHolder;
