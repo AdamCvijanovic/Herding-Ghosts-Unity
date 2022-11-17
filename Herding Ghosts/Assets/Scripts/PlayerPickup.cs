@@ -17,6 +17,8 @@ public class PlayerPickup : Pickup
     void Update()
     {
         //UpdateTutorialText();
+        if(GetNearestInteractable() != null)
+            GetNearestInteractable().UpdateHelpTextPickup();
     }
 
     public void PickupDropAction(InputAction.CallbackContext context)
