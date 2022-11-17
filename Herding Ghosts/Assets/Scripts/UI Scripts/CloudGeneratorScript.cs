@@ -5,15 +5,15 @@ using UnityEngine;
 public class CloudGeneratorScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject [] clouds;
+    public GameObject [] clouds;
 
     [SerializeField]
-    float spawnInterval;
+    public float spawnInterval;
 
     [SerializeField]
-    GameObject endPoint;
+    public GameObject endPoint;
 
-    Vector3 startPos;
+    public Vector3 startPos;
 
 
     // Start is called before the first frame update
@@ -29,7 +29,8 @@ public class CloudGeneratorScript : MonoBehaviour
     void SpawnCloud(Vector3 startPos)
     {
         int randomIndex = UnityEngine.Random.Range(0, clouds.Length);
-        GameObject cloud = Instantiate(clouds[randomIndex]);
+        GameObject cloud = Instantiate(clouds[randomIndex],Vector3.zero,Quaternion.identity);
+        cloud.GetComponent<CloudScript>().StartFloating(2, endPoint.transform.position.x);
 
         float startY = UnityEngine.Random.Range(startPos.y - 1.5f, startPos.y + 1.5f);
         cloud.transform.position = new Vector3(startPos.x, startY, startPos.z);

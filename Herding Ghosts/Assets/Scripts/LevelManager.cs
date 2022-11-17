@@ -67,11 +67,12 @@ public class LevelManager : MonoBehaviour
     public void RollCredits2()
     {
         SceneManager.LoadScene("Game_Credits", LoadSceneMode.Single);
+        GameManager.instance.ClearAllFields();
     }
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu NEW", LoadSceneMode.Single);
     }
 
     public void NightDayScene()

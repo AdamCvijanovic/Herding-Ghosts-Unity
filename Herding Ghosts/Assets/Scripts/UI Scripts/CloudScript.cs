@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CloudScript : MonoBehaviour
 {
-    private float _speed;
-    private float _endPosX;
+    public float _speed;
+    public float _endPosX;
     
     public void StartFloating(float speed, float endPosX)
     {
