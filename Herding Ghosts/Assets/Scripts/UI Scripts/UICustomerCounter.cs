@@ -24,7 +24,9 @@ public class UICustomerCounter : MonoBehaviour
 
     public void UpdateCounter(int count)
     {
-        counterText.text = "SatisfiedCustomers" + " \n" + count;
+        LevelManager level = FindObjectOfType<LevelManager>();
+
+        counterText.text = "Day " + level.dayNumber +  "\n " + (level.maxCustomerCount - count) + " Customers Left to Serve Today ";
     }
 
 

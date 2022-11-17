@@ -52,4 +52,12 @@ public class GameManager : MonoBehaviour
         ++dayNumber;
     }
 
+    public void ClearAllFields()
+    {
+        satisfiedCustomers = 0;
+        disastisfiedCustomers = 0;
+        points = 0;
+        dayNumber = 0;
+}
+
 }

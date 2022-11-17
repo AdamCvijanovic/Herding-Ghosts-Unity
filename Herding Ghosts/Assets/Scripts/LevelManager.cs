@@ -14,6 +14,11 @@ public class LevelManager : MonoBehaviour
     public Color nightColor;
 
     public int maxCustomerCount;
+    public int dayNumber;
+
+
+    public bool isStoreOpen;
+    public bool minCustomersServed;
 
     //end cutscene event
     public UnityEvent _ActivateEvent = new UnityEvent();
@@ -67,11 +72,12 @@ public class LevelManager : MonoBehaviour
     public void RollCredits2()
     {
         SceneManager.LoadScene("Game_Credits", LoadSceneMode.Single);
+        GameManager.instance.ClearAllFields();
     }
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainMenu NEW", LoadSceneMode.Single);
     }
 
     public void NightDayScene()
@@ -92,14 +98,17 @@ public class LevelManager : MonoBehaviour
     {
         switch (GameManager.instance.dayNumber)
         {
-            case 3:
+            case 0:
                 maxCustomerCount = 1;
+                dayNumber = 1;
+                break;
+            case 3:
+                maxCustomerCount = 3;
+                dayNumber = 2;
                 break;
             case 6:
-                maxCustomerCount = 3;
-                break;
-            case 9:
                 maxCustomerCount = 5;
+                dayNumber = 3;
                 break;
             default:
                 maxCustomerCount = 1;
