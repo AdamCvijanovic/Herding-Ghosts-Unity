@@ -45,7 +45,7 @@ public class CustomerManager : MonoBehaviour
 
     public void OpenStore()
     {
-
+        uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
     }
 
     public Customer GetCurrentCustomer()

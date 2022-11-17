@@ -34,5 +34,7 @@ public class Door_Open_Script : MonoBehaviour
 
         FindObjectOfType<CustomerSpawnerDestination>().RestartCounter();
 
+        FindObjectOfType<CustomerManager>().OpenStore();
+
     }
 }
