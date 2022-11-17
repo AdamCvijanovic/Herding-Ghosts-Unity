@@ -123,10 +123,10 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/SoundEffects.bank
   Name: SoundEffects
   StudioPath: bank:/SoundEffects
-  lastModified: 638036862911793418
+  lastModified: 638042987135275070
   FileSizes:
   - Name: Desktop
-    Value: 650976
+    Value: 706176
   Exists: 1
 --- !u!114 &-4693092612004403561
 MonoBehaviour:
@@ -299,12 +299,14 @@ MonoBehaviour:
   - {fileID: 7619827561761564761}
   - {fileID: 8916604259911165909}
   - {fileID: -8970727833648892096}
+  - {fileID: 1802725827143744060}
+  - {fileID: 7830076303957951312}
   EditorParameters: []
   MasterBanks:
   - {fileID: 134670157265388788}
   StringsBanks:
   - {fileID: 2380887785565191657}
-  cacheTime: 638036862911793418
+  cacheTime: 638042987135275070
   cacheVersion: 10
 --- !u!114 &134670157265388788
 MonoBehaviour:
@@ -321,7 +323,7 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638036862911751181
+  lastModified: 638042987134375356
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -380,6 +382,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 10000
+--- !u!114 &1802725827143744060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ouija_time_-_Menu_theme_master
+  m_EditorClassIdentifier: 
+  Path: event:/Ouija_time_-_Menu_theme_master
+  Guid:
+    Data1: -949318478
+    Data2: 1219428085
+    Data3: 1164663173
+    Data4: 90945346
+  Banks:
+  - {fileID: 3855002224276222848}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 67369
 --- !u!114 &2380887785565191657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,10 +424,10 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638036862911761138
+  lastModified: 638042987134385312
   FileSizes:
   - Name: Desktop
-    Value: 1736
+    Value: 1840
   Exists: 1
 --- !u!114 &2570131712092469843
 MonoBehaviour:
@@ -442,10 +471,10 @@ MonoBehaviour:
   Path: Assets/Fmod/Build/Desktop/BGMusic.bank
   Name: BGMusic
   StudioPath: bank:/BGMusic
-  lastModified: 638036862911741145
+  lastModified: 638042987134365390
   FileSizes:
   - Name: Desktop
-    Value: 1262112
+    Value: 2203968
   Exists: 1
 --- !u!114 &4516426165629902671
 MonoBehaviour:
@@ -555,6 +584,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 557
+--- !u!114 &7830076303957951312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ouija_time_-_bedtime_charm
+  m_EditorClassIdentifier: 
+  Path: event:/Ouija_time_-_bedtime_charm
+  Guid:
+    Data1: 2127292764
+    Data2: 1215419698
+    Data3: -1453312362
+    Data4: -438495170
+  Banks:
+  - {fileID: -6339252191906995112}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4210
 --- !u!114 &8292418051491005838
 MonoBehaviour:
   m_ObjectHideFlags: 0
