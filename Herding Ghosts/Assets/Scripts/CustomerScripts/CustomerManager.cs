@@ -114,6 +114,12 @@ public class CustomerManager : MonoBehaviour
 
     public void IncrementCounter()
     {
+        //Reset Timer
+        //FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().ResetClock();
+        Debug.Log("TIMER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
+        FindObjectOfType<CanvasManager>().RestartTimer();
+        Debug.Log("TIMER AFTER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
+
         satisfiedCustomerCounter++;
         uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
         GameManager.instance.UpdateCustomerCounter(satisfiedCustomerCounter);

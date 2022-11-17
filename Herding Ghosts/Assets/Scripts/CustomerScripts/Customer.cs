@@ -164,6 +164,7 @@ public class Customer : MonoBehaviour
 
     public void AmSatisfied()
     {
+        _customerLogic.CustomerSatisfied();
         _customerMngr.IncrementCounter();
         
         

@@ -9876,6 +9876,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5080916752356339120, guid: bb31881ddf12797409011b14b80bfd95, type: 3}
   m_PrefabInstance: {fileID: 433981415}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &438533563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 741879939566126621, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
+  m_PrefabInstance: {fileID: 1142865795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &447795686 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4929217827660584755, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
@@ -14651,23 +14656,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 2
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1693940765}
     m_Modifications:
     - target: {fileID: 741879939566126619, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
       propertyPath: m_Name
-      value: GrannyFluffines
+      value: GrannyFluffinesGFX
       objectReference: {fileID: 0}
     - target: {fileID: 741879939566126621, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 741879939566126621, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 741879939566126621, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 741879939566126621, guid: 73bc7501e0d92564fb9f874b887db7a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20697,6 +20702,38 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8287311730624315099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
   m_PrefabInstance: {fileID: 1377240958}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1693940764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693940765}
+  m_Layer: 0
+  m_Name: GrannyFluffins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693940765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693940764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.54, y: 4.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 438533563}
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1707453797
 GameObject:
   m_ObjectHideFlags: 0
