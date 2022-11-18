@@ -31,14 +31,14 @@ public class Door_Anim_Script : MonoBehaviour
 
     public void OpenDoor()
     {
-        doorOpenSfx.PlaySoundEvent();
+        //doorOpenSfx.PlaySoundEvent();
         emptyBellSfx.PlaySoundEvent();
         doorAnimator.SetTrigger("Open");
     }
 
     public void CloseDoor()
     {
-        doorCloseSfx.PlaySoundEvent();
+        //doorCloseSfx.PlaySoundEvent();
         doorAnimator.ResetTrigger("Open");
         doorAnimator.SetTrigger("Close");
     }
