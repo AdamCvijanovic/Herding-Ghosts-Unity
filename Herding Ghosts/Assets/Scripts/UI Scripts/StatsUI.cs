@@ -38,7 +38,7 @@ public class StatsUI : MonoBehaviour
             disastisfiedCustomers = GameManager.instance.disastisfiedCustomers;
             points = GameManager.instance.points;
 
-            statsString = "Satisfied Customers " + satisfiedCustomers + "\n\n Disatisfied Customers " + disastisfiedCustomers + "\n\n Points " + points;
+            statsString = "Satisfied Customers " + satisfiedCustomers + "\n\n Disatisfied Customers " + disastisfiedCustomers /*+ "\n\n Points " + points*/;
 
             textMeshProUGUI.text = statsString;
         }
