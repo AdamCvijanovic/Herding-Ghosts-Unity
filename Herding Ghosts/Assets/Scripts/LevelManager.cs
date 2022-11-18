@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public int maxCustomerCount;
     public int dayNumber;
 
+    public float remainingCustomers;
 
     public bool isStoreOpen;
     public bool minCustomersServed;
@@ -34,7 +35,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        remainingCustomers = (maxCustomerCount - FindObjectOfType<GameManager>().satisfiedCustomers);
     }
 
     public void StartDay()

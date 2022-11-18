@@ -1187,6 +1187,7 @@ MonoBehaviour:
   nightColor: {r: 0, g: 0, b: 0, a: 0}
   maxCustomerCount: 0
   dayNumber: 0
+  remainingCustomers: 0
   isStoreOpen: 0
   minCustomersServed: 0
   _ActivateEvent:
@@ -11502,6 +11503,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.619
       objectReference: {fileID: 0}
+    - target: {fileID: 1415389831, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3600591125283282854, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.619
@@ -11553,6 +11558,10 @@ PrefabInstance:
     - target: {fileID: 5334532694047523550, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450920668705841803, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8335720832428418041, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12525,6 +12534,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849936865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7356700220326871200, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+  m_PrefabInstance: {fileID: 1377240958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ade63cdd8a5c6248b885e927a7bfe4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &910289094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3111519262476121522, guid: 64d9afee0ee04a047b3f9d03230385ab, type: 3}
@@ -21330,6 +21350,26 @@ PrefabInstance:
     - target: {fileID: 9089031462530899493, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03000021
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849936865}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849936865}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GrimoireToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GrimoireToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CanvasManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9089031463761900624, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_LocalPosition.x

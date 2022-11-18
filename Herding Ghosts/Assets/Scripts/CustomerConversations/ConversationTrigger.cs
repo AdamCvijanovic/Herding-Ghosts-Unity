@@ -118,7 +118,6 @@ public class ConversationTrigger : MonoBehaviour
             if (_customer.IsPlayerHoldingItem() && _customer.IsPlayerHoldingDesiredItem())
             {
                 _customer.PickupDesiredItem();
-                _customer.AmSatisfied();
                 _customer.GetCustomerLogic().SetState(CustomerLogic.CustomerState.Leaving);
                 if (FindObjectOfType<PlayerPickup>()._isHolding)
                 {

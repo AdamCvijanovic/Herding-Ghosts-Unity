@@ -160,14 +160,12 @@ public class Customer : MonoBehaviour
         Item item = FindObjectOfType<PlayerPickup>()._currentItem;
         FindObjectOfType<PlayerPickup>().Drop();
         _customerPickup.PickupItem(item);
+        AmSatisfied();
     }
 
     public void AmSatisfied()
     {
         _customerLogic.CustomerSatisfied();
-        _customerMngr.IncrementCounter();
-        
-        
     }
 
     public void DynamicLayering()
