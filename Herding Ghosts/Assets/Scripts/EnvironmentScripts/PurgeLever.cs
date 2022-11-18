@@ -33,7 +33,6 @@ public class PurgeLever : MonoBehaviour
         if (isResetting)
         {
             currentTime -= Time.deltaTime;
-            _animator.SetFloat("TimerProgression", -(currentTime / maxTime));
 
             if (currentTime <= 0)
             {

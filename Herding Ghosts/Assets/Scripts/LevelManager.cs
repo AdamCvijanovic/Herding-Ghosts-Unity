@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 
 public class LevelManager : MonoBehaviour
@@ -11,11 +12,11 @@ public class LevelManager : MonoBehaviour
     public CanvasManager canvasManager;
     public UIFadeInOut uiFadeInOut;
 
-    public UnityEngine.Rendering.Universal.Light2D globalLight;
+    public Light2D globalLight;
     public Color dayColor;
     public Color nightColor;
     public float colorTime = 0;
-    public float colorIncrement = 0.025f;
+    float colorIncrement = 0.2f;
 
     public int maxCustomerCount;
     public int dayNumber;
@@ -32,9 +33,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.instance.ResetDailyCounters();
         canvasManager = FindObjectOfType<CanvasManager>();
         uiFadeInOut = FindObjectOfType<UIFadeInOut>();
         SetMaxCustomers();
+        ResetLightingTimer();
     }
 
     // Update is called once per frame
@@ -58,40 +61,35 @@ public class LevelManager : MonoBehaviour
             uiFadeInOut.FadeOut();
     }
 
-    public void ChangeLightingDay()
+    public void OpenStore()
     {
-        if (minCustomersServed)
-        {
-            globalLight.color = Color.Lerp(dayColor, nightColor, colorTime);
-        }
-        else
-        {
-            globalLight.color = Color.Lerp(nightColor, dayColor, colorTime);
-        }
-
-        colorTime += Time.deltaTime * colorIncrement;
-
-        if (colorTime >= 1)
-            colorTime = 0;
-            
+        isStoreOpen = true;
     }
 
-    public void ChangeLightingNight()
+    public void ChangeLighting()
     {
-        if (minCustomersServed)
+        if(globalLight != null)
         {
-            globalLight.color = Color.Lerp(dayColor, nightColor, colorTime);
+            if (minCustomersServed)
+            {
+                globalLight.color = Color.Lerp(dayColor, nightColor, colorTime);
+            }
+            else
+            {
+                globalLight.color = Color.Lerp(nightColor, dayColor, colorTime);
+            }
+
+            if (colorTime < 1)
+            {
+                colorTime += Time.deltaTime * colorIncrement;
+            }
         }
-        else
-        {
-            globalLight.color = Color.Lerp(nightColor, dayColor, colorTime);
-        }
+        
+    }
 
-        colorTime += Time.deltaTime * colorIncrement;
-
-        if (colorTime >= 1)
-            colorTime = 0;
-
+    public void ResetLightingTimer()
+    {
+        colorTime = 0;
     }
 
     public void RepeatDay()
@@ -136,6 +134,12 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("ACTIVATE");
         _ActivateEvent.Invoke();
+    }
+
+    public void AllCustomersServedForTheDay()
+    {
+        ResetLightingTimer();
+        minCustomersServed = true;
     }
 
     public void SetMaxCustomers()

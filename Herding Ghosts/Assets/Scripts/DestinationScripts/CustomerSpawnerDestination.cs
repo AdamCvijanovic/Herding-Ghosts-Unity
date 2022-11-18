@@ -7,6 +7,7 @@ public class CustomerSpawnerDestination : Destination
     public List<GameObject> customerPrefabs;
 
     public CustomerManager _customerMngr;
+    public LevelManager _levelManager;
 
     public Transform _spawnPosition;
     public float _spawnTime;
@@ -17,6 +18,8 @@ public class CustomerSpawnerDestination : Destination
     void Start()
     {
         _customerMngr = FindObjectOfType<CustomerManager>();
+        _levelManager = FindObjectOfType<LevelManager>();
+
         countdown = _spawnTime;
 
     }
@@ -24,7 +27,7 @@ public class CustomerSpawnerDestination : Destination
     // Update is called once per frame
     void Update()
     {
-        if(_customerMngr.storeOpen && _customerMngr.GetCurrentCustomer() == null)
+        if(_customerMngr.storeOpen && _customerMngr.GetCurrentCustomer() == null && !_levelManager.minCustomersServed)
             SpawnCountDown(_spawnTime);
     }
 

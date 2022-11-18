@@ -31,12 +31,11 @@ public class Interactable : MonoBehaviour
         
     }
 
-    private void OnDestroy()
+    public void RemoveFromPlayerPickupList()
     {
-        //Do we have an interactable
-        if (GetComponent<Interactable>())
+        //Is Interactable in PlayerPickup list
+        if (FindObjectOfType<PlayerPickup>() != null)
         {
-            //Is Interactable in PlayerPickup list
             PlayerPickup pickup = FindObjectOfType<PlayerPickup>();
             if (pickup._nearbyinteractables.Contains(GetComponent<Interactable>()))
             {
@@ -44,6 +43,17 @@ public class Interactable : MonoBehaviour
                 pickup._nearbyinteractables.Remove(GetComponent<Interactable>());
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        RemoveFromPlayerPickupList();
+    }
+
+    private void OnDisable()
+    {
+        UnHighlight();
+        RemoveFromPlayerPickupList();
     }
 
     //Interaction Systems

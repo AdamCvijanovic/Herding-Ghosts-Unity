@@ -32,9 +32,25 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        
+    }
+
+    public void ResetDailyCounters()
+    {
+        satisfiedCustomers = 0;
+        disastisfiedCustomers = 0;
+    }
+
     public void UpdateCustomerCounter(int i)
     {
         satisfiedCustomers = i;
+
+        if (FindObjectOfType<LevelManager>().maxCustomerCount <= satisfiedCustomers)
+        {
+            FindObjectOfType<LevelManager>().AllCustomersServedForTheDay();
+        }
     }
 
     public void UpdateDisatisfiedCustomerCounter(int i)
@@ -58,6 +74,5 @@ public class GameManager : MonoBehaviour
         disastisfiedCustomers = 0;
         points = 0;
         dayNumber = 0;
-}
-
+    }
 }

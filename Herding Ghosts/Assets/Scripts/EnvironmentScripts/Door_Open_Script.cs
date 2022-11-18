@@ -22,13 +22,21 @@ public class Door_Open_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (FindObjectOfType<LevelManager>().isStoreOpen)
+        {
+            DisableInteractable();
+        }
+    }
+
+    public void DisableInteractable()
+    {
+        GetComponent<Interactable>().UnHighlight();
+        GetComponent<Interactable>().enabled = false;
     }
 
     public void OpenCloseDoor()
     {
         isStoreOpen = !isStoreOpen;
-
 
         _customerMngr.storeOpen = isStoreOpen;
 

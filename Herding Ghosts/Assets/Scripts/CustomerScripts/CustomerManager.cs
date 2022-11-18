@@ -46,6 +46,7 @@ public class CustomerManager : MonoBehaviour
     public void OpenStore()
     {
         uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
+        FindObjectOfType<LevelManager>().OpenStore();
     }
 
     public Customer GetCurrentCustomer()
