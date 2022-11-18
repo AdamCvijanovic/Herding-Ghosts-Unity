@@ -46,6 +46,7 @@ public class RotiRat_Script : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player"))
         {
+            Roti_Animator.Play("Roti_FadeIn"); // was spider back in anim
             rotiCounter = maxCount;
             rotiAlone = true;
         }

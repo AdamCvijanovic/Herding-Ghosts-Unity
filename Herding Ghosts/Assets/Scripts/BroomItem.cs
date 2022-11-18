@@ -35,11 +35,11 @@ public class BroomItem : Item
     {
         if (_isHeld)
         {
-            _anim.SetBool("Held",true);
+            //_anim.SetBool("Held",true);
         }
         else
         {
-            _anim.SetBool("Held", false);
+            //_anim.SetBool("Held", false);
         }
     }
 
