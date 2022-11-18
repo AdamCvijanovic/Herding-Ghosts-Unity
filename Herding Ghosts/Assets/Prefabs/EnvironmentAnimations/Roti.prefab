@@ -148,7 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Roti_Animator: {fileID: 4817486377873644991}
   rotiAlone: 1
-  rotiCounter: 2
+  rotiActive: 1
+  rotiCounter: 10
 --- !u!1 &4817486379169600972
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +269,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4817486379169600972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 56d6d6f4afa41a5489835116f88d9870, type: 2}
   m_CullingMode: 0
