@@ -442,6 +442,8 @@ public class GhostLogic : MonoBehaviour
 
     public void BanishGhost()
     {
+        RemoveFromPlayerPickupList();
+
         _currhealth = 0;
         
         if(alive == true)
@@ -452,5 +454,23 @@ public class GhostLogic : MonoBehaviour
         }
         alive = false;
 
+    }
+
+    public void RemoveFromPlayerPickupList()
+    {
+
+        //Do we have an interactable
+        if (GetComponent<Interactable>())
+        {
+            //Is Interactable in PlayerPickup list
+            PlayerPickup pickup = FindObjectOfType<PlayerPickup>();
+            if (pickup._nearbyinteractables.Contains(GetComponent<Interactable>()))
+            {
+                //If so remove before destroy
+                pickup._nearbyinteractables.Remove(GetComponent<Interactable>());
+            }
+        }
+
+        
     }
 }
