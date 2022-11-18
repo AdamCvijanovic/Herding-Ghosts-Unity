@@ -60,6 +60,8 @@ MonoBehaviour:
   - {fileID: 2683349768714578811, guid: 078f6f1244c3c694299ab525d833c799, type: 3}
   - {fileID: 5248922411377600858, guid: b0f8d0bff6bf27844b54f14d2880bc0e, type: 3}
   - {fileID: 6683675136658945002, guid: 9df61968b13141042857bbc12951ecd0, type: 3}
+  maxDistance: 3
+  dstToPlayer: 0
 --- !u!114 &6188208734484309039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6188208735394628789}
   - component: {fileID: 6188208735394628790}
+  - component: {fileID: 1773045572}
   m_Layer: 0
   m_Name: SeedsImg
   m_TagString: Untagged
@@ -164,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6188208735394628788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,6 +226,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!70 &1773045572
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6188208735394628788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0020170212, y: 0.020126581}
+  m_Size: {x: 0.7914429, y: 1.058671}
+  m_Direction: 0
 --- !u!1 &7528040762027269028
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528040762027269028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.253, y: -0.14, z: 0}
+  m_LocalPosition: {x: -2.02, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

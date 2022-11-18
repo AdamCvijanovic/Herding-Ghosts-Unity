@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour
     public float colorTime = 0;
     float colorIncrement = 0.2f;
 
+    public BedScript bed;
+    public Granny_Anim granny;
+
     public int maxCustomerCount;
     public int dayNumber;
 
@@ -29,6 +32,16 @@ public class LevelManager : MonoBehaviour
 
     //end cutscene event
     public UnityEvent _ActivateEvent = new UnityEvent();
+
+
+    private void Awake()
+    {
+        bed = FindObjectOfType<BedScript>();
+        BedToggle(false);
+
+
+        granny = FindObjectOfType<Granny_Anim>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +77,7 @@ public class LevelManager : MonoBehaviour
     public void OpenStore()
     {
         isStoreOpen = true;
+        GrannyToggle(false);
     }
 
     public void ChangeLighting()
@@ -140,6 +154,19 @@ public class LevelManager : MonoBehaviour
     {
         ResetLightingTimer();
         minCustomersServed = true;
+        BedToggle(true);
+    }
+
+    public void BedToggle(bool state)
+    {
+        if(bed != null)
+            bed.GetComponent<Interactable>().enabled = state;
+    }
+
+    public void GrannyToggle(bool state)
+    {
+        if (granny != null)
+            granny.gameObject.SetActive(state);
     }
 
     public void SetMaxCustomers()
@@ -150,16 +177,19 @@ public class LevelManager : MonoBehaviour
                 maxCustomerCount = 1;
                 dayNumber = 1;
                 isDayOne = true;
+                GrannyToggle(true);
                 break;
             case 3:
                 maxCustomerCount = 3;
                 dayNumber = 2;
                 isDayOne = false;
+                GrannyToggle(false);
                 break;
             case 6:
                 maxCustomerCount = 5;
                 dayNumber = 3;
                 isDayOne = false;
+                GrannyToggle(false);
                 break;
             default:
                 maxCustomerCount = 1;

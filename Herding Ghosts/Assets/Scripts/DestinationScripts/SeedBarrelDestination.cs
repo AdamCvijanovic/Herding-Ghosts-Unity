@@ -10,8 +10,10 @@ public class SeedBarrelDestination : Destination
 
     public Transform spawnPosition;
 
-
     public List<GameObject> seedbagPrefabs = new List<GameObject>();
+
+    public float maxDistance = 4f;
+    public float dstToPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,17 @@ public class SeedBarrelDestination : Destination
     // Update is called once per frame
     void Update()
     {
-        
+        if(UIPanel.activeInHierarchy)
+            PlayerDistanceDisableUI();
+    }
+
+    public void PlayerDistanceDisableUI()
+    {
+        dstToPlayer = Vector3.Distance(FindObjectOfType<Player>().transform.position, transform.position);
+        if (dstToPlayer >= maxDistance)
+        {
+            FindObjectOfType<SeedBarrelUI>().Deactivate();
+        }
     }
 
     public void ActivateSeedBarrelUI()

@@ -43,7 +43,6 @@ public class GhibliGhost : Ghost
     private void GetStunned(BroomItem item)
     {
         //Add sound Effect & Particles
-        Debug.Log("Ouch");
 
         //currentState = State.Stunned;
         //RunState(currentState);

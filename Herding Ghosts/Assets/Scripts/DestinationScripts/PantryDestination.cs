@@ -10,8 +10,10 @@ public class PantryDestination : Destination
 
     public Transform spawnPosition;
 
-
     public List<GameObject> ingredientprefabs = new List<GameObject>();
+
+    public float maxDistance;
+    public float dstToPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,8 @@ public class PantryDestination : Destination
     // Update is called once per frame
     void Update()
     {
-        
+        if (UIPanel.activeInHierarchy)
+            PlayerDistanceDisableUI();
     }
 
     public void ActivatePantryUI()
@@ -40,6 +43,15 @@ public class PantryDestination : Destination
             {
                 Instantiate(i, spawnPosition.transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    public void PlayerDistanceDisableUI()
+    {
+        dstToPlayer = Vector3.Distance(FindObjectOfType<Player>().transform.position, transform.position);
+        if (dstToPlayer >= maxDistance)
+        {
+            FindObjectOfType<PantryUI>().Deactivate();
         }
     }
 }

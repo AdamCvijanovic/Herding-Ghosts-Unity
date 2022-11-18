@@ -74,7 +74,6 @@ public class BroomItem : Item
         CheckPlayerDir();
         FMODUnity.RuntimeManager.PlayOneShot("event:/BroomSwipe");
         _anim.SetTrigger("Swing");
-        Debug.Log("Swing");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
