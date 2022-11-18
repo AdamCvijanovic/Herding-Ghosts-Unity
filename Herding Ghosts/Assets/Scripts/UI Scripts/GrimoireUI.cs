@@ -51,7 +51,6 @@ public class GrimoireUI : MonoBehaviour
     {
         grimoireAnimator.SetBool("isActive",true);
         tooltipAnimator.SetBool("isActive",false);
-
     }
 
     public void animationDeactivate()

@@ -157,14 +157,13 @@ public class CustomerLogic : MonoBehaviour
         _customer.isSatisfied = true;
         _customer.GetCustomerManager().IncrementCounter();
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CoinsSound");
     }
 
     public void CustomerDisatisfied()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CustomerFailed");
         SetState(CustomerLogic.CustomerState.Leaving);
         GameManager.instance.disastisfiedCustomers++;
     }
-
-
-
 }
