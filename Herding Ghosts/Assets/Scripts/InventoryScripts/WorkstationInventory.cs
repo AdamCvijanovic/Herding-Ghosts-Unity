@@ -43,6 +43,7 @@ public class WorkstationInventory : Inventory
             GetComponent<WorkstationDestination>().InventoryCheck();
 
             itemAdded.Invoke();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/PutInCauldron");
         }
     }
 

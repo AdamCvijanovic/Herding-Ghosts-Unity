@@ -156,14 +156,13 @@ public class CustomerLogic : MonoBehaviour
         Debug.Log("TIMER AFTER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
 
         _customer.isSatisfied = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CoinsSound");
     }
 
     public void CustomerDisatisfied()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/CustomerFailed");
         SetState(CustomerLogic.CustomerState.Leaving);
         GameManager.instance.disastisfiedCustomers++;
     }
-
-
-
 }

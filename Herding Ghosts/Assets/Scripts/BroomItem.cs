@@ -59,7 +59,7 @@ public class BroomItem : Item
     {
 
         CheckPlayerDir();
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/BroomSwipe");
         _anim.SetTrigger("Swing");
         Debug.Log("Swing");
     }

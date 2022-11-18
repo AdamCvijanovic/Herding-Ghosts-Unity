@@ -7,6 +7,13 @@ public class Door_Anim_Script : MonoBehaviour
     public Animator doorAnimator;
     public SpriteRenderer sprRndr;
 
+    [SerializeField]
+    private PlayAnFMODEvent emptyBellSfx;
+    [SerializeField]
+    private PlayAnFMODEvent doorOpenSfx;
+    [SerializeField]
+    private PlayAnFMODEvent doorCloseSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +31,14 @@ public class Door_Anim_Script : MonoBehaviour
 
     public void OpenDoor()
     {
+        doorOpenSfx.PlaySoundEvent();
+        emptyBellSfx.PlaySoundEvent();
         doorAnimator.SetTrigger("Open");
     }
 
     public void CloseDoor()
     {
+        doorCloseSfx.PlaySoundEvent();
         doorAnimator.ResetTrigger("Open");
         doorAnimator.SetTrigger("Close");
     }
