@@ -470,7 +470,5 @@ public class GhostLogic : MonoBehaviour
                 pickup._nearbyinteractables.Remove(GetComponent<Interactable>());
             }
         }
-
-        
     }
 }
