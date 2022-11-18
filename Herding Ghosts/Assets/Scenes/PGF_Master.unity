@@ -1194,11 +1194,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasManager: {fileID: 0}
   uiFadeInOut: {fileID: 0}
-  dayColor: {r: 0, g: 0, b: 0, a: 0}
-  nightColor: {r: 0, g: 0, b: 0, a: 0}
+  globalLight: {fileID: 1196387553}
+  dayColor: {r: 1, g: 1, b: 1, a: 0}
+  nightColor: {r: 0.28627452, g: 0.17254902, b: 0.5568628, a: 0}
+  colorTime: 0
+  colorIncrement: 0.05
   maxCustomerCount: 0
   dayNumber: 0
   remainingCustomers: 0
+  isDayOne: 0
   isStoreOpen: 0
   minCustomersServed: 0
   _ActivateEvent:

@@ -4,20 +4,25 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+
 public class LevelManager : MonoBehaviour
 {
 
     public CanvasManager canvasManager;
     public UIFadeInOut uiFadeInOut;
 
+    public UnityEngine.Rendering.Universal.Light2D globalLight;
     public Color dayColor;
     public Color nightColor;
+    public float colorTime = 0;
+    public float colorIncrement = 0.025f;
 
     public int maxCustomerCount;
     public int dayNumber;
 
     public float remainingCustomers;
 
+    public bool isDayOne;
     public bool isStoreOpen;
     public bool minCustomersServed;
 
@@ -36,6 +41,9 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         remainingCustomers = (maxCustomerCount - FindObjectOfType<GameManager>().satisfiedCustomers);
+
+        ChangeLighting();
+
     }
 
     public void StartDay()
@@ -50,6 +58,41 @@ public class LevelManager : MonoBehaviour
             uiFadeInOut.FadeOut();
     }
 
+    public void ChangeLightingDay()
+    {
+        if (minCustomersServed)
+        {
+            globalLight.color = Color.Lerp(dayColor, nightColor, colorTime);
+        }
+        else
+        {
+            globalLight.color = Color.Lerp(nightColor, dayColor, colorTime);
+        }
+
+        colorTime += Time.deltaTime * colorIncrement;
+
+        if (colorTime >= 1)
+            colorTime = 0;
+            
+    }
+
+    public void ChangeLightingNight()
+    {
+        if (minCustomersServed)
+        {
+            globalLight.color = Color.Lerp(dayColor, nightColor, colorTime);
+        }
+        else
+        {
+            globalLight.color = Color.Lerp(nightColor, dayColor, colorTime);
+        }
+
+        colorTime += Time.deltaTime * colorIncrement;
+
+        if (colorTime >= 1)
+            colorTime = 0;
+
+    }
 
     public void RepeatDay()
     {
@@ -102,14 +145,17 @@ public class LevelManager : MonoBehaviour
             case 0:
                 maxCustomerCount = 1;
                 dayNumber = 1;
+                isDayOne = true;
                 break;
             case 3:
                 maxCustomerCount = 3;
                 dayNumber = 2;
+                isDayOne = false;
                 break;
             case 6:
                 maxCustomerCount = 5;
                 dayNumber = 3;
+                isDayOne = false;
                 break;
             default:
                 maxCustomerCount = 1;
