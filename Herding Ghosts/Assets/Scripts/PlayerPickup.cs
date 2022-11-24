@@ -92,6 +92,15 @@ public class PlayerPickup : Pickup
                 PlayerNearInteractable(collision.gameObject);
             }
         }
+
+        if (collision.gameObject.GetComponent<InteractableText>() && collision.gameObject.GetComponent<InteractableText>().enabled)
+        {
+            //if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<InteractableText>()))
+            {
+                //_nearbyinteractables.Add(collision.gameObject.GetComponent<InteractableText>());
+                //PlayerNearInteractableText(collision.gameObject);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -134,7 +143,13 @@ public class PlayerPickup : Pickup
             DisableHelpTextPickup();
         }
 
-        
+        if (collision.gameObject.GetComponent<InteractableText>())
+        {
+            //PlayerLeaveInteractable(collision.gameObject);
+            //DisableHelpTextPickup();
+        }
+
+
     }
 
     public void PlayerNearWorkstation(GameObject go)
@@ -153,6 +168,18 @@ public class PlayerPickup : Pickup
     {
         nearInteractable = go.GetComponent<Interactable>();
         go.GetComponent<Interactable>().Highlight();
+    }
+
+    public void PlayerNearInteractableText(GameObject go)
+    {
+        InteractableText nearInteractableText = go.GetComponent<InteractableText>();
+        nearInteractableText.Highlight();
+    }
+
+    public void PlayerLeaveInteractableText(GameObject go)
+    {
+        InteractableText nearInteractableText = go.GetComponent<InteractableText>();
+        go.GetComponent<Interactable>().UnHighlight();
     }
 
     public void PlayerLeaveInteractable(GameObject go)

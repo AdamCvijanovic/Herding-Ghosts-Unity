@@ -94,6 +94,11 @@ public class CustomerManager : MonoBehaviour
         uiItemPortrait.UpdateImage(foodItemImage._foodItemImage);
     }
 
+    public void ResetPortraitUI()
+    {
+        uiItemPortrait.ResetImage();
+    }
+
     public bool CheckMax()
     {
         return customers.Count < MaxCustomers;

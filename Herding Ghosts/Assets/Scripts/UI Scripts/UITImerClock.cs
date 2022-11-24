@@ -45,6 +45,7 @@ public class UITImerClock : MonoBehaviour
     public void StopClock()
     {
         isCounting = false;
+        _animatorClock.SetFloat("Threshold", maxTime);
     }
 
     public void Countdown()

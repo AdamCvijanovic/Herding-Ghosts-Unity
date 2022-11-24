@@ -108,7 +108,7 @@ public class LevelManager : MonoBehaviour
 
     public void RepeatDay()
     {
-        if (GameManager.instance.dayNumber >= 9)
+        if (GameManager.instance.dayNumber >= 6)
         {
             Debug.Log("Third Day passed");
             RollCredits();
@@ -180,13 +180,13 @@ public class LevelManager : MonoBehaviour
                 GrannyToggle(true);
                 break;
             case 3:
-                maxCustomerCount = 3;
+                maxCustomerCount = 2;
                 dayNumber = 2;
                 isDayOne = false;
                 GrannyToggle(false);
                 break;
             case 6:
-                maxCustomerCount = 5;
+                maxCustomerCount = 3;
                 dayNumber = 3;
                 isDayOne = false;
                 GrannyToggle(false);

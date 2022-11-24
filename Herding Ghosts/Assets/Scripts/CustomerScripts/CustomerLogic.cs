@@ -54,6 +54,9 @@ public class CustomerLogic : MonoBehaviour
         {
             _customer.GetNavigator().SetDestination(customerSpawner.transform);
             dst = Vector3.Distance(customerSpawner.transform.position, transform.position);
+            _customer.GetCustomerManager().ResetPortraitUI();
+            FindObjectOfType<CanvasManager>().DeActivateTimer();
+
         }
 
         currentState = state;

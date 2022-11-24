@@ -97,9 +97,7 @@ public class PlantTimer : MonoBehaviour
                 displayImage.sprite = seedling;
                 currentTime = maxTime;
 
-                StartCoroutine(CoroutineAction(item));
-
-                
+                StartCoroutine(CoroutineAction(item)); 
             }
         }
 
