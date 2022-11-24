@@ -39,7 +39,9 @@ public class UIItemPortrait : MonoBehaviour
     {
         itemImage.sprite = image.sprite;
 
-        ingredientFrame1.GetComponent<Image>();
+        FoodItem.FoodType foodType = customerManager.GetCurrentCustomer()._desiredFood;
+
+        //ingredientFrame1.GetComponent<Image>().sprite = FoodItem.rec;
     }
 
     public void ResetImage()

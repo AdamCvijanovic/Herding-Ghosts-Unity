@@ -10,6 +10,8 @@ public class FoodItem : Item
 
     public Sprite foodSprite;
 
+    public RecipeObject recipeObj;
+
     // Start is called before the first frame update
     void Start()
     {

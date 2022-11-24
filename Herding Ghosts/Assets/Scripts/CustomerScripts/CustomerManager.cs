@@ -22,8 +22,14 @@ public class CustomerManager : MonoBehaviour
     public UIItemPortrait uiItemPortrait;
 
     public UICustomerCounter uiCustomerCounter;
+    
+    //Level Stats
     public int satisfiedCustomerCounter = 0;
     public int maxSatisfiedCustomers = 3;
+
+
+    //CurrentCustomerStats
+    public FoodItem _desiredFoodItem;
 
 
     public Door_Anim_Script _doorAnimator;
@@ -116,6 +122,23 @@ public class CustomerManager : MonoBehaviour
         }
 
         return foodObj;
+    }
+
+    public void AssignFoodItemFromEnum(FoodItem.FoodType foodType)
+    {
+        _desiredFoodItem = FindFoodFromEnum(foodType).GetComponent<FoodItem>();
+    }
+
+    public FoodItem GetDesiredFoodItem()
+    {
+        if(_desiredFoodItem != null)
+        {
+            return _desiredFoodItem;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public void IncrementCounter()

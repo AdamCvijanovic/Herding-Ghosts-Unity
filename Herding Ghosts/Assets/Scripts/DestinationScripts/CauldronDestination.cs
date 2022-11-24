@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CauldronDestination : WorkstationDestination
 {
     //Derive from Worstation Destination
-    
+
     [SerializeField]
     private UnityEvent _OnHasItems;
 

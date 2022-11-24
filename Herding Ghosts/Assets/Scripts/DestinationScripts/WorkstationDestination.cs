@@ -11,7 +11,7 @@ public class WorkstationDestination : Destination
     //should reference a seperate inventory componenet
     //public List<IngredientItem> _items = new List<IngredientItem>();
 
-    public Inventory _inventory;
+    public WorkstationInventory _inventory;
 
     public enum WorkstationType {Cauldron, Oven};
 
@@ -34,10 +34,12 @@ public class WorkstationDestination : Destination
     public Material highlightMaterial;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -76,12 +78,16 @@ public class WorkstationDestination : Destination
     public void AddItemToList(IngredientItem item)
     {
         _inventory._items.Add(item);
-        MoveItemToSlotPosition(item);
+        MoveItemsToSlotPosition(item);
+
 
         InventoryCheck();
+
+        
+
     }
 
-    public void MoveItemToSlotPosition(IngredientItem item)
+    public void MoveItemsToSlotPosition(IngredientItem item)
     {
         if(_inventory._items.Count > 0)
         {
@@ -90,21 +96,13 @@ public class WorkstationDestination : Destination
         }
     }
 
+
     public void ClearInventory()
     {
 
-        List<IngredientItem> temp = new List<IngredientItem>();
 
-        foreach(IngredientItem i in _inventory._items)
-        {
-            temp.Add(i);
-        }
+        _inventory.ClearInventory();
 
-        foreach(IngredientItem i in temp)
-        {
-            RemoveItemFromList(i);
-            Destroy(i.gameObject);
-        }
 
     }
     public void InventoryCheck()
@@ -215,5 +213,7 @@ public class WorkstationDestination : Destination
         Destroy(ingredient0);
         Destroy(ingredient1);
         Destroy(ingredient2);
+
+        _inventory.ClearInventory();
     }
 }

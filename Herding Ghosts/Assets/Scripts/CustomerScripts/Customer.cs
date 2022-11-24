@@ -101,6 +101,7 @@ public class Customer : MonoBehaviour
     {
         _desiredFood = (FoodItem.FoodType)Random.Range(0, System.Enum.GetValues(typeof(FoodItem.FoodType)).Length);
         //UpdateUI();
+        _customerMngr.AssignFoodItemFromEnum(_desiredFood);
         UpdateConverMngr();
     }
 

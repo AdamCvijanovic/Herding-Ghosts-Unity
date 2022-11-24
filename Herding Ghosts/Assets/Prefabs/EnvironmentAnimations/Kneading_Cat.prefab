@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3111519262476121520}
   - component: {fileID: 9105475549205986882}
   - component: {fileID: 8864381260226221880}
+  - component: {fileID: 2151024646984277162}
   - component: {fileID: 7904770436583528976}
   m_Layer: 0
   m_Name: Kneading_Cat
@@ -164,6 +165,19 @@ MonoBehaviour:
         m_CallState: 2
   pickupString: Press E to Interact
   useString: 
+--- !u!114 &2151024646984277162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111519262476121527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9205d7e0ee569c14b81e44c8ecec39c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cauldron: {fileID: 0}
 --- !u!61 &7904770436583528976
 BoxCollider2D:
   m_ObjectHideFlags: 0
