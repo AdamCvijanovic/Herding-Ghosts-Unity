@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 543612440}
   - component: {fileID: 7626546614166398566}
   - component: {fileID: 8214734184018180120}
-  - component: {fileID: 1055283829}
+  - component: {fileID: 1804656331}
   m_Layer: 0
   m_Name: GhibliGhost
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8978591418617188289
 SpriteRenderer:
@@ -166,7 +166,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.375
---- !u!114 &1055283829
+--- !u!114 &1804656331
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,11 +175,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8978591418617188295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1dc4024d78bcdb418054ade7912284d, type: 3}
+  m_Script: {fileID: 11500000, guid: 45cbfddaa28e94346840585a09d65559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprRndr: {fileID: 8978591418617188289}
-  defaultMaterial: {fileID: 2100000, guid: 05fd07fc76aa97a4d89317802d47d40c, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
   _ActivateEvent:
     m_PersistentCalls:

@@ -31,8 +31,9 @@ Transform:
   m_Children:
   - {fileID: 8090588877543094965}
   - {fileID: 9110286895408160623}
+  - {fileID: 85387020}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2608201380441442235
 MonoBehaviour:
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghosts: []
-  MaxGhosts: 5
+  MaxGhosts: 2
 --- !u!1001 &1885618763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,4 +193,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9110286895678971172, guid: 77aaa715b7294994e9d96d10aa394fc8, type: 3}
   m_PrefabInstance: {fileID: 1020547031337920401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8978591418702014668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 2608201380441442234}
+    m_Modifications:
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.389237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2912531
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.367242
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978591418617188295, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+      propertyPath: m_Name
+      value: GhibliGhost
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+--- !u!4 &85387020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8978591418617188288, guid: 7462123101b50584f8bf72591b8ec3c8, type: 3}
+  m_PrefabInstance: {fileID: 8978591418702014668}
   m_PrefabAsset: {fileID: 0}
