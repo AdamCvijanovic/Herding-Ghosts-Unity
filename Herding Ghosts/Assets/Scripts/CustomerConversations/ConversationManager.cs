@@ -243,4 +243,9 @@ public class ConversationManager : MonoBehaviour
         panelButton.SetActive(false);
         conversationActive = false;
     }
+
+    public bool GetCustomerTalk()
+    {
+        return customer.isSpokenTo;
+    }
 }

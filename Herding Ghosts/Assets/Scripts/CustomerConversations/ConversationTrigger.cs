@@ -75,14 +75,19 @@ public class ConversationTrigger : MonoBehaviour
 
     public void TriggerConversation()
     {
-        if(FindObjectOfType<ConversationManager>().conversationActive != true)
+        var cManager = FindObjectOfType<ConversationManager>();
+
+
+        if (cManager.conversationActive != true)
         {
-            FindObjectOfType<ConversationManager>().StartConversation(convChosen);
-            FindObjectOfType<CustomerManager>().ActivateTimerUI();
+            if (!cManager.GetCustomerTalk())
+                FindObjectOfType<CustomerManager>().ActivateTimerUI();
 
-            Time.timeScale = 0f;
-
+            cManager.StartConversation(convChosen);
             
+            
+            
+            Time.timeScale = 0f;
         }
         else
         {

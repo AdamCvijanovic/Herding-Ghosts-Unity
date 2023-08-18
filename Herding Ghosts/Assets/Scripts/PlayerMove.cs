@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
     [Min(0.001f)]
     private float _accel;
 
+    private float lastFrameX = 0;
+    private float lastFrameY = 0;
     //publlic 
 
     public enum Direction { Up, Down, Left, Right, None };
@@ -185,7 +187,17 @@ public class PlayerMove : MonoBehaviour
 
         Vector2 desiredVelocity = _movementVector.normalized * _speed;
 
+       
+
         _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
+
+        if((_rb.velocity.x < 0.5f && _rb.velocity.x > -0.5f) && (_rb.velocity.y < 0.5f && _rb.velocity.y> -0.5f))
+        {
+            _rb.velocity = new Vector2(0,0);
+
+        }
+
+
 
         Animate();
 
@@ -233,7 +245,14 @@ public class PlayerMove : MonoBehaviour
     {
         _colDir = Direction.None;
     }
+    
 
-
-
+    public float RoundToNearestPixel(float unityUnits)
+    {
+       float pixelToUnits = 40f;
+        float valueInPixels = unityUnits * pixelToUnits;
+        valueInPixels = Mathf.Round(valueInPixels);
+        float roundedUnityUnits = valueInPixels * (1 / pixelToUnits);
+        return roundedUnityUnits;
+    }
 }
