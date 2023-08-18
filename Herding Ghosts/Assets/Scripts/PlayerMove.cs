@@ -192,7 +192,7 @@ public class PlayerMove : MonoBehaviour
         {
             
             _rb.AddForce((desiredVelocity * 3 - _rb.velocity) / _accel);
-            Debug.Log("sprint hit");
+           
         }
         else
             _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);

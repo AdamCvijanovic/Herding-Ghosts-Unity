@@ -134,17 +134,18 @@ public class WorkstationDestination : Destination
     public bool RecipeCheck(RecipeObject recipeIn)
     {
 
-        Debug.Log("Recipe Check");
-
 
         //bool recipeTrue = false;
-        bool[] ingredient = new bool[3];
+        bool[] ingredient = new bool[3] { false, false, false } ;
 
 
         for (int i = 0; i < 3; i++)
         {
-            if (_inventory._items[i].GetIngredientType() == recipeIn.ingredient0 || _inventory._items[i].GetIngredientType() == recipeIn.ingredient1 || _inventory._items[i].GetIngredientType() == recipeIn.ingredient2)
-                ingredient[i] = true;
+            for (int j = 0; j < 3; j++)
+            {
+                if (_inventory._items[j].GetIngredientType() == recipeIn.ingredient[i])
+                    ingredient[i] = true;
+            }
         }
 
 

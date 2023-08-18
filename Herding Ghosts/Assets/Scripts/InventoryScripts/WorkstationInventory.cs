@@ -75,15 +75,20 @@ public class WorkstationInventory : Inventory
     public void CheckIfCorrectItemInSlot(int index)
     {
         Debug.Log("Submitted Ingredient Type: " + _items[index].GetIngredientType());
-        
-        if (custMngr._desiredFoodItem.recipeObj.ingredient0 == _items[index].GetIngredientType() || custMngr._desiredFoodItem.recipeObj.ingredient1 == _items[index].GetIngredientType() || custMngr._desiredFoodItem.recipeObj.ingredient2 == _items[index].GetIngredientType())
+
+        if (custMngr._desiredFoodItem != null)
         {
-            Debug.Log("Ingredient 1 Correct");
-            transforms[0].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
-        }
-        else
-        {
-            transforms[0].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
+            for (int i = 0; i < 3; i++)
+            {
+                if (custMngr._desiredFoodItem.recipeObj.ingredient[i] == _items[index].GetIngredientType())
+                {
+                    transforms[i].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
+                    return;
+                }
+
+            }
+
+            transforms[index].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
             FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
         }
     }
