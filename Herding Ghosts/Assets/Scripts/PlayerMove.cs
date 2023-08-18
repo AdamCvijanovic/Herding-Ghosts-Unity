@@ -185,11 +185,17 @@ public class PlayerMove : MonoBehaviour
 
         //_rb.position += _movementVector.normalized * _speed * Time.deltaTime;
 
-        Vector2 desiredVelocity = _movementVector.normalized * _speed;
+        Vector2 desiredVelocity = _movementVector.normalized * _speed ;
 
-       
 
-        _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
+        if (Mouse.current != null && Mouse.current.rightButton.isPressed || Gamepad.current != null && Gamepad.current.rightShoulder.isPressed)
+        {
+            
+            _rb.AddForce((desiredVelocity * 3 - _rb.velocity) / _accel);
+            Debug.Log("sprint hit");
+        }
+        else
+            _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
 
         if((_rb.velocity.x < 0.5f && _rb.velocity.x > -0.5f) && (_rb.velocity.y < 0.5f && _rb.velocity.y> -0.5f))
         {
