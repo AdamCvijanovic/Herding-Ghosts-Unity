@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7667908617330646314}
   - component: {fileID: 4917093168596279533}
   - component: {fileID: 4917093168596279532}
+  - component: {fileID: -7965973005363790153}
   m_Layer: 0
   m_Name: GrowingPlantApple
   m_TagString: Untagged
@@ -169,3 +170,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &-7965973005363790153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667908617330646313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 40

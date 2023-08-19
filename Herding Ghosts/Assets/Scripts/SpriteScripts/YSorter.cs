@@ -5,17 +5,17 @@ using UnityEngine;
 public class YSorter : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private float yValue = 0;
+    public float modifier = 0;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        yValue = transform.position.y;
+      
 
     }
 
     private void LateUpdate()
     {
-            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -100);
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -100 + modifier);
     }
 }

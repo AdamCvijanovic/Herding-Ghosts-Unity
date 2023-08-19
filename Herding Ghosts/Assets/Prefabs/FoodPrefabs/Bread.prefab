@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2773952193461368893}
   - component: {fileID: 2773952193461368895}
   - component: {fileID: 2773952193461368894}
+  - component: {fileID: 1545199397297855694}
   m_Layer: 0
   m_Name: FoodGFX
   m_TagString: Untagged
@@ -125,6 +126,19 @@ PolygonCollider2D:
       - {x: 0.90625, y: 0.46875}
       - {x: 0.8125, y: 0.84375}
   m_UseDelaunayMesh: 0
+--- !u!114 &1545199397297855694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773952193461368892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 1
 --- !u!1 &2773952194219398654
 GameObject:
   m_ObjectHideFlags: 0
