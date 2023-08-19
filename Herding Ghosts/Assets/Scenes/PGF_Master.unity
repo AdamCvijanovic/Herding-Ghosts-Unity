@@ -4568,6 +4568,7 @@ GameObject:
   - component: {fileID: 398804818}
   - component: {fileID: 398804820}
   - component: {fileID: 398804819}
+  - component: {fileID: 398804821}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -4636,7 +4637,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &398804820
@@ -8603,6 +8604,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &398804821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398804817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc98abbfb72a6c499eb1a800e5a2ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &403129850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8766,6 +8779,7 @@ GameObject:
   - component: {fileID: 422080670}
   - component: {fileID: 422080669}
   - component: {fileID: 422080671}
+  - component: {fileID: 422080672}
   m_Layer: 0
   m_Name: Furniture
   m_TagString: Untagged
@@ -8834,7 +8848,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &422080670
@@ -10032,6 +10046,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
   m_UseDelaunayMesh: 0
+--- !u!114 &422080672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422080667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc98abbfb72a6c499eb1a800e5a2ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &424183287
 GameObject:
   m_ObjectHideFlags: 0
@@ -11932,11 +11958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5450920668705841803, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_Size.y
-      value: 1.2737852
+      value: 1.2154471
       objectReference: {fileID: 0}
     - target: {fileID: 5450920668705841803, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_Offset.y
-      value: -0.97702855
+      value: -1.0061977
       objectReference: {fileID: 0}
     - target: {fileID: 6316770881092599794, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_SortingOrder
@@ -17248,6 +17274,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6683675136658944999, guid: 9df61968b13141042857bbc12951ecd0, type: 3}
   m_PrefabInstance: {fileID: 1199460583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1220374933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9089031462738997691, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+  m_PrefabInstance: {fileID: 1757017163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1259322101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17406,6 +17437,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9089031462738997639, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
   m_PrefabInstance: {fileID: 1757017163}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1325605737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220374933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1347400687
 GameObject:
   m_ObjectHideFlags: 0
@@ -18560,6 +18603,7 @@ GameObject:
   - component: {fileID: 1674317307}
   - component: {fileID: 1674317306}
   - component: {fileID: 1674317308}
+  - component: {fileID: 1674317309}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -18628,7 +18672,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1674317307
@@ -21296,6 +21340,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
   m_UseDelaunayMesh: 0
+--- !u!114 &1674317309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674317304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc98abbfb72a6c499eb1a800e5a2ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1681578855
 GameObject:
   m_ObjectHideFlags: 0
@@ -22116,6 +22172,18 @@ PrefabInstance:
     - target: {fileID: 9089031462738997633, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_Offset.y
       value: -0.8879616
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
+      value: bd4a59f2-db55-4efc-a048-8621e4e33764
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: Player/Sprint[/Mouse/rightButton]
       objectReference: {fileID: 0}
     - target: {fileID: 9089031462738997638, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
