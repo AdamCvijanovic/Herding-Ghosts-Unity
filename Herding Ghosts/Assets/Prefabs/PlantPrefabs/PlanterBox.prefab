@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8810986573073045261}
   - component: {fileID: 8810986573073045258}
   - component: {fileID: 2096555795090047715}
+  - component: {fileID: 3287796522757922441}
   m_Layer: 0
   m_Name: PlanterBox
   m_TagString: Untagged
@@ -213,6 +214,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6104708, y: 1.3402579}
   m_EdgeRadius: 0
+--- !u!114 &3287796522757922441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8810986573073045255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537d9a66a25e04248bfcdd187f62d6e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Player: {fileID: 0}
+  offset: 0
 --- !u!1 &8810986574927445394
 GameObject:
   m_ObjectHideFlags: 0
