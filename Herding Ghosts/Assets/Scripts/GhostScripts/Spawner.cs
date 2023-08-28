@@ -78,6 +78,8 @@ public class Spawner : MonoBehaviour
 
     public void SpawnEnemy(GameObject enemyPrefab)
     {
+
+        
         //determine if we have a dedicated spawn position or jsut appear in the spawners transform (useful for positions where multiple spawns may be necessary)
         if(_spawnPosition != null)
         {

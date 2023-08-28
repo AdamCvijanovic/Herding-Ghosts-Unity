@@ -58,7 +58,7 @@ public class GhostManager : MonoBehaviour
 
     public bool CheckMax()
     {
-        return ghosts.Count < MaxGhosts;
+        return ghosts.Count <= MaxGhosts;
     }
 
 
