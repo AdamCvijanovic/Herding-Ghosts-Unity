@@ -56,9 +56,15 @@ public class GhostManager : MonoBehaviour
         ghosts.Remove(ghost);
     }
 
+    public System.Collections.ObjectModel.ReadOnlyCollection<Ghost> GetConstListOfGhosts()
+    {
+        return ghosts.AsReadOnly();
+    }
+
+
     public bool CheckMax()
     {
-        return ghosts.Count <= MaxGhosts;
+        return ghosts.Count < MaxGhosts;
     }
 
 

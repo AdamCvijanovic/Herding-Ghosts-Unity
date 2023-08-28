@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: _spawnTime
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 520233109204337982, guid: aefd402d6660f724694027f0ff1f9ddd, type: 3}
+      propertyPath: _spawnPosition
+      value: 
+      objectReference: {fileID: 2114205379}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: aefd402d6660f724694027f0ff1f9ddd, type: 3}
@@ -11976,6 +11980,10 @@ PrefabInstance:
     - target: {fileID: 6316770881092599794, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: m_SortingOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347660302465427812, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
+      propertyPath: modifier
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6970882563783027896, guid: dc752f6a04396fa43a86473d2b7793fc, type: 3}
       propertyPath: offset
@@ -24416,6 +24424,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6032504776814986532, guid: 05f4d6625e87eea4baa223e5bb9e3c92, type: 3}
   m_PrefabInstance: {fileID: 1969334847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1996059001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6188208735394628788, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
+  m_PrefabInstance: {fileID: 7528040763305794713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1996059005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996059001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: -30
 --- !u!1001 &2009160170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25358,6 +25384,10 @@ PrefabInstance:
       propertyPath: _spawnTime
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 520233109204337982, guid: aefd402d6660f724694027f0ff1f9ddd, type: 3}
+      propertyPath: _spawnPosition
+      value: 
+      objectReference: {fileID: 322121833}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: aefd402d6660f724694027f0ff1f9ddd, type: 3}
@@ -27571,6 +27601,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1773045572, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7914429
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773045572, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773045572, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4065318
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188208734484309032, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6188208734484309036, guid: deb3461995dbd2148bea0cb85d84fb94, type: 3}
       propertyPath: m_Name
       value: SeedsBarrel
