@@ -19,6 +19,9 @@ public class CustomerLogic : MonoBehaviour
     public float dst;
     public float despawnTime;
 
+    //audio
+    public AudioSource audioGhostSatisfied;
+
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +155,9 @@ public class CustomerLogic : MonoBehaviour
 
     public void CustomerSatisfied()
     {
+        //play audio
+        
+        audioGhostSatisfied.Play(0);
         //Reset Timer
         //FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().ResetClock();
         Debug.Log("TIMER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
@@ -159,13 +165,10 @@ public class CustomerLogic : MonoBehaviour
         Debug.Log("TIMER AFTER " + FindObjectOfType<CanvasManager>().timerUI.GetComponent<UITImerClock>().isCounting);
         _customer.isSatisfied = true;
         _customer.GetCustomerManager().IncrementCounter();
-
-        FMODUnity.RuntimeManager.PlayOneShot("event:/CoinsSound");
     }
 
     public void CustomerDisatisfied()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/CustomerFailed");
         SetState(CustomerLogic.CustomerState.Leaving);
         GameManager.instance.disastisfiedCustomers++;
     }

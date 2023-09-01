@@ -7,6 +7,10 @@ public class PlayerPickup : Pickup
 {
     public Player _player;
 
+    //audio
+    public AudioSource audioPickup;
+    public AudioSource audioDrop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -211,6 +215,7 @@ public class PlayerPickup : Pickup
             }
         }
         
+        audioPickup.Play();
         return nearestItem;
     }
 

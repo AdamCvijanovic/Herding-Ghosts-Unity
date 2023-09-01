@@ -50,7 +50,6 @@ public class WorkstationInventory : Inventory
             GetComponent<WorkstationDestination>().InventoryCheck();
 
             itemAdded.Invoke();
-            FMODUnity.RuntimeManager.PlayOneShot("event:/PutInCauldron");
         }
     }
 
@@ -92,7 +91,6 @@ public class WorkstationInventory : Inventory
                     else
                     {
                         transforms[0].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
                     }
                     break;
                 case 1:
@@ -105,7 +103,6 @@ public class WorkstationInventory : Inventory
                     else
                     {
                         transforms[1].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
                     }
                     break;
                 case 2:
@@ -118,7 +115,6 @@ public class WorkstationInventory : Inventory
                     else
                     {
                         transforms[2].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
                     }
                     break;
             }

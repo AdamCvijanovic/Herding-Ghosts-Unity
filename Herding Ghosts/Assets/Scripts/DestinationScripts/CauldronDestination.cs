@@ -36,7 +36,6 @@ public class CauldronDestination : WorkstationDestination
     {
         get
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Drain");
             return this._onPurge;
         }
     }
@@ -48,7 +47,6 @@ public class CauldronDestination : WorkstationDestination
     {
         get
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Flush");
             return this._onSuccess;
         }
     }

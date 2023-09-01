@@ -33,6 +33,12 @@ public class PlayerMove : MonoBehaviour
 
     public Animator _anim;
 
+    //audio
+    public AudioSource audioFootsteps;
+    private bool isPlaying;
+    private float minPitch;
+    private float maxPitch;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +49,9 @@ public class PlayerMove : MonoBehaviour
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        isPlaying = false;
+        minPitch = 0.92f;
+        maxPitch = 1.08f;
     }
 
     private void OnEnable()
@@ -60,6 +69,31 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        
+
+        if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0 || _inputActions.Player.Move.ReadValue<Vector2>().y > 0 || _inputActions.Player.Move.ReadValue<Vector2>().x < 0 || _inputActions.Player.Move.ReadValue<Vector2>().x > 0)
+        {
+            audioFootsteps.pitch = Random.Range(minPitch, maxPitch);
+            if (!isPlaying)
+            {
+                audioFootsteps.Play();
+                isPlaying = true;
+            }
+        }
+        else
+        {
+            if (isPlaying)
+            {
+                audioFootsteps.Stop();
+                isPlaying = false;
+            }
+        }
+
+
+        //if (_inputActions.Player.Move.ReadValue<Vector2>().x == 0 && _inputActions.Player.Move.ReadValue<Vector2>().y == 0)
+        //{
+          //  audioFootsteps.Stop();
+        //}
 
         if (_inputActions.Player.Move.WasPressedThisFrame())
         {
@@ -187,6 +221,7 @@ public class PlayerMove : MonoBehaviour
 
         _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
 
+
         Animate();
 
         //Debug.Log("Velocity magnitude " + _rb.velocity.magnitude);
@@ -234,6 +269,7 @@ public class PlayerMove : MonoBehaviour
         _colDir = Direction.None;
     }
 
+    
 
 
 }

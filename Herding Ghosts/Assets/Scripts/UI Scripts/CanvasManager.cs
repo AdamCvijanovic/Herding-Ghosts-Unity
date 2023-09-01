@@ -26,6 +26,10 @@ public class CanvasManager : MonoBehaviour
 
     public bool youWin = false;
 
+    //audio
+    public AudioSource audioGrimoireEnter;
+    public AudioSource audioGrimoireExit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,11 +124,13 @@ public class CanvasManager : MonoBehaviour
     {
         grimoireUI.gameObject.SetActive(true);
         grimoireUI.Activate();
+        //audioGrimoireEnter.Play(0);
     }
 
     public void GrimoireDeactivate()
     {
         grimoireUI.Deactivate();
+        //audioGrimoireExit.Play(0);
     }
     public void PantryActivate()
     {

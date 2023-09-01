@@ -12,6 +12,9 @@ public class BedScript : MonoBehaviour
 
     public bool sleepActive = false;
 
+    //audio
+    public AudioSource audioBedCharm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +24,9 @@ public class BedScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (bedActive == true)
+        {
+        }
     }
 
     public void DeActivateBed()
@@ -40,6 +45,7 @@ public class BedScript : MonoBehaviour
     {
         if (!sleepActive)
         {
+            audioBedCharm.Play();
             Debug.Log("Sleep");
             levelManager.EndDay();
             sleepActive = true;

@@ -11,6 +11,10 @@ public class GrimoireUI : MonoBehaviour
 
     public Animator tooltipAnimator;
 
+    //audio
+    public AudioSource audioMenuEnter;
+    public AudioSource audioMenuExit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +55,7 @@ public class GrimoireUI : MonoBehaviour
     {
         grimoireAnimator.SetBool("isActive",true);
         tooltipAnimator.SetBool("isActive",false);
+        //audioMenuEnter.Play(0);
     }
 
     public void animationDeactivate()
