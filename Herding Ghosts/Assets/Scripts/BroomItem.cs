@@ -26,8 +26,8 @@ public class BroomItem : Item
     {
         _anim = GetComponent<Animator>();
         
-        minPitch = 0.7f;
-        maxPitch = 1.05f;
+        minPitch = 0.95f;
+        maxPitch = 1.2f;
     }
 
     // Update is called once per frame

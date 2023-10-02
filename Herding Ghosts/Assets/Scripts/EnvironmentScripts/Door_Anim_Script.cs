@@ -7,10 +7,16 @@ public class Door_Anim_Script : MonoBehaviour
     public Animator doorAnimator;
     public SpriteRenderer sprRndr;
 
+    //audio
+    public AudioSource audioBell;
+    public AudioSource audioBell2;
+    private int audioCounter;
+
     // Start is called before the first frame update
     void Start()
     {
         sprRndr = GetComponent<SpriteRenderer>();
+        audioCounter = 1;
     }
 
     // Update is called once per frame
@@ -24,13 +30,23 @@ public class Door_Anim_Script : MonoBehaviour
 
     public void OpenDoor()
     {
-        //doorOpenSfx.PlaySoundEvent();
         doorAnimator.SetTrigger("Open");
+
+        //audio
+        if (audioCounter == 1)
+        {
+            audioBell.Play();
+            audioCounter = 2;
+        }
+        else if (audioCounter == 2)
+        {
+            audioBell2.Play();
+            audioCounter = 1;
+        }
     }
 
     public void CloseDoor()
     {
-        //doorCloseSfx.PlaySoundEvent();
         doorAnimator.ResetTrigger("Open");
         doorAnimator.SetTrigger("Close");
     }

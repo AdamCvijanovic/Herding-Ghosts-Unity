@@ -34,10 +34,26 @@ public class PlayerMove : MonoBehaviour
     public Animator _anim;
 
     //audio
-    public AudioSource audioFootsteps;
-    private bool isPlaying;
-    private float minPitch;
-    private float maxPitch;
+    public AudioSource audioCuteFootsteps;
+    private bool isPlayingCuteFootsteps;
+    //private bool isPlayingWoodFootsteps;
+    //private bool isPlayingStoneFootsteps;
+    //private float minPitch;
+    //private float maxPitch;
+    //private bool isOnWoodFloor;
+
+    //public AudioSource audioWoodFootsteps1;
+    //public AudioSource audioWoodFootsteps2;
+    //public AudioSource audioWoodFootsteps3;
+    //public AudioSource audioWoodFootsteps4;
+
+    //public AudioSource audioStoneFootsteps1;
+    //public AudioSource audioStoneFootsteps2;
+    //public AudioSource audioStoneFootsteps3;
+    //public AudioSource audioStoneFootsteps4;
+
+    //private int randomWoodFootstep;
+    //private int randomStoneFootstep;
 
 
     // Start is called before the first frame update
@@ -49,9 +65,12 @@ public class PlayerMove : MonoBehaviour
         _inputActions = new InputActions();
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-        isPlaying = false;
-        minPitch = 0.92f;
-        maxPitch = 1.08f;
+        isPlayingCuteFootsteps = false;
+        //isPlayingWoodFootsteps = false;
+        //isPlayingStoneFootsteps = false;
+        //isOnWoodFloor = true;
+        //minPitch = 0.92f;
+        //maxPitch = 1.08f;
     }
 
     private void OnEnable()
@@ -68,25 +87,70 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
+        if (isOnWoodFloor)
+        {
+            Debug.Log("Am standing on wooden floor woo");
+        }
+
+        else
+        {
+            Debug.Log("Am no longer standing on it :(");
+        }
+        */
         Move();
         
 
         if (_inputActions.Player.Move.ReadValue<Vector2>().y < 0 || _inputActions.Player.Move.ReadValue<Vector2>().y > 0 || _inputActions.Player.Move.ReadValue<Vector2>().x < 0 || _inputActions.Player.Move.ReadValue<Vector2>().x > 0)
         {
-            audioFootsteps.pitch = Random.Range(minPitch, maxPitch);
-            if (!isPlaying)
+            //audioCuteFootsteps.pitch = Random.Range(minPitch, maxPitch);
+            if (!isPlayingCuteFootsteps)
             {
-                audioFootsteps.Play();
-                isPlaying = true;
+                audioCuteFootsteps.Play();
+                isPlayingCuteFootsteps = true;
             }
+
+            /*
+            if (!isPlayingWoodFootsteps && isOnWoodFloor)
+            {
+                audioWoodFootsteps1.Play();
+                isPlayingWoodFootsteps = true;
+            }
+            */
         }
         else
         {
-            if (isPlaying)
+            if (isPlayingCuteFootsteps)
             {
-                audioFootsteps.Stop();
-                isPlaying = false;
+                audioCuteFootsteps.Stop();
+                isPlayingCuteFootsteps = false;
             }
+            /*
+
+            if (isPlayingWoodFootsteps)
+            {
+                audioWoodFootsteps1.Stop();
+                //audioWoodFootsteps2.Stop();
+                //audioWoodFootsteps3.Stop();
+                //audioWoodFootsteps4.Stop();
+                isPlayingWoodFootsteps = false;
+            }
+
+            if (!isOnWoodFloor)
+            {
+                audioWoodFootsteps1.Stop();
+                isPlayingWoodFootsteps = false;
+            }
+
+            if (isPlayingStoneFootsteps)
+            {
+                //audioStoneFootsteps1.Stop();
+                //audioStoneFootsteps2.Stop();
+                //audioStoneFootsteps3.Stop();
+                //audioStoneFootsteps4.Stop();
+                isPlayingStoneFootsteps = false;
+            }
+            */
         }
 
 
@@ -264,10 +328,26 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    /*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WoodFloor"))
+        {
+            isOnWoodFloor = true;
+        }
+    }
+    
+
+    private void OnTriggerExit2D(Collider2D collision)
     {
         _colDir = Direction.None;
+
+        if (collision.CompareTag("WoodFloor"))
+        {
+            isOnWoodFloor = false;
+        }
     }
+    */
 
     
 

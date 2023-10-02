@@ -9,12 +9,15 @@ public class PlayerPickup : Pickup
 
     //audio
     public AudioSource audioPickup;
-    public AudioSource audioDrop;
+    private float minPitch;
+    private float maxPitch;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GetComponent<Player>();
+        minPitch = 0.9f;
+        maxPitch = 1.1f;
     }
 
     // Update is called once per frame
@@ -214,7 +217,7 @@ public class PlayerPickup : Pickup
                 }
             }
         }
-        
+        audioPickup.pitch = Random.Range(minPitch, maxPitch);
         audioPickup.Play();
         return nearestItem;
     }

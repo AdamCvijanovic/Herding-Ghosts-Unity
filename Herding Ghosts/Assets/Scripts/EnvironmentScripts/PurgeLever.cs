@@ -15,11 +15,19 @@ public class PurgeLever : MonoBehaviour
     public float maxTime = 15.0f;
     public float currentTime;
 
+    //audio
+    public AudioSource audioPurge;
+    private float minPitch;
+    private float maxPitch;
+
     // Start is called before the first frame update
     void Start()
     {
         _cauldron = FindObjectOfType<CauldronDestination>();
         _animator = GetComponent<Animator>();
+
+        minPitch = 0.95f;
+        maxPitch = 1.05f;
     }
 
     // Update is called once per frame
@@ -59,6 +67,10 @@ public class PurgeLever : MonoBehaviour
 
         //Clear Inventory
         PurgeCauldron();
+
+        //audio
+        audioPurge.pitch = Random.Range(minPitch, maxPitch);
+        audioPurge.Play();
     }
 
     public void PurgeCauldron()
