@@ -123,7 +123,7 @@ public class WorkstationInventory : Inventory
             }
 
             transforms[index].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-            FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
         }
     }
 
