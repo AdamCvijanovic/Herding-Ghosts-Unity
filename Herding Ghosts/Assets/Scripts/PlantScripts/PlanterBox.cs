@@ -13,11 +13,26 @@ public class PlanterBox : MonoBehaviour
 
     public Interactable interactable;
 
+    //audio
+    public AudioSource audioCrop1;
+    public AudioSource audioCrop2;
+    public AudioSource audioCrop3;
+    public AudioSource audioCrop4;
+    public AudioSource audioCrop5;
+
+    private float minPitch;
+    private float maxPitch;
+    private int randomAudio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         interactable = GetComponent<Interactable>();
         boxCollider = GetComponent<BoxCollider2D>();
+        minPitch = 0.8f;
+        maxPitch = 1.2f;
+        randomAudio = 1;
     }
 
     // Update is called once per frame
@@ -58,6 +73,8 @@ public class PlanterBox : MonoBehaviour
                     //interactable.enabled = false;
                     FindObjectOfType<PlayerPickup>().Drop();
                     Destroy(seedBag.gameObject);
+                    //play audio here
+                    PlayCropAudio();
                 }
             }
         }
@@ -86,6 +103,40 @@ public class PlanterBox : MonoBehaviour
         }
 
         return isHolding;
+
+    }
+
+    //audio
+    private void PlayCropAudio()
+    {
+        randomAudio = Random.Range(1, 6);
+        switch (randomAudio)
+        {
+            case 1:
+            audioCrop1.pitch = Random.Range(minPitch, maxPitch);
+            audioCrop1.Play();
+            break;
+
+            case 2:
+            audioCrop2.pitch = Random.Range(minPitch, maxPitch);
+            audioCrop2.Play();
+            break;
+
+            case 3:
+            audioCrop3.pitch = Random.Range(minPitch, maxPitch);
+            audioCrop3.Play();
+            break;
+
+            case 4:
+            audioCrop4.pitch = Random.Range(minPitch, maxPitch);
+            audioCrop4.Play();
+            break;
+
+            case 5:
+            audioCrop5.pitch = Random.Range(minPitch, maxPitch);
+            audioCrop5.Play();
+            break;
+        }
 
     }
 

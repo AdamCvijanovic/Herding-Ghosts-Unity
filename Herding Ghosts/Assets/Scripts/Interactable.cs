@@ -28,7 +28,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void RemoveFromPlayerPickupList()
@@ -62,11 +62,12 @@ public class Interactable : MonoBehaviour
         if (this.enabled)
         {
             if (highlightMaterial != null && sprRndr != null)
+            {
                 sprRndr.material = highlightMaterial;
+            }
 
             UpdateHelpTextPickup();
         }
-
         
     }
 
@@ -80,7 +81,6 @@ public class Interactable : MonoBehaviour
             }
             //if item highlighted, unhiglight
         }
-
 
 
     }
@@ -101,5 +101,7 @@ public class Interactable : MonoBehaviour
         if (FindObjectOfType<Player>().helpText != null)
             FindObjectOfType<Player>().helpText.UpdateTextPickup(pickupString);
     }
+
+    
 
 }

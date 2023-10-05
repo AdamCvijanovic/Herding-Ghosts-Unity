@@ -17,10 +17,25 @@ public class WorkstationInventory : Inventory
 
     public UnityEvent itemAdded;
 
+    //audio
+    public AudioSource audioFoodAdd1;
+    public AudioSource audioFoodAdd2;
+    public AudioSource audioFoodAdd3;
+
+    private int randomAudioNumber;
+
+    private float minPitch;
+    private float maxPitch;
+
     // Start is called before the first frame update
     void Start()
     {
         custMngr = FindObjectOfType<CustomerManager>();
+
+        
+        minPitch = 0.9f;
+        maxPitch = 1.04f;
+        randomAudioNumber = 1;
     }
 
     // Update is called once per frame
@@ -50,7 +65,26 @@ public class WorkstationInventory : Inventory
             GetComponent<WorkstationDestination>().InventoryCheck();
 
             itemAdded.Invoke();
-            FMODUnity.RuntimeManager.PlayOneShot("event:/PutInCauldron");
+
+            //audio
+            randomAudioNumber = Random.Range(1, 4);
+            switch (randomAudioNumber)
+            {
+                case 1:
+                audioFoodAdd1.pitch = Random.Range(minPitch, maxPitch);
+                audioFoodAdd1.Play();
+                break;
+
+                case 2:
+                audioFoodAdd2.pitch = Random.Range(minPitch, maxPitch);
+                audioFoodAdd2.Play();
+                break;
+
+                case 3:
+                audioFoodAdd3.pitch = Random.Range(minPitch, maxPitch);
+                audioFoodAdd3.Play();
+                break;
+            }
         }
     }
 

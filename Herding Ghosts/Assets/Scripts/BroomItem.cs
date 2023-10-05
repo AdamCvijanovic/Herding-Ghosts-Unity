@@ -16,12 +16,18 @@ public class BroomItem : Item
 
     public float damage;
 
+    //audio
+    public AudioSource audioBroom;
+    private float minPitch;
+    private float maxPitch;
+
     // Start is called before the first frame update
     void Start()
     {
         _anim = GetComponent<Animator>();
         
-
+        minPitch = 0.95f;
+        maxPitch = 1.2f;
     }
 
     // Update is called once per frame
@@ -72,8 +78,10 @@ public class BroomItem : Item
     {
 
         CheckPlayerDir();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/BroomSwipe");
         _anim.SetTrigger("Swing");
+
+        audioBroom.pitch = Random.Range(minPitch, maxPitch);
+        audioBroom.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

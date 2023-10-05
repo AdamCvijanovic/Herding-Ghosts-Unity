@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlantTimer : MonoBehaviour
@@ -27,6 +29,9 @@ public class PlantTimer : MonoBehaviour
 
     public bool foodPicked = false;
 
+    //audio
+    public bool isHarvested;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,7 @@ public class PlantTimer : MonoBehaviour
         maxTime = currentTime;
         displayImage = gameObject.GetComponent<SpriteRenderer>();
         displayImage.sprite = seedling;
+        isHarvested = false;
     }
 
     // Update is called once per frame
@@ -45,6 +51,13 @@ public class PlantTimer : MonoBehaviour
         ChangeSprite();
 
         TimerReset();
+
+        if (isHarvested)
+        {
+            Debug.Log("Crop has been harvested!!!");
+            CropAudioManager.instance.PlayCropAudio();
+            isHarvested = false;
+        }
     }
 
 
@@ -97,17 +110,20 @@ public class PlantTimer : MonoBehaviour
                 displayImage.sprite = seedling;
                 currentTime = maxTime;
 
-                StartCoroutine(CoroutineAction(item)); 
+                StartCoroutine(CoroutineAction(item));
             }
         }
+        isHarvested = true;
 
     }
 
     public IEnumerator CoroutineAction(Item item)
     {
+        Debug.Log("Coroutine has started");
         // do some actions here
         yield return new WaitForEndOfFrame(); // wait for end of update
                                               // do some actions after waiting for update
+        Debug.Log("Coroutine has ended");
         FindObjectOfType<PlayerPickup>().PickupItem(item);
 
         //clear parent planter if one exists
@@ -118,6 +134,8 @@ public class PlantTimer : MonoBehaviour
 
         //yield return null;
     }
+
+    
 
 
 }

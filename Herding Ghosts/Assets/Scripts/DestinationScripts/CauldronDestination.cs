@@ -6,9 +6,13 @@ using UnityEngine.Events;
 public class CauldronDestination : WorkstationDestination
 {
     //Derive from Worstation Destination
+    
+    //audio
+    public AudioSource audioFinish;
 
     [SerializeField]
     private UnityEvent _OnHasItems;
+
 
     public UnityEvent OnHasItems
     {
@@ -36,7 +40,6 @@ public class CauldronDestination : WorkstationDestination
     {
         get
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Drain");
             return this._onPurge;
         }
     }
@@ -48,7 +51,6 @@ public class CauldronDestination : WorkstationDestination
     {
         get
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Flush");
             return this._onSuccess;
         }
     }
@@ -119,6 +121,8 @@ public class CauldronDestination : WorkstationDestination
     {
         this.OnSuccess.Invoke();
         base.RecipeCook(recipeIn);
+        Debug.Log("Recipe has been cooked!");
+        audioFinish.Play();
     }
 
     public void PurgeCauldron()

@@ -38,6 +38,9 @@ public class Customer : MonoBehaviour
 
     public bool isSpokenTo;
 
+    //audio
+    public AudioSource audioGhostGreeting;
+
     void Start()
     {
         isSpokenTo = false;
@@ -110,6 +113,8 @@ public class Customer : MonoBehaviour
 
         UpdateUI();
         isSpokenTo = true;
+        audioGhostGreeting.Play(0);
+
     }
 
     public void UpdateUI()

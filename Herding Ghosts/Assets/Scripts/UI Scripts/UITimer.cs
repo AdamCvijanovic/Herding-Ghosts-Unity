@@ -15,11 +15,8 @@ public Animator shake;
 public GameObject menuBG;
 public GameObject losemenu;
 
-FMOD.Studio.EventInstance LastTenSeconds;
-
     void Awake()
     {
-        LastTenSeconds =  FMODUnity.RuntimeManager.CreateInstance("event:/LoseTimer");
     }
 
     // Start is called before the first frame update
@@ -36,11 +33,6 @@ FMOD.Studio.EventInstance LastTenSeconds;
     {
         currentTime -= Time.deltaTime;
         timerFill.fillAmount = currentTime / countdown;
-
-        if(currentTime <= 10.0f && currentTime >= 9.9f)
-        {
-            LastTenSeconds.start();
-        }
 
         if(currentTime <= 10.0f && currentTime> 5.0f)
         {
