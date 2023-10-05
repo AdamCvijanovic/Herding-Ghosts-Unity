@@ -109,7 +109,7 @@ public class PlanterBox : MonoBehaviour
     //audio
     private void PlayCropAudio()
     {
-        randomAudio = Random.Range(1, 5);
+        randomAudio = Random.Range(1, 6);
         switch (randomAudio)
         {
             case 1:

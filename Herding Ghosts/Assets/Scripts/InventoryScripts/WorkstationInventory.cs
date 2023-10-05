@@ -67,7 +67,7 @@ public class WorkstationInventory : Inventory
             itemAdded.Invoke();
 
             //audio
-            randomAudioNumber = Random.Range(1, 3);
+            randomAudioNumber = Random.Range(1, 4);
             switch (randomAudioNumber)
             {
                 case 1:

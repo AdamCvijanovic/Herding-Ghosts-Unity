@@ -39,7 +39,7 @@ public class CatInteract : MonoBehaviour
         {
             do
             {
-                audioRandom = Random.Range(1, 4);
+                audioRandom = Random.Range(1, 5);
             } while (audioRandom == audioRandomPrevious);
 
             audioRandomPrevious = audioRandom;
