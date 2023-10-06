@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
     [Min(0.001f)]
     private float _accel;
 
+    private float lastFrameX = 0;
+    private float lastFrameY = 0;
     //publlic 
 
     public enum Direction { Up, Down, Left, Right, None };
@@ -281,9 +283,25 @@ public class PlayerMove : MonoBehaviour
 
         //_rb.position += _movementVector.normalized * _speed * Time.deltaTime;
 
-        Vector2 desiredVelocity = _movementVector.normalized * _speed;
+        Vector2 desiredVelocity = _movementVector.normalized * _speed ;
 
-        _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
+
+        if (Mouse.current != null && Mouse.current.rightButton.isPressed || Gamepad.current != null && Gamepad.current.rightShoulder.isPressed)
+        {
+            
+            _rb.AddForce((desiredVelocity * 3 - _rb.velocity) / _accel);
+           
+        }
+        else
+            _rb.AddForce((desiredVelocity - _rb.velocity) / _accel);
+
+        if((_rb.velocity.x < 0.5f && _rb.velocity.x > -0.5f) && (_rb.velocity.y < 0.5f && _rb.velocity.y> -0.5f))
+        {
+            _rb.velocity = new Vector2(0,0);
+
+        }
+
+
 
 
         Animate();

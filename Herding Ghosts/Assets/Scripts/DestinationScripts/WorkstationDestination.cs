@@ -134,44 +134,22 @@ public class WorkstationDestination : Destination
     public bool RecipeCheck(RecipeObject recipeIn)
     {
 
-        Debug.Log("Recipe Check");
 
         //bool recipeTrue = false;
-        bool ingredient0 = false;
-        bool ingredient1 = false;
-        bool ingredient2 = false;
+        bool[] ingredient = new bool[3] { false, false, false } ;
 
-        //For the love of god fix this
-        if(_inventory._items[0].GetIngredientType() == recipeIn.ingredient0)
-        {
-            ingredient0 = true;
-        }
-        else
-        {
-            ingredient0 = false;
-        }
 
-        if(_inventory._items[1].GetIngredientType() == recipeIn.ingredient1)
+        for (int i = 0; i < 3; i++)
         {
-            ingredient1 = true;
-        }
-        else
-        {
-            ingredient1 = false;
-        }
-
-        if(_inventory._items[2].GetIngredientType() == recipeIn.ingredient2)
-        {
-            ingredient2 = true;
-        }
-        else
-        {
-            ingredient2 = false;
+            for (int j = 0; j < 3; j++)
+            {
+                if (_inventory._items[j].GetIngredientType() == recipeIn.ingredient[i])
+                    ingredient[i] = true;
+            }
         }
 
 
-
-        return (ingredient0 && ingredient1 && ingredient2);
+        return (ingredient[0] && ingredient[1] && ingredient[2]);
         
     }
 

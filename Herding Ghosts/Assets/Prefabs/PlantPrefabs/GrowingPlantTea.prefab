@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3338544383139654287}
   - component: {fileID: 341972808}
   - component: {fileID: 341972809}
+  - component: {fileID: 6135470798927475039}
   m_Layer: 0
   m_Name: GrowingPlantTea
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 28647b73f1265b145b3f9d0ffe7b9c74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -169,3 +170,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &6135470798927475039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338544383139654284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 40

@@ -112,47 +112,18 @@ public class WorkstationInventory : Inventory
 
         if (custMngr._desiredFoodItem != null)
         {
-            Debug.Log("Desired Ingredient Type:  " + custMngr._desiredFoodItem.recipeObj.ingredient0);
-            //check index
-            switch (index)
+            for (int i = 0; i < 3; i++)
             {
-                case 0:
-                    //check if correct ingredient
-                    if (custMngr._desiredFoodItem.recipeObj.ingredient0 == _items[index].GetIngredientType())
-                    {
-                        Debug.Log("Ingredient 1 Correct");
-                        transforms[0].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
-                    }
-                    else
-                    {
-                        transforms[0].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                    }
-                    break;
-                case 1:
-                    //check if correct ingredient
-                    if (custMngr._desiredFoodItem.recipeObj.ingredient1 == _items[index].GetIngredientType())
-                    {
-                        Debug.Log("Ingredient 2 Correct");
-                        transforms[1].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
-                    }
-                    else
-                    {
-                        transforms[1].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                    }
-                    break;
-                case 2:
-                    //check if correct ingredient
-                    if (custMngr._desiredFoodItem.recipeObj.ingredient2 == _items[index].GetIngredientType())
-                    {
-                        Debug.Log("Ingredient 3 Correct");
-                        transforms[2].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
-                    }
-                    else
-                    {
-                        transforms[2].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
-                    }
-                    break;
+                if (custMngr._desiredFoodItem.recipeObj.ingredient[i] == _items[index].GetIngredientType())
+                {
+                    transforms[i].gameObject.GetComponent<SpriteRenderer>().sprite = successItemSlotSprite;
+                    return;
+                }
+
             }
+
+            transforms[index].gameObject.GetComponent<SpriteRenderer>().sprite = failItemSlotSprite;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/WrongIngredient");
         }
     }
 

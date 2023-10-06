@@ -78,13 +78,25 @@ public class Spawner : MonoBehaviour
 
     public void SpawnEnemy(GameObject enemyPrefab)
     {
+
+        var randomLocation = Random.Range(0, 2);
+
+        foreach(Ghost spawn in _enemyMngr.GetConstListOfGhosts())
+        {
+            if (randomLocation == 0 && spawn.transform.position == _spawnPosition.position)
+                randomLocation = 1;
+            else if (randomLocation == 1 && spawn.transform.position == this.transform.position)
+                randomLocation = 0;
+        }
+
         //determine if we have a dedicated spawn position or jsut appear in the spawners transform (useful for positions where multiple spawns may be necessary)
-        if(_spawnPosition != null)
+        if (_spawnPosition != null && randomLocation == 0)
         {
             GameObject newEnemy = Instantiate(enemyPrefab, _spawnPosition.position, Quaternion.identity, _enemyMngr.transform);
             _enemyMngr.AddGhost(newEnemy.GetComponent<Ghost>());
 
         }
+        
         else
         {
             GameObject newEnemy = Instantiate(enemyPrefab, this.transform.position, Quaternion.identity, _enemyMngr.transform);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8221175992269321878}
   - component: {fileID: 8221175992269321897}
   - component: {fileID: 664785432240186299}
+  - component: {fileID: 7667317294815766425}
   m_Layer: 0
   m_Name: IngredientGFX
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: cea8470e71e52454ea0c7c18c2408fc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,6 +126,19 @@ PolygonCollider2D:
       - {x: 0.90625, y: 0.46875}
       - {x: 0.8125, y: 0.84375}
   m_UseDelaunayMesh: 0
+--- !u!114 &7667317294815766425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221175992269321896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 1
 --- !u!1 &8221175992337594427
 GameObject:
   m_ObjectHideFlags: 0

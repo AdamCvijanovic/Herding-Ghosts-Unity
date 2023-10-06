@@ -45,7 +45,7 @@ public class PlayerPickup : Pickup
 
     public void Pickup()
     {
-
+        
         //if (!_isHolding)
         {
             Debug.Log("Pickup");
@@ -55,12 +55,18 @@ public class PlayerPickup : Pickup
             if (_nearbyItems.Count > 0)
             {
                 Item nearestItem = GetNearestItem();
-                _currentItem = nearestItem;
-                _nearbyItems.Remove(nearestItem);
-                _isHolding = true;
-                _currentItem.OnPickup(this);
-                UpdateHelpTextUse(nearestItem);
-                nearestItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 7;
+
+               // if (removecloseItem(nearestItem))
+                //{
+                    _currentItem = nearestItem;
+                    _nearbyItems.Remove(nearestItem);
+
+
+                    _isHolding = true;
+                    _currentItem.OnPickup(this);
+                    UpdateHelpTextUse(nearestItem);
+                    nearestItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 7;
+                //}
             }
         }
 
@@ -68,46 +74,47 @@ public class PlayerPickup : Pickup
     }
 
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Item>())
-        {
-            Item collidedItem = collision.gameObject.GetComponent<Item>();
-            _nearbyItems.Add(collidedItem);
-
-            UpdateHelpTextPickup(collidedItem);
-            collidedItem.ItemHighlight();
-
-        }
-
-        if (collision.gameObject.GetComponent<WorkstationDestination>())
-        {
-            PlayerNearWorkstation(collision.gameObject);
-        }
-
-        if (collision.gameObject.GetComponent<Inventory>())
-        {
-            nearInventory = collision.gameObject.GetComponent<Inventory>();
-        }
-
-        if (collision.gameObject.GetComponent<Interactable>() && collision.gameObject.GetComponent<Interactable>().enabled)
-        {
-            if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<Interactable>()))
+            if (collision.gameObject.GetComponent<Item>())
             {
-                _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
-                PlayerNearInteractable(collision.gameObject);
-            }
-        }
+                Item collidedItem = collision.gameObject.GetComponent<Item>();
+                
+                if(!_nearbyItems.Contains(collidedItem))
+                 _nearbyItems.Add(collidedItem);
 
-        if (collision.gameObject.GetComponent<InteractableText>() && collision.gameObject.GetComponent<InteractableText>().enabled)
-        {
-            //if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<InteractableText>()))
-            {
-                //_nearbyinteractables.Add(collision.gameObject.GetComponent<InteractableText>());
-                //PlayerNearInteractableText(collision.gameObject);
+                UpdateHelpTextPickup(collidedItem);
+                collidedItem.ItemHighlight();
+
             }
-        }
+
+            if (collision.gameObject.GetComponent<WorkstationDestination>())
+            {
+                PlayerNearWorkstation(collision.gameObject);
+            }
+
+            if (collision.gameObject.GetComponent<Inventory>())
+            {
+                nearInventory = collision.gameObject.GetComponent<Inventory>();
+            }
+
+            if (collision.gameObject.GetComponent<Interactable>() && collision.gameObject.GetComponent<Interactable>().enabled)
+            {
+                if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<Interactable>()))
+                {
+                    _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
+   
+                }
+            }
+
+            if (collision.gameObject.GetComponent<InteractableText>() && collision.gameObject.GetComponent<InteractableText>().enabled)
+            {
+                //if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<InteractableText>()))
+                {
+                    //_nearbyinteractables.Add(collision.gameObject.GetComponent<InteractableText>());
+                    //PlayerNearInteractableText(collision.gameObject);
+                }
+            }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -221,6 +228,22 @@ public class PlayerPickup : Pickup
         audioPickup.Play();
         return nearestItem;
     }
+
+
+    private bool removecloseItem(Item item)
+    {
+
+        float currentDist = Vector2.Distance(transform.position, item.gameObject.transform.position);
+        if (currentDist > 1)
+        {
+            _nearbyItems.Clear();
+            return false;
+        }
+
+        return true;
+
+    }
+
 
    public void ActivateItem(InputAction.CallbackContext context)
    {

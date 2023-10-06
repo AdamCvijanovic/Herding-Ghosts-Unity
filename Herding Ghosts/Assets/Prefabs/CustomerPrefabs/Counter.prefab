@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8535933487228422743}
   - component: {fileID: 2119435518485133832}
   - component: {fileID: 1415389831}
+  - component: {fileID: 6347660302465427812}
   m_Layer: 0
   m_Name: DessertGlassImg
   m_TagString: Untagged
@@ -235,6 +236,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.875, y: 0.4034509}
   m_EdgeRadius: 0
+--- !u!114 &6347660302465427812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433653051261292445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
 --- !u!1 &3600591124731248061
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +439,7 @@ Transform:
   - {fileID: 1595829588265836285}
   - {fileID: 8535933487228422743}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5334532694047523551
 Animator:
@@ -583,6 +597,7 @@ GameObject:
   - component: {fileID: 5334532694965091065}
   - component: {fileID: 5334532694965091064}
   - component: {fileID: 5450920668705841803}
+  - component: {fileID: 7023365712159010326}
   m_Layer: 0
   m_Name: DessertCaseImg
   m_TagString: Untagged
@@ -683,6 +698,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9541712, y: 2.4643552}
   m_EdgeRadius: 0
+--- !u!114 &7023365712159010326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334532694965091062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
 --- !u!1 &6306813896582055766
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +724,7 @@ GameObject:
   - component: {fileID: 3685348584502210930}
   - component: {fileID: 1894773630}
   - component: {fileID: 1894773633}
+  - component: {fileID: 712823438522209500}
   m_Layer: 0
   m_Name: ShopCounterImg
   m_TagString: Untagged
@@ -871,6 +900,19 @@ PolygonCollider2D:
       - {x: 1.1883659, y: 1.0415864}
       - {x: 0.85764885, y: 0.9505949}
   m_UseDelaunayMesh: 0
+--- !u!114 &712823438522209500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306813896582055766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
 --- !u!1 &8335720832428418040
 GameObject:
   m_ObjectHideFlags: 0
