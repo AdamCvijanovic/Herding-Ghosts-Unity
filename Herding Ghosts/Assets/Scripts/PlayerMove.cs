@@ -369,5 +369,12 @@ public class PlayerMove : MonoBehaviour
 
     
 
-
+    public float RoundToNearestPixel(float unityUnits)
+    {
+       float pixelToUnits = 40f;
+        float valueInPixels = unityUnits * pixelToUnits;
+        valueInPixels = Mathf.Round(valueInPixels);
+        float roundedUnityUnits = valueInPixels * (1 / pixelToUnits);
+        return roundedUnityUnits;
+    }
 }
