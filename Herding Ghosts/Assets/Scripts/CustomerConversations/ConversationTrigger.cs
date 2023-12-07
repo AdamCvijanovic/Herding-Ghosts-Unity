@@ -77,11 +77,19 @@ public class ConversationTrigger : MonoBehaviour
     {
         var cManager = FindObjectOfType<ConversationManager>();
 
+        //**acvija: Here we assign the current spoken to person and their sprite
+        cManager.SetCustomer(_customer);
+        //**acvija: Don't pass member variables, use a Getter
+        cManager.SetCustomerSprite(_customer._customerRasterImg);
 
         if (cManager.conversationActive != true)
         {
             if (!cManager.GetCustomerTalk())
-                FindObjectOfType<CustomerManager>().ActivateTimerUI();
+                //**acvija: Fix later
+                if (FindObjectOfType<CustomerManager>() != null)
+                {
+                    FindObjectOfType<CustomerManager>().ActivateTimerUI();
+                }
 
             cManager.StartConversation(convChosen);
             
@@ -111,6 +119,7 @@ public class ConversationTrigger : MonoBehaviour
     //    }
     //}
 
+    //**EventTriggered: Triggered by an Interactable Script
     public void ActivateConversation()
     {
         if (_customer.GetCustomerLogic().currentState == CustomerLogic.CustomerState.Leaving)

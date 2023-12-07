@@ -129,6 +129,11 @@ public class ConversationManager : MonoBehaviour
     {
         customer = _customer;
     }
+    public void SetCustomerSprite(Sprite cusImage)
+    {
+        customerSprite = cusImage;
+        customerIMG.sprite = cusImage;
+    }
 
     public void WhatFoodIsIt(FoodItem.FoodType foodtype)
     {
@@ -137,21 +142,17 @@ public class ConversationManager : MonoBehaviour
 
         Debug.Log("Food Sprite " + foodPrefab.GetComponent<FoodItem>().foodSprite.name);
         foodName = foodPrefab.GetComponent<FoodItem>().foodSprite.name;
-    }
-
-    public void SetCustomerSprite(Sprite cusImage)
-    {
-        customerSprite = cusImage;
-        customerIMG.sprite = cusImage;
-    }
+    }    
 
     public void StartConversation(Conversation convisation)
     {
 
         conversationActive = true;
-
-        CustomerManager mngr = customer.GetCustomerManager();
-        mngr.GetCurrentCustomer().AmSpokenTo();
+        if(customer.GetCustomerManager() != null)
+        {
+            CustomerManager mngr = customer.GetCustomerManager();
+            mngr.GetCurrentCustomer().AmSpokenTo();
+        }
 
         //Debug.Log("Starting conversation between "+ player.name + "and " + customer.name);
         animator.SetBool("IsOpen", true);

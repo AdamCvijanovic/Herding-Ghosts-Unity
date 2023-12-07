@@ -18142,6 +18142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1070034245087427390, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
@@ -20579,6 +20583,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1132958120663884623, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: cM
+      value: 
+      objectReference: {fileID: 2140718244}
+    - target: {fileID: 1132958120663884623, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: dM
+      value: 
+      objectReference: {fileID: 1998915171}
     - target: {fileID: 2123736177621565282, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -20679,9 +20691,51 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: playerIMG
+      value: 
+      objectReference: {fileID: 1892323644}
+    - target: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: customerIMG
+      value: 
+      objectReference: {fileID: 116315835}
+    - target: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: panelButton
+      value: 
+      objectReference: {fileID: 1221011092}
+    - target: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: playerNameplate
+      value: 
+      objectReference: {fileID: 1730004927}
+    - target: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+      propertyPath: customerNameplate
+      value: 
+      objectReference: {fileID: 1185761648}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+--- !u!114 &1998915171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1070034245087427389, guid: 9684ee934f7fccd45a9df41577745ce8, type: 3}
+  m_PrefabInstance: {fileID: 1749080049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bff82754f34efd4c90d87b0438bc84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2140718244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6971393935497105099, guid: b17c9110fe88d0549aed7b2feeee159f, type: 3}
+  m_PrefabInstance: {fileID: 1942527982}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e96e7ea72a62bf41a8d9921106015b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &743962963892410266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21138,7 +21192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9045582638034692827}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49111542e8cff274c891f26d9ef65826, type: 3}
   m_Name: 
@@ -21153,6 +21207,7 @@ MonoBehaviour:
   _customerRasterImg: {fileID: 21300000, guid: d0eab40fa82a8d342b54d4037dbd3ffc, type: 3}
   _customerMngr: {fileID: 0}
   _desiredFood: 0
+  wantsFood: 0
   isSatisfied: 0
   isSpokenTo: 0
 --- !u!212 &9045582638034692805

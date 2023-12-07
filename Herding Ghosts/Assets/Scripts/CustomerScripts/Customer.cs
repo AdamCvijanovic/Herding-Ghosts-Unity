@@ -34,6 +34,8 @@ public class Customer : MonoBehaviour
 
     public FoodItem.FoodType _desiredFood;
 
+    public bool wantsFood = true;
+
     public bool isSatisfied;
 
     public bool isSpokenTo;
@@ -53,14 +55,16 @@ public class Customer : MonoBehaviour
         _customerLogic = GetComponent<CustomerLogic>();
         _customerLogic.SetCustomer(this);
         _customerPickup = GetComponent<Pickup>();
-        _foodItemImage = GetComponentInChildren<UIFoodItemImage>();
-        _foodItemImage.SetCustomer(this);
         _conversationManager = FindObjectOfType<ConversationManager>();
         _conversationManager.SetCustomer(this);
         _conversationTrigger = GetComponentInChildren<ConversationTrigger>();
+        if (wantsFood)
+        {
+            _foodItemImage = GetComponentInChildren<UIFoodItemImage>();
+            _foodItemImage.SetCustomer(this);
+            SetDesiredFood();
+        }
 
-
-        SetDesiredFood();
     }
 
     // Update is called once per frame
