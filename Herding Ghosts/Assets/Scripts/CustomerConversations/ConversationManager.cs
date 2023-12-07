@@ -145,7 +145,7 @@ public class ConversationManager : MonoBehaviour
         customerIMG.sprite = cusImage;
     }
 
-    public void StartConversation(Conversations convisation)
+    public void StartConversation(Conversation convisation)
     {
 
         conversationActive = true;

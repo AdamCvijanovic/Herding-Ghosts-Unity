@@ -9,15 +9,15 @@ public class ConversationTrigger : MonoBehaviour
     public int randMin = 1;
     public int randMax = 8;
 
-    private Conversations convChosen;
+    private Conversation convChosen;
 
-    public Conversations convOne;
-    public Conversations convTwo;
-    public Conversations convThree;
-    public Conversations convFour;
-    public Conversations convFive;
-    public Conversations convSix;
-    public Conversations convSeven;
+    public Conversation convOne;
+    public Conversation convTwo;
+    public Conversation convThree;
+    public Conversation convFour;
+    public Conversation convFive;
+    public Conversation convSix;
+    public Conversation convSeven;
 
     private GameObject chooseDialogue;
     private ChooseDialogueSystem cDS;

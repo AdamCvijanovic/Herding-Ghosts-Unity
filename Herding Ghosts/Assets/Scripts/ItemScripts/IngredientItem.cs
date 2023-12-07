@@ -8,6 +8,8 @@ public class IngredientItem : Item
     [SerializeField]
     private IngredientType foodType;
 
+
+
     // Start is called before the first frame update
     void Start()
     {

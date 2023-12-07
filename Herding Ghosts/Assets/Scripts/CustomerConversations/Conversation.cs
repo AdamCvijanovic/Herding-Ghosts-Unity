@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Conversation")]
 
-public class Conversations : ScriptableObject
+public class Conversation : ScriptableObject
 {
     public string playerName;
     public string customerName;
