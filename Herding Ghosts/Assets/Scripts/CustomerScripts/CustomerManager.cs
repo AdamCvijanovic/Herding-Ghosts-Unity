@@ -150,6 +150,7 @@ public class CustomerManager : MonoBehaviour
 
         GameManager.instance.UpdateCustomerCounter(satisfiedCustomerCounter);
         uiCustomerCounter.UpdateCounter(satisfiedCustomerCounter);
+        
     }
 
     public void IncrementDisatisfiedCustomerCounter()

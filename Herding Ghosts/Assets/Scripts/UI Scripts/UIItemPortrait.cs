@@ -14,9 +14,14 @@ public class UIItemPortrait : MonoBehaviour
     public GameObject ingredientFrame2;
     public GameObject ingredientFrame3;
 
+    public Animator blackboardAnimator;
+    public Animator clockAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
+        blackboardAnimator.SetBool("isActive", false);
+        clockAnimator.SetBool("isActive", false);
         customerManager = FindObjectOfType<CustomerManager>();
         if(itemImage.sprite != null)
         {
@@ -42,10 +47,15 @@ public class UIItemPortrait : MonoBehaviour
         FoodItem.FoodType foodType = customerManager.GetCurrentCustomer()._desiredFood;
 
         //ingredientFrame1.GetComponent<Image>().sprite = FoodItem.rec;
+
+        blackboardAnimator.SetBool("isActive", true);
+        clockAnimator.SetBool("isActive", true);
     }
 
     public void ResetImage()
     {
         itemImage.sprite = defaultSprite;
+        blackboardAnimator.SetBool("isActive", false);
+        clockAnimator.SetBool("isActive", false);
     }
 }
