@@ -8,6 +8,9 @@ public class IngredientItem : Item
     [SerializeField]
     private IngredientType foodType;
 
+    public List<IngredientProperties> myIngrdntProperties = new List<IngredientProperties>();
+    public IngredientProperties IngrdntProperties = new IngredientProperties();
+
     // Start is called before the first frame update
     void Start()
     {
