@@ -23,8 +23,6 @@ public class PlayerMove : MonoBehaviour
     [Min(0.001f)]
     private float _accel;
 
-    private float lastFrameX = 0;
-    private float lastFrameY = 0;
     //publlic 
 
     public enum Direction { Up, Down, Left, Right, None };

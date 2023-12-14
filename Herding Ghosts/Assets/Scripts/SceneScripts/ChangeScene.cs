@@ -20,11 +20,11 @@ public class ChangeScene : MonoBehaviour
         
     }
 
-    public void ChangeSceneByString(string SceneName)
+    public void ChangeSceneByString()
     {
-        if(SceneManager.GetSceneByName(SceneName) != null)
+        if(SceneManager.GetSceneByName(_sceneName) != null)
         {
-            SceneManager.LoadScene(SceneName); 
+            SceneManager.LoadScene(_sceneName); 
         }
     }
 }

@@ -9,6 +9,7 @@ public class IngredientProperties : MonoBehaviour
     public IngredientGroup ingredientGroup;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,17 @@ public class IngredientProperties : MonoBehaviour
     {
         return ingredientGroup;
     }
+
+    public void propertyCombiner()
+    {
+
+    }
+
+
+}
+
+public class FoodProduct
+{
 
 
 }

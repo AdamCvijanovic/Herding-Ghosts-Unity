@@ -9,7 +9,7 @@ public class IngredientItem : Item
     private IngredientType foodType;
 
     public List<IngredientProperties> myIngrdntProperties = new List<IngredientProperties>();
-    public IngredientProperties IngrdntProperties = new IngredientProperties();
+    public IngredientProperties IngrdntProperties;
 
     // Start is called before the first frame update
     void Start()

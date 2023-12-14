@@ -46,11 +46,15 @@ public class WorkstationInventory : Inventory
 
     public void MoveItemsToPostion()
     {
-        for (int i = 0; i < _items.Count; i++)
+        if(transforms.Count > 0)
         {
-            _items[i].transform.position = transforms[i].position;
-            CheckIfCorrectItemInSlot(i);
+            for (int i = 0; i < _items.Count; i++)
+            {
+                _items[i].transform.position = transforms[i].position;
+                CheckIfCorrectItemInSlot(i);
+            }
         }
+        
     }
 
     public override void AddItemToList(Item item)
@@ -62,28 +66,38 @@ public class WorkstationInventory : Inventory
             _items.Add(item);
             MoveItemsToPostion();
 
-            GetComponent<WorkstationDestination>().InventoryCheck();
+            if(GetComponent<WorkstationDestination>() != null) 
+            { 
+                GetComponent<WorkstationDestination>().InventoryCheck();
+            }
+            else if(GetComponent<PrototypeWorkstation>() != null)
+            {
+                GetComponent<PrototypeWorkstation>().InventoryCheck();
+            }
 
             itemAdded.Invoke();
 
-            //audio
-            randomAudioNumber = Random.Range(1, 4);
-            switch (randomAudioNumber)
+            //audio(*acvija* we need to move this elsewhere, preferably an audio handler script attached to the game object that we can reference with events)
+            if(audioFoodAdd1 != null && audioFoodAdd2 != null && audioFoodAdd3 != null)
             {
-                case 1:
-                audioFoodAdd1.pitch = Random.Range(minPitch, maxPitch);
-                audioFoodAdd1.Play();
-                break;
+                randomAudioNumber = Random.Range(1, 4);
+                switch (randomAudioNumber)
+                {
+                    case 1:
+                        audioFoodAdd1.pitch = Random.Range(minPitch, maxPitch);
+                        audioFoodAdd1.Play();
+                        break;
 
-                case 2:
-                audioFoodAdd2.pitch = Random.Range(minPitch, maxPitch);
-                audioFoodAdd2.Play();
-                break;
+                    case 2:
+                        audioFoodAdd2.pitch = Random.Range(minPitch, maxPitch);
+                        audioFoodAdd2.Play();
+                        break;
 
-                case 3:
-                audioFoodAdd3.pitch = Random.Range(minPitch, maxPitch);
-                audioFoodAdd3.Play();
-                break;
+                    case 3:
+                        audioFoodAdd3.pitch = Random.Range(minPitch, maxPitch);
+                        audioFoodAdd3.Play();
+                        break;
+                }
             }
         }
     }

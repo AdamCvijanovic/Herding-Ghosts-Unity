@@ -14910,6 +14910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641496972}
   - component: {fileID: 641496973}
+  - component: {fileID: 641496974}
   m_Layer: 0
   m_Name: EntrySprite
   m_TagString: Untagged
@@ -14984,6 +14985,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &641496974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641496971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb07c8636e19cb41b28aa444394e0db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
 --- !u!1 &712008884
 GameObject:
   m_ObjectHideFlags: 0
@@ -15214,7 +15228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1240452757528571218, guid: 994e3090d8fe21140a8fb4536133aa7e, type: 3}
       propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1240452757528571218, guid: 994e3090d8fe21140a8fb4536133aa7e, type: 3}
       propertyPath: _ActivateEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -18551,7 +18565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251d2b9e74f69ec4d9d751f5cbd888f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: 
+  _sceneName: Prototype_Cooking
 --- !u!1 &1792446553
 GameObject:
   m_ObjectHideFlags: 0
