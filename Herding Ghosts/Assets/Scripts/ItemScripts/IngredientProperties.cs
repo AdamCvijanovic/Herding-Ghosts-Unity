@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class IngredientProperties : MonoBehaviour
 {
-    public enum IngredientGroup {Base, Meat, Veggie, Spice, Drink };
+    public enum IngredientGroup {Base, Meat, Veggie, Fruit, Spice, Drink };
     [SerializeField]
     public IngredientGroup ingredientGroup;
 
+    public List<IngredientGroup> ingrdntPropertiesList = new List<IngredientGroup>();
 
 
     // Start is called before the first frame update
@@ -25,6 +26,11 @@ public class IngredientProperties : MonoBehaviour
     public IngredientGroup GetIngredientGroup()
     {
         return ingredientGroup;
+    }
+
+    public List<IngredientGroup> GetListIngredientGroup()
+    {
+        return ingrdntPropertiesList;
     }
 
     public void propertyCombiner()

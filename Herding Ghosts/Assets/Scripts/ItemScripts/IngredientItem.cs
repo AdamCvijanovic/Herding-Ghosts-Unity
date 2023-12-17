@@ -8,19 +8,36 @@ public class IngredientItem : Item
     [SerializeField]
     private IngredientType foodType;
 
-    public List<IngredientProperties> myIngrdntProperties = new List<IngredientProperties>();
     public IngredientProperties IngrdntProperties;
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+
+        if(GetComponent<IngredientProperties>() != null)
+        {
+            IngrdntProperties = GetComponent<IngredientProperties>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetIngredientProperties(IngredientProperties ingdntPptIn)
+    {
+        if (ingdntPptIn != null)
+        {
+            IngrdntProperties = GetComponent<IngredientProperties>();
+        }
+    }
+
+    public IngredientProperties GetIngredientProperties()
+    {
+        return IngrdntProperties;
     }
 
     public override IngredientType GetIngredientType()

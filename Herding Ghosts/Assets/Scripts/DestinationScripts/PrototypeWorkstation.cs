@@ -109,24 +109,38 @@ public class PrototypeWorkstation : MonoBehaviour
     }
     public void InventoryCheck()
     {
-        RecipeObject tempRecipe = null;
+        //RecipeObject tempRecipe = null;
 
         if (_inventory._items.Count >= 3)
-            if (_recipeList.Count > 0)
-            {
-                foreach (RecipeObject recipe in _recipeList)
-                {
-                    if (RecipeCheck(recipe))
-                    {
-                        tempRecipe = recipe;
-                    }
-                }
+        {
+            List<IngredientProperties.IngredientGroup> ingPropertiesList = RecipeCheckProto();
 
-                if (tempRecipe != null)
-                {
-                    RecipeCook(tempRecipe);
-                }
+            RecipeCookProto(ingPropertiesList);
+
+        }
+    }
+
+    //Scan through ingredients
+    //See if match's any recipes
+    //assemble food
+    //Assign combined properties to food
+    public List<IngredientProperties.IngredientGroup> RecipeCheckProto()
+    {
+        //temp properties List
+        List<IngredientProperties.IngredientGroup> ingrdntPropertiesList = new List<IngredientProperties.IngredientGroup>();
+
+        //List<IngredientProperties> propertiesList = new List<IngredientProperties>();
+
+        foreach (IngredientItem ing in _inventory._items)
+        {
+            if (ing.IngrdntProperties != null)
+            {
+                ingrdntPropertiesList.AddRange(ing.IngrdntProperties.GetListIngredientGroup());
             }
+        }
+
+        return ingrdntPropertiesList;
+
     }
 
     //Scan through existing recipes
@@ -153,6 +167,17 @@ public class PrototypeWorkstation : MonoBehaviour
 
         return (ingredient[0] && ingredient[1] && ingredient[2]);
 
+    }
+
+    public void RecipeCookProto(List<IngredientProperties.IngredientGroup> propertiesList)
+    {
+        string propertiesString = "Food: ";
+        foreach(IngredientProperties.IngredientGroup p in propertiesList)
+        {
+            propertiesString += ", " + p.ToString();
+        }
+
+        Debug.Log("Recipe Cooked Result == " + propertiesString);
     }
 
     public virtual void RecipeCook(RecipeObject recipeIn)

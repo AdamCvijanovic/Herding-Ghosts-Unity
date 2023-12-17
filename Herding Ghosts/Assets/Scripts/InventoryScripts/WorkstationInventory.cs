@@ -124,7 +124,7 @@ public class WorkstationInventory : Inventory
     {
         Debug.Log("Submitted Ingredient Type: " + _items[index].GetIngredientType());
 
-        if (custMngr._desiredFoodItem != null)
+        if (custMngr != null && custMngr._desiredFoodItem != null)
         {
             for (int i = 0; i < 3; i++)
             {
