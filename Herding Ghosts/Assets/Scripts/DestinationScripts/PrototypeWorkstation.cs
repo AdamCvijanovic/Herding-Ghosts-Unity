@@ -129,8 +129,6 @@ public class PrototypeWorkstation : MonoBehaviour
         //temp properties List
         List<IngredientProperties.IngredientGroup> ingrdntPropertiesList = new List<IngredientProperties.IngredientGroup>();
 
-        //List<IngredientProperties> propertiesList = new List<IngredientProperties>();
-
         foreach (IngredientItem ing in _inventory._items)
         {
             if (ing.IngrdntProperties != null)
