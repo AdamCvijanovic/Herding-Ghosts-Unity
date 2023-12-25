@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IngredientProperties : MonoBehaviour
 {
-    public enum IngredientGroup {Base, Meat, Veggie, Fruit, Spice, Drink };
+    public enum IngredientGroup {Base, Meat, Veggie, Fruit, Spice, Drink, Chopped };
     [SerializeField]
     public IngredientGroup ingredientGroup;
 
@@ -38,6 +38,10 @@ public class IngredientProperties : MonoBehaviour
 
     }
 
+    public void AddProperty(IngredientGroup property)
+    {
+        ingrdntPropertiesList.Add(property);
+    }
 
 }
 

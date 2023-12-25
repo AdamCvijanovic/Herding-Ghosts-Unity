@@ -74,6 +74,11 @@ public class WorkstationInventory : Inventory
             {
                 GetComponent<PrototypeWorkstation>().InventoryCheck();
             }
+            else if (GetComponent<PrototypeWindowedWorkstation>() != null)
+            {
+                Debug.Log("The Item is " + item.gameObject.name);
+                GetComponent<PrototypeWindowedWorkstation>().InventoryCheck(item);
+            }
 
             itemAdded.Invoke();
 

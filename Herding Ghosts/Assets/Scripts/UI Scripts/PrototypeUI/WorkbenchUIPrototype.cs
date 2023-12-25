@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class WorkbenchUIPrototype : MonoBehaviour
 {
+    public PrototypeWindowedWorkstation _windowWorksation;
+
     public GameObject workbenchPanel;
 
     public Canvas canvas;
@@ -26,6 +28,11 @@ public class WorkbenchUIPrototype : MonoBehaviour
         
     }
 
+    public void SetWindowWorkstation(PrototypeWindowedWorkstation windWorkstationIn)
+    {
+        _windowWorksation = windWorkstationIn;
+    }
+
     public void ActivatePanel()
     {
         workbenchPanel.SetActive(true);
@@ -39,6 +46,12 @@ public class WorkbenchUIPrototype : MonoBehaviour
     public void ActivateButton()
     {
         dragItem.GetComponent<Image>().sprite = cookedIngredientSprite;
+        _windowWorksation.ProcessFood();
+    }
+
+    public void UpdateDragItem(Item item)
+    {
+        dragItem.image.sprite = item.sprRndr.sprite;
     }
 
 }

@@ -9,10 +9,7 @@ public class PrototypeWorkstation : MonoBehaviour
 
     public int maxItems = 3;
 
-    //take the inventory out
-    //should reference a seperate inventory componenet
-    //public List<IngredientItem> _items = new List<IngredientItem>();
-
+    //inventory references a seperate inventory componenet
     public WorkstationInventory _inventory;
 
     public enum WorkstationType { Cauldron, Oven };
