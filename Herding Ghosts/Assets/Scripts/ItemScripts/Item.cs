@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public Sprite itemSprite;
 
     public GameObject parentObj;
     public Item subclass;

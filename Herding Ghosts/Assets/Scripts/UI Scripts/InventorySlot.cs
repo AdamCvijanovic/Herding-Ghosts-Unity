@@ -7,6 +7,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
 
     public Transform childTransform;
+    public Item currentItem;
+    public int currentItemCount;
 
     public void OnDrop(PointerEventData eventData)
     {

@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PrototypeWindowedWorkstation : MonoBehaviour
+public class BakeryWorkstation : MonoBehaviour
 {
     public Interactable interactable;
 
     //inventory references a seperate inventory componenet
     public WorkstationInventory _inventory;
 
-    public WorkbenchUIPrototype _workbenchUIPrototype;
+    public BakeryWorkbenchUI _bakeryWorkbenchUI;
 
     public Item currentItem;
 
@@ -28,10 +29,10 @@ public class PrototypeWindowedWorkstation : MonoBehaviour
 
 
 
-        if (_workbenchUIPrototype == null)
+        if (_bakeryWorkbenchUI == null)
         {
-            _workbenchUIPrototype = FindObjectOfType<WorkbenchUIPrototype>();
-            _workbenchUIPrototype.SetWindowWorkstation(this);
+            _bakeryWorkbenchUI = FindObjectOfType<BakeryWorkbenchUI>();
+            _bakeryWorkbenchUI.SetWindowWorkstation(this);
         }
     }
 
@@ -45,7 +46,7 @@ public class PrototypeWindowedWorkstation : MonoBehaviour
     public void UseWorkbench()
     {
         Debug.Log("Using Workbench");
-        _workbenchUIPrototype.ActivatePanel();
+        _bakeryWorkbenchUI.ActivatePanel();
 
         WorkstationInventory wkstnInventory = GetComponent<WorkstationInventory>();
 
@@ -56,14 +57,19 @@ public class PrototypeWindowedWorkstation : MonoBehaviour
         dstToPlayer = Vector3.Distance(FindObjectOfType<Player>().transform.position, transform.position);
         if (dstToPlayer >= maxDistance)
         {
-            _workbenchUIPrototype.DeActivatePanel();
+            _bakeryWorkbenchUI.DeActivatePanel();
         }
     }
 
     public void UpdateCurrentItem(Item item)
     {
         currentItem = item;
-        _workbenchUIPrototype.UpdateDragItem(item);
+        _bakeryWorkbenchUI.UpdateDragItem(item);
+    }
+
+    public List<Item> GetInventoryItems()
+    {
+        return _inventory._items;
     }
 
     public void InventoryCheck(Item item)
@@ -79,15 +85,10 @@ public class PrototypeWindowedWorkstation : MonoBehaviour
 
     public void ProcessFood()
     {
-        if(currentItem != null)
+        currentItem.sprRndr.sprite = tempCookedIngSprite;
+        if (currentItem.GetComponent<IngredientProperties>() != null)
         {
-            currentItem.sprRndr.sprite = tempCookedIngSprite;
-            if (currentItem.GetComponent<IngredientProperties>() != null)
-            {
-                currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
-            }
+            currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
         }
     }
-
-
 }
