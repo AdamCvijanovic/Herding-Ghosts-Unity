@@ -12,11 +12,11 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public Canvas canvas;
 
-    public DraggableItem dragItem;
+    public DraggableItem baseIngItem;
 
     public Sprite cookedIngredientSprite;
 
-    public Image mainCookPanelImage;
+    public FoodPrepPanelUI foodPrepPanel;
 
     public GameObject itemGrid;
 
@@ -24,6 +24,8 @@ public class BakeryWorkbenchUI : MonoBehaviour
     void Start()
     {
         canvas = GetComponent<Canvas>();
+        _bakeryWorksation = FindObjectOfType<BakeryWorkstation>();
+        foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
     }
 
     // Update is called once per frame
@@ -48,23 +50,15 @@ public class BakeryWorkbenchUI : MonoBehaviour
         workbenchPanel.SetActive(false);
     }
 
-    public void ActivateButton()
+    public void ActivateCookButton()
     {
-        dragItem.GetComponent<Image>().sprite = cookedIngredientSprite;
+        baseIngItem.GetComponent<Image>().sprite = cookedIngredientSprite;
         _bakeryWorksation.ProcessFood();
     }
 
     public void UpdateDragItem(Item item)
     {
-        dragItem.image.sprite = item.sprRndr.sprite;
-    }
-
-    public void ActivateBaseIngredientButton(Image image)
-    {
-        // Activate Image in centre, Use sprite assigned to ingredient
-        //
-
-        mainCookPanelImage.sprite = image.sprite;
+        baseIngItem.image.sprite = item.sprRndr.sprite;
     }
 
     public void FillInventory()

@@ -85,10 +85,13 @@ public class BakeryWorkstation : MonoBehaviour
 
     public void ProcessFood()
     {
-        currentItem.sprRndr.sprite = tempCookedIngSprite;
-        if (currentItem.GetComponent<IngredientProperties>() != null)
+        if(currentItem != null)
         {
-            currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
+            currentItem.sprRndr.sprite = tempCookedIngSprite;
+            if (currentItem.GetComponent<IngredientProperties>() != null)
+            {
+                currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
+            }
         }
     }
 }
