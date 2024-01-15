@@ -19,6 +19,10 @@ public class BakeryWorkstation : MonoBehaviour
     public float maxDistance;
     public float dstToPlayer;
 
+    public Item ingdntBase;
+    public Item ingdntOne;
+    public Item ingdntTwo;
+
 
     // Start is called before the first frame update
     void Start()

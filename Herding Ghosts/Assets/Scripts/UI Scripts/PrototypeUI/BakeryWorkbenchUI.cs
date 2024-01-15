@@ -61,6 +61,18 @@ public class BakeryWorkbenchUI : MonoBehaviour
         baseIngItem.image.sprite = item.sprRndr.sprite;
     }
 
+    public void ActivateBaseIngredientButton(Image image)
+    {
+        // Activate Image in centre, Use sprite assigned to ingredient
+        //
+
+        if(foodPrepPanel.ingredientBase != null)
+        {
+            foodPrepPanel.ingredientBase.gameObject.SetActive(true);
+            foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = image.sprite;
+        }
+    }
+
     public void FillInventory()
     {
         Debug.Log(_bakeryWorksation.GetInventoryItems());

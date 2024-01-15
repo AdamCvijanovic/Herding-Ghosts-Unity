@@ -18,6 +18,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
             draggableItem.transform.position = dropped.transform.position;
             draggableItem.parentAfterDrag = transform;
+            currentItem = draggableItem.item;
         }
     }
 
@@ -25,6 +26,11 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     {
         item.transform.position = this.transform.position;
         item.transform.SetParent(this.transform);
+    }
+
+    public void RemoveItemFromSlot()
+    {
+        currentItem = null;
     }
 
 

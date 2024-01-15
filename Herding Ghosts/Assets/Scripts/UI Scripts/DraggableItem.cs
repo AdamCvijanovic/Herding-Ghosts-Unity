@@ -11,13 +11,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Transform currentParent;
     public Transform parentAfterDrag;
 
+    public InventorySlot currentSlot;
+
     public IngredientItem item;
 
     public void Start()
     {
         currentParent = transform.parent;
+        UpdateCurrentSlot();
 
-        if(item != null && image != null)
+        if (item != null && image != null)
         {
             if(item.itemSprite != null)
                 image.sprite = item.itemSprite;
@@ -35,7 +38,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (item.itemSprite != null)
             {
-                Debug.Log("item sprite not null");
                 image.sprite = item.itemSprite;
             }
         }
@@ -43,24 +45,29 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+        currentSlot.RemoveItemFromSlot();
+        currentSlot = null;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging");
         transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
-        Debug.Log("End Drag");
         transform.SetParent(parentAfterDrag);
+        currentParent = transform.parent;
+        UpdateCurrentSlot();
         image.raycastTarget = true;
+    }
+
+    public void UpdateCurrentSlot()
+    {
+        if (currentParent.GetComponent<InventorySlot>() != null) currentSlot = currentParent.GetComponent<InventorySlot>();
     }
 }

@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce8e9161e475f64ab8f15d4c0145601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windowWorksation: {fileID: 0}
+  _windowWorksation: {fileID: 1082955746}
   workbenchPanel: {fileID: 382024544}
   canvas: {fileID: 125122255}
   dragItem: {fileID: 1369122022}
@@ -3949,9 +3949,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13aa5166ffa06842b8115635ec484bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bakeryWorkbenchUI: {fileID: 0}
   ingredientBase: {fileID: 1126293228}
-  ingredientOne: {fileID: 1172159148}
-  ingredientTwo: {fileID: 950439981}
+  ingredientSlotOne: {fileID: 0}
+  ingredientSlotTwo: {fileID: 0}
 --- !u!1001 &485049879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20117,6 +20118,9 @@ MonoBehaviour:
   tempCookedIngSprite: {fileID: 21300000, guid: 76d71c3646d812243a2b134faa91df48, type: 3}
   maxDistance: 2
   dstToPlayer: 0
+  ingdntBase: {fileID: 0}
+  ingdntOne: {fileID: 0}
+  ingdntTwo: {fileID: 0}
 --- !u!1 &1029100103
 GameObject:
   m_ObjectHideFlags: 0
@@ -20884,7 +20888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126293227
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20920,6 +20924,7 @@ MonoBehaviour:
   image: {fileID: 1126293229}
   currentParent: {fileID: 0}
   parentAfterDrag: {fileID: 0}
+  currentSlot: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &1126293229
 MonoBehaviour:
@@ -23800,6 +23805,7 @@ MonoBehaviour:
   image: {fileID: 1369122024}
   currentParent: {fileID: 0}
   parentAfterDrag: {fileID: 0}
+  currentSlot: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &1369122024
 MonoBehaviour:
