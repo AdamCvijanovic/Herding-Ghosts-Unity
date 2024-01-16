@@ -519,7 +519,8 @@ MonoBehaviour:
   workbenchPanel: {fileID: 208202636}
   canvas: {fileID: 125122255}
   baseIngItem: {fileID: 1126293228}
-  cookedIngredientSprite: {fileID: 21300000, guid: a249c2fac3cfc5d4fb3bfa2d9d673acc, type: 3}
+  bakeryButtonOptions: []
+  cookedFoodPrefab: {fileID: 0}
   foodPrepPanel: {fileID: 437541974}
   itemGrid: {fileID: 1029100103}
 --- !u!1 &148605857
@@ -3951,8 +3952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bakeryWorkbenchUI: {fileID: 0}
   ingredientBase: {fileID: 1126293228}
-  ingredientSlotOne: {fileID: 0}
-  ingredientSlotTwo: {fileID: 0}
+  ingredientSlotOne: {fileID: 1172159148}
+  ingredientSlotTwo: {fileID: 950439981}
 --- !u!1001 &485049879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4146,8 +4147,8 @@ MonoBehaviour:
         m_MethodName: ActivateBaseIngredientButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 912986835}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 1429433798216921116, guid: b7083a5085717ff4a8c4b10e72dd77bb, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4273,7 +4274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1ee8f7fad1909744b647d2d1fe47067, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5eb2ac1c71f92148acfbb68f554958a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18980,7 +18981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835345577}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0, y: -1.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19077,8 +19078,8 @@ MonoBehaviour:
         m_MethodName: ActivateBaseIngredientButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 374800411}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 2773952194219398654, guid: 309f387305af27c429669022e9e0c9a5, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19659,7 +19660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb171384bd91ee24aabb38eaeac127a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 05e0870ffe98a374cb21c2db65558b0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20114,6 +20115,7 @@ MonoBehaviour:
   interactable: {fileID: 0}
   _inventory: {fileID: 0}
   _bakeryWorkbenchUI: {fileID: 125122257}
+  itemSpawnPosition: {fileID: 835345578}
   currentItem: {fileID: 0}
   tempCookedIngSprite: {fileID: 21300000, guid: 76d71c3646d812243a2b134faa91df48, type: 3}
   maxDistance: 2
@@ -25147,8 +25149,8 @@ MonoBehaviour:
         m_MethodName: ActivateBaseIngredientButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 906359988}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 3355919833764667126, guid: 894c2dd158959ec42aebcc008c9e8767, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -25647,8 +25649,8 @@ MonoBehaviour:
         m_MethodName: ActivateBaseIngredientButton
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 568639261}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_ObjectArgument: {fileID: 307239918878250447, guid: 3328fd30fc281cc4ba126f4ee4a4f2f2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -12,6 +12,8 @@ public class BakeryWorkstation : MonoBehaviour
 
     public BakeryWorkbenchUI _bakeryWorkbenchUI;
 
+    public Transform itemSpawnPosition;
+
     public Item currentItem;
 
     public Sprite tempCookedIngSprite;
@@ -87,7 +89,7 @@ public class BakeryWorkstation : MonoBehaviour
         }
     }
 
-    public void ProcessFood()
+    public void ProcessFood(GameObject baseIngdntPrefab)
     {
         if(currentItem != null)
         {
@@ -97,5 +99,8 @@ public class BakeryWorkstation : MonoBehaviour
                 currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
             }
         }
+
+        Instantiate(baseIngdntPrefab, itemSpawnPosition);
+
     }
 }

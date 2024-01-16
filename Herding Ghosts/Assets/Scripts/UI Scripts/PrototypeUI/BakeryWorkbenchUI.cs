@@ -14,7 +14,9 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public DraggableItem baseIngItem;
 
-    public Sprite cookedIngredientSprite;
+    public List<Button> bakeryButtonOptions = new List<Button>();
+
+    public GameObject cookedFoodPrefab;
 
     public FoodPrepPanelUI foodPrepPanel;
 
@@ -26,6 +28,9 @@ public class BakeryWorkbenchUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         _bakeryWorksation = FindObjectOfType<BakeryWorkstation>();
         foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
+
+
+
     }
 
     // Update is called once per frame
@@ -52,8 +57,8 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public void ActivateCookButton()
     {
-        baseIngItem.GetComponent<Image>().sprite = cookedIngredientSprite;
-        _bakeryWorksation.ProcessFood();
+        baseIngItem.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
+        _bakeryWorksation.ProcessFood(cookedFoodPrefab);
     }
 
     public void UpdateDragItem(Item item)
@@ -61,7 +66,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
         baseIngItem.image.sprite = item.sprRndr.sprite;
     }
 
-    public void ActivateBaseIngredientButton(Image image)
+    public void ActivateBaseIngredientButton(GameObject baseIngdntPrefab)
     {
         // Activate Image in centre, Use sprite assigned to ingredient
         //
@@ -69,8 +74,12 @@ public class BakeryWorkbenchUI : MonoBehaviour
         if(foodPrepPanel.ingredientBase != null)
         {
             foodPrepPanel.ingredientBase.gameObject.SetActive(true);
-            foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = image.sprite;
+            foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = baseIngdntPrefab.GetComponent<FoodItem>().foodSprite;
+
+            cookedFoodPrefab = baseIngdntPrefab;
         }
+
+
     }
 
     public void FillInventory()
