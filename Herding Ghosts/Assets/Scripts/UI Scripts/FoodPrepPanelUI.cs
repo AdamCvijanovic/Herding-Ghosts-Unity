@@ -12,6 +12,7 @@ public class FoodPrepPanelUI : MonoBehaviour
     public InventorySlot ingredientSlotOne;
     public InventorySlot ingredientSlotTwo;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,23 +27,64 @@ public class FoodPrepPanelUI : MonoBehaviour
 
     public void OnDrop(PointerEventData eventData)
     {
+        //if (currentItem == null)
+        //{
+        //    GameObject dropped = eventData.pointerDrag;
+        //    DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
+        //    draggableItem.transform.position = dropped.transform.position;
+        //    //draggableItem.parentAfterDrag = transform;
+        //}
+
+        //else if (ingredientSlotTwo.currentItem == null)
+        //{
+        //    eventData.pointerDrag.GetComponent<DraggableItem>().parentAfterDrag = ingredientSlotTwo.transform;
+        //    ingredientSlotTwo.OnDrop(eventData);
+        //}
+
+    }
+
+    public InventorySlot AddToPrepPanel()
+    {
         if (ingredientSlotOne.currentItem == null)
         {
-            ingredientSlotOne.OnDrop(eventData);
+            return ingredientSlotOne;
         }
         else if (ingredientSlotTwo.currentItem == null)
         {
-            ingredientSlotTwo.OnDrop(eventData);
+            return ingredientSlotTwo;
         }
-
-        //PrepPanel
-        addToPrepPanel();
+        else
+        {
+            return null;
+        }
     }
 
-    public void addToPrepPanel()
+    public void SetParentAfterDrag(DraggableItem dragItem)
     {
+        if (ingredientSlotOne.currentItem == null)
+        {
+            dragItem.parentAfterDrag = ingredientSlotOne.transform;
+        }
+        else if (ingredientSlotTwo.currentItem == null)
+        {
+            dragItem.parentAfterDrag = ingredientSlotTwo.transform;
+        }
+        else
+        {
+            //do nothing
+            return;
+        }
+    }
 
-       //if(ingredientOne != null)
+    public void AddItemToSlot(GameObject item)
+    {
+        item.transform.position = this.transform.position;
+        item.transform.SetParent(this.transform);
+    }
+
+    public void RemoveItemFromSlot()
+    {
+        //currentItem = null;
     }
 
 }

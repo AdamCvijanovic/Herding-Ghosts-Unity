@@ -59,7 +59,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
 
     public void OnEndDrag(PointerEventData eventData)
-    {
+    { 
+        if(eventData.pointerCurrentRaycast.gameObject.GetComponent<InventorySlot>())
+        {
+            parentAfterDrag = eventData.pointerCurrentRaycast.gameObject.transform;
+        }
+        else if(eventData.pointerCurrentRaycast.gameObject.GetComponent<FoodPrepPanelUI>())
+        {
+            eventData.pointerCurrentRaycast.gameObject.GetComponent<FoodPrepPanelUI>().SetParentAfterDrag(this);
+        }
+
+
+        //parent is set in the inventory slot???
         transform.SetParent(parentAfterDrag);
         currentParent = transform.parent;
         UpdateCurrentSlot();
@@ -68,6 +79,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void UpdateCurrentSlot()
     {
-        if (currentParent.GetComponent<InventorySlot>() != null) currentSlot = currentParent.GetComponent<InventorySlot>();
+        if (currentParent.GetComponent<InventorySlot>() != null)
+        {
+            currentSlot = currentParent.GetComponent<InventorySlot>();
+            currentSlot.AddItemToSlot(this.gameObject);
+        }
     }
 }
