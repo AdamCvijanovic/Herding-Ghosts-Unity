@@ -100,6 +100,7 @@ public class BakeryWorkstation : MonoBehaviour
             }
         }
 
+        Debug.Log("Create Cooked Item");
         Instantiate(baseIngdntPrefab, itemSpawnPosition);
 
     }
