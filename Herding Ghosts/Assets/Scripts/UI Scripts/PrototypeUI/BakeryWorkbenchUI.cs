@@ -27,7 +27,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         _bakeryWorksation = FindObjectOfType<BakeryWorkstation>();
-        foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
+        //foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
 
 
 
@@ -69,17 +69,20 @@ public class BakeryWorkbenchUI : MonoBehaviour
     public void ActivateBaseIngredientButton(GameObject baseIngdntPrefab)
     {
         // Activate Image in centre, Use sprite assigned to ingredient
-        //
-
-        if(foodPrepPanel.ingredientBase != null)
+        if(foodPrepPanel != null)
         {
-            foodPrepPanel.ingredientBase.gameObject.SetActive(true);
-            foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = baseIngdntPrefab.GetComponent<FoodItem>().foodSprite;
+            if (foodPrepPanel.ingredientBase != null)
+            {
+                foodPrepPanel.ingredientBase.gameObject.SetActive(true);
+                foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = baseIngdntPrefab.GetComponent<FoodItem>().foodSprite;
 
-            cookedFoodPrefab = baseIngdntPrefab;
+                cookedFoodPrefab = baseIngdntPrefab;
+            }
         }
-
-
+        else
+        {
+            Debug.LogError("No foodPrepPanel Found");
+        }
     }
 
     public void FillInventory()

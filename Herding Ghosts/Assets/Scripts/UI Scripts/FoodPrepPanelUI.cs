@@ -8,7 +8,7 @@ public class FoodPrepPanelUI : MonoBehaviour
 {
     public BakeryWorkbenchUI _bakeryWorkbenchUI;
 
-    public DraggableItem ingredientBase;
+    public GameObject ingredientBase;
     public InventorySlot ingredientSlotOne;
     public InventorySlot ingredientSlotTwo;
 

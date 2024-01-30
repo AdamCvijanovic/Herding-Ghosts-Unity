@@ -49,8 +49,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
-        currentSlot.RemoveItemFromSlot();
-        currentSlot = null;
+
+        //need to do a null check here
+        if(currentSlot != null)
+        {
+            currentSlot.RemoveItemFromSlot();
+            currentSlot = null;
+        }
+        
     }
 
     public void OnDrag(PointerEventData eventData)
