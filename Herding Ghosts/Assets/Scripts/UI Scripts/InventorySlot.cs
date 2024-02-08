@@ -12,7 +12,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        if(currentItem == null)
+        if(currentItem == null && eventData.pointerDrag.GetComponent<DraggableItem>())
         {
             GameObject dropped = eventData.pointerDrag;
             DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();

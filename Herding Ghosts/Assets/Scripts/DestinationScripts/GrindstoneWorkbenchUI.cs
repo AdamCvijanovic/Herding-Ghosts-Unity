@@ -12,6 +12,13 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public Canvas canvas;
 
+    public DraggableGrindstone draggableGrindstone;
+
+    public Slider grindSlider;
+    public float incrementValue;
+
+    public Button flourButton;
+
     public DraggableItem dragItem;
 
     public Sprite cookedIngredientSprite;
@@ -53,4 +60,48 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
     {
         dragItem.image.sprite = item.sprRndr.sprite;
     }
+
+    public void ProgressGrindSlider()
+    {
+        if(grindSlider.value >= grindSlider.maxValue)
+        {
+            FullGrindSlider();
+        }
+        else
+        {
+            grindSlider.value += (grindSlider.maxValue / incrementValue);
+            DisableFlourButton();
+        }
+
+    }
+
+    private void FullGrindSlider()
+    {
+        EnableFlourButton();
+
+    }
+
+    public void ResetGrindSlider()
+    {
+        grindSlider.value = 0;
+    }
+
+    public void SpawnFlourButton()
+    {
+        ResetGrindSlider();
+        DisableFlourButton();
+        _grindstoneWorksation.SpawnFlour();
+    }
+
+    public void EnableFlourButton()
+    {
+        flourButton.gameObject.SetActive(true);
+    }
+
+    public void DisableFlourButton()
+    {
+        flourButton.gameObject.SetActive(false);
+    }
+
 }
+

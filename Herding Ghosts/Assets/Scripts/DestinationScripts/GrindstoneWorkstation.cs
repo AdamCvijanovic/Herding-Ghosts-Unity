@@ -18,6 +18,8 @@ public class GrindstoneWorkstation : MonoBehaviour
     public float maxDistance;
     public float dstToPlayer;
 
+    public GameObject flourPrefab;
+    public Transform itemSpawnTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -88,4 +90,10 @@ public class GrindstoneWorkstation : MonoBehaviour
             }
         }
     }
+
+    public void SpawnFlour()
+    {
+        Instantiate(flourPrefab, itemSpawnTransform);
+    }
+
 }
