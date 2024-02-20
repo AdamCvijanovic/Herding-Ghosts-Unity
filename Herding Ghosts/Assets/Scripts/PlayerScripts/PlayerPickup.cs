@@ -262,7 +262,14 @@ public class PlayerPickup : Pickup
 
             if (nearestInteractable != null && context.performed)
             {
-                nearestInteractable.Activate(context);
+                if (_currentItem != null && _currentItem.GetIngredientType() == IngredientItem.IngredientType.Flour)
+                {
+                    Debug.Log("FLOUR LARGE ITEM");
+                }
+                else
+                {
+                    nearestInteractable.Activate(context);
+                }
             }
         }
     }
