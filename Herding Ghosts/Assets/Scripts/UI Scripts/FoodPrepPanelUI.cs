@@ -10,7 +10,6 @@ public class FoodPrepPanelUI : MonoBehaviour
 
     public GameObject ingredientBase;
     public InventorySlot ingredientSlotOne;
-    public InventorySlot ingredientSlotTwo;
 
 
     // Start is called before the first frame update
@@ -49,10 +48,6 @@ public class FoodPrepPanelUI : MonoBehaviour
         {
             return ingredientSlotOne;
         }
-        else if (ingredientSlotTwo.currentItem == null)
-        {
-            return ingredientSlotTwo;
-        }
         else
         {
             return null;
@@ -64,10 +59,6 @@ public class FoodPrepPanelUI : MonoBehaviour
         if (ingredientSlotOne.currentItem == null)
         {
             dragItem.parentAfterDrag = ingredientSlotOne.transform;
-        }
-        else if (ingredientSlotTwo.currentItem == null)
-        {
-            dragItem.parentAfterDrag = ingredientSlotTwo.transform;
         }
         else
         {

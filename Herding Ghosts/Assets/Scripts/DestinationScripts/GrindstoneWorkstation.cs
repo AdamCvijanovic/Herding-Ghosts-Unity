@@ -43,6 +43,10 @@ public class GrindstoneWorkstation : MonoBehaviour
         PlayerDistanceDisableUI();
     }
 
+    public void InteractableCallWorkbenchActivate()
+    {
+        //if()
+    }
 
     public void UseWorkbench()
     {

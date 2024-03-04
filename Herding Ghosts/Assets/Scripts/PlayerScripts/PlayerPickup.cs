@@ -265,6 +265,7 @@ public class PlayerPickup : Pickup
                 if (_currentItem != null && _currentItem.GetIngredientType() == IngredientItem.IngredientType.Flour)
                 {
                     Debug.Log("FLOUR LARGE ITEM");
+
                 }
                 else
                 {

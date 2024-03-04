@@ -19,9 +19,13 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public Button flourButton;
 
+    public InventorySlot wheatInventorySlot;
     public DraggableItem dragItem;
 
     public Sprite cookedIngredientSprite;
+
+    public GameObject wheatPrefab;
+    public GameObject flourPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -52,13 +56,14 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public void ActivateButton()
     {
-        dragItem.GetComponent<Image>().sprite = cookedIngredientSprite;
+        //dragItem.GetComponent<Image>().sprite = cookedIngredientSprite;
         _grindstoneWorksation.ProcessFood();
     }
 
     public void UpdateDragItem(Item item)
     {
         dragItem.image.sprite = item.sprRndr.sprite;
+        dragItem.UpdateItemImage();
     }
 
     public void ProgressGrindSlider()
@@ -77,8 +82,8 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     private void FullGrindSlider()
     {
+        dragItem.item = flourPrefab.GetComponent<IngredientItem>();
         EnableFlourButton();
-
     }
 
     public void ResetGrindSlider()
@@ -91,6 +96,11 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
         ResetGrindSlider();
         DisableFlourButton();
         _grindstoneWorksation.SpawnFlour();
+
+        //change flour back to wheat
+        dragItem.item = wheatPrefab.GetComponent<IngredientItem>();
+        dragItem.UpdateItemImage();
+
     }
 
     public void EnableFlourButton()
