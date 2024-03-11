@@ -95,9 +95,9 @@ public class GrindstoneWorkstation : MonoBehaviour
         }
     }
 
-    public void SpawnFlour()
+    public GameObject SpawnFlour()
     {
-        Instantiate(flourPrefab, itemSpawnTransform);
+        return Instantiate(flourPrefab, itemSpawnTransform);
     }
 
 }

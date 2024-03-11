@@ -61,7 +61,6 @@ public class PlayerPickup : Pickup
                     _currentItem = nearestItem;
                     _nearbyItems.Remove(nearestItem);
 
-
                     _isHolding = true;
                     _currentItem.OnPickup(this);
                     UpdateHelpTextUse(nearestItem);
@@ -69,8 +68,23 @@ public class PlayerPickup : Pickup
                 //}
             }
         }
+    }
 
+    //Need a method to pickup particular object passed as a parameter
+    public void Pickup(Item item)
+    {
 
+        if (_currentItem == null)
+        {
+            Debug.Log("Pickup");
+
+            //parent to transform
+            _currentItem = item;
+            _isHolding = true;
+            _currentItem.OnPickup(this);
+            UpdateHelpTextUse(item);
+            item.GetComponentInChildren<SpriteRenderer>().sortingOrder = 7;
+        }
     }
 
 

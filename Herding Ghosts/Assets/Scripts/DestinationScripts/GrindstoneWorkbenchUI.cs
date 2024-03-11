@@ -95,12 +95,16 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
     {
         ResetGrindSlider();
         DisableFlourButton();
-        _grindstoneWorksation.SpawnFlour();
+        GameObject newFlour = _grindstoneWorksation.SpawnFlour();
 
         //change flour back to wheat
         dragItem.item = wheatPrefab.GetComponent<IngredientItem>();
         dragItem.UpdateItemImage();
 
+        //Should Disable Canvas and pickup Flour
+        DeActivatePanel();
+        //**Acvija: Change this
+        FindObjectOfType<PlayerPickup>().Pickup(newFlour.GetComponent<IngredientItem>());
     }
 
     public void EnableFlourButton()
