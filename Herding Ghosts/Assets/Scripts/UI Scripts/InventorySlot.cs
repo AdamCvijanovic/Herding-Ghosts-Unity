@@ -8,7 +8,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     public Transform childTransform;
     public DraggableItem currentItem;
-    public int currentItemCount;
+    public int quantity;
 
     public void OnDrop(PointerEventData eventData)
     {

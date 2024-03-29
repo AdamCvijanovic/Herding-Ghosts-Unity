@@ -54,7 +54,23 @@ public class IngredientItem : Item
 
     public override void OnPickup(PlayerPickup target)
     {
-        base.OnPickup(target);
+        if(itemBehaviour != null)
+        {
+            if(itemBehaviour is SmallItem)
+            {
+                itemBehaviour.PickupBehaviour();
+                base.SmallItemPickup(target);
+            }
+            else if(itemBehaviour is LargeItem)
+            {
+                itemBehaviour.PickupBehaviour();
+                base.OnPickup(target);
+            }
+        }
+        else
+        {
+            base.OnPickup(target);
+        }
 
         if (_parentInventory != null)
         {

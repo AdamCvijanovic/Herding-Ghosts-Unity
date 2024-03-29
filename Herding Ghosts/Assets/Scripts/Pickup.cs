@@ -7,11 +7,11 @@ public class Pickup : MonoBehaviour
 
     public Transform _itemHolder;
 
-    public bool _isHolding;
+    public bool _isHolding { get; set;}
 
     public List<Item> _nearbyItems;
 
-    public Item _currentItem;
+    public Item _currentItem { get; set; }
 
     //Don't liek this have it be universal to inventories instead
     public WorkstationDestination nearWorkstation;

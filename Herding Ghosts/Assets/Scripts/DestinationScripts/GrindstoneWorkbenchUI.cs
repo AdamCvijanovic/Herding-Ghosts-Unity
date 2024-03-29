@@ -12,7 +12,9 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public Canvas canvas;
 
-    public DraggableGrindstone draggableGrindstone;
+    public DraggableGrindstone draggableGrindstoneHandle;
+
+    public GameObject milledFlourImg;
 
     public Slider grindSlider;
     public float incrementValue;
@@ -46,7 +48,13 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public void ActivatePanel()
     {
-        workbenchPanel.SetActive(true);
+        if(workbenchPanel.activeInHierarchy != true)
+        {
+            workbenchPanel.SetActive(true);
+            draggableGrindstoneHandle.transform.rotation = Quaternion.Euler(0, 0, 0);
+            milledFlourImg.GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
+            grindSlider.value = grindSlider.minValue;
+        }
     }
 
     public void DeActivatePanel()
@@ -75,6 +83,7 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
         else
         {
             grindSlider.value += (grindSlider.maxValue / incrementValue);
+            milledFlourImg.GetComponent<RectTransform>().localScale = new Vector3(1,1,1) * (grindSlider.value * 0.1f);
             DisableFlourButton();
         }
 

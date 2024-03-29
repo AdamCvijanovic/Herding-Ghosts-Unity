@@ -5,17 +5,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerPickup : Pickup
 {
-    public Player _player;
+    public Player _player { get; set; }
+    public Inventory _playerInventory { get; set; }
 
     //audio
     public AudioSource audioPickup;
     private float minPitch;
     private float maxPitch;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         _player = GetComponent<Player>();
+        _playerInventory = GetComponent<Inventory>();
+
         minPitch = 0.9f;
         maxPitch = 1.1f;
     }

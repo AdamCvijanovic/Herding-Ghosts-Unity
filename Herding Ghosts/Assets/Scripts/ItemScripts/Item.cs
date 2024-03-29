@@ -9,6 +9,11 @@ public class Item : MonoBehaviour
     public GameObject parentObj;
     public Item subclass;
 
+    [SerializeField]
+    //public enum ItemBehaviourE {Default, SmallItem, LargeItem }
+    //public List<Behaviour> behaviours;
+    public ItemBehaviour itemBehaviour;
+
     public bool _isHeld;
 
     public TutorialText helpText;
@@ -23,6 +28,15 @@ public class Item : MonoBehaviour
 
     public string pickupString = "Press E to pickup: ";
     public string useString = "Press E to Drop: ";
+
+
+    //TmepCoroutine Values
+    public float lerpSpeed = 3;
+    public float lerpDuration = 0.5f;
+    public Vector3 startPosition;
+    public float endValue = 10;
+    public float valueToLerp;
+    public float timeElapsed = 0;
 
     // Start is called before the first frame update
     protected new void Start()
@@ -40,16 +54,74 @@ public class Item : MonoBehaviour
         
     }
 
+    IEnumerator LerpCoroutine(GameObject targetObj)
+    {
+        timeElapsed = 0;
+        startPosition = transform.position;
+        Vector3 startScale = transform.localScale;
+        Vector3 endScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        while (timeElapsed < lerpDuration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetObj.transform.position, timeElapsed / lerpDuration);
+            //transform.position = Vector3.MoveTowards(startPosition, targetObj.transform.position, lerpSpeed);
+            transform.localScale = Vector3.Lerp(startScale, endScale, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+
+            //DESTROY ITEM if close to player
+            if (Vector3.Magnitude(transform.position - targetObj.transform.position) < 0.2f)
+            {
+                this.gameObject.SetActive(false);
+            }
+
+            yield return null;
+        }
+            Destroy(this);
+
+        valueToLerp = endValue;
+    }
+
     //need to make this an event
     public virtual void OnPickup(PlayerPickup target)
     {
+        target._isHolding = true;
+
+        //disable collider
         DisableCollider();
+        // add to inventory
         if (_inInventory && _parentInventory!=null)
         {
             _parentInventory.RemoveItemFromList(this);
         }
+        // child to inventory
         SetItemTransform(target);
         parentObj = target.gameObject;
+        _isHeld = true;
+    }
+
+    public virtual void SmallItemPickup(PlayerPickup target)
+    {
+        target._isHolding = false;
+        target._currentItem = null;
+
+        //disable collider
+        DisableCollider();
+
+        // add to inventory
+        if (target._playerInventory != null)
+        {
+            target._playerInventory.AddItemToList(this);
+        }
+
+        // child to inventory
+        //SetItemTransform(target);
+        parentObj = target.gameObject;
+
+        //Lerp to Target
+        StartCoroutine(LerpCoroutine(target.gameObject));
+
+        //this.gameObject.SetActive(false);
+
         _isHeld = true;
     }
 
