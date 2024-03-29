@@ -18,6 +18,7 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
 
     public Slider grindSlider;
     public float incrementValue;
+    public float flourScaleFactor;
 
     public Button flourButton;
 
@@ -83,7 +84,12 @@ public class GrindstoneWorkbenchUI : MonoBehaviour
         else
         {
             grindSlider.value += (grindSlider.maxValue / incrementValue);
-            milledFlourImg.GetComponent<RectTransform>().localScale = new Vector3(1,1,1) * (grindSlider.value * 0.1f);
+
+
+            //Flour Scale logic
+            float range = grindSlider.maxValue - grindSlider.minValue;
+            float currentPercent = (grindSlider.value / range); 
+            milledFlourImg.GetComponent<RectTransform>().localScale = new Vector3(1,1,1) * ((currentPercent + 1) * flourScaleFactor);
             DisableFlourButton();
         }
 
