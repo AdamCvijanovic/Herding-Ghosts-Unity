@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleInventory",
+                    "type": "Button",
+                    "id": "09499106-caee-4df2-80ec-75f6c0240a4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -340,6 +349,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2924cd5b-919a-42ed-89c2-9f27b8384ff1",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

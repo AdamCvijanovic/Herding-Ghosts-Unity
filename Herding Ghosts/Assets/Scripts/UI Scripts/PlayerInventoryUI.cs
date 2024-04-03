@@ -21,4 +21,22 @@ public class PlayerInventoryUI : MonoBehaviour
     {
         
     }
+
+
+
+    public void ToggleInventory()
+    {
+        Debug.Log("Toggle activate");
+
+        if (_playerInventoryPanel.activeInHierarchy == false)
+        {
+            _playerInventoryPanel.SetActive(true);
+        }
+        else if(_playerInventoryPanel.activeInHierarchy == true)
+        {
+            _playerInventoryPanel.SetActive(false);
+        }
+
+        
+    }
 }
