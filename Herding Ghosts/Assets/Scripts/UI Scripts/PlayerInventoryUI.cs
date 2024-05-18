@@ -9,11 +9,15 @@ public class PlayerInventoryUI : MonoBehaviour
 
     public GridLayoutGroup _gridLayoutGroup;
 
+    public List<InventorySlot> _inventorySlotList = new List<InventorySlot>();
+
     // Start is called before the first frame update
     void Start()
     {
         _playerInventoryPanel.SetActive(false);
         _gridLayoutGroup = _playerInventoryPanel.GetComponentInChildren<GridLayoutGroup>();
+
+        _gridLayoutGroup.GetComponentsInChildren<InventorySlot>(true, _inventorySlotList);
     }
 
     // Update is called once per frame

@@ -52,6 +52,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 0e53762eff96bb1469976fd22183873f, type: 3}
   parentObj: {fileID: 0}
   subclass: {fileID: 0}
+  itemBehaviour: {fileID: 0}
   _isHeld: 0
   helpText: {fileID: 0}
   _inInventory: 0
@@ -61,7 +62,14 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
   pickupString: 'Press E to pickup: '
   useString: 'Press E to Drop: '
+  lerpSpeed: 3
+  lerpDuration: 0.5
+  startPosition: {x: 0, y: 0, z: 0}
+  endValue: 10
+  valueToLerp: 0
+  timeElapsed: 0
   foodType: 12
+  ingScrptobj: {fileID: 11400000, guid: 0c75ca91472ec614998a61e6802bd41e, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!114 &4417333570503285883
 MonoBehaviour:

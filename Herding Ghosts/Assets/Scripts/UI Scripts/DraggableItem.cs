@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public IngredientScriptableObject ingScrptObj;
+    public IngredientItem item;
+
     public Image image;
 
     public Transform currentParent;
@@ -13,17 +16,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public InventorySlot currentSlot;
 
-    public IngredientItem item;
+
 
     public void Start()
     {
         currentParent = transform.parent;
         UpdateCurrentSlot();
 
-        if (item != null && image != null)
+        if (ingScrptObj != null)
         {
-            if(item.itemSprite != null)
+            item = ingScrptObj.itemPrefab.GetComponent<IngredientItem>();
+            if(item!=null && item.itemSprite != null)
+            {
                 image.sprite = item.itemSprite;
+            }
         }
     }
 
@@ -34,9 +40,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void UpdateItemImage()
     {
-        if (item != null && image != null)
+        if (ingScrptObj != null)
         {
-            if (item.itemSprite != null)
+            item = ingScrptObj.itemPrefab.GetComponent<IngredientItem>();
+            if (item!= null && item.itemSprite != null)
             {
                 image.sprite = item.itemSprite;
             }

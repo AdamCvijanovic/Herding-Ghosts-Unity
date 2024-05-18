@@ -8,6 +8,7 @@ public class IngredientItem : Item
     [SerializeField]
     private IngredientType foodType;
 
+    public IngredientScriptableObject ingScrptobj;
     public IngredientProperties IngrdntProperties;
 
     // Start is called before the first frame update
@@ -60,6 +61,9 @@ public class IngredientItem : Item
             {
                 itemBehaviour.PickupBehaviour();
                 base.SmallItemPickup(target);
+
+                //Add Item to inventory screen
+
             }
             else if(itemBehaviour is LargeItem)
             {
