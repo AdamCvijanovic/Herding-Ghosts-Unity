@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-
-
     public int maxItems = 3;
 
     public List<Item> _items = new List<Item>();
@@ -33,6 +31,11 @@ public class Inventory : MonoBehaviour
         //if(item.GetFoodType() == FoodItem.FoodType.Carrot)
         _items.Add(item);
 
+    }
+
+    public void AddItemToPosition(Item item, int index)
+    {
+        _items.Insert(index, item);
     }
 
     public void RemoveItemFromList()

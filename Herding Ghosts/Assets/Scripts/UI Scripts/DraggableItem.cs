@@ -76,12 +76,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if(eventData.pointerCurrentRaycast.gameObject.GetComponent<InventorySlot>())
         {
             parentAfterDrag = eventData.pointerCurrentRaycast.gameObject.transform;
+            //We should update the inventory now
+
         }
         else if(eventData.pointerCurrentRaycast.gameObject.GetComponent<FoodPrepPanelUI>())
         {
             eventData.pointerCurrentRaycast.gameObject.GetComponent<FoodPrepPanelUI>().SetParentAfterDrag(this);
         }
-
 
         //parent is set in the inventory slot???
         transform.SetParent(parentAfterDrag);

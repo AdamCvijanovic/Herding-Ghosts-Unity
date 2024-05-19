@@ -690,9 +690,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd73b1312a8a2204c8f8ccbcebaf5908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableItemPrefab: {fileID: 2534318454673475346, guid: 24a29b83014b2cb4394b6bed8235add3, type: 3}
   _playerInventoryPanel: {fileID: 1247406398}
   _gridLayoutGroup: {fileID: 953277595}
   _inventorySlotList: []
+  playerInventory: {fileID: 0}
 --- !u!1 &148605857
 GameObject:
   m_ObjectHideFlags: 0
@@ -19446,6 +19448,10 @@ PrefabInstance:
       propertyPath: maxItems
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1624105183244720893, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
+      propertyPath: draggableItemPrefab
+      value: 
+      objectReference: {fileID: 2534318454673475346, guid: 24a29b83014b2cb4394b6bed8235add3, type: 3}
     - target: {fileID: 3359547926936675180, guid: 0d0821cd7d1f72544807da8616dcf772, type: 3}
       propertyPath: m_Size.x
       value: 1.1514001
@@ -28503,6 +28509,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 7
+  ingScrptobj: {fileID: 11400000, guid: 79d585d764448e442be7d9b7b7a04f04, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!1 &1805226355
 GameObject:
@@ -30304,6 +30311,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 4
+  ingScrptobj: {fileID: 11400000, guid: 5bcac97ac06d76043a11a7f3a413f711, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!4 &1014131183343866974
 Transform:
@@ -30546,6 +30554,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 13
+  ingScrptobj: {fileID: 11400000, guid: 745f7f123985ef64aba980e72913d9fb, type: 2}
   IngrdntProperties: {fileID: 8406896188378636384}
 --- !u!1 &1118578668579208313
 GameObject:
@@ -30644,6 +30653,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 11
+  ingScrptobj: {fileID: 11400000, guid: b2fd7104739952145af392756f988e15, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!4 &1803952138845751912
 Transform:
@@ -30863,6 +30873,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 10
+  ingScrptobj: {fileID: 11400000, guid: 565e74bc9ba52d043881315ea13e42de, type: 2}
   IngrdntProperties: {fileID: 7100476633542884097}
 --- !u!61 &1848520067446351675
 BoxCollider2D:
@@ -31007,6 +31018,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 3
+  ingScrptobj: {fileID: 11400000, guid: 71da1401993dc9b4fbc59b86cc263a46, type: 2}
   IngrdntProperties: {fileID: 7014943149031612138}
 --- !u!4 &1906328266794074828
 Transform:
@@ -31401,6 +31413,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 7
+  ingScrptobj: {fileID: 11400000, guid: 79d585d764448e442be7d9b7b7a04f04, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!61 &2899485047552787421
 BoxCollider2D:
@@ -31715,6 +31728,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 12
+  ingScrptobj: {fileID: 11400000, guid: 0c75ca91472ec614998a61e6802bd41e, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!1 &5244230817400367814
 GameObject:
@@ -31897,6 +31911,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 6
+  ingScrptobj: {fileID: 11400000, guid: 802b3f50cf6811a4295a2271955279a4, type: 2}
   IngrdntProperties: {fileID: 8143521737283838628}
 --- !u!4 &5730535375650778842
 Transform:
@@ -32136,6 +32151,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 2
+  ingScrptobj: {fileID: 11400000, guid: ee702a9f77c88d740bb3f5311862b60b, type: 2}
   IngrdntProperties: {fileID: 6937113213246334710}
 --- !u!1 &6937113213246334696
 GameObject:
@@ -32770,6 +32786,7 @@ MonoBehaviour:
   valueToLerp: 0
   timeElapsed: 0
   foodType: 5
+  ingScrptobj: {fileID: 11400000, guid: de10e57a066153c45a0b342fbf35634f, type: 2}
   IngrdntProperties: {fileID: 0}
 --- !u!4 &8994457027809326809
 Transform:

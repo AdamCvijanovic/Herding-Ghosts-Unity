@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class PlayerInventoryUI : MonoBehaviour
 {
+    public GameObject draggableItemPrefab;
+
     public GameObject _playerInventoryPanel;
 
     public GridLayoutGroup _gridLayoutGroup;
 
     public List<InventorySlot> _inventorySlotList = new List<InventorySlot>();
 
+    public Inventory playerInventory;
+
     // Start is called before the first frame update
     void Start()
     {
+        if(playerInventory == null)
+        {
+            playerInventory = FindObjectOfType<Player>().gameObject.GetComponent<Inventory>();
+        }
+
         _playerInventoryPanel.SetActive(false);
         _gridLayoutGroup = _playerInventoryPanel.GetComponentInChildren<GridLayoutGroup>();
 
@@ -35,6 +44,7 @@ public class PlayerInventoryUI : MonoBehaviour
         if (_playerInventoryPanel.activeInHierarchy == false)
         {
             _playerInventoryPanel.SetActive(true);
+            UpdateInventory();
         }
         else if(_playerInventoryPanel.activeInHierarchy == true)
         {
@@ -42,5 +52,42 @@ public class PlayerInventoryUI : MonoBehaviour
         }
 
         
+    }
+
+    public void UpdateInventory()
+    {
+        //get number of items
+        int numItems = playerInventory._items.Count;
+        for (int i = 0; i < numItems; i++)
+        {
+            // check if it's an ingredient item
+            if (playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj)
+            {
+                IngredientScriptableObject scrObj = playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj;
+
+                //if the inventory slot is empty
+                if (_inventorySlotList[i].currentItem == null)
+                {
+                    ////////////////////Actually all of this could be in the Slot Script with the draggable prefab passaed as a parameter
+
+                    //spawn draggable item
+                    GameObject newDraggable = Instantiate(draggableItemPrefab, this.gameObject.transform);
+                    newDraggable.transform.parent = _inventorySlotList[i].transform;
+                    //assign Parent & Child
+                    _inventorySlotList[i].currentItem = newDraggable.GetComponent<DraggableItem>();
+                    newDraggable.GetComponent<DraggableItem>().currentParent = _inventorySlotList[i].transform;
+                    //Update Object and Slot
+                    _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
+                    _inventorySlotList[i].currentItem.UpdateCurrentSlot();
+                }
+                //if inventory slot is not empty
+                else
+                {
+                    //just update the draggable item
+                    _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
+                    _inventorySlotList[i].currentItem.UpdateCurrentSlot();
+                }
+            }
+        }
     }
 }

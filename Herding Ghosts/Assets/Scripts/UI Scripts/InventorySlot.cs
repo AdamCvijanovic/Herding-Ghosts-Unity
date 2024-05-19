@@ -34,5 +34,10 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         currentItem = null;
     }
 
+    public void CreateDraggableItem(GameObject draggableItemPrefab)
+    {
+
+    }
+
 
 }

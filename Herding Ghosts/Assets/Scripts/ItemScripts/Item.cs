@@ -110,7 +110,10 @@ public class Item : MonoBehaviour
         // add to inventory
         if (target._playerInventory != null)
         {
-            target._playerInventory.AddItemToList(this);
+            if (target._playerInventory.HasInventorySpace())
+            {
+                target._playerInventory.AddItemToList(this);
+            }
         }
 
         // child to inventory
