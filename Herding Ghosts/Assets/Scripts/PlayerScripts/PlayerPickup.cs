@@ -122,7 +122,7 @@ public class PlayerPickup : Pickup
                 if (!_nearbyinteractables.Contains(collision.gameObject.GetComponent<Interactable>()))
                 {
                     _nearbyinteractables.Add(collision.gameObject.GetComponent<Interactable>());
-   
+                    PlayerNearInteractable(collision.gameObject);
                 }
             }
 
