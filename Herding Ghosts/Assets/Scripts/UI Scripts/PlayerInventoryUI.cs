@@ -27,6 +27,14 @@ public class PlayerInventoryUI : MonoBehaviour
         _gridLayoutGroup = _playerInventoryPanel.GetComponentInChildren<GridLayoutGroup>();
 
         _gridLayoutGroup.GetComponentsInChildren<InventorySlot>(true, _inventorySlotList);
+        
+        //assign index and reference to each slot
+        foreach(InventorySlot inv in _inventorySlotList)
+        {
+            inv._playerInventoryUI = this;
+            inv.inventorySlotList = _inventorySlotList;
+            inv.index = _inventorySlotList.IndexOf(inv);
+        }
     }
 
     // Update is called once per frame
@@ -54,38 +62,49 @@ public class PlayerInventoryUI : MonoBehaviour
         
     }
 
+    public void UpdatePlayerInventoryFromUI(int index, Item item)
+    {
+        playerInventory._items[index] = item;
+    }
+
     public void UpdateInventory()
     {
         //get number of items
-        int numItems = playerInventory._items.Count;
-        for (int i = 0; i < numItems; i++)
+        int numSlots = _inventorySlotList.Count;
+
+        for (int i = 0; i < numSlots; i++)
         {
-            // check if it's an ingredient item
-            if (playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj)
+            //Check if index is null 
+            if(playerInventory._items[i] != _inventorySlotList[i].currentItem)
             {
-                IngredientScriptableObject scrObj = playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj;
-
-                //if the inventory slot is empty
-                if (_inventorySlotList[i].currentItem == null)
+                // check if it's an ingredient item
+                if (playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj)
                 {
-                    ////////////////////Actually all of this could be in the Slot Script with the draggable prefab passaed as a parameter
+                    IngredientScriptableObject scrObj = playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj;
 
-                    //spawn draggable item
-                    GameObject newDraggable = Instantiate(draggableItemPrefab, this.gameObject.transform);
-                    newDraggable.transform.parent = _inventorySlotList[i].transform;
-                    //assign Parent & Child
-                    _inventorySlotList[i].currentItem = newDraggable.GetComponent<DraggableItem>();
-                    newDraggable.GetComponent<DraggableItem>().currentParent = _inventorySlotList[i].transform;
-                    //Update Object and Slot
-                    _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
-                    _inventorySlotList[i].currentItem.UpdateCurrentSlot();
-                }
-                //if inventory slot is not empty
-                else
-                {
-                    //just update the draggable item
-                    _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
-                    _inventorySlotList[i].currentItem.UpdateCurrentSlot();
+                    //if the inventory slot is empty
+                    if (_inventorySlotList[i].currentItem == null)
+                    {
+                        ////////////////////Actually all of this could be in the Slot Script with the draggable prefab passaed as a parameter
+
+                        //spawn draggable item
+                        GameObject newDraggable = Instantiate(draggableItemPrefab, this.gameObject.transform);
+                        newDraggable.transform.parent = _inventorySlotList[i].transform;
+                        //assign Parent & Child
+                        _inventorySlotList[i].currentItem = newDraggable.GetComponent<DraggableItem>();
+                        newDraggable.GetComponent<DraggableItem>().currentParent = _inventorySlotList[i].transform;
+                        //Update Object and Slot
+                        _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
+                        _inventorySlotList[i].currentItem.UpdateCurrentSlot();
+                        //update player inventory
+                    }
+                    //if inventory slot is not empty
+                    else
+                    {
+                        //just update the draggable item
+                        _inventorySlotList[i].currentItem.ingScrptObj = scrObj;
+                        _inventorySlotList[i].currentItem.UpdateCurrentSlot();
+                    }
                 }
             }
         }

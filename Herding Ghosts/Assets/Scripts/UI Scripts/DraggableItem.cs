@@ -96,7 +96,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (currentParent.GetComponent<InventorySlot>() != null)
         {
             currentSlot = currentParent.GetComponent<InventorySlot>();
-            currentSlot.AddItemToSlot(this.gameObject);
+            if(item != null)
+            {
+                currentSlot.AddItemToSlot(this.gameObject);
+            }
         }
     }
 }

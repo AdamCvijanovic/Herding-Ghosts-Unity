@@ -110,22 +110,22 @@ public class Item : MonoBehaviour
         // add to inventory
         if (target._playerInventory != null)
         {
-            if (target._playerInventory.HasInventorySpace())
+            if (target._playerInventory.HasSmallInventorySpace())
             {
                 target._playerInventory.AddItemToList(this);
+
+                // child to inventory
+                //SetItemTransform(target);
+                parentObj = target.gameObject;
+
+                //Lerp to Target
+                StartCoroutine(LerpCoroutine(target.gameObject));
+
+                //this.gameObject.SetActive(false);
+
+                _isHeld = true;
             }
         }
-
-        // child to inventory
-        //SetItemTransform(target);
-        parentObj = target.gameObject;
-
-        //Lerp to Target
-        StartCoroutine(LerpCoroutine(target.gameObject));
-
-        //this.gameObject.SetActive(false);
-
-        _isHeld = true;
     }
 
     public virtual void OnPickup(Pickup target)

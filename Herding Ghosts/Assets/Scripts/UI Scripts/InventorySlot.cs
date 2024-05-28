@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
 
+    //**acvija This reference really needs to be something else more secure
+    //this is bound to cause an error
+    public List<InventorySlot> inventorySlotList;
+    public int index;
+    public PlayerInventoryUI _playerInventoryUI;
+
     public Transform childTransform;
     public DraggableItem currentItem;
     public int quantity;
@@ -22,16 +28,23 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         }
     }
 
-    public void AddItemToSlot(GameObject item)
+    public void AddItemToSlot(GameObject itemObj)
     {
-        item.transform.position = this.transform.position;
-        item.transform.SetParent(this.transform);
-        currentItem = item.GetComponent<DraggableItem>();
+        itemObj.transform.position = this.transform.position;
+        itemObj.transform.SetParent(this.transform);
+        currentItem = itemObj.GetComponent<DraggableItem>();
+        if (currentItem != null)
+        {
+            _playerInventoryUI.UpdatePlayerInventoryFromUI(index, currentItem.item);
+        }
     }
 
     public void RemoveItemFromSlot()
     {
         currentItem = null;
+        //**acvija: we really should call a method in PlayerInventoryUI 
+        //inventorySlotList.RemoveAt(index);
+        _playerInventoryUI.UpdatePlayerInventoryFromUI(index, null);
     }
 
     public void CreateDraggableItem(GameObject draggableItemPrefab)
