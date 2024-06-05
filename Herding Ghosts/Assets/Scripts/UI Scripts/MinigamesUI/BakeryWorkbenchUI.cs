@@ -12,7 +12,14 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public Canvas canvas;
 
-    public DraggableItem baseIngItem;
+    [Header("Dough Type Vars")]
+    public DoughUI DoughUI;
+
+    public int baseDoughIndex = 0;
+
+    public List<FoodScriptableObject> doughTypes = new List<FoodScriptableObject>();
+
+    public List<Button> bakerySelectButtons = new List<Button>();
 
     public List<Button> bakeryButtonOptions = new List<Button>();
 
@@ -28,7 +35,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         _bakeryWorksation = FindObjectOfType<BakeryWorkstation>();
         //foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
-
+        UpdateDoughTypeImage(IngredientItem.IngredientType.None);
 
 
     }
@@ -57,13 +64,24 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public void ActivateCookButton()
     {
-        baseIngItem.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
+        DoughUI.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
         _bakeryWorksation.ProcessFood(cookedFoodPrefab);
     }
 
     public void UpdateDragItem(Item item)
     {
-        baseIngItem.image.sprite = item.sprRndr.sprite;
+        //**acvija change to enum dough image list
+        DoughUI.UpdateImage(item.sprRndr.sprite);
+    }
+
+    public void UpdateDoughTypeImage(IngredientItem.IngredientType ingType)
+    {
+        DoughUI.UpdateDough(ingType);
+    }
+
+    public void IncDecDoughType(int incValue)
+    {
+        //if(index)
     }
 
     public void ActivateBaseIngredientButton(GameObject baseIngdntPrefab)
@@ -83,6 +101,16 @@ public class BakeryWorkbenchUI : MonoBehaviour
         {
             Debug.LogError("No foodPrepPanel Found");
         }
+    }
+
+    public void ActivateLeftCycleButton()
+    {
+        Debug.Log("Left Button pressed");
+    }
+
+    public void ActivateRightCycleButton()
+    {
+        Debug.Log("Right Button pressed");
     }
 
     public void FillInventory()

@@ -69,6 +69,7 @@ public class BakeryWorkstation : MonoBehaviour
 
     public void UpdateCurrentItem(Item item)
     {
+        //**acvija: what are we doing here again?
         currentItem = item;
         _bakeryWorkbenchUI.UpdateDragItem(item);
     }
