@@ -10,6 +10,8 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public GameObject workbenchPanel;
 
+    public GameObject IngInventoryPanel;
+
     public Canvas canvas;
 
     [Header("Dough Type Vars")]
@@ -60,6 +62,22 @@ public class BakeryWorkbenchUI : MonoBehaviour
     public void DeActivatePanel()
     {
         workbenchPanel.SetActive(false);
+    }
+
+    public void ActivateInventoryPanel()
+    {
+        if(IngInventoryPanel != null)
+        {
+            IngInventoryPanel.SetActive(true);
+        }
+    }
+
+    public void DeActivateInventoryPanel()
+    {
+        if(IngInventoryPanel != null)
+        {
+            IngInventoryPanel.SetActive(false);
+        }
     }
 
     public void ActivateCookButton()
