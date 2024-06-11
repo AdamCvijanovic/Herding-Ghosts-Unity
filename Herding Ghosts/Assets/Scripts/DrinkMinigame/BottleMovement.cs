@@ -23,6 +23,7 @@ public class BottleMovement : MonoBehaviour
     [Range(0, 1)]
     public int drinkLayer = 0;
 
+    public Camera camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +83,7 @@ public class BottleMovement : MonoBehaviour
         Vector2 mousePosition;
         var rect = transform.parent.GetComponent<RectTransform>();
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, Mouse.current.position.ReadValue(), null, out mousePosition);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, Mouse.current.position.ReadValue(), camera, out mousePosition);
 
         GetComponent<RectTransform>().anchoredPosition = mousePosition;
 

@@ -5,7 +5,10 @@ using UnityEngine;
 public class DestroyerMover : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Vector3 offset;
+    public Vector2 offset;
+
+    public Camera camera;
+
     void Start()
     {
         
@@ -14,6 +17,12 @@ public class DestroyerMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(transform.parent.GetComponent<RectTransform>().position) + offset;
+
+        Vector2 pos;
+        var rect = transform.parent.GetComponent<RectTransform>();
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, transform.parent.GetComponent<RectTransform>().position, null, out pos);
+
+        transform.position = pos + offset;
     }
 }
