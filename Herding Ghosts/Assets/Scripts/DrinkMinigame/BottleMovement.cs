@@ -16,6 +16,7 @@ public class BottleMovement : MonoBehaviour
     private int currentTip = 0;
 
     public GameObject liquid;
+    public LiquidManager manager;
 
     public RectTransform bobaDrink;
     public RectTransform sugarDrink;
@@ -24,6 +25,10 @@ public class BottleMovement : MonoBehaviour
     public int drinkLayer = 0;
 
     public Camera camera;
+    public int percentageComplete;
+    public int percentagePerParticle = 50;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,7 @@ public class BottleMovement : MonoBehaviour
         }
 
         if (isTipping)
-            Tip();
+            Tip(false);
     }
 
     public void LockToMouse()
@@ -89,34 +94,51 @@ public class BottleMovement : MonoBehaviour
 
 
     }
-    private void Tip()
+    public void Tip(bool fromDrink)
     {
-        if (currentTip <= tipAmount)
+        if (percentageComplete <= percentagePerParticle)
         {
-            rotate = false;
-            GetComponent<RectTransform>().Rotate(new Vector3(0, 0, -6));
-            currentTip += 6;
+            if (currentTip <= tipAmount)
+            {
+                rotate = false;
+                GetComponent<RectTransform>().Rotate(new Vector3(0, 0, -6));
+                currentTip += 6;
+            }
+
+            else
+            {
+                liquid.SetActive(true);
+
+                if (fromDrink)
+                {
+
+                    percentageComplete++;
+                    switch (drinkLayer)
+                    {
+                        case 0:
+                            bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 4f);
+                            break;
+                        case 1:
+                            sugarDrink.anchoredPosition = new Vector2(sugarDrink.anchoredPosition.x, sugarDrink.anchoredPosition.y + 0.1f);
+                            bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 0.1f);
+
+                            break;
+
+                    }
+
+
+
+                }
+            }
+
+
         }
 
         else
         {
-            liquid.SetActive(true);
+            liquid.SetActive(false);
+            manager.UpdateCompletion(drinkLayer);
 
-            switch (drinkLayer)
-            {
-                case 0:
-                    bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 1f);
-                    break;
-                case 1:
-                    sugarDrink.anchoredPosition = new Vector2(sugarDrink.anchoredPosition.x, sugarDrink.anchoredPosition.y + 1f);
-                    bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 1f);
-                   
-                    break;
-
-            }
-
-
-           
         }
     }
 
