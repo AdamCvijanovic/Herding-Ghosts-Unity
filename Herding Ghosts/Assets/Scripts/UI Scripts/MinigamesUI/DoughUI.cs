@@ -16,6 +16,13 @@ public class DoughUI : MonoBehaviour
 
     //DoughTypeEnum
 
+    //DoughFlatness
+    public int flatnessLevel;
+    public Sprite doughDefault;
+    public Sprite doughHalfFlat;
+    public Sprite doughFlat;
+
+
     private void Update()
     {
         //**acvija I hate leaving this on update, so expensive,
@@ -68,6 +75,34 @@ public class DoughUI : MonoBehaviour
     {
         image.sprite = sprite;
     }
+
+    public void UpdateDoughFlatness()
+    {
+        if(flatnessLevel < 2)
+        {
+            flatnessLevel++;
+        }
+        else
+        {
+            flatnessLevel = 0;
+        }
+
+        switch (flatnessLevel)
+        {
+            case 0:
+                image.sprite = doughDefault;
+                break;
+            case 1:
+                image.sprite = doughHalfFlat;
+                break;
+            case 2:
+                image.sprite = doughFlat;
+                break;
+
+        }
+
+    }
+
 }
 
 
