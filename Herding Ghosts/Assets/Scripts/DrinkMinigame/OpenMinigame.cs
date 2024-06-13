@@ -6,7 +6,8 @@ public class OpenMinigame : MonoBehaviour
 {
 
     public GameObject m_minigameCanvas;
-    
+    public GameObject ui;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class OpenMinigame : MonoBehaviour
     public void EnableMinigame()
     {
         m_minigameCanvas.SetActive(true);
+        //ui.SetActive(false);
     }
 
     public void DisableMinigame()

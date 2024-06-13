@@ -5,8 +5,8 @@ using UnityEngine;
 public class LiquidManager : MonoBehaviour
 {
     
-    bool[] allBottles = new bool[2] { false,false};
-    
+    bool[] allBottles = new bool[3] { false,false,false};
+    public GameObject melt;
     
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class LiquidManager : MonoBehaviour
     {
         allBottles[num] = true;
 
-        if (allBottles[0] && allBottles[1])
-            gameObject.SetActive(false);
+        if (allBottles[0] && allBottles[1] && allBottles[2])
+            melt.SetActive(true);
     }
 
 

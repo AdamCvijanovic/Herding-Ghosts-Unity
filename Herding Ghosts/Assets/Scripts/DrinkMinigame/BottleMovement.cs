@@ -20,8 +20,10 @@ public class BottleMovement : MonoBehaviour
 
     public RectTransform bobaDrink;
     public RectTransform sugarDrink;
+    public RectTransform juiceDrink;
+    public RectTransform finalDrink;
 
-    [Range(0, 1)]
+    [Range(0, 2)]
     public int drinkLayer = 0;
 
     public Camera camera;
@@ -117,11 +119,19 @@ public class BottleMovement : MonoBehaviour
                     {
                         case 0:
                             bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 4f);
+                            finalDrink.anchoredPosition = new Vector2(finalDrink.anchoredPosition.x, finalDrink.anchoredPosition.y + 4f);
                             break;
                         case 1:
                             sugarDrink.anchoredPosition = new Vector2(sugarDrink.anchoredPosition.x, sugarDrink.anchoredPosition.y + 0.1f);
                             bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 0.1f);
+                            finalDrink.anchoredPosition = new Vector2(finalDrink.anchoredPosition.x, finalDrink.anchoredPosition.y + 0.1f);
+                            break;
+                        case 2:
 
+                            sugarDrink.anchoredPosition = new Vector2(sugarDrink.anchoredPosition.x, sugarDrink.anchoredPosition.y + 2f);
+                            bobaDrink.anchoredPosition = new Vector2(bobaDrink.anchoredPosition.x, bobaDrink.anchoredPosition.y + 2f);
+                            juiceDrink.anchoredPosition = new Vector2(juiceDrink.anchoredPosition.x, juiceDrink.anchoredPosition.y + 2f);
+                            finalDrink.anchoredPosition = new Vector2(finalDrink.anchoredPosition.x, finalDrink.anchoredPosition.y + 2f);
                             break;
 
                     }
