@@ -8,6 +8,7 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
 {
     GrindstoneWorkbenchUI _grindstoneWorkbenchUI;
 
+    public bool handleMoving;
     public float dragSpeed = 2f;
 
     // This event echoes the new local angle to which we have been dragged
@@ -18,6 +19,10 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
     public Quaternion dragStartRotation;
     public Quaternion dragStartInverseRotation;
 
+    [Header("Angle Vars")]
+    public Vector3 _direction;
+    public Quaternion _lookRotation;
+    public float turnAngle;
 
     private void Awake()
     {
@@ -29,7 +34,17 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
     private void Update()
     {
         //this.transform.Rotate(new Vector3(0, 0, 1), Mathf.Lerp(this.transform.rotation.eulerAngles.z, angleChange.eulerAngles.z, dragSpeed * Time.deltaTime));
+        if (handleMoving)
+        {
+            RotateHandle();
+        }
+    }
 
+    public void RotateHandle()
+    {
+        Vector3 target = new Vector3(0, 0, turnAngle+180);
+
+        this.transform.rotation = Quaternion.Slerp(transform.rotation, angleChange, Time.deltaTime * dragSpeed);
     }
 
     // This detects the starting point of the drag more accurately than OnBeginDrag,
@@ -52,10 +67,12 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        handleMoving = true;
         // Do nothing (but this has to exist or OnDrag won't work)
     }
     public void OnEndDrag(PointerEventData eventData)
     {
+        handleMoving = false;
         // Do nothing (but this has to exist or OnDrag won't work)
     }
 
@@ -68,10 +85,27 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
             //if (OnAngleChanged != null)
             {
                 angleChange = (currentDragAngle * dragStartInverseRotation * dragStartRotation);
-                //this.transform.Rotate(new Vector3(0, 0, 1), Mathf.Lerp(this.transform.rotation.eulerAngles.z, angleChange.eulerAngles.z, dragSpeed * Time.deltaTime));
-                this.transform.Rotate(Vector3.forward, dragSpeed);
 
-                if(_grindstoneWorkbenchUI != null)
+                //angle calculation
+                Debug.DrawLine(this.transform.position, eventData.position);
+                Vector3 eventPos = eventData.position;
+                Vector3 mouseVector = this.transform.position - eventPos;
+                turnAngle = Vector3.Angle(Vector3.up,eventPos);
+
+               
+
+                //this.transform.RotateAround(this.transform.position, this.transform.forward, turnAngle);
+
+                //_direction = (eventPos - transform.position);
+                //_lookRotation = Quaternion.LookRotation(_direction,Vector3.forward);
+                //_lookRotation.x = 0;
+                //_lookRotation.y = 0;
+                //this.transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * dragSpeed);
+
+                //this.transform.Rotate(new Vector3(0, 0, 1), Mathf.Lerp(this.transform.rotation.eulerAngles.z, angleChange.eulerAngles.z, dragSpeed * Time.deltaTime));
+                //this.transform.Rotate(Vector3.forward, dragSpeed);
+
+                if (_grindstoneWorkbenchUI != null)
                 {
                     _grindstoneWorkbenchUI.ProgressGrindSlider();
                 }
