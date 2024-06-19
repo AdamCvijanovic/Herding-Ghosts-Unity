@@ -14,8 +14,9 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public Canvas canvas;
 
-    [Header("Dough Type Vars")]
-    public DoughUI DoughUI;
+    [Header("Child References")]
+    public DoughUI doughUI;
+    public RollingPinUI rollingPinUI;
 
     public int baseDoughIndex = 0;
 
@@ -37,8 +38,10 @@ public class BakeryWorkbenchUI : MonoBehaviour
         canvas = GetComponent<Canvas>();
         _bakeryWorksation = FindObjectOfType<BakeryWorkstation>();
         //foodPrepPanel = GetComponentInChildren<FoodPrepPanelUI>();
-        UpdateDoughTypeImage(IngredientItem.IngredientType.None);
 
+        GetDough();
+
+        UpdateDoughTypeImage(IngredientItem.IngredientType.None);
 
     }
 
@@ -46,6 +49,19 @@ public class BakeryWorkbenchUI : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void GetDough()
+    {
+        if (doughUI == null)
+        {
+            doughUI = GetComponentInChildren<DoughUI>();
+            doughUI._bakeryWorkbenchUI = this;
+        }
+        else
+        {
+            doughUI._bakeryWorkbenchUI = this;
+        }
     }
 
     public void SetWindowWorkstation(BakeryWorkstation bakeryWorkstationIn)
@@ -80,26 +96,37 @@ public class BakeryWorkbenchUI : MonoBehaviour
         }
     }
 
+    public void ActivateRollingPin()
+    {
+        if (rollingPinUI != null)
+        {
+            rollingPinUI.gameObject.SetActive(true);
+        }
+    }
+
+    public void DeActivateRollingPin()
+    {
+        if (rollingPinUI != null)
+        {
+            rollingPinUI.gameObject.SetActive(false);
+        }
+    }
+
     public void ActivateCookButton()
     {
-        DoughUI.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
+        doughUI.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
         _bakeryWorksation.ProcessFood(cookedFoodPrefab);
     }
 
     public void UpdateDragItem(Item item)
     {
         //**acvija change to enum dough image list
-        DoughUI.UpdateImage(item.sprRndr.sprite);
+        doughUI.UpdateImage(item.sprRndr.sprite);
     }
 
     public void UpdateDoughTypeImage(IngredientItem.IngredientType ingType)
     {
-        DoughUI.UpdateDough(ingType);
-    }
-
-    public void IncDecDoughType(int incValue)
-    {
-        //if(index)
+        doughUI.UpdateDough(ingType);
     }
 
     public void ActivateBaseIngredientButton(GameObject baseIngdntPrefab)

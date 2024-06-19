@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler
-
 {
     GrindstoneWorkbenchUI _grindstoneWorkbenchUI;
 
@@ -91,19 +90,6 @@ public class DraggableGrindstone : MonoBehaviour, IDragHandler, IBeginDragHandle
                 Vector3 eventPos = eventData.position;
                 Vector3 mouseVector = this.transform.position - eventPos;
                 turnAngle = Vector3.Angle(Vector3.up,eventPos);
-
-               
-
-                //this.transform.RotateAround(this.transform.position, this.transform.forward, turnAngle);
-
-                //_direction = (eventPos - transform.position);
-                //_lookRotation = Quaternion.LookRotation(_direction,Vector3.forward);
-                //_lookRotation.x = 0;
-                //_lookRotation.y = 0;
-                //this.transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * dragSpeed);
-
-                //this.transform.Rotate(new Vector3(0, 0, 1), Mathf.Lerp(this.transform.rotation.eulerAngles.z, angleChange.eulerAngles.z, dragSpeed * Time.deltaTime));
-                //this.transform.Rotate(Vector3.forward, dragSpeed);
 
                 if (_grindstoneWorkbenchUI != null)
                 {

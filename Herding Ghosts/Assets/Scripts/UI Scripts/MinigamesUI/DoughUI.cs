@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DoughUI : MonoBehaviour
 {
+    public BakeryWorkbenchUI _bakeryWorkbenchUI;
+
     public Image image;
     public InventorySlot inventorySlot;
 
@@ -25,11 +27,7 @@ public class DoughUI : MonoBehaviour
 
     private void Update()
     {
-        //**acvija I hate leaving this on update, so expensive,
-        //we should find a way to make this update ONLY on the drop and pickup events
-        // To do this we need some way of referencing the Dough from the Slot
-        // Maybe some inheritence doohickey? 
-        //UpdateCurrentIngredient();
+
     }
 
     public void UpdateCurrentIngredient()
@@ -41,8 +39,6 @@ public class DoughUI : MonoBehaviour
         }
     }
 
-    
-    
     public void UpdateDoughIngredient(IngredientScriptableObject ingScrptObj)
     {
         currentIngrdnt = ingScrptObj;
@@ -84,7 +80,8 @@ public class DoughUI : MonoBehaviour
         }
         else
         {
-            flatnessLevel = 0;
+            //flatnessLevel = 0;
+           
         }
 
         switch (flatnessLevel)
@@ -97,12 +94,12 @@ public class DoughUI : MonoBehaviour
                 break;
             case 2:
                 image.sprite = doughFlat;
+                _bakeryWorkbenchUI.DeActivateRollingPin();
+                _bakeryWorkbenchUI.ActivateInventoryPanel();
                 break;
 
         }
-
     }
-
 }
 
 

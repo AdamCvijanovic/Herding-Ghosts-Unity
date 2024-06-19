@@ -14,9 +14,9 @@ public class RollingPinUI : MonoBehaviour/*, IBeginDragHandler, IDragHandler, IE
     public GameObject middleCol;
     public GameObject lowerCol;
 
-    public bool lower;
-    public bool middle;
     public bool upper;
+    public bool middle;
+    public bool lower;
 
     // Start is called before the first frame update
     void Start()
