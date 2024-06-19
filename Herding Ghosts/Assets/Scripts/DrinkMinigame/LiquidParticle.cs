@@ -12,7 +12,7 @@ public enum DrinkType
 
 public class LiquidParticle : MonoBehaviour
 {
-    //public DrinkType drinkType;
+    public DrinkType drinkType;
 
     public BottleMovement bottleMovement;
     List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>();
@@ -31,15 +31,22 @@ public class LiquidParticle : MonoBehaviour
 
     private void OnParticleTrigger()
     {
-
-        int numEnter = GetComponent<ParticleSystem>().GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
+      
+        var particles = new List<ParticleSystem.Particle>();
+        int numEnter = GetComponent<ParticleSystem>().GetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);
 
         for (int i = 0; i < numEnter; i++)
         {
             bottleMovement.Tip(true);
+            
+            ParticleSystem.Particle p = particles[i];
+            p.remainingLifetime = 0;
+            particles[i] = p;
         }
 
-       
+        GetComponent<ParticleSystem>().SetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);
+
+
 
     }
 }

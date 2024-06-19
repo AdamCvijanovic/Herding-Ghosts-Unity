@@ -9,6 +9,10 @@ public class LiquidMelt : MonoBehaviour
 
     public GameObject finalLiquid;
 
+    public GameObject canvas;
+
+    public GameObject congrats;
+
     private bool melt = false;
     // Start is called before the first frame update
     void Start()
@@ -42,7 +46,10 @@ public class LiquidMelt : MonoBehaviour
         currentColor2.a += 0.05f;
 
         if (currentColor2.a >= 0.95)
+        {
             melt = false;
+            StartCoroutine(Congrats());
+        }
 
         imgFinal.color = currentColor2;
 
@@ -59,6 +66,15 @@ public class LiquidMelt : MonoBehaviour
 
 
         yield return null;
+    }
+
+    private IEnumerator Congrats()
+    {
+        yield return new WaitForSeconds(1f);
+        congrats.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        canvas.SetActive(false);
+
     }
 }
 

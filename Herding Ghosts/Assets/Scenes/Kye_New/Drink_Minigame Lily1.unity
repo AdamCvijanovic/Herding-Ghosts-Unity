@@ -744,7 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1007,7 +1007,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4881,7 +4881,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    textureScale: {x: 1, y: 1}
+    textureScale: {x: 1, y: 0.5}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -5664,6 +5664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6b6e9dd20115643af2b5d30b7273cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkType: 2
   bottleMovement: {fileID: 1029107118}
 --- !u!114 &47866316
 MonoBehaviour:
@@ -15157,7 +15158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &402179995
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15165,18 +15166,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402179994}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.349648, y: 1.6968563, z: 1}
+  m_LocalScale: {x: 6, y: 3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1254731638}
+  m_Father: {fileID: 1612978658}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.011196, y: 0.0053348}
-  m_SizeDelta: {x: 111.72, y: 179.84}
+  m_SizeDelta: {x: 179.84, y: 111.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402179996
 MonoBehaviour:
@@ -23300,7 +23301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b98d5aced413e4095162676110c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.1, y: -2.8}
+  offset: {x: 0.1, y: -2.9}
   camera: {fileID: 1079876744}
 --- !u!212 &977275649
 SpriteRenderer:
@@ -33135,6 +33136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6b6e9dd20115643af2b5d30b7273cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkType: 1
   bottleMovement: {fileID: 1150175577}
 --- !u!114 &1201208861
 MonoBehaviour:
@@ -33317,10 +33319,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 3
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &1254731636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33392,7 +33394,7 @@ RectTransform:
   - {fileID: 556518699}
   - {fileID: 1051148956}
   - {fileID: 40825563}
-  - {fileID: 402179995}
+  - {fileID: 1612978658}
   - {fileID: 2053270481}
   m_Father: {fileID: 0}
   m_RootOrder: 36
@@ -38542,6 +38544,108 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1612978657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612978658}
+  - component: {fileID: 1612978661}
+  - component: {fileID: 1612978660}
+  - component: {fileID: 1612978659}
+  m_Layer: 5
+  m_Name: EndScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1612978658
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612978657}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 402179995}
+  m_Father: {fileID: 1254731638}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1279.9999, y: 868}
+  m_SizeDelta: {x: 2560, y: 1439.9999}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1612978659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612978657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1612978660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612978657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1612978661
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612978657}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 1
+  m_Camera: {fileID: 1079876744}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: -437981851
+  m_SortingOrder: 4
+  m_TargetDisplay: 0
 --- !u!4 &1631579698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4817486377873644989, guid: 314fe80726071fc408fe886ae2dfcb68, type: 3}
@@ -45861,6 +45965,7 @@ GameObject:
   - component: {fileID: 2042792970}
   - component: {fileID: 2042792972}
   - component: {fileID: 2042792973}
+  - component: {fileID: 2042792974}
   m_Layer: 0
   m_Name: Overlays
   m_TagString: Untagged
@@ -45940,7 +46045,7 @@ MonoBehaviour:
   _ActivateEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 575411855}
+      - m_Target: {fileID: 2042792974}
         m_TargetAssemblyTypeName: OpenMinigame, Assembly-CSharp
         m_MethodName: EnableMinigame
         m_Mode: 1
@@ -46006,6 +46111,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2042792974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042792965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d83e042cdb50cc4b88eae44a8a8d724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_minigameCanvas: {fileID: 1254731634}
+  ui: {fileID: 340626533}
 --- !u!1001 &2045397919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46317,6 +46436,8 @@ MonoBehaviour:
   - {fileID: 314823436}
   - {fileID: 783849347}
   finalLiquid: {fileID: 874428188}
+  canvas: {fileID: 1254731634}
+  congrats: {fileID: 1612978657}
 --- !u!1 &2060703456
 GameObject:
   m_ObjectHideFlags: 0
@@ -51303,6 +51424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6b6e9dd20115643af2b5d30b7273cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinkType: 0
   bottleMovement: {fileID: 1541293001}
 --- !u!114 &2065943598
 MonoBehaviour:

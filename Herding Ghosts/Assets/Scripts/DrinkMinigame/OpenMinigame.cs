@@ -23,7 +23,7 @@ public class OpenMinigame : MonoBehaviour
     public void EnableMinigame()
     {
         m_minigameCanvas.SetActive(true);
-        //ui.SetActive(false);
+        ui.SetActive(false);
     }
 
     public void DisableMinigame()
