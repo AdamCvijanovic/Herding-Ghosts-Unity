@@ -18,11 +18,11 @@ public class DestroyerMover : MonoBehaviour
     void Update()
     {
 
-        Vector2 pos;
+        Vector3 pos;
         var rect = transform.parent.GetComponent<RectTransform>();
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, transform.parent.GetComponent<RectTransform>().position, null, out pos);
+        RectTransformUtility.ScreenPointToWorldPointInRectangle(rect, transform.parent.GetComponent<RectTransform>().position, null, out pos);
 
-        transform.position = pos + offset;
+        transform.position = new Vector2(pos.x,pos.y) + offset;
     }
 }

@@ -53,5 +53,12 @@ public class LiquidMelt : MonoBehaviour
         melt = true;
         finalLiquid.SetActive(true);
     }
+
+    private IEnumerator Boil()
+    {
+
+
+        yield return null;
+    }
 }
 
