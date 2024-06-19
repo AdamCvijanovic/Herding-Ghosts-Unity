@@ -38,14 +38,19 @@ public class LiquidParticle : MonoBehaviour
         for (int i = 0; i < numEnter; i++)
         {
             bottleMovement.Tip(true);
-            
-            ParticleSystem.Particle p = particles[i];
-            p.remainingLifetime = 0;
-            particles[i] = p;
+
+            if (drinkType == DrinkType.JUICE)
+            {
+                ParticleSystem.Particle p = particles[i];
+                p.remainingLifetime = 0;
+                particles[i] = p;
+            }
         }
-
-        GetComponent<ParticleSystem>().SetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);
-
+        
+        if (drinkType == DrinkType.JUICE)
+        {
+            GetComponent<ParticleSystem>().SetTriggerParticles(ParticleSystemTriggerEventType.Enter, particles);
+        }
 
 
     }

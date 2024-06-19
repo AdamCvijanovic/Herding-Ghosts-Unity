@@ -13,6 +13,10 @@ public class LiquidMelt : MonoBehaviour
 
     public GameObject congrats;
 
+    public GameObject UI;
+
+    public GrimoireUI grimoire;
+
     private bool melt = false;
     // Start is called before the first frame update
     void Start()
@@ -74,7 +78,8 @@ public class LiquidMelt : MonoBehaviour
         congrats.SetActive(true);
         yield return new WaitForSeconds(2f);
         canvas.SetActive(false);
-
+        UI.SetActive(true);
+        grimoire.Deactivate();
     }
 }
 
