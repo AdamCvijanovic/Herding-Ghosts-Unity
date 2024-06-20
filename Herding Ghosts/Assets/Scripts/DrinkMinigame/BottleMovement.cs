@@ -30,6 +30,9 @@ public class BottleMovement : MonoBehaviour
     public int percentageComplete;
     public int percentagePerParticle = 50;
 
+    public AudioClip completeSound;
+
+    private bool complete = false;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +85,7 @@ public class BottleMovement : MonoBehaviour
         GetComponent<RectTransform>().Rotate(new Vector3(0, 0, currentTip));
         currentTip = 0;
         liquid.SetActive(false) ;
+        GetComponent<AudioSource>().Stop();
     }
 
     private void MouseFollow()
@@ -110,6 +114,8 @@ public class BottleMovement : MonoBehaviour
             else
             {
                 liquid.SetActive(true);
+                if(!GetComponent<AudioSource>().isPlaying)
+                    GetComponent<AudioSource>().Play();
 
                 if (fromDrink)
                 {
@@ -148,8 +154,16 @@ public class BottleMovement : MonoBehaviour
         {
             liquid.SetActive(false);
             manager.UpdateCompletion(drinkLayer);
-
+            if (!complete)
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = completeSound;
+                GetComponent<AudioSource>().loop = false;
+                GetComponent<AudioSource>().Play();
+                complete = true;
+            }
         }
+
     }
 
 
