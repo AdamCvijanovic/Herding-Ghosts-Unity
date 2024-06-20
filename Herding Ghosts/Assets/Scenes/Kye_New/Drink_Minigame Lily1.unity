@@ -18100,7 +18100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d83e042cdb50cc4b88eae44a8a8d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minigameCanvas: {fileID: 1254731634}
+  start: {fileID: 1254731634}
+  m_minigameCanvas: {fileID: 0}
   ui: {fileID: 340626533}
 --- !u!1 &576276641
 GameObject:
@@ -42601,10 +42602,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1254731634}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2042792974}
+        m_TargetAssemblyTypeName: OpenMinigame, Assembly-CSharp
+        m_MethodName: DisableMinigame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -46124,7 +46125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d83e042cdb50cc4b88eae44a8a8d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minigameCanvas: {fileID: 1254731634}
+  start: {fileID: 1254731634}
+  m_minigameCanvas: {fileID: 0}
   ui: {fileID: 340626533}
 --- !u!1 &2044858999
 GameObject:
@@ -46518,6 +46520,7 @@ MonoBehaviour:
   congrats: {fileID: 1612978657}
   UI: {fileID: 340626533}
   grimoire: {fileID: 1377240970}
+  game: {fileID: 2042792974}
 --- !u!1 &2060703456
 GameObject:
   m_ObjectHideFlags: 0
