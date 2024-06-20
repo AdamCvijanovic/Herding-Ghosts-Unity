@@ -19,7 +19,13 @@ public class LiquidMelt : MonoBehaviour
 
     public OpenMinigame game;
 
+
     private bool melt = false;
+
+
+    //TEMP ONLY FOR SHOW
+    public GameObject bobatea;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +88,9 @@ public class LiquidMelt : MonoBehaviour
         game.DisableMinigame();
         UI.SetActive(true);
         grimoire.Deactivate();
+
+        Instantiate(bobatea, new Vector3(transform.position.x + 3, transform.position.y + 3.5f, 1), transform.rotation);
+
     }
 }
 
