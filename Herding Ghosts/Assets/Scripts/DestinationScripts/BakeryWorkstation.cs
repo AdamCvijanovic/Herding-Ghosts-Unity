@@ -53,6 +53,7 @@ public class BakeryWorkstation : MonoBehaviour
     {
         Debug.Log("Using Workbench");
         _bakeryWorkbenchUI.ActivatePanel();
+        LinkInventoryToPlayer();
 
         WorkstationInventory wkstnInventory = GetComponent<WorkstationInventory>();
 
@@ -77,6 +78,11 @@ public class BakeryWorkstation : MonoBehaviour
     public List<Item> GetInventoryItems()
     {
         return _inventory._items;
+    }
+
+    public void LinkInventoryToPlayer()
+    {
+        _inventory._items = FindObjectOfType<PlayerInventoryUI>().playerInventory._items;
     }
 
     public void InventoryCheck(Item item)

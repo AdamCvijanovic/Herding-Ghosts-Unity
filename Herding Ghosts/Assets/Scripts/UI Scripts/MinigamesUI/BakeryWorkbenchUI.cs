@@ -84,7 +84,8 @@ public class BakeryWorkbenchUI : MonoBehaviour
     {
         if(IngInventoryPanel != null)
         {
-            IngInventoryPanel.SetActive(true);
+            //IngInventoryPanel.SetActive(true);
+            IngInventoryPanel.GetComponent<PlayerInventoryUI>().ToggleInventory();
         }
     }
 

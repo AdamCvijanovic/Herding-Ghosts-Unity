@@ -16,14 +16,14 @@ public class PlayerInventoryUI : MonoBehaviour
     public Inventory playerInventory;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(playerInventory == null)
         {
             playerInventory = FindObjectOfType<Player>().gameObject.GetComponent<Inventory>();
         }
 
-        _playerInventoryPanel.SetActive(false);
+        //_playerInventoryPanel.SetActive(false);
         _gridLayoutGroup = _playerInventoryPanel.GetComponentInChildren<GridLayoutGroup>();
 
         _gridLayoutGroup.GetComponentsInChildren<InventorySlot>(true, _inventorySlotList);
@@ -58,8 +58,20 @@ public class PlayerInventoryUI : MonoBehaviour
         {
             _playerInventoryPanel.SetActive(false);
         }
+    }
+    public void ToggleMinigameInventory()
+    {
+        Debug.Log("Toggle activate");
 
-        
+        if (_playerInventoryPanel.activeInHierarchy == false)
+        {
+            _playerInventoryPanel.SetActive(true);
+            UpdateInventory();
+        }
+        else if (_playerInventoryPanel.activeInHierarchy == true)
+        {
+            _playerInventoryPanel.SetActive(false);
+        }
     }
 
     public void UpdatePlayerInventoryFromUI(int index, Item item)
