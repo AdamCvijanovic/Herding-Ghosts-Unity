@@ -13,7 +13,7 @@ public class BottleMovement : MonoBehaviour
     bool rotate = true;
     bool isTipping = false;
     public int tipAmount = 120;
-    private int currentTip = 0;
+    public int currentTip = 0;
 
     public GameObject liquid;
     public LiquidManager manager;
@@ -84,7 +84,7 @@ public class BottleMovement : MonoBehaviour
         isTipping = false;
         GetComponent<RectTransform>().Rotate(new Vector3(0, 0, currentTip));
         currentTip = 0;
-        liquid.SetActive(false) ;
+        liquid.GetComponent<ParticleSystem>().Stop();
         GetComponent<AudioSource>().Stop();
     }
 
@@ -113,8 +113,10 @@ public class BottleMovement : MonoBehaviour
 
             else
             {
-                liquid.SetActive(true);
-                if(!GetComponent<AudioSource>().isPlaying)
+                if (!liquid.GetComponent<ParticleSystem>().isPlaying)
+                    liquid.GetComponent<ParticleSystem>().Play();
+                
+                if (!GetComponent<AudioSource>().isPlaying)
                     GetComponent<AudioSource>().Play();
 
                 if (fromDrink)
@@ -152,7 +154,7 @@ public class BottleMovement : MonoBehaviour
 
         else
         {
-            liquid.SetActive(false);
+            liquid.GetComponent<ParticleSystem>().Stop();
             manager.UpdateCompletion(drinkLayer);
             if (!complete)
             {

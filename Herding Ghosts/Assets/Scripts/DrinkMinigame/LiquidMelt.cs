@@ -89,7 +89,7 @@ public class LiquidMelt : MonoBehaviour
         UI.SetActive(true);
         grimoire.Deactivate();
 
-        Instantiate(bobatea, new Vector3(transform.position.x + 3, transform.position.y + 3.5f, 1), transform.rotation);
+        Instantiate(bobatea, new Vector3(transform.position.x + 3, transform.position.y + 1.5f, 1), transform.rotation);
 
     }
 }

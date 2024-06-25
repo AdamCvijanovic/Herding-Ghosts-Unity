@@ -897,7 +897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &47866312
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -988,7 +988,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -25274,6 +25274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipAmount: 120
+  currentTip: 0
   liquid: {fileID: 47866310}
   manager: {fileID: 1254731639}
   bobaDrink: {fileID: 1304633394}
@@ -26336,6 +26337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipAmount: 120
+  currentTip: 0
   liquid: {fileID: 1201208855}
   manager: {fileID: 1254731639}
   bobaDrink: {fileID: 1304633394}
@@ -28582,7 +28584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1201208856
 Transform:
   m_ObjectHideFlags: 0
@@ -28687,7 +28689,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -37296,6 +37298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipAmount: 120
+  currentTip: 0
   liquid: {fileID: 2065943593}
   manager: {fileID: 1254731639}
   bobaDrink: {fileID: 1304633394}
@@ -38938,7 +38941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.008483887, y: 130}
+  m_AnchoredPosition: {x: 0.008544922, y: 130}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612978659
@@ -39228,8 +39231,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: 27.548512, y: 688.3047}
-  - {x: 13.971927, y: 638.74615}
-  - {x: 14.356734, y: 483.8546}
+  - {x: 11.970538, y: 638.74615}
+  - {x: 12.355346, y: 489.2745}
   - {x: 30.573387, y: 472.31158}
   - {x: 65.70432, y: 363.56235}
   - {x: 76.18212, y: 276.40405}
@@ -39241,10 +39244,10 @@ EdgeCollider2D:
   - {x: -77.04577, y: 102.490814}
   - {x: -84.07199, y: 245.52766}
   - {x: -60.138702, y: 422.78223}
-  - {x: -21.395836, y: 484.81854}
-  - {x: -20.551836, y: 645.0125}
-  - {x: -27.060032, y: 653.1378}
-  - {x: -33.966484, y: 680.68365}
+  - {x: -19.994862, y: 490.23843}
+  - {x: -19.951424, y: 641.91547}
+  - {x: -26.158411, y: 659.37946}
+  - {x: -34.514774, y: 685.9866}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -39261,7 +39264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b98d5aced413e4095162676110c350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.1, y: -2.5}
+  offset: {x: 0.1, y: -2.4}
   camera: {fileID: 1079876744}
 --- !u!212 &1672874196
 SpriteRenderer:
@@ -46398,7 +46401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprRndr: {fileID: 2042792973}
   defaultMaterial: {fileID: 0}
-  highlightMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: ffac07a7dd4560e4692a12b1ab790c40, type: 2}
   _ActivateEvent:
     m_PersistentCalls:
       m_Calls:
@@ -46744,7 +46747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 70.391}
+  m_AnchoredPosition: {x: 0, y: 70.39099}
   m_SizeDelta: {x: 320, y: 30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2053270482
@@ -47050,7 +47053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2065943594
 Transform:
   m_ObjectHideFlags: 0
@@ -47155,7 +47158,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

@@ -37,7 +37,8 @@ public class LiquidParticle : MonoBehaviour
 
         for (int i = 0; i < numEnter; i++)
         {
-            bottleMovement.Tip(true);
+            if(bottleMovement.currentTip >= bottleMovement.tipAmount)
+                bottleMovement.Tip(true);
 
             if (drinkType == DrinkType.JUICE)
             {
