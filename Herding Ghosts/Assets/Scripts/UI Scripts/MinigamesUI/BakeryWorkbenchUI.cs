@@ -8,10 +8,12 @@ public class BakeryWorkbenchUI : MonoBehaviour
 {
     public BakeryWorkstation _bakeryWorksation;
 
+    [Header("UI Elements")]
+    public FoodPrepPanelUI foodPrepPanel;
+    public GameObject itemGrid;
     public GameObject workbenchPanel;
-
     public GameObject IngInventoryPanel;
-
+    public GameObject cookButton;
     public Canvas canvas;
 
     [Header("Child References")]
@@ -24,13 +26,11 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public List<Button> bakerySelectButtons = new List<Button>();
 
-    public List<Button> bakeryButtonOptions = new List<Button>();
 
-    public GameObject cookedFoodPrefab;
+    public List<FoodScriptableObject> cookedFoodPrefabList;
 
-    public FoodPrepPanelUI foodPrepPanel;
 
-    public GameObject itemGrid;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
         GetDough();
 
-        UpdateDoughTypeImage(IngredientItem.IngredientType.None);
+        //UpdateDoughTypeImage(IngredientItem.IngredientType.None);
 
     }
 
@@ -115,8 +115,71 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public void ActivateCookButton()
     {
-        doughUI.GetComponent<Image>().sprite = cookedFoodPrefab.GetComponent<FoodItem>().foodSprite;
+        if (cookButton != null)
+        {
+            cookButton.SetActive(true);
+        }
+    }
+
+    public void DeActivateCookButton()
+    {
+        if (cookButton != null)
+        {
+            cookButton.SetActive(false);
+        }
+    }
+
+    public void ResetMinigameUI()
+    {
+
+    }
+
+    public void SetInventoryMode()
+    {
+        DeActivateRollingPin();
+        ActivateInventoryPanel();
+        ActivateCookButton();
+    }
+
+    public void SetRollingMode()
+    {
+        ActivateRollingPin();
+        DeActivateInventoryPanel();
+        DeActivateCookButton();
+    }
+
+    public void PressCookButton()
+    {
+
+        GameObject cookedFoodPrefab = null;
+
+        if (doughUI.ingType == IngredientItem.IngredientType.Apple)
+        {
+            cookedFoodPrefab = cookedFoodPrefabList[0].itemPrefab;
+        }
+        
+        if (doughUI.ingType == IngredientItem.IngredientType.Carrot)
+        {
+            cookedFoodPrefab = cookedFoodPrefabList[1].itemPrefab;
+        }
+        
+        if (doughUI.ingType == IngredientItem.IngredientType.Strawberry)
+        {
+            cookedFoodPrefab = cookedFoodPrefabList[2].itemPrefab;
+        }
+        
+        if (doughUI.ingType == IngredientItem.IngredientType.None)
+        {
+            cookedFoodPrefab = cookedFoodPrefabList[3].itemPrefab;
+        }
+
         _bakeryWorksation.ProcessFood(cookedFoodPrefab);
+
+    }
+
+    public void ConsumeDoughItem()
+    {
+        doughUI.ConsumeCurrentItem();
     }
 
     public void UpdateDragItem(Item item)
@@ -130,6 +193,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
         doughUI.UpdateDough(ingType);
     }
 
+    //**Acvija, Do we use this? can we delete?
     public void ActivateBaseIngredientButton(GameObject baseIngdntPrefab)
     {
         // Activate Image in centre, Use sprite assigned to ingredient
@@ -140,7 +204,7 @@ public class BakeryWorkbenchUI : MonoBehaviour
                 foodPrepPanel.ingredientBase.gameObject.SetActive(true);
                 foodPrepPanel.ingredientBase.GetComponent<Image>().sprite = baseIngdntPrefab.GetComponent<FoodItem>().foodSprite;
 
-                cookedFoodPrefab = baseIngdntPrefab;
+                //cookedFoodPrefab = baseIngdntPrefab;
             }
         }
         else

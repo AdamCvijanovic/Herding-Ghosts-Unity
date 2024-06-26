@@ -56,9 +56,20 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         {
             _playerInventoryUI.UpdatePlayerInventoryFromUI(index, null);
         }
+
+        if (doughUI)
+        {
+            doughUI.UpdateCurrentIngredient();
+        }
+
     }
 
     public void CreateDraggableItem(GameObject draggableItemPrefab)
+    {
+
+    }
+
+    public void ConsumeItem()
     {
 
     }

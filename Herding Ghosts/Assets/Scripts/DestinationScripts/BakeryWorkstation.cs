@@ -98,17 +98,23 @@ public class BakeryWorkstation : MonoBehaviour
 
     public void ProcessFood(GameObject baseIngdntPrefab)
     {
-        if(currentItem != null)
-        {
-            currentItem.sprRndr.sprite = tempCookedIngSprite;
-            if (currentItem.GetComponent<IngredientProperties>() != null)
-            {
-                currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
-            }
-        }
+        //if(currentItem != null)
+        //{
+        //    currentItem.sprRndr.sprite = tempCookedIngSprite;
+        //    if (currentItem.GetComponent<IngredientProperties>() != null)
+        //    {
+        //        currentItem.GetComponent<IngredientProperties>().AddProperty(IngredientProperties.IngredientGroup.Chopped);
+        //    }
+        //}
+
+        //Consume Item
 
         Debug.Log("Create Cooked Item");
-        Instantiate(baseIngdntPrefab, itemSpawnPosition);
+        GameObject newFood = Instantiate(baseIngdntPrefab, itemSpawnPosition);
+
+        _bakeryWorkbenchUI.DeActivatePanel();
+        FindObjectOfType<PlayerPickup>().Pickup(newFood.GetComponent<FoodItem>());
+        _bakeryWorkbenchUI.ResetMinigameUI();
 
     }
 }

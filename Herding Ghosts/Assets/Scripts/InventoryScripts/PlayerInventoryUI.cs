@@ -101,7 +101,7 @@ public class PlayerInventoryUI : MonoBehaviour
 
                         //spawn draggable item
                         GameObject newDraggable = Instantiate(draggableItemPrefab, this.gameObject.transform);
-                        newDraggable.transform.parent = _inventorySlotList[i].transform;
+                        newDraggable.transform.SetParent(_inventorySlotList[i].transform);
                         //assign Parent & Child
                         _inventorySlotList[i].currentItem = newDraggable.GetComponent<DraggableItem>();
                         newDraggable.GetComponent<DraggableItem>().currentParent = _inventorySlotList[i].transform;

@@ -7,10 +7,12 @@ public class DoughUI : MonoBehaviour
 {
     public BakeryWorkbenchUI _bakeryWorkbenchUI;
 
-    public Image image;
+    public Image doughImage;
     public InventorySlot inventorySlot;
 
     public IngredientScriptableObject currentIngrdnt;
+
+    public IngredientItem.IngredientType ingType;
 
     public DoughType doughType;
 
@@ -32,10 +34,15 @@ public class DoughUI : MonoBehaviour
 
     public void UpdateCurrentIngredient()
     {
-        //if(inventorySlot.currentItem != null)
+        if(inventorySlot.currentItem != null)
         {
             currentIngrdnt = inventorySlot.currentItem.ingScrptObj;
             UpdateDoughIngredient(currentIngrdnt);
+        }
+        else
+        {
+            currentIngrdnt = null;
+            EmptyDoughIngredient();
         }
     }
 
@@ -48,8 +55,18 @@ public class DoughUI : MonoBehaviour
         UpdateDough(ingType);
     }
 
-    public void UpdateDough(IngredientItem.IngredientType ingType)
+    public void EmptyDoughIngredient()
     {
+        currentIngrdnt = null;
+        IngredientItem.IngredientType ingType = IngredientItem.IngredientType.None;
+
+        Debug.Log("Update Dough Ingredient To Plain: ");
+        UpdateDough(ingType);
+    }
+
+    public void UpdateDough(IngredientItem.IngredientType ingTypeIn)
+    {
+        ingType = ingTypeIn;
         Debug.Log("Update Dough Here: " + ingType);
         switch (ingType)
         {
@@ -64,12 +81,13 @@ public class DoughUI : MonoBehaviour
                 break;
             default:
                 UpdateImage(doughType.plainDough);
+                ingType = IngredientItem.IngredientType.None;
                 break;
         }
     }
     public void UpdateImage(Sprite sprite)
     {
-        image.sprite = sprite;
+        doughImage.sprite = sprite;
     }
 
     public void UpdateDoughFlatness()
@@ -87,18 +105,22 @@ public class DoughUI : MonoBehaviour
         switch (flatnessLevel)
         {
             case 0:
-                image.sprite = doughDefault;
+                doughImage.sprite = doughDefault;
                 break;
             case 1:
-                image.sprite = doughHalfFlat;
+                doughImage.sprite = doughHalfFlat;
                 break;
             case 2:
-                image.sprite = doughFlat;
-                _bakeryWorkbenchUI.DeActivateRollingPin();
-                _bakeryWorkbenchUI.ActivateInventoryPanel();
+                doughImage.sprite = doughFlat;
+                _bakeryWorkbenchUI.SetInventoryMode();
                 break;
 
         }
+    }
+
+    public void ConsumeCurrentItem()
+    {
+        inventorySlot.ConsumeItem();
     }
 }
 
