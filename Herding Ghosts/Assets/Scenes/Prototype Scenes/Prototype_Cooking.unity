@@ -26012,10 +26012,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b66c32fcca43ae4e81b8cd418d35bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bakeryWorkbenchUI: {fileID: 0}
-  doughImage: {fileID: 0}
+  _bakeryWorkbenchUI: {fileID: 125122257}
+  doughImage: {fileID: 1126293229}
   inventorySlot: {fileID: 1172159148}
   currentIngrdnt: {fileID: 0}
+  ingType: 0
   doughType:
     plainDough: {fileID: 21300000, guid: 4955541f98fe81a42bd7278890e707da, type: 3}
     appleDough: {fileID: 21300000, guid: e3c236e18767c64419860cc8ac1d6a7d, type: 3}
@@ -31514,7 +31515,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 125122257}
         m_TargetAssemblyTypeName: BakeryWorkbenchUI, Assembly-CSharp
-        m_MethodName: ActivateCookButton
+        m_MethodName: PressCookButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
