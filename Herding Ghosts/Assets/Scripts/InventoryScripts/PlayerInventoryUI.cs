@@ -86,9 +86,15 @@ public class PlayerInventoryUI : MonoBehaviour
 
         for (int i = 0; i < numSlots; i++)
         {
-            //Check if index is null 
-            if(playerInventory._items[i] != _inventorySlotList[i].currentItem)
+            if(playerInventory._items[i] == null)
             {
+                _inventorySlotList[i].RemoveItemFromSlot();
+                //Destroy(_inventorySlotList[i].currentItem.gameObject);
+            }
+            //Check if index item is the same as UI item 
+            else if(playerInventory._items[i] != _inventorySlotList[i].currentItem)
+            {
+                Debug.Log("PLAYER INVENTORY" + playerInventory._items[i].name);
                 // check if it's an ingredient item
                 if (playerInventory._items[i].GetComponent<IngredientItem>().ingScrptobj)
                 {
