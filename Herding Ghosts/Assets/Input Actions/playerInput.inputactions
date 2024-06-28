@@ -469,6 +469,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "RightClickHold",
+                    "type": "PassThrough",
+                    "id": "4a5405de-c30e-4c7d-b722-6ccd03b0cc90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.01)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -887,6 +896,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e04f54f-e1b3-4b3e-99d6-aaa8164ede5b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Gamepad",
+                    "action": "RightClickHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
