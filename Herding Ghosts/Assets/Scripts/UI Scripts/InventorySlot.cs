@@ -71,7 +71,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     public void ConsumeItem()
     {
+        if(currentItem != null)
+        {
+            GameObject tempItem = (currentItem.gameObject);
+            RemoveItemFromSlot();
 
+            Destroy(tempItem);
+        }
     }
 
 

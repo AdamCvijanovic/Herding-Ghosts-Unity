@@ -73,6 +73,8 @@ public class BakeryWorkbenchUI : MonoBehaviour
     {
         workbenchPanel.SetActive(true);
         FillInventory();
+        IngInventoryPanel.GetComponent<PlayerInventoryUI>().UpdateInventory();
+
     }
 
     public void DeActivatePanel()
@@ -131,7 +133,11 @@ public class BakeryWorkbenchUI : MonoBehaviour
 
     public void ResetMinigameUI()
     {
+        doughUI.ResetDough();
 
+        DeActivateInventoryPanel();
+        ActivateRollingPin();
+        rollingPinUI.ResetRollingPin();
     }
 
     public void SetInventoryMode()
@@ -173,7 +179,15 @@ public class BakeryWorkbenchUI : MonoBehaviour
             cookedFoodPrefab = cookedFoodPrefabList[3].itemPrefab;
         }
 
+        //Consume The Ingredient
+        ConsumeDoughItem();
+        //Make the Food
         _bakeryWorksation.ProcessFood(cookedFoodPrefab);
+
+
+
+        //Once food Is cooked we reset
+        ResetMinigameUI();
 
     }
 

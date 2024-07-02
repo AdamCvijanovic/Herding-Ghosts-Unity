@@ -30,6 +30,12 @@ public class RollingPinUI : MonoBehaviour/*, IBeginDragHandler, IDragHandler, IE
         
     }
 
+    public void ResetRollingPin()
+    {
+        ResetColBools();
+        GetComponentInChildren<Scrollbar>().value = 0;
+    }
+
     //public void OnBeginDrag(PointerEventData eventData)
     //{
     //    //Debug.Log("START DRAG ROLLING PIN");
@@ -83,6 +89,8 @@ public class RollingPinUI : MonoBehaviour/*, IBeginDragHandler, IDragHandler, IE
         doughObj.UpdateDoughFlatness();
         ResetColBools();
     }
+
+    
 
     public void ResetColBools()
     {

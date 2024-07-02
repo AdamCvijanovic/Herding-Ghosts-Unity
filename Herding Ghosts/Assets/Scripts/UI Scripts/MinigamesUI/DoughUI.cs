@@ -32,6 +32,13 @@ public class DoughUI : MonoBehaviour
 
     }
 
+    public void ResetDough()
+    {
+        EmptyDoughIngredient();
+        flatnessLevel = 0;
+        UpdateImage(doughDefault);
+    }
+
     public void UpdateCurrentIngredient()
     {
         if(inventorySlot.currentItem != null)
@@ -59,6 +66,7 @@ public class DoughUI : MonoBehaviour
     {
         currentIngrdnt = null;
         IngredientItem.IngredientType ingType = IngredientItem.IngredientType.None;
+        //Should we delete the Slot Draggable Item?
 
         Debug.Log("Update Dough Ingredient To Plain: ");
         UpdateDough(ingType);
@@ -99,7 +107,6 @@ public class DoughUI : MonoBehaviour
         else
         {
             //flatnessLevel = 0;
-           
         }
 
         switch (flatnessLevel)
@@ -134,4 +141,3 @@ public struct DoughType
     public Sprite strawberryDough;
     public Sprite carrotDough;
 }
-//Dough's
